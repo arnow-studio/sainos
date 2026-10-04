@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html.m-kid [data-adult-only], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
+<style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -281,12 +282,12 @@
     <article style="display: flex; flex-direction: column; gap: var(--space-8);">
       <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8); align-items: center;">
         <div style="display: flex; flex-direction: column; gap: var(--space-4); max-width: 560px;">
-          <span style="align-self: flex-start; padding: 6px 14px; background: var(--color-accent-200); color: var(--color-accent-900); border-radius: 999px; font-weight: 800; font-size: 15px;">{{ k.tag }}</span>
+          <span style="align-self: flex-start; padding: 6px 14px; background: var(--color-accent-200); color: var(--color-accent-900); border-radius: 999px; font-weight: 800; font-size: 16px;">{{ k.tag }}</span>
           <h1 style="margin: 0; font-size: clamp(44px, 6vw, 68px); line-height: 1;">{{ k.titre }}</h1>
           <p style="margin: 0; font-size: 21px; line-height: 1.55; text-wrap: pretty;">{{ k.intro }}</p>
           <div style="display: flex; flex-wrap: wrap; gap: var(--space-2);">
-            <span style="flex: none; max-width: 100%; box-sizing: border-box; padding: 8px 16px; background: #ffffff; border: 1px solid var(--color-divider); border-radius: 999px; font-size: 16px;">{{ k.orig }}</span>
-            <span style="flex: none; max-width: 100%; box-sizing: border-box; padding: 8px 16px; background: #ffffff; border: 1px solid var(--color-divider); border-radius: 999px; font-size: 16px;">⭐ {{ k.best }}</span>
+            <span style="flex: none; max-width: 100%; box-sizing: border-box; padding: 8px 16px; background: #ffffff; border: 1px solid var(--color-divider); border-radius: 999px; font-size: 18px;">{{ k.orig }}</span>
+            <span style="flex: none; max-width: 100%; box-sizing: border-box; padding: 8px 16px; background: #ffffff; border: 1px solid var(--color-divider); border-radius: 999px; font-size: 18px;">⭐ {{ k.best }}</span>
           </div>
         </div>
         <div aria-hidden="true" style="position: relative; justify-self: center; width: min(360px, 80vw); aspect-ratio: 1;">
@@ -299,14 +300,14 @@
         <h2 id="hk-quand" style="margin: 0; font-size: clamp(28px, 3.4vw, 38px);">Quand le manger ?</h2>
         <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(max(62px, calc((100% - 88px) / 12)), 1fr)); gap: 8px;">
           <sc-for list="{{ kcal }}" as="cm" hint-placeholder-count="12">
-            <li style="{{ cm.style }}"><span style="font-weight: 800; font-size: 15px;">{{ cm.label }}</span><span style="font-size: 20px;">{{ cm.icon }}</span></li>
+            <li style="{{ cm.style }}"><span style="font-weight: 800; font-size: 16px;">{{ cm.label }}</span><span style="font-size: 20px;">{{ cm.icon }}</span></li>
           </sc-for>
         </ol>
-        <p style="margin: 0; font-size: 17px; display: flex; flex-wrap: wrap; gap: var(--space-4);"><span>⭐ Le meilleur moment</span><span>🙂 On en trouve</span><span>💤 Il se repose</span></p>
+        <p style="margin: 0; font-size: 19px; display: flex; flex-wrap: wrap; gap: var(--space-4);"><span>⭐ Le meilleur moment</span><span>🙂 On en trouve</span><span>💤 Il se repose</span></p>
       </section>
 
       <section aria-labelledby="hk-quiz" style="display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-6); background: #ffffff; border: 1px solid var(--color-divider); border-radius: var(--radius-lg);">
-        <span style="font-size: 14px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700);">Question piège</span>
+        <span style="font-size: 16px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700);">Question piège</span>
         <h2 id="hk-quiz" style="margin: 0; font-size: clamp(28px, 3.4vw, 38px);">{{ k.quizQ }}</h2>
         <div style="display: flex; flex-wrap: wrap; gap: var(--space-3);">
           <sc-for list="{{ quiz }}" as="qz" hint-placeholder-count="3">
@@ -314,34 +315,34 @@
           </sc-for>
         </div>
         <sc-if value="{{ answered }}" hint-placeholder-val="{{ false }}">
-          <p style="margin: 0; padding: var(--space-4); background: var(--color-accent-2-100); color: var(--color-accent-2-900); border-radius: var(--radius-lg); font-size: 18px; line-height: 1.6;"><strong>{{ quizVerdict }}</strong> {{ k.quizWhy }}</p>
+          <p style="margin: 0; padding: var(--space-4); background: var(--color-accent-2-100); color: var(--color-accent-2-900); border-radius: var(--radius-lg); font-size: 20px; line-height: 1.6;"><strong>{{ quizVerdict }}</strong> {{ k.quizWhy }}</p>
         </sc-if>
       </section>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-6);">
         <section aria-labelledby="hk-histoire" style="display: flex; flex-direction: column; gap: var(--space-3);">
           <h2 id="hk-histoire" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">Son histoire</h2>
-          <p style="margin: 0; font-size: 19px; line-height: 1.65; text-wrap: pretty;">{{ k.hist }}</p>
+          <p style="margin: 0; font-size: 20px; line-height: 1.65; text-wrap: pretty;">{{ k.hist }}</p>
         </section>
         <section aria-labelledby="hk-ou" style="display: flex; flex-direction: column; gap: var(--space-3);">
           <h2 id="hk-ou" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">Où ça pousse ?</h2>
-          <p style="margin: 0; font-size: 19px; line-height: 1.65; text-wrap: pretty;">{{ k.ou }}</p>
+          <p style="margin: 0; font-size: 20px; line-height: 1.65; text-wrap: pretty;">{{ k.ou }}</p>
           <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2);">
             <sc-for list="{{ tx.regions }}" as="rg" hint-placeholder-count="3">
-              <li style="padding: 7px 14px; background: #ffffff; border: 1px solid color-mix(in srgb, var(--color-accent-2-500) 30%, transparent); border-radius: 999px; font-size: 16px;">📍 {{ rg }}</li>
+              <li style="padding: 7px 14px; background: #ffffff; border: 1px solid color-mix(in srgb, var(--color-accent-2-500) 30%, transparent); border-radius: 999px; font-size: 18px;">📍 {{ rg }}</li>
             </sc-for>
           </ul>
         </section>
         <sc-if value="{{ hasVar }}" hint-placeholder-val="{{ false }}"><section aria-labelledby="hk-var" style="display: flex; flex-direction: column; gap: var(--space-3);">
           <h2 id="hk-var" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">Ses variétés</h2>
-          <p style="margin: 0; font-size: 19px; line-height: 1.65; text-wrap: pretty;">{{ varK }}</p>
+          <p style="margin: 0; font-size: 20px; line-height: 1.65; text-wrap: pretty;">{{ varK }}</p>
           <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2);">
-            <sc-for list="{{ varietes }}" as="va" hint-placeholder-count="4"><li style="padding: 7px 14px; background: #ffffff; border: 1px solid color-mix(in srgb, var(--color-accent-2-500) 30%, transparent); border-radius: 999px; font-size: 16px;">{{ va.n }}</li></sc-for>
+            <sc-for list="{{ varietes }}" as="va" hint-placeholder-count="4"><li style="padding: 7px 14px; background: #ffffff; border: 1px solid color-mix(in srgb, var(--color-accent-2-500) 30%, transparent); border-radius: 999px; font-size: 18px;">{{ va.n }}</li></sc-for>
           </ul>
-          <sc-if value="{{ hasCousins }}" hint-placeholder-val="{{ false }}"><p style="margin: var(--space-2) 0 0; font-size: 17px; font-weight: 700;">Dans sa famille, il y a aussi :</p>
+          <sc-if value="{{ hasCousins }}" hint-placeholder-val="{{ false }}"><p style="margin: var(--space-2) 0 0; font-size: 19px; font-weight: 700;">Dans sa famille, il y a aussi :</p>
           <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-            <sc-for list="{{ cousinsLinked }}" as="co" hint-placeholder-count="0"><a href="{{ co.href }}" class="tag tag-accent" style="display: flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; font-size: 16px; text-decoration: none; min-height: 44px; box-sizing: border-box;"><span aria-hidden="true" style="flex: none; width: 32px; height: 32px; background: {{ co.bg }};"></span>{{ co.n }}</a></sc-for>
-            <sc-for list="{{ cousinsExtra }}" as="cx" hint-placeholder-count="2"><span class="tag tag-neutral" style="display: flex; align-items: center; padding: 6px 14px; font-size: 16px; min-height: 44px; box-sizing: border-box;">{{ cx }}</span></sc-for>
+            <sc-for list="{{ cousinsLinked }}" as="co" hint-placeholder-count="0"><a href="{{ co.href }}" class="tag tag-accent" style="display: flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; font-size: 18px; text-decoration: none; min-height: 44px; box-sizing: border-box;"><span aria-hidden="true" style="flex: none; width: 32px; height: 32px; background: {{ co.bg }};"></span>{{ co.n }}</a></sc-for>
+            <sc-for list="{{ cousinsExtra }}" as="cx" hint-placeholder-count="2"><span class="tag tag-neutral" style="display: flex; align-items: center; padding: 6px 14px; font-size: 18px; min-height: 44px; box-sizing: border-box;">{{ cx }}</span></sc-for>
           </div></sc-if>
         </section></sc-if>
       </div>
@@ -350,7 +351,7 @@
         <span aria-hidden="true" style="font-size: 48px; line-height: 1;">🤯</span>
         <div style="display: flex; flex-direction: column; gap: var(--space-2);">
           <span style="font-family: var(--font-heading); font-weight: 400; font-size: 26px;">Le sais-tu ?</span>
-          <p style="margin: 0; font-size: 19px; line-height: 1.6;">{{ k.sais }}</p>
+          <p style="margin: 0; font-size: 20px; line-height: 1.6;">{{ k.sais }}</p>
         </div>
       </aside>
 
@@ -361,20 +362,20 @@
             <div style="display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-6); background: var(--color-accent-2-100); border: 1px solid color-mix(in srgb, var(--color-accent-2-500) 25%, transparent); border-radius: var(--radius-lg);">
               <span aria-hidden="true" style="font-size: 36px;">{{ kb.i }}</span>
               <h3 style="margin: 0; font-size: 22px; color: var(--color-accent-2-900);">{{ kb.t }}</h3>
-              <p style="margin: 0; font-size: 17px; line-height: 1.55;">{{ kb.x }}</p>
+              <p style="margin: 0; font-size: 19px; line-height: 1.55;">{{ kb.x }}</p>
             </div>
           </sc-for>
         </div>
       </section>
         <sc-if value="{{ hasAG }}" hint-placeholder-val="{{ false }}"><section aria-labelledby="hk-antigaspi" style="display: flex; gap: var(--space-4); align-items: center; padding: var(--space-5, 20px) var(--space-6); background: var(--color-accent-100); border: 2px solid var(--color-accent-300); border-radius: var(--radius-lg);">
           <span aria-hidden="true" style="font-size: 44px; line-height: 1; flex: none;">♻️</span>
-          <div style="display: flex; flex-direction: column; gap: 4px;"><h2 id="hk-antigaspi" style="margin: 0; font-size: 24px; color: var(--color-accent-900);">Astuce anti-gaspi</h2><p style="margin: 0; font-size: 18px; line-height: 1.55; color: var(--color-accent-900); text-wrap: pretty;">{{ ag.k }}</p></div>
+          <div style="display: flex; flex-direction: column; gap: 4px;"><h2 id="hk-antigaspi" style="margin: 0; font-size: 24px; color: var(--color-accent-900);">Astuce anti-gaspi</h2><p style="margin: 0; font-size: 20px; line-height: 1.55; color: var(--color-accent-900); text-wrap: pretty;">{{ ag.k }}</p></div>
         </section></sc-if>
 
       <section aria-labelledby="hk-defi" style="display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-6); background: #ffffff; border: 1px solid var(--color-divider); border-radius: var(--radius-lg);">
-        <span style="font-size: 14px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700);">Défi cuisine · avec un adulte</span>
+        <span style="font-size: 16px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700);">Défi cuisine · avec un adulte</span>
         <h2 id="hk-defi" style="margin: 0; font-size: clamp(28px, 3.4vw, 38px);">{{ k.defiTitre }}</h2>
-        <ol style="margin: 0; padding-left: 24px; display: flex; flex-direction: column; gap: var(--space-2); font-size: 19px; line-height: 1.55;">
+        <ol style="margin: 0; padding-left: 24px; display: flex; flex-direction: column; gap: var(--space-2); font-size: 20px; line-height: 1.55;">
           <sc-for list="{{ k.etapes }}" as="st" hint-placeholder-count="4"><li>{{ st.x }}</li></sc-for>
         </ol>
       </section>
@@ -382,21 +383,21 @@
       <sc-if value="{{ hasPousse }}" hint-placeholder-val="{{ false }}"><a href="{{ pousseHref }}" style="display: flex; flex-wrap: wrap; gap: var(--space-6); align-items: center; padding: var(--space-6) var(--space-8); background: var(--color-accent); color: #ffffff; border-radius: var(--radius-lg); text-decoration: none; box-shadow: var(--shadow-md); transition: transform .18s ease;" style-hover="transform: translateY(-3px) rotate(-0.4deg); color: #ffffff; background: var(--color-accent-600);">
         <span aria-hidden="true" style="flex: none; width: 96px; height: 96px; border-radius: 50%; background: #ffffff; display: grid; place-items: center; font-size: 52px;">🌱</span>
         <span style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 6px; min-width: 0;">
-          <span style="font-size: 14px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">De la graine à l’assiette</span>
+          <span style="font-size: 16px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">De la graine à l’assiette</span>
           <span style="font-family: var(--font-heading); font-size: clamp(28px, 3.4vw, 38px); line-height: 1.1;">Comment ça pousse ?</span>
-          <span style="font-size: 18px; line-height: 1.5; text-wrap: pretty;">De la graine jusqu’à ton assiette : suis toute son aventure en 6 étapes, et gagne ton badge jardinier.</span>
+          <span style="font-size: 20px; line-height: 1.5; text-wrap: pretty;">De la graine jusqu’à ton assiette : suis toute son aventure en 6 étapes, et gagne ton badge jardinier.</span>
           <span aria-hidden="true" style="font-size: 26px; letter-spacing: 6px; margin-top: 4px;">{{ pousseEmojis }}</span>
         </span>
-        <span style="flex: none; background: #ffffff; color: var(--color-accent-800); font-weight: 800; font-size: 18px; padding: 14px 26px; border-radius: 999px;">Découvrir →</span>
+        <span style="flex: none; background: #ffffff; color: var(--color-accent-800); font-weight: 800; font-size: 20px; padding: 14px 26px; border-radius: 999px;">Découvrir →</span>
       </a></sc-if>
 
 
       <section style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-6); background: var(--color-accent-200); border-radius: var(--radius-lg);">
         <div style="display: flex; flex-direction: column; gap: 4px;">
           <span style="font-family: var(--font-heading); font-weight: 400; font-size: 26px; color: var(--color-accent-900);">{{ badgeTitle }}</span>
-          <span style="font-size: 17px; color: var(--color-accent-900);">{{ badgeText }}</span>
+          <span style="font-size: 19px; color: var(--color-accent-900);">{{ badgeText }}</span>
         </div>
-        <button type="button" class="btn btn-primary" onClick="{{ collect }}" disabled="{{ hasBadge }}" style="padding: 14px 26px; font-size: 18px; min-height: 52px;">{{ badgeBtn }}</button>
+        <button type="button" class="btn btn-primary" onClick="{{ collect }}" disabled="{{ hasBadge }}" style="padding: 14px 26px; font-size: 20px; min-height: 52px;">{{ badgeBtn }}</button>
       </section>
 
       <details style="background: var(--color-neutral-100); border: 1px solid var(--color-divider); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-6);">
@@ -404,9 +405,9 @@
           <h2 style="margin: 0; font-size: 22px;">Le coin des parents</h2>
           <span aria-hidden="true" style="flex: none; width: 32px; height: 32px; border-radius: 50%; background: var(--color-accent-200); display: grid; place-items: center; font-weight: 700;">+</span>
         </summary>
-        <div style="display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-3); margin-top: var(--space-3); font-size: 16px; line-height: 1.6;">
+        <div style="display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-3); margin-top: var(--space-3); font-size: 18px; line-height: 1.6;">
           <p style="margin: 0;">{{ k.parents }}</p>
-          <button type="button" class="btn btn-secondary" onClick="{{ voirComplet }}" style="padding: 10px 18px; font-size: 15px;">Voir la fiche complète</button>
+          <button type="button" class="btn btn-secondary" onClick="{{ voirComplet }}" style="padding: 10px 18px; font-size: 16px;">Voir la fiche complète</button>
         </div>
       </details>
     </article>
