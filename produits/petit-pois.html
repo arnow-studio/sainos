@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Petit pois de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Petit pois : de saison mai à juillet, pleine saison en juin. Saison courte et précieuse : à écosser et cuire le jour même.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/petit-pois.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Légumes</a> › Petit pois</nav>
+<h1>Petit pois</h1>
+<img src="../images/petit-pois.webp" alt="Petit pois" width="200" loading="lazy">
+<p>Saison courte et précieuse : à écosser et cuire le jour même.</p>
+<ul><li><strong>Saison :</strong> mai, juin, juillet</li><li><strong>Pleine saison :</strong> juin</li><li><strong>Famille botanique :</strong> Fabacées</li></ul>
+<h2>Histoire</h2>
+<p>Originaire du Proche-Orient, le pois est l’une des plus anciennes plantes cultivées, depuis environ 9 000 ans. Longtemps consommé sec, le petit pois frais devient une véritable mode à la cour de Louis XIV, où l’on s’en régale jusque tard dans la nuit.</p>
+<h2>Origine et régions de production</h2>
+<p>Le petit pois est cultivé dans les grandes plaines du nord de la France :</p><ul><li>Hauts-de-France</li><li>Centre-Val de Loire</li><li>Bretagne</li></ul>
+<h2>Bienfaits</h2>
+<p>Le petit pois est plus nourrissant que la plupart des légumes verts :</p><ul><li><strong>Protéines végétales :</strong> Il en contient davantage que la plupart des légumes.</li><li><strong>Fibres :</strong> Il favorise la satiété.</li><li><strong>Vitamine B1 :</strong> Utile au métabolisme énergétique.</li><li><strong>Sucré naturellement :</strong> À cuisiner vite après la cueillette, avant que ses sucres ne se transforment.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Pois à écosser :</strong> On ne mange que les grains.</li><li><strong>Pois gourmand :</strong> Gousse plate qui se mange entière.</li><li><strong>Pois snap :</strong> Gousse charnue et croquante.</li><li><strong>Pois ridé :</strong> Très sucré, souvent mis en conserve.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Au frigo, dans leurs cosses : 2 jours, pas plus. Ils perdent leur sucre vite.</li><li><strong>Congélation :</strong> Écossés et blanchis 1 min : jusqu’à 12 mois.</li><li><strong>Rien ne se jette :</strong> Les cosses font une soupe verte délicieuse une fois mixées et passées au chinois.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Myrtille de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Myrtille : de saison juillet à septembre, pleine saison en août. Petite baie des sous-bois et des montagnes, riche en pigments antioxydants.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/myrtille.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Fruits</a> › Myrtille</nav>
+<h1>Myrtille</h1>
+<img src="../images/myrtille.webp" alt="Myrtille" width="200" loading="lazy">
+<p>Petite baie des sous-bois et des montagnes, riche en pigments antioxydants.</p>
+<ul><li><strong>Saison :</strong> juillet, août, septembre</li><li><strong>Pleine saison :</strong> août</li><li><strong>Famille botanique :</strong> Éricacées</li></ul>
+<h2>Histoire</h2>
+<p>La myrtille sauvage pousse dans les sous-bois et les landes de montagne d’Europe, où elle est cueillie depuis la préhistoire. La myrtille cultivée, plus grosse, descend d’une espèce américaine sélectionnée aux États-Unis au début du XXᵉ siècle.</p>
+<h2>Origine et régions de production</h2>
+<p>La myrtille française est cueillie en montagne ou cultivée en plaine :</p><ul><li>Vosges</li><li>Massif central</li><li>Alpes</li><li>Nouvelle-Aquitaine (cultivée)</li></ul>
+<h2>Bienfaits</h2>
+<p>La myrtille concentre beaucoup de bienfaits dans un petit fruit :</p><ul><li><strong>Anthocyanes :</strong> Ces pigments bleus antioxydants sont très concentrés dans la myrtille sauvage.</li><li><strong>Fibres :</strong> Elles participent au transit.</li><li><strong>Vitamine K :</strong> Présente en bonne quantité.</li><li><strong>Peu calorique :</strong> Environ 57 kcal/100 g.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Myrtille sauvage :</strong> Petite, chair violette, cueillie en montagne.</li><li><strong>Myrtille cultivée :</strong> Plus grosse, chair claire et douce.</li><li><strong>Bluecrop :</strong> La variété cultivée la plus répandue.</li><li><strong>Duke :</strong> Précoce, grosses baies fermes.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Au frigo, sans les laver : 1 semaine.</li><li><strong>Congélation :</strong> Telles quelles, à plat : jusqu’à 12 mois. Elles s’utilisent sans décongeler.</li><li><strong>Rien ne se jette :</strong> Les myrtilles écrasées font une confiture ou un coulis. Parfaites dans les muffins même un peu molles.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

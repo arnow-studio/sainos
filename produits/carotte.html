@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Carotte de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="La carotte est de saison toute l’année, en pleine saison de septembre à décembre. Origine France, bienfaits, valeurs nutritionnelles, conservation et idées recettes.">
@@ -33,6 +35,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/carotte.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Légumes</a> › Carotte</nav>
+<h1>Carotte</h1>
+<img src="../images/carotte.webp" alt="Carotte" width="200" loading="lazy">
+<p>Racine croquante et sucrée, disponible toute l’année grâce à sa très bonne conservation.</p>
+<ul><li><strong>Saison :</strong> toute l’année</li><li><strong>Pleine saison :</strong> septembre, octobre, novembre, décembre</li><li><strong>Famille botanique :</strong> Apiacées</li></ul>
+<h2>Histoire</h2>
+<p>Originaire d’Asie centrale (actuel Afghanistan), la carotte sauvage était d’abord cultivée pour ses feuilles et ses graines aromatiques. Les premières racines consommées étaient violettes ou jaunes. La carotte orange que nous connaissons est née d’une sélection menée aux Pays-Bas au XVIIᵉ siècle, avant de conquérir toute l’Europe.</p>
+<h2>Origine et régions de production</h2>
+<p>La France figure parmi les grands producteurs européens de carottes, cultivées surtout dans des sols sableux et légers qui donnent des racines droites et lisses :</p><ul><li>Nouvelle-Aquitaine (Landes)</li><li>Normandie (Créances)</li><li>Hauts-de-France</li><li>Bretagne</li></ul><p>Les « carottes des sables » de la côte normande sont réputées pour leur finesse et leur goût sucré.</p>
+<h2>Bienfaits</h2>
+<p>La carotte est une alliée simple et quotidienne :</p><ul><li><strong>Riche en bêta-carotène :</strong> Transformé en vitamine A par l’organisme, il contribue à la santé de la vue et de la peau. Un filet d’huile améliore son absorption.</li><li><strong>Fibres douces :</strong> Bien tolérées, elles participent au bon transit, crues comme cuites.</li><li><strong>Peu calorique :</strong> Environ 36 kcal/100 g : une base légère pour les soupes et les purées.</li><li><strong>Source de potassium :</strong> Utile à l’équilibre hydrique et au fonctionnement musculaire.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Nantaise :</strong> Cylindrique, sucrée et sans cœur dur : la plus courante.</li><li><strong>Chantenay :</strong> Courte et trapue, idéale pour la conservation.</li><li><strong>Carotte des sables :</strong> Cultivée dans le sable du Cotentin, très tendre.</li><li><strong>Jaune du Doubs :</strong> Variété ancienne, douce et légèrement sucrée.</li><li><strong>Violette :</strong> Riche en pigments, goût plus poivré.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Sans fanes, dans le bac à légumes : 2 à 3 semaines. Coupez les fanes dès l’achat, elles pompent l’eau de la racine.</li><li><strong>Congélation :</strong> Épluchée, coupée en rondelles et blanchie 3 min : jusqu’à 12 mois.</li><li><strong>Rien ne se jette :</strong> Les fanes font un pesto ou une soupe, les épluchures des chips au four. Une carotte ramollie reprend du croquant dans un verre d’eau froide.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

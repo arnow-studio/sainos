@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Gingembre de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Gingembre : de saison toute l’année. Rhizome piquant, importé toute l’année ; se congèle très bien.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/gingembre.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Herbes aromatiques</a> › Gingembre</nav>
+<h1>Gingembre</h1>
+<img src="../images/gingembre.webp" alt="Gingembre" width="200" loading="lazy">
+<p>Rhizome piquant, importé toute l’année ; se congèle très bien.</p>
+<ul><li><strong>Saison :</strong> toute l’année</li><li><strong>Famille botanique :</strong> Zingibéracées</li></ul>
+<h2>Histoire</h2>
+<p>Originaire d’Asie du Sud-Est, le gingembre est utilisé depuis des millénaires en Inde et en Chine, en cuisine comme en médecine traditionnelle. Importé par les Romains, il devient au Moyen Âge l’une des épices les plus prisées d’Europe.</p>
+<h2>Origine et régions de production</h2>
+<p>Le gingembre vendu en France est importé toute l’année :</p><ul><li>Pérou</li><li>Chine</li><li>Brésil</li></ul>
+<h2>Bienfaits</h2>
+<p>Le gingembre relève et réchauffe :</p><ul><li><strong>Gingérol :</strong> Le composé responsable de sa saveur piquante.</li><li><strong>Nausées :</strong> Traditionnellement utilisé pour apaiser les nausées.</li><li><strong>Relève sans sel :</strong> Il parfume sautés, soupes et infusions.</li><li><strong>Se congèle :</strong> Il se râpe facilement encore congelé.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Gingembre jeune :</strong> Peau fine et rosée, goût doux.</li><li><strong>Gingembre mûr :</strong> Plus fibreux et piquant, se garde longtemps.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Au frigo, non épluché : 3 semaines. Entamé, gardez la peau sur la partie restante.</li><li><strong>Congélation :</strong> Entier : jusqu’à 6 mois. Il se râpe directement surgelé, sans l’éplucher.</li><li><strong>Rien ne se jette :</strong> Les épluchures font une infusion ou parfument un bouillon. Un morceau qui germe peut se planter.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

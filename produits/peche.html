@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Pêche de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Pêche : de saison juin à septembre, pleine saison en juillet, août. Drupe juteuse à choisir parfumée et souple sous le doigt.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/peche.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Fruits</a> › Pêche</nav>
+<h1>Pêche</h1>
+<img src="../images/peche.webp" alt="Pêche" width="200" loading="lazy">
+<p>Drupe juteuse à choisir parfumée et souple sous le doigt.</p>
+<ul><li><strong>Saison :</strong> juin, juillet, août, septembre</li><li><strong>Pleine saison :</strong> juillet, août</li><li><strong>Famille botanique :</strong> Rosacées</li></ul>
+<h2>Histoire</h2>
+<p>Originaire de Chine, où elle est cultivée depuis des millénaires, la pêche est arrivée en Europe par la Perse, d’où son nom latin Prunus persica. Les Romains la diffusent en Gaule. Louis XIV la fait cultiver à Versailles, dans le Potager du roi.</p>
+<h2>Origine et régions de production</h2>
+<p>La pêche française pousse dans les vallées ensoleillées :</p><ul><li>Auvergne-Rhône-Alpes (Drôme, Ardèche)</li><li>Provence-Alpes-Côte d’Azur</li><li>Occitanie (Roussillon)</li></ul><p>La pêche de vigne, petite et parfumée, est une variété ancienne très recherchée.</p>
+<h2>Bienfaits</h2>
+<p>La pêche est un fruit d’été juteux et léger :</p><ul><li><strong>Hydratante :</strong> Environ 87 % d’eau.</li><li><strong>Peu calorique :</strong> Environ 40 kcal/100 g.</li><li><strong>Caroténoïdes :</strong> Surtout dans les variétés à chair jaune.</li><li><strong>Fibres :</strong> Présentes dans la peau et la chair.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Pêche blanche :</strong> Très juteuse, parfum délicat.</li><li><strong>Pêche jaune :</strong> Chair plus ferme, légèrement acidulée.</li><li><strong>Pêche plate :</strong> Forme aplatie, très sucrée.</li><li><strong>Pêche de vigne :</strong> Petite, chair rouge sang, en fin d’été.</li><li><strong>Nectarine :</strong> Peau lisse, chair qui se détache du noyau.</li><li><strong>Brugnon :</strong> Peau lisse aussi, chair collée au noyau.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> À température ambiante pour mûrir, puis au frigo : 3 à 4 jours.</li><li><strong>Congélation :</strong> Pelées, en quartiers, citronnées : jusqu’à 12 mois.</li><li><strong>Rien ne se jette :</strong> Les pêches trop mûres font une compote, un sorbet ou un smoothie. La peau parfume un sirop.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

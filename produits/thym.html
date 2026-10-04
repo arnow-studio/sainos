@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Thym de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Thym : de saison toute l’année, pleine saison en mai, juin. Aromate de garrigue, aussi bon frais que séché.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/thym.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Herbes aromatiques</a> › Thym</nav>
+<h1>Thym</h1>
+<img src="../images/thym.webp" alt="Thym" width="200" loading="lazy">
+<p>Aromate de garrigue, aussi bon frais que séché.</p>
+<ul><li><strong>Saison :</strong> toute l’année</li><li><strong>Pleine saison :</strong> mai, juin</li><li><strong>Famille botanique :</strong> Lamiacées</li></ul>
+<h2>Histoire</h2>
+<p>Plante sauvage de la garrigue méditerranéenne, le thym est utilisé depuis l’Antiquité : les Égyptiens s’en servaient pour l’embaumement, les Grecs le brûlaient dans les temples, et les Romains en parfumaient leurs bains.</p>
+<h2>Origine et régions de production</h2>
+<p>Le thym français est cueilli ou cultivé dans le Sud :</p><ul><li>Provence</li><li>Occitanie</li><li>Drôme</li></ul><p>Les herbes de Provence, dont le thym est un ingrédient essentiel, bénéficient d’un Label Rouge.</p>
+<h2>Bienfaits</h2>
+<p>Le thym est un aromate généreux :</p><ul><li><strong>Thymol :</strong> Le composé qui donne au thym son parfum puissant.</li><li><strong>Infusion :</strong> Traditionnellement utilisé en tisane pendant l’hiver.</li><li><strong>Supporte la cuisson :</strong> Idéal dans les plats mijotés.</li><li><strong>Relève sans sel :</strong> Il parfume viandes, légumes et sauces.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Thym commun :</strong> Le plus utilisé en cuisine.</li><li><strong>Thym citron :</strong> Parfum citronné, pour les poissons.</li><li><strong>Serpolet :</strong> Thym sauvage qui pousse au ras du sol.</li><li><strong>Thym orange :</strong> Parfum d’agrume.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Au sec, en bouquet suspendu : plusieurs mois. Frais au frigo : 2 semaines.</li><li><strong>Congélation :</strong> Sur la branche, en sachet : jusqu’à 12 mois.</li><li><strong>Rien ne se jette :</strong> Le thym se sèche très bien tout seul. Les branches parfument une huile ou un sel aromatisé.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

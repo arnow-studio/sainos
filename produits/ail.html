@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Ail de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Ail : de saison juin à octobre, pleine saison en juillet, août. L’ail frais arrive en juin ; séché, il se conserve jusqu’à l’hiver.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/ail.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Légumes</a> › Ail</nav>
+<h1>Ail</h1>
+<img src="../images/ail.webp" alt="Ail" width="200" loading="lazy">
+<p>L’ail frais arrive en juin ; séché, il se conserve jusqu’à l’hiver.</p>
+<ul><li><strong>Saison :</strong> juin, juillet, août, septembre, octobre</li><li><strong>Pleine saison :</strong> juillet, août</li><li><strong>Famille botanique :</strong> Amaryllidacées</li></ul>
+<h2>Histoire</h2>
+<p>Originaire d’Asie centrale, l’ail est cultivé depuis plus de 5 000 ans. Les Égyptiens en donnaient aux ouvriers des pyramides, et les Romains à leurs soldats. Selon la légende, on frotta les lèvres du futur Henri IV avec une gousse d’ail à sa naissance.</p>
+<h2>Origine et régions de production</h2>
+<p>La France produit un ail réputé, surtout dans le Sud :</p><ul><li>Occitanie (Lomagne, Lautrec)</li><li>Drôme</li><li>Provence</li></ul><p>Plusieurs ails bénéficient d’une IGP, comme l’ail blanc de Lomagne, l’ail rose de Lautrec et l’ail de la Drôme ; l’ail violet de Cadours est AOP.</p>
+<h2>Bienfaits</h2>
+<p>L’ail parfume et apporte des composés intéressants :</p><ul><li><strong>Allicine :</strong> Libérée quand on écrase la gousse, elle donne à l’ail son odeur caractéristique.</li><li><strong>Composés soufrés :</strong> Étudiés pour leur rôle dans la santé cardiovasculaire.</li><li><strong>Relève sans sel :</strong> Il aide à réduire le sel dans les plats.</li><li><strong>Petites quantités :</strong> Une ou deux gousses suffisent à parfumer un plat.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Ail blanc :</strong> Le plus courant, comme celui de Lomagne (IGP).</li><li><strong>Ail violet de Cadours :</strong> AOP, goût puissant.</li><li><strong>Ail rose de Lautrec :</strong> IGP, doux, se garde longtemps.</li><li><strong>Ail nouveau :</strong> Récolté frais au printemps, très doux.</li><li><strong>Ail noir :</strong> Ail fermenté, goût sucré de réglisse.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Au sec, à l’air, dans un panier : plusieurs mois. Jamais au frigo, il germe.</li><li><strong>Congélation :</strong> Épluché, en gousses ou haché dans l’huile en bac à glaçons : jusqu’à 6 mois.</li><li><strong>Rien ne se jette :</strong> Une gousse germée se plante dans un pot : les pousses se ciselent comme de la ciboulette. Les peaux parfument un bouillon.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

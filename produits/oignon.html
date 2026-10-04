@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Oignon de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Oignon : de saison janvier à décembre, pleine saison en septembre, octobre. Base de presque toutes les cuisines ; le rosé de Roscoff est AOP.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/oignon.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Légumes</a> › Oignon</nav>
+<h1>Oignon</h1>
+<img src="../images/oignon.webp" alt="Oignon" width="200" loading="lazy">
+<p>Base de presque toutes les cuisines ; le rosé de Roscoff est AOP.</p>
+<ul><li><strong>Saison :</strong> janvier, février, mars, juillet, août, septembre, octobre, novembre, décembre</li><li><strong>Pleine saison :</strong> septembre, octobre</li><li><strong>Famille botanique :</strong> Amaryllidacées</li></ul>
+<h2>Histoire</h2>
+<p>Originaire d’Asie centrale, l’oignon est cultivé depuis plus de 5 000 ans. En Égypte ancienne, il nourrissait les ouvriers des pyramides et symbolisait l’éternité. Facile à conserver, il s’est imposé comme la base de presque toutes les cuisines du monde.</p>
+<h2>Origine et régions de production</h2>
+<p>L’oignon est cultivé dans de nombreuses régions françaises :</p><ul><li>Hauts-de-France</li><li>Grand Est</li><li>Bretagne</li><li>Cévennes</li></ul><p>L’oignon rosé de Roscoff et l’oignon doux des Cévennes bénéficient tous deux d’une AOP.</p>
+<h2>Bienfaits</h2>
+<p>L’oignon est modeste mais précieux :</p><ul><li><strong>Quercétine :</strong> Un antioxydant présent surtout dans les couches extérieures.</li><li><strong>Fibres prébiotiques :</strong> Elles nourrissent la flore intestinale.</li><li><strong>Peu calorique :</strong> Environ 40 kcal/100 g.</li><li><strong>Composés soufrés :</strong> Ce sont eux qui font pleurer en l’épluchant.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Jaune :</strong> Le plus courant, pour tout cuisiner.</li><li><strong>Rouge :</strong> Doux, idéal cru en salade.</li><li><strong>Blanc :</strong> Primeur, vendu en botte au printemps.</li><li><strong>Rosé de Roscoff :</strong> AOP bretonne, doux et fruité.</li><li><strong>Doux des Cévennes :</strong> AOP, si doux qu’il se croque cru.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Au sec, à l’air, loin des pommes de terre : plusieurs semaines. Entamé, au frigo dans une boîte.</li><li><strong>Congélation :</strong> Émincé cru ou compoté : jusqu’à 6 mois.</li><li><strong>Rien ne se jette :</strong> Les peaux colorent et parfument un bouillon. Un oignon qui germe se cuit quand même, ou se replante.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

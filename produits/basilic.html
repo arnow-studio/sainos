@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Basilic de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Basilic : de saison mai à septembre, pleine saison en juillet, août. Herbe du soleil, craint le froid : jamais au réfrigérateur.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/basilic.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Herbes aromatiques</a> › Basilic</nav>
+<h1>Basilic</h1>
+<img src="../images/basilic.webp" alt="Basilic" width="200" loading="lazy">
+<p>Herbe du soleil, craint le froid : jamais au réfrigérateur.</p>
+<ul><li><strong>Saison :</strong> mai, juin, juillet, août, septembre</li><li><strong>Pleine saison :</strong> juillet, août</li><li><strong>Famille botanique :</strong> Lamiacées</li></ul>
+<h2>Histoire</h2>
+<p>Originaire d’Inde, où une espèce proche (le tulsi) est une plante sacrée, le basilic a gagné la Méditerranée par le Moyen-Orient. Son nom vient du grec « basilikon », « royal ». Il est devenu l’herbe emblématique de la cuisine provençale et italienne.</p>
+<h2>Origine et régions de production</h2>
+<p>Le basilic aime la chaleur ; il est cultivé en plein champ l’été et sous serre :</p><ul><li>Provence-Alpes-Côte d’Azur</li><li>Occitanie</li><li>Pays de la Loire (sous serre)</li></ul><p>Le pistou provençal, à base de basilic, d’ail et d’huile d’olive, en est l’usage le plus célèbre.</p>
+<h2>Bienfaits</h2>
+<p>Le basilic parfume les plats d’été :</p><ul><li><strong>Huiles essentielles :</strong> Elles donnent à ses feuilles leur parfum puissant.</li><li><strong>Vitamine K :</strong> Présente en bonne quantité dans les feuilles.</li><li><strong>Relève sans sel :</strong> Il permet d’assaisonner autrement.</li><li><strong>À ajouter en fin de cuisson :</strong> La chaleur fait disparaître son arôme.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Grand vert :</strong> Le basilic du pesto.</li><li><strong>Fin vert :</strong> Petites feuilles très aromatiques, en pot.</li><li><strong>Pourpre :</strong> Feuilles violettes, joli dans les salades.</li><li><strong>Thaï :</strong> Goût anisé, tiges violettes.</li><li><strong>Citron :</strong> Parfum citronné.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> En bouquet dans un verre d’eau, à température ambiante, jamais au frigo : 1 semaine.</li><li><strong>Congélation :</strong> Ciselé dans l’huile d’olive en bac à glaçons : jusqu’à 6 mois.</li><li><strong>Rien ne se jette :</strong> Les tiges parfument une sauce tomate ou une huile. Le basilic qui fane finit en pesto.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

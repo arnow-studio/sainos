@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Menthe de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Menthe : de saison mai à septembre, pleine saison en juin, juillet. Envahissante au jardin, fraîche en cuisine comme en infusion.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/menthe.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Herbes aromatiques</a> › Menthe</nav>
+<h1>Menthe</h1>
+<img src="../images/menthe.webp" alt="Menthe" width="200" loading="lazy">
+<p>Envahissante au jardin, fraîche en cuisine comme en infusion.</p>
+<ul><li><strong>Saison :</strong> mai, juin, juillet, août, septembre</li><li><strong>Pleine saison :</strong> juin, juillet</li><li><strong>Famille botanique :</strong> Lamiacées</li></ul>
+<h2>Histoire</h2>
+<p>La menthe, originaire du bassin méditerranéen et d’Asie, est utilisée depuis l’Antiquité. Dans la mythologie grecque, la nymphe Minthé aurait été changée en menthe. Les Romains en parfumaient leurs bains et leurs sauces.</p>
+<h2>Origine et régions de production</h2>
+<p>La menthe française est cultivée notamment dans les régions de plantes aromatiques :</p><ul><li>Île-de-France (Milly-la-Forêt)</li><li>Pays de la Loire (Anjou)</li><li>Provence</li></ul><p>Milly-la-Forêt est depuis longtemps la capitale française de la menthe poivrée.</p>
+<h2>Bienfaits</h2>
+<p>La menthe apporte une fraîcheur immédiate :</p><ul><li><strong>Menthol :</strong> Surtout dans la menthe poivrée, il procure une sensation de fraîcheur.</li><li><strong>Digestion :</strong> Traditionnellement utilisée en infusion après les repas.</li><li><strong>Polyvalente :</strong> Aussi bonne dans les plats salés que dans les desserts.</li><li><strong>Relève sans sel :</strong> Elle parfume les salades et les taboulés.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Menthe verte :</strong> La plus courante, pour le taboulé.</li><li><strong>Menthe poivrée :</strong> Très fraîche, pour les infusions.</li><li><strong>Menthe marocaine :</strong> Celle du thé à la menthe.</li><li><strong>Menthe chocolat :</strong> Parfum de chocolat à la menthe.</li><li><strong>Menthe pomme :</strong> Feuilles duveteuses, goût doux.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> En bouquet dans un verre d’eau, ou au frigo dans un torchon humide : 1 semaine.</li><li><strong>Congélation :</strong> Ciselée en glaçons avec de l’eau : jusqu’à 6 mois, parfaits pour les boissons.</li><li><strong>Rien ne se jette :</strong> Les tiges font une infusion. La menthe fanée se sèche pour le thé.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Tomate de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Tomate : de saison juin à septembre, pleine saison en juillet, août. Fruit au sens botanique, cuisinée comme un légume ; elle n’a de vraie saveur qu’en plein été.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/tomate.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Légumes</a> › Tomate</nav>
+<h1>Tomate</h1>
+<img src="../images/tomate.webp" alt="Tomate" width="200" loading="lazy">
+<p>Fruit au sens botanique, cuisinée comme un légume ; elle n’a de vraie saveur qu’en plein été.</p>
+<ul><li><strong>Saison :</strong> juin, juillet, août, septembre</li><li><strong>Pleine saison :</strong> juillet, août</li><li><strong>Famille botanique :</strong> Solanacées</li></ul>
+<h2>Histoire</h2>
+<p>Originaire des Andes, la tomate a été domestiquée au Mexique avant d’être rapportée en Europe par les Espagnols au XVIᵉ siècle. De la même famille que la belladone, elle fut longtemps jugée toxique et cultivée comme plante ornementale, sous le nom de « pomme d’amour ». Elle ne s’impose dans la cuisine française qu’à la fin du XVIIIᵉ siècle, en commençant par la Provence.</p>
+<h2>Origine et régions de production</h2>
+<p>La France produit des tomates surtout sous serre, mais aussi en plein champ l’été :</p><ul><li>Bretagne</li><li>Pays de la Loire</li><li>Provence-Alpes-Côte d’Azur</li><li>Occitanie</li></ul><p>Les variétés anciennes (Cœur de bœuf, Noire de Crimée, Marmande) retrouvent leur place sur les marchés d’été.</p>
+<h2>Bienfaits</h2>
+<p>La tomate est l’un des piliers de l’alimentation méditerranéenne :</p><ul><li><strong>Riche en lycopène :</strong> Ce pigment rouge antioxydant est mieux assimilé quand la tomate est cuite avec un peu d’huile.</li><li><strong>Très hydratante :</strong> Composée d’environ 94 % d’eau, pour à peine 20 kcal/100 g.</li><li><strong>Source de vitamine C :</strong> Surtout consommée crue et bien mûre.</li><li><strong>Potassium :</strong> Contribue au maintien d’une pression artérielle normale.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Cœur de bœuf :</strong> Charnue, peu de pépins : la reine des salades.</li><li><strong>Roma :</strong> Allongée et peu juteuse, parfaite pour les sauces.</li><li><strong>Cerise :</strong> Petite et sucrée, à croquer à l’apéritif.</li><li><strong>Noire de Crimée :</strong> Chair sombre au goût intense.</li><li><strong>Ananas :</strong> Gros fruit jaune-orangé, très doux.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> À température ambiante, jamais au frigo : elle y perd son goût. 3 à 5 jours.</li><li><strong>Congélation :</strong> Entière, crue, dans un sac : la peau part toute seule en la passant sous l’eau chaude. Pour les sauces, jusqu’à 12 mois.</li><li><strong>Rien ne se jette :</strong> Trop mûres, elles font le meilleur coulis. Les tomates vertes de fin de saison se cuisinent en confiture ou en chutney.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

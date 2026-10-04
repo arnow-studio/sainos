@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Piment de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Piment : de saison juillet à octobre, pleine saison en août, septembre. Cousin piquant du poivron ; le piment d’Espelette bénéficie d’une AOP.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/piment.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Légumes</a> › Piment</nav>
+<h1>Piment</h1>
+<img src="../images/piment.webp" alt="Piment" width="200" loading="lazy">
+<p>Cousin piquant du poivron ; le piment d’Espelette bénéficie d’une AOP.</p>
+<ul><li><strong>Saison :</strong> juillet, août, septembre, octobre</li><li><strong>Pleine saison :</strong> août, septembre</li><li><strong>Famille botanique :</strong> Solanacées</li></ul>
+<h2>Histoire</h2>
+<p>Domestiqué au Mexique il y a environ 6 000 ans, le piment a traversé l’Atlantique avec Christophe Colomb, qui pensait avoir trouvé une nouvelle forme de poivre. Arrivé au Pays basque au XVIᵉ siècle, il y a d’abord servi à conserver les viandes avant de devenir une épice emblématique.</p>
+<h2>Origine et régions de production</h2>
+<p>La principale production française de piment se concentre au Pays basque :</p><ul><li>Pays basque (Espelette)</li><li>Sud-Ouest</li></ul><p>Le piment d’Espelette bénéficie d’une AOP (Appellation d’Origine Protégée), qui encadre sa culture dans une vingtaine de communes.</p>
+<h2>Bienfaits</h2>
+<p>Utilisé en petites quantités, le piment apporte bien plus que du piquant :</p><ul><li><strong>Capsaïcine :</strong> Elle stimule la salivation et donne une sensation de chaleur.</li><li><strong>Vitamine C :</strong> Le piment frais en est riche.</li><li><strong>Relève sans sel :</strong> Il permet d’assaisonner en réduisant le sel.</li><li><strong>Caroténoïdes :</strong> Surtout dans les piments rouges bien mûrs.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Piment d’Espelette :</strong> AOP basque, chaleur douce et parfumée.</li><li><strong>Jalapeño :</strong> Moyennement fort, star de la cuisine mexicaine.</li><li><strong>Cayenne :</strong> Long et fin, très piquant, souvent séché.</li><li><strong>Piment oiseau :</strong> Minuscule et très fort.</li><li><strong>Habanero :</strong> Parmi les plus brûlants, arôme fruité.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Au frigo, dans un sac papier : 2 semaines. Ou séché en guirlande, plusieurs mois.</li><li><strong>Congélation :</strong> Entier, cru : jusqu’à 12 mois. Il se râpe directement surgelé.</li><li><strong>Rien ne se jette :</strong> Trop de piments ? Faites-les sécher, puis mixez-les en poudre, ou mettez-les dans l’huile d’olive.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

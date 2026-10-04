@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Melon de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Melon : de saison juin à septembre, pleine saison en juillet, août. Un bon melon est lourd pour sa taille et son pédoncule se détache tout seul.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/melon.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Fruits</a> › Melon</nav>
+<h1>Melon</h1>
+<img src="../images/melon.webp" alt="Melon" width="200" loading="lazy">
+<p>Un bon melon est lourd pour sa taille et son pédoncule se détache tout seul.</p>
+<ul><li><strong>Saison :</strong> juin, juillet, août, septembre</li><li><strong>Pleine saison :</strong> juillet, août</li><li><strong>Famille botanique :</strong> Cucurbitacées</li></ul>
+<h2>Histoire</h2>
+<p>Le melon appartient à la famille des Cucurbitacées. Originaire d’Afrique ou d’Asie centrale, il était déjà cultivé dans l’Égypte ancienne 2 700 ans avant notre ère. Introduit en Italie puis en France au XVᵉ siècle, notamment par les papes d’Avignon, il devient un fruit emblématique des tables royales sous François Iᵉʳ et Louis XIV. Alexandre Dumas l’aimait tant qu’il céda une partie de son œuvre à la bibliothèque de Cavaillon en échange d’une rente viagère de 12 melons par an.</p>
+<h2>Origine et régions de production</h2>
+<p>Aujourd’hui, la France est un grand producteur européen de melons, cultivés principalement dans trois grands bassins :</p><ul><li>Sud-Est (Cavaillon, Châteaurenard)</li><li>Sud-Ouest (Quercy, Lectoure)</li><li>Centre-Ouest (Haut-Poitou, Vendée)</li></ul><p>Le melon du Quercy et le melon du Haut-Poitou bénéficient d’une IGP (Indication Géographique Protégée), qui garantit un savoir-faire local et une teneur en sucre minimale.</p>
+<h2>Bienfaits</h2>
+<p>Le melon est l’allié par excellence de l’hydratation en été :</p><ul><li><strong>Hydratation maximale :</strong> Composé à plus de 90 % d’eau, il est rafraîchissant et très peu calorique (environ 34 kcal/100 g).</li><li><strong>Riche en bêta-carotène :</strong> Sa chair orange vif témoigne d’une forte teneur en provitamine A, bonne pour la peau et la vue.</li><li><strong>Potassium :</strong> Il favorise l’élimination de l’eau et aide à réguler la pression artérielle.</li><li><strong>Source de vitamine C :</strong> Un coup de pouce pour le système immunitaire pendant la saison chaude.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Charentais :</strong> Chair orange très parfumée, le classique français.</li><li><strong>Galia :</strong> Chair verte, écorce brodée.</li><li><strong>Jaune canari :</strong> Allongé, chair blanche croquante.</li><li><strong>Piel de sapo :</strong> Écorce verte tachetée, chair blanche.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Entier, à température ambiante jusqu’à maturité, puis au frigo. Entamé : 2 à 3 jours, filmé.</li><li><strong>Congélation :</strong> En billes ou en cubes : jusqu’à 6 mois, idéal pour les sorbets.</li><li><strong>Rien ne se jette :</strong> L’écorce se cuisine en confiture ou en pickles. Un melon trop mûr fait une soupe froide.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

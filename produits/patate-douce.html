@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Patate douce de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Patate douce : de saison octobre à mars, pleine saison en novembre, décembre. Tubercule sucré sans lien de parenté avec la pomme de terre.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/patate-douce.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Légumes</a> › Patate douce</nav>
+<h1>Patate douce</h1>
+<img src="../images/patate-douce.webp" alt="Patate douce" width="200" loading="lazy">
+<p>Tubercule sucré sans lien de parenté avec la pomme de terre.</p>
+<ul><li><strong>Saison :</strong> octobre, novembre, décembre, janvier, février, mars</li><li><strong>Pleine saison :</strong> novembre, décembre</li><li><strong>Famille botanique :</strong> Convolvulacées</li></ul>
+<h2>Histoire</h2>
+<p>Originaire d’Amérique tropicale, la patate douce était cultivée par les peuples précolombiens bien avant l’arrivée des Européens. Rapportée en Espagne par Christophe Colomb, elle est connue en Europe avant la pomme de terre, avec laquelle elle n’a pourtant aucun lien de parenté.</p>
+<h2>Origine et régions de production</h2>
+<p>La patate douce vendue en France vient surtout du sud de l’Europe, avec une petite production française en développement :</p><ul><li>Espagne (Andalousie)</li><li>Portugal</li><li>Sud-Ouest de la France</li></ul>
+<h2>Bienfaits</h2>
+<p>La patate douce est sucrée et colorée :</p><ul><li><strong>Bêta-carotène :</strong> Sa chair orange en est très riche.</li><li><strong>Fibres :</strong> Elles favorisent la satiété.</li><li><strong>Glucides :</strong> Une énergie plus progressive que celle de la pomme de terre.</li><li><strong>Potassium :</strong> Présent en bonne quantité.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Orange :</strong> Chair orange très sucrée, la plus vendue.</li><li><strong>Blanche :</strong> Chair plus ferme, goût de châtaigne.</li><li><strong>Violette :</strong> Chair violette, riche en antioxydants.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Au sec et à température ambiante, pas au frigo : 2 à 3 semaines.</li><li><strong>Congélation :</strong> Cuite en purée ou en cubes rôtis : jusqu’à 10 mois.</li><li><strong>Rien ne se jette :</strong> La peau, bien lavée, se mange rôtie. Un reste de purée se glisse dans un gâteau ou des pancakes.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Courgette de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Courgette : de saison juin à septembre, pleine saison en juillet, août. Productive et douce, elle se mange crue en ruban ou poêlée en quelques minutes.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/courgette.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Légumes</a> › Courgette</nav>
+<h1>Courgette</h1>
+<img src="../images/courgette.webp" alt="Courgette" width="200" loading="lazy">
+<p>Productive et douce, elle se mange crue en ruban ou poêlée en quelques minutes.</p>
+<ul><li><strong>Saison :</strong> juin, juillet, août, septembre</li><li><strong>Pleine saison :</strong> juillet, août</li><li><strong>Famille botanique :</strong> Cucurbitacées</li></ul>
+<h2>Histoire</h2>
+<p>Les courges sont originaires d’Amérique centrale, où elles étaient cultivées il y a plusieurs milliers d’années. La courgette elle-même est une sélection italienne (la « zucchina »), obtenue en récoltant très jeunes certaines courges. Elle ne se répand vraiment en France qu’au XXᵉ siècle, notamment après les années 1950.</p>
+<h2>Origine et régions de production</h2>
+<p>La courgette française est surtout cultivée dans le Sud-Est et l’Ouest :</p><ul><li>Provence-Alpes-Côte d’Azur</li><li>Occitanie</li><li>Pays de la Loire</li></ul><p>La courgette ronde de Nice est une spécialité locale, idéale farcie.</p>
+<h2>Bienfaits</h2>
+<p>La courgette est l’un des légumes les plus légers de l’été :</p><ul><li><strong>Très hydratante :</strong> Environ 95 % d’eau pour 16 kcal/100 g.</li><li><strong>Vitamine B9 :</strong> Utile au renouvellement des cellules.</li><li><strong>Potassium :</strong> Contribue à l’équilibre hydrique.</li><li><strong>Digeste :</strong> Sa peau fine et sa chair tendre la rendent facile à digérer.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Verte de Milan :</strong> Longue et vert foncé, la plus courante.</li><li><strong>Ronde de Nice :</strong> Ronde, parfaite farcie.</li><li><strong>Jaune :</strong> Douce, jolie crue en rubans.</li><li><strong>Blanche de Virginie :</strong> Vert pâle, chair très tendre.</li><li><strong>Trompette d’Albenga :</strong> Longue et recourbée, chair ferme.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Dans le bac à légumes, dans un sac en tissu : 1 semaine.</li><li><strong>Congélation :</strong> En rondelles, revenues 2 min à la poêle : jusqu’à 6 mois. Râpée crue, pour les gâteaux et galettes.</li><li><strong>Rien ne se jette :</strong> Les grosses courgettes oubliées sur le pied se farcissent ou font une soupe. Les fleurs se mangent en beignets.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

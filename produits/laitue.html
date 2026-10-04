@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Laitue de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Laitue : de saison avril à octobre, pleine saison en mai, juin. Feuilles tendres à consommer rapidement, idéalement le jour de l’achat.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/laitue.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Légumes</a> › Laitue</nav>
+<h1>Laitue</h1>
+<img src="../images/laitue.webp" alt="Laitue" width="200" loading="lazy">
+<p>Feuilles tendres à consommer rapidement, idéalement le jour de l’achat.</p>
+<ul><li><strong>Saison :</strong> avril, mai, juin, juillet, août, septembre, octobre</li><li><strong>Pleine saison :</strong> mai, juin</li><li><strong>Famille botanique :</strong> Astéracées</li></ul>
+<h2>Histoire</h2>
+<p>Originaire du Moyen-Orient et du bassin méditerranéen, la laitue était déjà cultivée par les Égyptiens il y a plus de 4 000 ans. Les Romains la servaient en fin de repas. Selon la tradition, Rabelais aurait rapporté d’Italie des graines de laitue romaine au XVIᵉ siècle.</p>
+<h2>Origine et régions de production</h2>
+<p>La laitue est cultivée partout en France, en plein champ et sous abri :</p><ul><li>Provence-Alpes-Côte d’Azur</li><li>Occitanie</li><li>Pays de la Loire</li><li>Hauts-de-France</li></ul>
+<h2>Bienfaits</h2>
+<p>La laitue apporte fraîcheur et légèreté à tous les repas :</p><ul><li><strong>Très hydratante :</strong> Environ 95 % d’eau pour 15 kcal/100 g.</li><li><strong>Vitamine B9 :</strong> Surtout dans les feuilles vertes extérieures.</li><li><strong>Vitamine K :</strong> Participe à la coagulation normale du sang.</li><li><strong>Fibres :</strong> Elle accompagne idéalement les plats plus riches.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Batavia :</strong> Feuilles ondulées et croquantes.</li><li><strong>Feuille de chêne :</strong> Rouge ou verte, très tendre.</li><li><strong>Romaine :</strong> Longue et craquante, celle de la salade César.</li><li><strong>Sucrine :</strong> Petite, croquante, goût sucré.</li><li><strong>Laitue beurre :</strong> Feuilles lisses et fondantes.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Lavée, essorée, dans une boîte avec un torchon humide : 4 à 5 jours.</li><li><strong>Congélation :</strong> Ne se congèle pas crue. En velouté, oui : jusqu’à 3 mois.</li><li><strong>Rien ne se jette :</strong> Une salade fatiguée se cuit : en soupe, en velouté ou braisée comme dans les petits pois à la française. Une feuille flétrie revit 10 min dans l’eau glacée.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

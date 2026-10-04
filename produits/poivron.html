@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Poivron de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Poivron : de saison juillet à octobre, pleine saison en août, septembre. Vert, jaune puis rouge : c’est la même plante, cueillie à différents stades de maturité.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/poivron.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Légumes</a> › Poivron</nav>
+<h1>Poivron</h1>
+<img src="../images/poivron.webp" alt="Poivron" width="200" loading="lazy">
+<p>Vert, jaune puis rouge : c’est la même plante, cueillie à différents stades de maturité.</p>
+<ul><li><strong>Saison :</strong> juillet, août, septembre, octobre</li><li><strong>Pleine saison :</strong> août, septembre</li><li><strong>Famille botanique :</strong> Solanacées</li></ul>
+<h2>Histoire</h2>
+<p>Originaire d’Amérique centrale et du Sud, le poivron a été rapporté en Europe par Christophe Colomb dès 1493. Il se répand d’abord en Espagne puis dans tout le bassin méditerranéen et en Europe centrale, où la Hongrie en tire son célèbre paprika.</p>
+<h2>Origine et régions de production</h2>
+<p>Le poivron français pousse au soleil ou sous serre :</p><ul><li>Provence-Alpes-Côte d’Azur</li><li>Occitanie</li><li>Bretagne (sous serre)</li></ul>
+<h2>Bienfaits</h2>
+<p>Le poivron, surtout rouge, est une vraie réserve de vitamines :</p><ul><li><strong>Très riche en vitamine C :</strong> Le poivron rouge en contient davantage que l’orange.</li><li><strong>Caroténoïdes :</strong> Plus il mûrit (vert → jaune → rouge), plus il en est riche.</li><li><strong>Peu calorique :</strong> Environ 25 kcal/100 g.</li><li><strong>Fibres :</strong> Participent à la satiété.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Rouge :</strong> Le plus mûr et le plus sucré.</li><li><strong>Jaune :</strong> Doux et fruité.</li><li><strong>Orange :</strong> Doux, entre le jaune et le rouge.</li><li><strong>Vert :</strong> Récolté avant maturité, plus amer.</li><li><strong>Corne de taureau :</strong> Allongé, chair fine, parfait grillé.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Au frigo, entier : 1 à 2 semaines. Coupé, 3 jours dans une boîte.</li><li><strong>Congélation :</strong> Cru, en lanières, sans blanchir : jusqu’à 10 mois. Pratique pour les poêlées.</li><li><strong>Rien ne se jette :</strong> Un poivron fripé se grille au four puis se conserve dans l’huile. Les graines se jettent, pas le reste.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

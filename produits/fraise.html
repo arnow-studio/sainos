@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Fraise de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Fraise : de saison avril à juillet, pleine saison en mai, juin. Ses vrais fruits sont les petits grains à sa surface : les akènes.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/fraise.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Fruits</a> › Fraise</nav>
+<h1>Fraise</h1>
+<img src="../images/fraise.webp" alt="Fraise" width="200" loading="lazy">
+<p>Ses vrais fruits sont les petits grains à sa surface : les akènes.</p>
+<ul><li><strong>Saison :</strong> avril, mai, juin, juillet</li><li><strong>Pleine saison :</strong> mai, juin</li><li><strong>Famille botanique :</strong> Rosacées</li></ul>
+<h2>Histoire</h2>
+<p>La fraise des bois est consommée en Europe depuis l’Antiquité. La grosse fraise de nos jardins est née en Bretagne au XVIIIᵉ siècle, du croisement entre une fraise du Chili rapportée en 1714 par l’officier Amédée-François Frézier et une fraise de Virginie. Plougastel en devient alors la capitale.</p>
+<h2>Origine et régions de production</h2>
+<p>La France produit des fraises dans plusieurs grands bassins :</p><ul><li>Nouvelle-Aquitaine (Lot-et-Garonne, Périgord)</li><li>Bretagne (Plougastel)</li><li>Occitanie (Nîmes)</li><li>Provence</li></ul><p>La fraise du Périgord et la fraise de Nîmes bénéficient d’une IGP.</p>
+<h2>Bienfaits</h2>
+<p>La fraise est aussi légère que gourmande :</p><ul><li><strong>Très riche en vitamine C :</strong> Une portion de 150 g couvre les besoins quotidiens.</li><li><strong>Peu calorique :</strong> Environ 33 kcal/100 g.</li><li><strong>Antioxydants :</strong> Ses pigments rouges sont des anthocyanes.</li><li><strong>Hydratante :</strong> Environ 90 % d’eau.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Gariguette :</strong> Allongée et acidulée, la première de la saison.</li><li><strong>Ciflorette :</strong> Très parfumée et sucrée.</li><li><strong>Mara des bois :</strong> Goût de fraise des bois, jusqu’à l’automne.</li><li><strong>Charlotte :</strong> Ronde et sucrée, se récolte tout l’été.</li><li><strong>Fraise des bois :</strong> Minuscule et très parfumée.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Au frigo, sans les laver ni les équeuter, sur un papier absorbant : 2 à 3 jours. Sortez-les 30 min avant.</li><li><strong>Congélation :</strong> Équeutées, à plat sur un plateau puis en sac : jusqu’à 12 mois.</li><li><strong>Rien ne se jette :</strong> Les fraises abîmées font un coulis, une confiture ou un smoothie. Les queues parfument une eau aromatisée.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

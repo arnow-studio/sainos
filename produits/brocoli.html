@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Brocoli de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Brocoli : de saison juin à novembre, pleine saison en septembre, octobre. On mange ses boutons floraux avant qu’ils n’éclosent ; à cuire brièvement pour garder le vert.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/brocoli.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Légumes</a> › Brocoli</nav>
+<h1>Brocoli</h1>
+<img src="../images/brocoli.webp" alt="Brocoli" width="200" loading="lazy">
+<p>On mange ses boutons floraux avant qu’ils n’éclosent ; à cuire brièvement pour garder le vert.</p>
+<ul><li><strong>Saison :</strong> juin, juillet, août, septembre, octobre, novembre</li><li><strong>Pleine saison :</strong> septembre, octobre</li><li><strong>Famille botanique :</strong> Brassicacées</li></ul>
+<h2>Histoire</h2>
+<p>Le brocoli descend du chou sauvage méditerranéen. Il a été sélectionné en Italie dès l’Antiquité, puis développé par les jardiniers italiens de la Renaissance. Il arrive en France au XVIᵉ siècle, selon la tradition avec Catherine de Médicis, et reste longtemps appelé « chou d’Italie ».</p>
+<h2>Origine et régions de production</h2>
+<p>Le brocoli français est surtout cultivé sur les côtes de l’Ouest, au climat doux et humide :</p><ul><li>Bretagne</li><li>Normandie</li><li>Pays de la Loire</li></ul>
+<h2>Bienfaits</h2>
+<p>Le brocoli est l’un des légumes les plus denses en nutriments :</p><ul><li><strong>Vitamine C et K :</strong> Une portion couvre une large part des besoins quotidiens.</li><li><strong>Composés soufrés :</strong> Il contient du sulforaphane, étudié pour ses propriétés protectrices.</li><li><strong>Vitamine B9 :</strong> Importante notamment pendant la grossesse.</li><li><strong>Cuisson courte :</strong> Quelques minutes à la vapeur préservent sa couleur et ses vitamines.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Calabrais :</strong> Grosse tête vert foncé, le plus vendu.</li><li><strong>Violet :</strong> Tiges fines, se cuit en entier.</li><li><strong>Bimi (brocolini) :</strong> Longues tiges tendres, goût doux.</li><li><strong>Romanesco :</strong> Pointes vert tendre en spirale.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Au frigo, dans un sac percé : 3 à 5 jours. Il jaunit vite à température ambiante.</li><li><strong>Congélation :</strong> En fleurettes blanchies 2 min : jusqu’à 12 mois.</li><li><strong>Rien ne se jette :</strong> La tige, épluchée, est aussi bonne que les fleurettes : en bâtonnets, en soupe ou râpée en salade. Les feuilles se cuisent comme des épinards.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

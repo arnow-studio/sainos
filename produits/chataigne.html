@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Châtaigne de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Châtaigne : de saison octobre à décembre, pleine saison en octobre, novembre. Fruit sec des forêts d’Ardèche et des Cévennes, à griller ou en crème.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/chataigne.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Fruits</a> › Châtaigne</nav>
+<h1>Châtaigne</h1>
+<img src="../images/chataigne.webp" alt="Châtaigne" width="200" loading="lazy">
+<p>Fruit sec des forêts d’Ardèche et des Cévennes, à griller ou en crème.</p>
+<ul><li><strong>Saison :</strong> octobre, novembre, décembre</li><li><strong>Pleine saison :</strong> octobre, novembre</li><li><strong>Famille botanique :</strong> Fagacées</li></ul>
+<h2>Histoire</h2>
+<p>Le châtaignier est présent en Europe du Sud depuis l’Antiquité. Dans les Cévennes, en Ardèche et en Corse, on l’appelait « l’arbre à pain » : pendant des siècles, ses fruits séchés et moulus ont nourri les populations des montagnes.</p>
+<h2>Origine et régions de production</h2>
+<p>La châtaigne française pousse dans les régions de moyenne montagne :</p><ul><li>Ardèche</li><li>Cévennes</li><li>Corse</li><li>Limousin</li></ul><p>La châtaigne d’Ardèche bénéficie d’une AOP, tout comme la farine de châtaigne corse.</p>
+<h2>Bienfaits</h2>
+<p>La châtaigne est un fruit d’hiver très nourrissant :</p><ul><li><strong>Glucides complexes :</strong> Une énergie durable, environ 180 kcal/100 g cuite.</li><li><strong>Fibres :</strong> Elle favorise la satiété.</li><li><strong>Sans gluten :</strong> Sa farine convient aux personnes intolérantes.</li><li><strong>Minéraux :</strong> Potassium, magnésium et vitamines du groupe B.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Marron :</strong> Gros fruit à une seule graine, pour les marrons glacés.</li><li><strong>Bouche de Bétizac :</strong> Grosse et facile à éplucher.</li><li><strong>Comballe :</strong> Ardéchoise, parfumée, pour la farine.</li><li><strong>Châtaigne d’Ardèche :</strong> AOP, douce et sucrée.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Au frigo, dans un sac percé : 1 semaine. Elles sèchent vite à l’air.</li><li><strong>Congélation :</strong> Crues, fendues, ou épluchées après cuisson : jusqu’à 12 mois.</li><li><strong>Rien ne se jette :</strong> Les châtaignes en trop se transforment en crème de marron, en purée ou en farine.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

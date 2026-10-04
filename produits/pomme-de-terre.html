@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Pomme de terre de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Pomme de terre : de saison toute l’année, pleine saison en septembre, octobre. Primeur au printemps, de conservation le reste de l’année : chaque variété a son usage.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/pomme-de-terre.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Légumes</a> › Pomme de terre</nav>
+<h1>Pomme de terre</h1>
+<img src="../images/pomme-de-terre.webp" alt="Pomme de terre" width="200" loading="lazy">
+<p>Primeur au printemps, de conservation le reste de l’année : chaque variété a son usage.</p>
+<ul><li><strong>Saison :</strong> toute l’année</li><li><strong>Pleine saison :</strong> septembre, octobre</li><li><strong>Famille botanique :</strong> Solanacées</li></ul>
+<h2>Histoire</h2>
+<p>Domestiquée dans les Andes péruviennes il y a environ 8 000 ans, la pomme de terre arrive en Espagne au XVIᵉ siècle. Longtemps réservée au bétail en France, elle est popularisée à la fin du XVIIIᵉ siècle par le pharmacien Antoine Parmentier, qui aurait fait garder un champ par des soldats pour attiser la curiosité des Parisiens.</p>
+<h2>Origine et régions de production</h2>
+<p>La France est l’un des premiers producteurs et exportateurs européens de pommes de terre :</p><ul><li>Hauts-de-France</li><li>Grand Est</li><li>Normandie</li><li>Bretagne</li></ul><p>La pomme de terre de l’île de Ré bénéficie d’une AOP, tout comme la Béa du Roussillon.</p>
+<h2>Bienfaits</h2>
+<p>La pomme de terre est un aliment énergétique et complet :</p><ul><li><strong>Glucides complexes :</strong> Son amidon fournit une énergie durable.</li><li><strong>Vitamine C :</strong> Surtout dans les pommes de terre nouvelles.</li><li><strong>Potassium :</strong> Elle en est une excellente source.</li><li><strong>Cuisson en peau :</strong> Elle préserve mieux les vitamines et minéraux.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Charlotte :</strong> Chair ferme, pour la vapeur et les salades.</li><li><strong>Bintje :</strong> Farineuse, la reine des frites.</li><li><strong>Ratte :</strong> Petite, goût de noisette.</li><li><strong>Agata :</strong> Polyvalente, souvent vendue en primeur.</li><li><strong>Vitelotte :</strong> Peau et chair violettes.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Au noir, au frais et au sec, jamais au frigo : plusieurs semaines. Pas à côté des oignons.</li><li><strong>Congélation :</strong> Crue, elle noircit. Cuite en purée ou en frites blanchies : jusqu’à 6 mois.</li><li><strong>Rien ne se jette :</strong> Les épluchures deviennent des chips croustillantes au four. Un reste de purée fait des galettes ou un hachis. Si elle a germé, retirez les germes et les parties vertes.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

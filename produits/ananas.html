@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Ananas de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Ananas : de saison toute l’année, pleine saison en mars, avril. Un fruit composé : chaque écaille est une fleur devenue baie.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/ananas.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Fruits</a> › Ananas</nav>
+<h1>Ananas</h1>
+<img src="../images/ananas.webp" alt="Ananas" width="200" loading="lazy">
+<p>Un fruit composé : chaque écaille est une fleur devenue baie.</p>
+<ul><li><strong>Saison :</strong> toute l’année</li><li><strong>Pleine saison :</strong> mars, avril</li><li><strong>Famille botanique :</strong> Broméliacées</li></ul>
+<h2>Histoire</h2>
+<p>Originaire d’Amérique du Sud (Brésil, Paraguay), l’ananas est découvert par Christophe Colomb en Guadeloupe en 1493. Fruit de luxe en Europe, il est cultivé en serre chaude : le premier ananas français aurait été récolté à Versailles pour Louis XV, en 1733.</p>
+<h2>Origine et régions de production</h2>
+<p>L’ananas vendu en France vient surtout d’Amérique centrale, et aussi de La Réunion :</p><ul><li>Costa Rica</li><li>La Réunion</li><li>Côte d’Ivoire</li></ul><p>L’ananas Victoria de La Réunion, petit et très parfumé, est très recherché.</p>
+<h2>Bienfaits</h2>
+<p>L’ananas est exotique et digeste :</p><ul><li><strong>Bromélaïne :</strong> Une enzyme qui aide à digérer les protéines.</li><li><strong>Vitamine C :</strong> Présente en bonne quantité.</li><li><strong>Manganèse :</strong> Un oligo-élément dont il est riche.</li><li><strong>Énergie modérée :</strong> Environ 50 kcal/100 g.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Victoria :</strong> Petit et très sucré, de La Réunion.</li><li><strong>MD2 (Extra Sweet) :</strong> Doré et peu acide, le plus vendu.</li><li><strong>Cayenne lisse :</strong> Gros et juteux.</li><li><strong>Queen :</strong> Petit et très parfumé.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Entier, à température ambiante : 3 à 5 jours. Découpé, au frigo : 3 jours.</li><li><strong>Congélation :</strong> En morceaux : jusqu’à 6 mois.</li><li><strong>Rien ne se jette :</strong> La peau et le cœur font une boisson fermentée (tepache) ou une infusion. La couronne peut se replanter dans un pot.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

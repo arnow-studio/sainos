@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Persil de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Persil : de saison mars à novembre, pleine saison en mai, juin. Plat ou frisé, cousin botanique de la carotte.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/persil.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Herbes aromatiques</a> › Persil</nav>
+<h1>Persil</h1>
+<img src="../images/persil.webp" alt="Persil" width="200" loading="lazy">
+<p>Plat ou frisé, cousin botanique de la carotte.</p>
+<ul><li><strong>Saison :</strong> mars, avril, mai, juin, juillet, août, septembre, octobre, novembre</li><li><strong>Pleine saison :</strong> mai, juin</li><li><strong>Famille botanique :</strong> Apiacées</li></ul>
+<h2>Histoire</h2>
+<p>Originaire de Méditerranée orientale, le persil était utilisé par les Grecs pour tresser des couronnes, avant de devenir une herbe culinaire chez les Romains. Charlemagne le fait inscrire parmi les plantes à cultiver dans les jardins de ses domaines.</p>
+<h2>Origine et régions de production</h2>
+<p>Le persil est cultivé presque partout en France :</p><ul><li>Provence-Alpes-Côte d’Azur</li><li>Bretagne</li><li>Île-de-France</li></ul>
+<h2>Bienfaits</h2>
+<p>Le persil est bien plus qu’une décoration :</p><ul><li><strong>Vitamine C :</strong> Il en contient beaucoup, à condition d’être consommé cru.</li><li><strong>Vitamine K :</strong> Présente en grande quantité.</li><li><strong>Chlorophylle :</strong> Il rafraîchit l’haleine.</li><li><strong>Relève sans sel :</strong> Idéal ciselé en fin de préparation.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Persil plat :</strong> Plus parfumé, pour cuisiner.</li><li><strong>Persil frisé :</strong> Plus doux, souvent décoratif.</li><li><strong>Persil tubéreux :</strong> On mange sa racine, comme un panais.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> En bouquet dans un verre d’eau au frigo : 1 à 2 semaines.</li><li><strong>Congélation :</strong> Ciselé, en sachet : jusqu’à 6 mois. Il s’émiette directement surgelé.</li><li><strong>Rien ne se jette :</strong> Les tiges parfument les bouillons et les soupes. Le persil fané se mixe en sauce verte.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

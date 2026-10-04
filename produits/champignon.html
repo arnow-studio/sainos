@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Champignon de Paris de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Champignon de Paris : de saison toute l’année, pleine saison en octobre, novembre. Cultivé en cave toute l’année ; c’est un champignon, ni fruit ni légume au sens botanique.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/champignon.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Légumes</a> › Champignon de Paris</nav>
+<h1>Champignon de Paris</h1>
+<img src="../images/champignon.webp" alt="Champignon de Paris" width="200" loading="lazy">
+<p>Cultivé en cave toute l’année ; c’est un champignon, ni fruit ni légume au sens botanique.</p>
+<ul><li><strong>Saison :</strong> toute l’année</li><li><strong>Pleine saison :</strong> octobre, novembre</li><li><strong>Famille botanique :</strong> Agaricacées</li></ul>
+<h2>Histoire</h2>
+<p>La culture du champignon de Paris commence au XVIIᵉ siècle, dans les potagers autour de Paris. Au XIXᵉ siècle, elle s’installe dans les anciennes carrières souterraines de la capitale, qui lui donnent son nom. Elle s’est ensuite déplacée vers les caves de tuffeau du Val de Loire.</p>
+<h2>Origine et régions de production</h2>
+<p>Cultivé à l’abri de la lumière, le champignon de Paris est produit toute l’année :</p><ul><li>Val de Loire (Saumurois)</li><li>Île-de-France</li><li>Hauts-de-France</li></ul>
+<h2>Bienfaits</h2>
+<p>Le champignon de Paris est léger et nourrissant :</p><ul><li><strong>Très peu calorique :</strong> Environ 22 kcal/100 g.</li><li><strong>Vitamines B :</strong> Surtout B2 et B3, utiles au métabolisme énergétique.</li><li><strong>Sélénium :</strong> Un oligo-élément antioxydant.</li><li><strong>Texture charnue :</strong> Idéal pour alléger les plats de viande.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Blanc :</strong> Le champignon de Paris classique.</li><li><strong>Blond :</strong> Même espèce, goût plus prononcé.</li><li><strong>Portobello :</strong> Un champignon de Paris laissé grandir, parfait grillé.</li><li><strong>Rosé des prés :</strong> Son cousin sauvage des prairies.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Au frigo, dans un sac en papier, jamais en plastique : 3 à 4 jours.</li><li><strong>Congélation :</strong> Émincés et revenus à la poêle : jusqu’à 6 mois.</li><li><strong>Rien ne se jette :</strong> Les pieds font un bouillon ou une duxelles. Des champignons un peu secs se mixent en velouté.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

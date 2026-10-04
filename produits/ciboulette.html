@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Ciboulette de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Ciboulette : de saison mars à octobre, pleine saison en avril, mai. Parfum doux d’oignon, à ciseler au dernier moment.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/ciboulette.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Herbes aromatiques</a> › Ciboulette</nav>
+<h1>Ciboulette</h1>
+<img src="../images/ciboulette.webp" alt="Ciboulette" width="200" loading="lazy">
+<p>Parfum doux d’oignon, à ciseler au dernier moment.</p>
+<ul><li><strong>Saison :</strong> mars, avril, mai, juin, juillet, août, septembre, octobre</li><li><strong>Pleine saison :</strong> avril, mai</li><li><strong>Famille botanique :</strong> Amaryllidacées</li></ul>
+<h2>Histoire</h2>
+<p>Présente à l’état sauvage en Europe et en Asie, la ciboulette est cultivée dans les jardins européens depuis le Moyen Âge. C’est la plus douce de la famille de l’oignon, appréciée pour son parfum délicat.</p>
+<h2>Origine et régions de production</h2>
+<p>La ciboulette pousse facilement partout en France, au jardin comme en culture :</p><ul><li>Provence-Alpes-Côte d’Azur</li><li>Île-de-France</li><li>Bretagne</li></ul>
+<h2>Bienfaits</h2>
+<p>La ciboulette apporte un léger goût d’oignon :</p><ul><li><strong>Vitamine C :</strong> Présente en bonne quantité quand elle est fraîche.</li><li><strong>Vitamine K :</strong> Présente dans ses feuilles vertes.</li><li><strong>Relève sans sel :</strong> Parfaite dans les omelettes et les fromages frais.</li><li><strong>À ciseler au dernier moment :</strong> Elle perd son parfum à la cuisson.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Ciboulette commune :</strong> Brins fins et creux, goût d’oignon doux.</li><li><strong>À gros brins :</strong> Tiges plus épaisses, plus productive.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Au frigo, dans un torchon humide : 1 semaine.</li><li><strong>Congélation :</strong> Ciselée, en sachet ou en bac à glaçons : jusqu’à 6 mois.</li><li><strong>Rien ne se jette :</strong> La ciboulette fanée se ciselle dans une omelette ou un fromage frais. Les fleurs décorent les salades.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

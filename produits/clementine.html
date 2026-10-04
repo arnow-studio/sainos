@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Clémentine de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Clémentine : de saison novembre à février, pleine saison en décembre, janvier. La clémentine de Corse IGP se reconnaît à ses feuilles laissées sur le fruit.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/clementine.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Fruits</a> › Clémentine</nav>
+<h1>Clémentine</h1>
+<img src="../images/clementine.webp" alt="Clémentine" width="200" loading="lazy">
+<p>La clémentine de Corse IGP se reconnaît à ses feuilles laissées sur le fruit.</p>
+<ul><li><strong>Saison :</strong> novembre, décembre, janvier, février</li><li><strong>Pleine saison :</strong> décembre, janvier</li><li><strong>Famille botanique :</strong> Rutacées</li></ul>
+<h2>Histoire</h2>
+<p>La clémentine doit son nom au frère Clément (Vital Rodier), qui l’a découverte vers 1902 dans le jardin d’un orphelinat près d’Oran, en Algérie. Probable hybride entre un mandarinier et un oranger, elle est plantée en Corse à partir des années 1920.</p>
+<h2>Origine et régions de production</h2>
+<p>La clémentine française est cultivée en Corse, principalement sur la plaine orientale :</p><ul><li>Corse (plaine orientale)</li></ul><p>La clémentine de Corse bénéficie d’une IGP : elle est cueillie à maturité et vendue avec ses feuilles, gage de fraîcheur.</p>
+<h2>Bienfaits</h2>
+<p>La clémentine est le fruit plaisir de l’hiver :</p><ul><li><strong>Vitamine C :</strong> Deux clémentines couvrent une bonne partie des besoins quotidiens.</li><li><strong>Énergie modérée :</strong> Environ 47 kcal/100 g.</li><li><strong>Fibres :</strong> Présentes dans les membranes des quartiers.</li><li><strong>Pratique :</strong> Facile à éplucher, idéale pour les goûters.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Clémentine de Corse :</strong> IGP, vendue avec ses feuilles.</li><li><strong>Oronules :</strong> Précoce, dès octobre.</li><li><strong>Clemenules :</strong> Grosse et juteuse, la plus cultivée en Espagne.</li><li><strong>Hernandina :</strong> Tardive, jusqu’en février.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Au frais, dans une coupe : 1 à 2 semaines. Au frigo, un peu plus.</li><li><strong>Congélation :</strong> En quartiers ou en jus : jusqu’à 6 mois.</li><li><strong>Rien ne se jette :</strong> Les écorces, séchées, parfument une tisane ou un gâteau. Confites, elles font des friandises.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

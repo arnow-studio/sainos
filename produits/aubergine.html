@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Aubergine de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Aubergine : de saison juin à septembre, pleine saison en juillet, août. Chair fondante qui boit l’huile ; star de la ratatouille et du caviar d’aubergine.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/aubergine.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Légumes</a> › Aubergine</nav>
+<h1>Aubergine</h1>
+<img src="../images/aubergine.webp" alt="Aubergine" width="200" loading="lazy">
+<p>Chair fondante qui boit l’huile ; star de la ratatouille et du caviar d’aubergine.</p>
+<ul><li><strong>Saison :</strong> juin, juillet, août, septembre</li><li><strong>Pleine saison :</strong> juillet, août</li><li><strong>Famille botanique :</strong> Solanacées</li></ul>
+<h2>Histoire</h2>
+<p>Originaire de l’Inde et d’Asie du Sud-Est, l’aubergine a été diffusée autour de la Méditerranée par les Arabes au Moyen Âge, d’abord en Espagne. Longtemps regardée avec méfiance, elle s’installe dans le sud de la France au XVIIᵉ et au XVIIIᵉ siècle, avant de devenir un pilier de la cuisine provençale.</p>
+<h2>Origine et régions de production</h2>
+<p>L’aubergine française pousse sous le soleil du Sud et sous abri :</p><ul><li>Provence-Alpes-Côte d’Azur</li><li>Occitanie</li><li>Nouvelle-Aquitaine</li></ul>
+<h2>Bienfaits</h2>
+<p>Légère et fondante, l’aubergine gagne à être cuisinée avec peu de matière grasse :</p><ul><li><strong>Peu calorique :</strong> Environ 25 kcal/100 g, à condition de maîtriser l’huile, qu’elle absorbe comme une éponge.</li><li><strong>Fibres :</strong> Elles favorisent la satiété et le transit.</li><li><strong>Antioxydants dans la peau :</strong> La peau violette contient des anthocyanes : inutile de l’éplucher.</li><li><strong>Potassium :</strong> Participe à l’équilibre hydrique.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Violette de Barbentane :</strong> Longue et violet foncé, la classique provençale.</li><li><strong>Graffiti :</strong> Striée de mauve et de blanc, chair fine.</li><li><strong>Ronde de Valence :</strong> Ronde, violet clair, idéale farcie.</li><li><strong>Blanche :</strong> En forme d’œuf, chair douce.</li><li><strong>Longue de Chine :</strong> Fine, peu de graines, cuit très vite.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Dans un endroit frais, hors du frigo si possible : 4 à 5 jours.</li><li><strong>Congélation :</strong> Crue, elle devient spongieuse. Grillée ou en caviar : jusqu’à 6 mois.</li><li><strong>Rien ne se jette :</strong> Une aubergine un peu fripée finit en caviar d’aubergine ou en moussaka. La peau grillée parfume un bouillon.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

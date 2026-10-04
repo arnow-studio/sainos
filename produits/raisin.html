@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Raisin de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Raisin : de saison août à octobre, pleine saison en septembre. Chaque grain est une baie ; le chasselas de Moissac est AOP.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/raisin.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Fruits</a> › Raisin</nav>
+<h1>Raisin</h1>
+<img src="../images/raisin.webp" alt="Raisin" width="200" loading="lazy">
+<p>Chaque grain est une baie ; le chasselas de Moissac est AOP.</p>
+<ul><li><strong>Saison :</strong> août, septembre, octobre</li><li><strong>Pleine saison :</strong> septembre</li><li><strong>Famille botanique :</strong> Vitacées</li></ul>
+<h2>Histoire</h2>
+<p>La vigne est cultivée depuis environ 8 000 ans dans le Caucase. Les Grecs l’introduisent en Gaule vers 600 avant notre ère, à Marseille. Sous François Iᵉʳ, la « Treille du Roy » de Fontainebleau produit un chasselas réputé, servi à la table royale.</p>
+<h2>Origine et régions de production</h2>
+<p>Le raisin de table français est cultivé dans le Sud :</p><ul><li>Occitanie (Tarn-et-Garonne)</li><li>Provence (Vaucluse)</li></ul><p>Le chasselas de Moissac et le muscat du Ventoux bénéficient tous deux d’une AOP.</p>
+<h2>Bienfaits</h2>
+<p>Le raisin est un fruit énergétique de fin d’été :</p><ul><li><strong>Polyphénols :</strong> Surtout dans la peau et les pépins, comme le resvératrol.</li><li><strong>Énergie rapide :</strong> Riche en sucres naturels, environ 70 kcal/100 g.</li><li><strong>Potassium :</strong> Présent en bonne quantité.</li><li><strong>Hydratant :</strong> Environ 80 % d’eau.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Chasselas :</strong> Blanc doré, AOP de Moissac.</li><li><strong>Muscat de Hambourg :</strong> Noir, goût musqué, AOP du Ventoux.</li><li><strong>Italia :</strong> Gros grains blancs, parfum muscat.</li><li><strong>Alphonse Lavallée :</strong> Noir, gros grains croquants.</li><li><strong>Sans pépins :</strong> Petits grains, souvent séchés.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Au frigo, en grappe, sans le laver : 1 semaine.</li><li><strong>Congélation :</strong> Égrainé, à plat : jusqu’à 12 mois. Se croque gelé comme un bonbon.</li><li><strong>Rien ne se jette :</strong> Le raisin trop mûr fait un jus, une gelée ou se sèche au four.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

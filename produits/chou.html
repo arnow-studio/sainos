@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Chou vert de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Chou vert : de saison janvier à décembre, pleine saison en novembre, décembre, janvier. Légume d’hiver par excellence, plus doux après les premières gelées.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/chou.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Légumes</a> › Chou vert</nav>
+<h1>Chou vert</h1>
+<img src="../images/chou.webp" alt="Chou vert" width="200" loading="lazy">
+<p>Légume d’hiver par excellence, plus doux après les premières gelées.</p>
+<ul><li><strong>Saison :</strong> janvier, février, mars, octobre, novembre, décembre</li><li><strong>Pleine saison :</strong> novembre, décembre, janvier</li><li><strong>Famille botanique :</strong> Brassicacées</li></ul>
+<h2>Histoire</h2>
+<p>Issu du chou sauvage des côtes atlantiques et méditerranéennes, le chou est consommé depuis l’Antiquité. Les Grecs et les Romains lui prêtaient de nombreuses vertus, et Caton l’Ancien en faisait l’éloge. Facile à cultiver et à conserver, il devient au Moyen Âge un aliment de base des campagnes européennes.</p>
+<h2>Origine et régions de production</h2>
+<p>Le chou pousse dans les régions fraîches du nord et de l’ouest de la France :</p><ul><li>Bretagne</li><li>Hauts-de-France</li><li>Alsace</li></ul><p>En Alsace, la choucroute, faite de chou blanc fermenté, bénéficie d’une IGP.</p>
+<h2>Bienfaits</h2>
+<p>Le chou est un légume d’hiver précieux :</p><ul><li><strong>Vitamine C :</strong> Elle se maintient bien pendant la conservation, un atout pour l’hiver.</li><li><strong>Vitamine K :</strong> Présente en grande quantité dans les feuilles vertes.</li><li><strong>Fibres :</strong> Elles favorisent le transit ; une cuisson douce le rend plus digeste.</li><li><strong>Peu calorique :</strong> Environ 25 kcal/100 g.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Chou de Milan :</strong> Feuilles frisées et tendres, pour les potées.</li><li><strong>Chou blanc (cabus) :</strong> Lisse et serré, celui de la choucroute.</li><li><strong>Chou rouge :</strong> Croquant, délicieux cru en salade.</li><li><strong>Chou kale :</strong> Feuilles frisées très riches en vitamines.</li><li><strong>Chou pointu :</strong> En forme de cône, très doux.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Entier, au frais : 2 à 3 semaines, et même plus pour le chou blanc. Entamé, filmez la coupe.</li><li><strong>Congélation :</strong> Émincé et blanchi 2 min : jusqu’à 12 mois.</li><li><strong>Rien ne se jette :</strong> Les grandes feuilles extérieures servent à faire des choux farcis. Un reste de chou émincé se lacto-fermente en bocal.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

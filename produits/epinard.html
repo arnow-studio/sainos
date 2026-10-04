@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Épinard de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Épinard : de saison mars à novembre, pleine saison en avril, octobre. Pousses de printemps et d’automne, à manger crues en salade ou juste tombées.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/epinard.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Légumes</a> › Épinard</nav>
+<h1>Épinard</h1>
+<img src="../images/epinard.webp" alt="Épinard" width="200" loading="lazy">
+<p>Pousses de printemps et d’automne, à manger crues en salade ou juste tombées.</p>
+<ul><li><strong>Saison :</strong> mars, avril, mai, septembre, octobre, novembre</li><li><strong>Pleine saison :</strong> avril, octobre</li><li><strong>Famille botanique :</strong> Amaranthacées</li></ul>
+<h2>Histoire</h2>
+<p>Originaire de Perse, l’épinard a été introduit en Espagne par les Arabes vers le XIᵉ siècle. Catherine de Médicis, qui l’appréciait beaucoup, l’aurait popularisé à la cour de France : les plats « à la florentine » lui rendent hommage. Sa réputation d’aliment très riche en fer est en partie un mythe, entretenu par le personnage de Popeye.</p>
+<h2>Origine et régions de production</h2>
+<p>L’épinard préfère les saisons fraîches, au printemps et à l’automne :</p><ul><li>Hauts-de-France</li><li>Bretagne</li><li>Normandie</li><li>Provence</li></ul>
+<h2>Bienfaits</h2>
+<p>L’épinard est riche en micronutriments :</p><ul><li><strong>Vitamine B9 :</strong> Il en est l’une des meilleures sources végétales.</li><li><strong>Vitamine K :</strong> Très présente dans les feuilles.</li><li><strong>Lutéine :</strong> Un pigment utile à la santé des yeux.</li><li><strong>Fer :</strong> Présent, mais sous une forme moins bien absorbée que celle de la viande.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Pousses d’épinard :</strong> Jeunes feuilles tendres, à manger crues.</li><li><strong>Épinard d’hiver :</strong> Grandes feuilles épaisses, résiste au froid.</li><li><strong>Épinard de printemps :</strong> Feuilles lisses, pousse rapide.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Au frigo, dans un sac, sans les laver : 2 à 3 jours.</li><li><strong>Congélation :</strong> Blanchis 1 min, pressés en boules : jusqu’à 12 mois.</li><li><strong>Rien ne se jette :</strong> Les tiges se poêlent à l’ail. Les feuilles fanées vont dans une quiche, une omelette ou un smoothie.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

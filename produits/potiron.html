@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Potiron de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Potiron : de saison septembre à janvier, pleine saison en octobre, novembre. Se garde des mois dans un endroit sec ; parfait en velouté.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/potiron.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Légumes</a> › Potiron</nav>
+<h1>Potiron</h1>
+<img src="../images/potiron.webp" alt="Potiron" width="200" loading="lazy">
+<p>Se garde des mois dans un endroit sec ; parfait en velouté.</p>
+<ul><li><strong>Saison :</strong> septembre, octobre, novembre, décembre, janvier</li><li><strong>Pleine saison :</strong> octobre, novembre</li><li><strong>Famille botanique :</strong> Cucurbitacées</li></ul>
+<h2>Histoire</h2>
+<p>Originaire d’Amérique du Sud, le potiron fait partie des courges rapportées en Europe au XVIᵉ siècle. Il s’est installé dans les potagers pour sa rusticité et sa longue conservation. On le confond souvent avec la citrouille, une espèce voisine rendue célèbre par Halloween.</p>
+<h2>Origine et régions de production</h2>
+<p>Le potiron français est cultivé dans l’Ouest et le Centre :</p><ul><li>Pays de la Loire</li><li>Centre-Val de Loire</li><li>Nouvelle-Aquitaine</li></ul><p>Le Rouge vif d’Étampes est une variété ancienne française très appréciée.</p>
+<h2>Bienfaits</h2>
+<p>Le potiron est doux, léger et coloré :</p><ul><li><strong>Bêta-carotène :</strong> Sa chair orange en est très riche.</li><li><strong>Peu calorique :</strong> Environ 25 kcal/100 g.</li><li><strong>Fibres douces :</strong> Idéal en velouté, il est facile à digérer.</li><li><strong>Potassium :</strong> Contribue à l’équilibre hydrique.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Rouge vif d’Étampes :</strong> Gros et côtelé, la star d’Halloween.</li><li><strong>Potimarron :</strong> Goût de châtaigne, peau comestible.</li><li><strong>Bleu de Hongrie :</strong> Écorce gris-bleu, chair orange sucrée.</li><li><strong>Galeux d’Eysines :</strong> Couvert de petites bosses, chair fondante.</li><li><strong>Giraumon turban :</strong> En forme de turban, chair farineuse.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Entier, au sec et au frais : plusieurs mois. Entamé, au frigo, filmé : 1 semaine.</li><li><strong>Congélation :</strong> En cubes crus ou en purée : jusqu’à 12 mois.</li><li><strong>Rien ne se jette :</strong> Les graines se font griller au four avec du sel. La peau du potimarron se mange, inutile de l’éplucher.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

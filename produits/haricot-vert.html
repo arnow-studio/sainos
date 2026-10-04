@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Haricot vert de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Haricot vert : de saison juin à septembre, pleine saison en juillet, août. Gousse entière consommée jeune, avant que le grain ne se forme.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/haricot-vert.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Légumes</a> › Haricot vert</nav>
+<h1>Haricot vert</h1>
+<img src="../images/haricot-vert.webp" alt="Haricot vert" width="200" loading="lazy">
+<p>Gousse entière consommée jeune, avant que le grain ne se forme.</p>
+<ul><li><strong>Saison :</strong> juin, juillet, août, septembre</li><li><strong>Pleine saison :</strong> juillet, août</li><li><strong>Famille botanique :</strong> Fabacées</li></ul>
+<h2>Histoire</h2>
+<p>Le haricot est originaire d’Amérique (Mexique et Andes), où il était cultivé avec le maïs et la courge. Rapporté en Europe au XVIᵉ siècle, il se répand d’abord en Italie puis en France. C’est en France que s’est développée l’habitude de le récolter très jeune, en gousse, comme haricot vert.</p>
+<h2>Origine et régions de production</h2>
+<p>Le haricot vert est cultivé dans plusieurs grands bassins :</p><ul><li>Bretagne</li><li>Pays de la Loire</li><li>Nouvelle-Aquitaine</li><li>Hauts-de-France</li></ul>
+<h2>Bienfaits</h2>
+<p>Le haricot vert est léger et riche en fibres :</p><ul><li><strong>Peu calorique :</strong> Environ 30 kcal/100 g.</li><li><strong>Fibres :</strong> Il contribue au bon transit.</li><li><strong>Vitamine B9 :</strong> Utile au renouvellement cellulaire.</li><li><strong>Vitamine K :</strong> Présente en bonne quantité.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Extra-fin :</strong> Très fin, cuit en quelques minutes.</li><li><strong>Haricot beurre :</strong> Jaune et fondant.</li><li><strong>Haricot plat :</strong> Large et tendre.</li><li><strong>Mangetout :</strong> Plus charnu, sans fil.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Au frigo, dans un sac : 3 à 4 jours.</li><li><strong>Congélation :</strong> Équeutés et blanchis 3 min : jusqu’à 12 mois.</li><li><strong>Rien ne se jette :</strong> Un reste de haricots cuits fait une salade avec échalote et vinaigrette, ou une soupe mixée.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">

@@ -6,6 +6,8 @@
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>Pastèque de saison : origine, bienfaits &amp; calendrier | Sainos</title>
 <meta name="description" content="Pastèque : de saison juin à août, pleine saison en juillet, août. Plus de 90 % d’eau ; un son creux quand on la tapote est bon signe.">
@@ -26,6 +28,26 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/pasteque.jpg">
 </head>
 <body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Figtree,system-ui,sans-serif;line-height:1.6;color:#201e1d;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../saisons.html">Fruits</a> › Pastèque</nav>
+<h1>Pastèque</h1>
+<img src="../images/pasteque.webp" alt="Pastèque" width="200" loading="lazy">
+<p>Plus de 90 % d’eau ; un son creux quand on la tapote est bon signe.</p>
+<ul><li><strong>Saison :</strong> juin, juillet, août</li><li><strong>Pleine saison :</strong> juillet, août</li><li><strong>Famille botanique :</strong> Cucurbitacées</li></ul>
+<h2>Histoire</h2>
+<p>Originaire d’Afrique, la pastèque était cultivée en Égypte il y a plus de 4 000 ans : des graines ont été retrouvées dans des tombes de pharaons. Réserve d’eau précieuse dans les régions arides, elle s’est répandue autour de la Méditerranée puis dans le monde entier.</p>
+<h2>Origine et régions de production</h2>
+<p>La pastèque vendue en France vient surtout d’Espagne, avec une production française dans le Sud :</p><ul><li>Espagne (Andalousie, Murcie)</li><li>Occitanie</li><li>Provence</li></ul>
+<h2>Bienfaits</h2>
+<p>La pastèque est le fruit le plus désaltérant de l’été :</p><ul><li><strong>Hydratation maximale :</strong> Environ 92 % d’eau.</li><li><strong>Lycopène :</strong> Le même pigment rouge antioxydant que dans la tomate.</li><li><strong>Peu calorique :</strong> Environ 30 kcal/100 g.</li><li><strong>Citrulline :</strong> Un acide aminé présent en quantité dans sa chair.</li></ul>
+<h2>Variétés</h2>
+<ul><li><strong>Crimson Sweet :</strong> Ronde et rayée, chair rouge sucrée.</li><li><strong>Sugar Baby :</strong> Petite, écorce vert foncé.</li><li><strong>Pastèque jaune :</strong> Chair jaune, goût de miel.</li><li><strong>Sans pépins :</strong> Pépins blancs minuscules, très pratique.</li></ul>
+<h2>Conserver sans gaspiller</h2>
+<ul><li><strong>Conservation :</strong> Entière, au frais : 2 semaines. Entamée, filmée au frigo : 3 à 4 jours.</li><li><strong>Congélation :</strong> En cubes, pour les granités et smoothies : jusqu’à 6 mois.</li><li><strong>Rien ne se jette :</strong> La partie blanche de l’écorce se cuisine en confiture ou en pickles. Le jus fait une limonade.</li></ul>
+<p><a href="../saisons.html">Voir le calendrier des fruits et légumes de saison</a></p>
+</article>
+<!-- fiche-statique:end -->
 <x-dc>
 <helmet>
   <meta name="viewport" content="width=device-width, initial-scale=1">
