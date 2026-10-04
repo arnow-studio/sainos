@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html.m-kid [data-adult-only], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
+<style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400&family=Nunito:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="_ds/organic-f9092e65-12bb-43ea-a459-3e0b5f502c38/styles.css">
 <script src="produits-data.js"></script>
@@ -133,7 +134,7 @@
     <section style="display: flex; flex-direction: column; gap: var(--space-4); max-width: 720px;">
       <nav aria-label="Fil d’Ariane" style="font-size: 14px; display: flex; gap: var(--space-2);"><a href="index.html">Accueil</a><span aria-hidden="true">›</span><span aria-current="page">Ça pousse !</span></nav>
       <h1 style="margin: 0; font-size: clamp(38px, 5.5vw, 64px); line-height: 1.02; text-wrap: balance;">Comment ça pousse ?</h1>
-      <p style="margin: 0; font-size: 19px; line-height: 1.65; text-wrap: pretty;">De la petite graine jusqu’à ton assiette, chaque fruit et légume a toute une aventure à te raconter. Choisis-en un et suis son voyage, étape par étape !</p>
+      <p style="margin: 0; font-size: 20px; line-height: 1.65; text-wrap: pretty;">De la petite graine jusqu’à ton assiette, chaque fruit et légume a toute une aventure à te raconter. Choisis-en un et suis son voyage, étape par étape !</p>
     </section>
 
     <section class="only-adult" style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-6); background: var(--color-accent-2-100); border: 2px solid var(--color-accent-2-300); border-radius: var(--radius-lg);">
@@ -168,26 +169,26 @@
           <span aria-hidden="true" style="font-size: 48px; line-height: 1; flex: none;">🪴</span>
           <div style="display: flex; flex-direction: column; gap: 6px;">
             <h3 style="margin: 0; font-size: 24px;">Tu peux le faire pousser chez toi ? <span id="chez-v" style="font-family: var(--font-body); font-weight: 800;"></span></h3>
-            <p id="chez-t" style="margin: 0; font-size: 18px; line-height: 1.55; text-wrap: pretty;"></p>
+            <p id="chez-t" style="margin: 0; font-size: 20px; line-height: 1.55; text-wrap: pretty;"></p>
           </div>
         </section>
 
         <section aria-labelledby="q-t" style="display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-6); background: #fff; border: 1px solid var(--color-divider); border-radius: var(--radius-lg);">
-          <span style="font-size: 14px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700);">As-tu bien suivi ?</span>
+          <span style="font-size: 16px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700);">As-tu bien suivi ?</span>
           <h3 id="q-t" style="margin: 0; font-size: clamp(24px, 3vw, 32px);"></h3>
           <div id="q-c" style="display: flex; flex-wrap: wrap; gap: var(--space-3);"></div>
-          <p id="q-r" role="status" style="margin: 0; padding: var(--space-4); background: var(--color-accent-2-100); color: var(--color-accent-2-900); border-radius: var(--radius-lg); font-size: 18px; line-height: 1.6;" hidden></p>
+          <p id="q-r" role="status" style="margin: 0; padding: var(--space-4); background: var(--color-accent-2-100); color: var(--color-accent-2-900); border-radius: var(--radius-lg); font-size: 20px; line-height: 1.6;" hidden></p>
         </section>
 
         <section style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-6); background: var(--color-accent-200); border-radius: var(--radius-lg);">
           <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 300px;">
             <span id="b-t" style="font-family: var(--font-heading); font-size: 26px; color: var(--color-accent-900);"></span>
-            <span id="b-x" style="font-size: 17px; color: var(--color-accent-900);"></span>
+            <span id="b-x" style="font-size: 19px; color: var(--color-accent-900);"></span>
           </div>
-          <button type="button" id="b-btn" class="btn btn-primary" style="padding: 14px 26px; font-size: 18px; min-height: 52px;"></button>
+          <button type="button" id="b-btn" class="btn btn-primary" style="padding: 14px 26px; font-size: 20px; min-height: 52px;"></button>
         </section>
 
-        <a id="fiche" href="#" style="align-self: flex-start; font-size: 18px; font-weight: 700;"></a>
+        <a id="fiche" href="#" style="align-self: flex-start; font-size: 20px; font-weight: 700;"></a>
       </article>
     </div>
   </main>
