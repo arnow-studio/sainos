@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
-<style>html.m-kid [data-nav-lex], html.m-kid [data-adult-only], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
+<style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html.m-kid [data-adult-only], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400&family=Nunito:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="_ds/organic-f9092e65-12bb-43ea-a459-3e0b5f502c38/styles.css">
 <script src="produits-data.js"></script>
@@ -59,7 +59,7 @@
       <div data-nav-desk="1" style="display: flex; gap: var(--space-4); align-items: center; flex-wrap: wrap;">
         <a href="saisons.html">Calendrier</a>
         <a href="origines.html">Origines</a>
-        <a href="marches.html">Marchés</a>
+        <a href="marches.html" data-nav-mar="1">Marchés</a><a href="pousse.html" data-nav-pousse="1">Ça pousse !</a>
         <a href="bio.html">Bio</a>
         <a href="enseignants.html" data-nav-lex="1">En classe</a>
         <a href="quiz.html" data-nav-quiz="1">Quiz</a>
@@ -73,7 +73,7 @@
         <div data-nav-panel="1" style="position: absolute; right: 0; top: calc(100% + 10px); z-index: 50; width: min(280px, 80vw); box-sizing: border-box; padding: 10px; background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 4px;">
           <a href="saisons.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Calendrier</a>
           <a href="origines.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Origines</a>
-          <a href="marches.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Marchés</a>
+          <a href="marches.html" data-nav-mar="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Marchés</a><a href="pousse.html" data-nav-pousse="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Ça pousse !</a>
           <a href="bio.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Bio</a>
           <a href="enseignants.html" data-nav-lex="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">En classe</a>
         <a href="quiz.html" data-nav-quiz="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Quiz</a>
@@ -180,7 +180,7 @@
         <a href="index.html">Accueil</a>
         <a href="saisons.html">Calendrier</a>
         <a href="origines.html">Origines</a>
-        <a href="marches.html">Marchés</a>
+        <a href="marches.html" data-nav-mar="1">Marchés</a><a href="pousse.html" data-nav-pousse="1">Ça pousse !</a>
         <a href="bio.html">Bio</a>
         <a href="lexique.html" data-nav-lex="1">Lexique</a>
         <a href="quiz.html" data-nav-quiz="1">Quiz</a>

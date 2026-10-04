@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>(function(){var d=document.documentElement;function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
-<style>html.m-kid [data-nav-lex], html.m-kid [data-adult-only], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
+<style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html.m-kid [data-adult-only], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <script src="./support.js"></script>
 <title>À propos de Sainos — un guide indépendant des fruits et légumes de saison</title>
 <meta name="description" content="Sainos est un projet indépendant et éducatif pour découvrir les fruits et légumes de saison. Sans vente, sans publicité, sans cookie.">
@@ -61,7 +61,7 @@
       <div data-nav-desk="1" style="display: flex; gap: var(--space-4); align-items: center;">
         <a href="saisons.html">Calendrier</a>
         <a href="origines.html">Origines</a>
-        <a href="marches.html">Marchés</a>
+        <a href="marches.html" data-nav-mar="1">Marchés</a><a href="pousse.html" data-nav-pousse="1">Ça pousse !</a>
         <a href="bio.html">Bio</a>
         <a href="enseignants.html" data-nav-lex="1">En classe</a>
         <a href="quiz.html" data-nav-quiz="1">Quiz</a>
@@ -75,7 +75,7 @@
         <div data-nav-panel="1" style="position: absolute; right: 0; top: calc(100% + 10px); z-index: 50; width: min(280px, 80vw); box-sizing: border-box; padding: 10px; background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 4px;">
           <a href="saisons.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Calendrier</a>
           <a href="origines.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Origines</a>
-          <a href="marches.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Marchés</a>
+          <a href="marches.html" data-nav-mar="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Marchés</a><a href="pousse.html" data-nav-pousse="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Ça pousse !</a>
           <a href="bio.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Bio</a>
           <a href="enseignants.html" data-nav-lex="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">En classe</a>
         <a href="quiz.html" data-nav-quiz="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Quiz</a>
@@ -133,7 +133,7 @@
           </div>
           <div style="display: flex; gap: var(--space-4); align-items: flex-start;">
             <span aria-hidden="true" style="flex: none; width: 56px; height: 56px; border-radius: 50%; background: var(--color-accent-200); display: grid; place-items: center; font-size: 26px;">🔎</span>
-            <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0;"><h3 style="margin: 0; font-size: 22px; line-height: 1.2;">D’où viennent les informations</h3><p style="margin: 0; font-size: 16px; line-height: 1.6; text-wrap: pretty;">Les périodes de saison croisent plusieurs calendriers reconnus de producteurs et d’organismes publics. Les marchés viennent d’OpenStreetMap, la carte collaborative. Une erreur ? <a href="contact.html">Signalez-la</a>, elle sera corrigée.</p></div>
+            <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0;"><h3 style="margin: 0; font-size: 22px; line-height: 1.2;">D’où viennent les informations</h3><p style="margin: 0; font-size: 16px; line-height: 1.6; text-wrap: pretty;">Les périodes de saison sont croisées avec les calendriers de l’<a href="https://impactco2.fr/outils/fruitsetlegumes" target="_blank" rel="noopener">ADEME</a>, de <a href="https://www.mangerbouger.fr" target="_blank" rel="noopener">Manger Bouger</a> (Santé publique France) et d’<a href="https://www.lesfruitsetlegumesfrais.com" target="_blank" rel="noopener">Interfel</a>, l’interprofession des fruits et légumes frais. Les labels bio suivent l’<a href="https://www.agencebio.org" target="_blank" rel="noopener">Agence Bio</a>, et les marchés viennent d’<a href="https://www.openstreetmap.org" target="_blank" rel="noopener">OpenStreetMap</a>, la carte collaborative. Une erreur ? <a href="contact.html">Signalez-la</a>, elle sera corrigée.</p></div>
           </div>
           <div style="display: flex; gap: var(--space-4); align-items: flex-start;">
             <span aria-hidden="true" style="flex: none; width: 56px; height: 56px; border-radius: 50%; background: #f4e3c8; display: grid; place-items: center; font-size: 26px;">✍️</span>
@@ -154,7 +154,7 @@
           </div>
           <div style="display: flex; gap: var(--space-4); align-items: flex-start;">
             <span aria-hidden="true" style="flex: none; width: 56px; height: 56px; border-radius: 50%; background: var(--color-accent-200); display: grid; place-items: center; font-size: 26px;">🔎</span>
-            <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0;"><h3 style="margin: 0; font-size: 22px; line-height: 1.2;">C’est vrai, tout ça ?</h3><p style="margin: 0; font-size: 16px; line-height: 1.6; text-wrap: pretty;">Oui ! Les saisons viennent de calendriers de vrais producteurs, et chaque info est vérifiée. Si tu vois une erreur, dis-le à un adulte : on la corrigera.</p></div>
+            <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0;"><h3 style="margin: 0; font-size: 22px; line-height: 1.2;">C’est vrai, tout ça ?</h3><p style="margin: 0; font-size: 16px; line-height: 1.6; text-wrap: pretty;">Oui ! Les saisons sont vérifiées avec des organismes officiels, comme l’ADEME et Manger Bouger, et avec les producteurs de fruits et légumes. Si tu vois une erreur, dis-le à un adulte : on la corrigera.</p></div>
           </div>
           <div style="display: flex; gap: var(--space-4); align-items: flex-start;">
             <span aria-hidden="true" style="flex: none; width: 56px; height: 56px; border-radius: 50%; background: #f4e3c8; display: grid; place-items: center; font-size: 26px;">✍️</span>
@@ -275,7 +275,7 @@
         <a href="index.html">Accueil</a>
         <a href="saisons.html">Calendrier</a>
         <a href="origines.html">Origines</a>
-        <a href="marches.html">Marchés</a>
+        <a href="marches.html" data-nav-mar="1">Marchés</a><a href="pousse.html" data-nav-pousse="1">Ça pousse !</a>
         <a href="bio.html">Bio</a>
         <a href="lexique.html" data-nav-lex="1">Lexique</a>
         <a href="quiz.html" data-nav-quiz="1">Quiz</a>
