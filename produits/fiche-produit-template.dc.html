@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>(function(){var d=document.documentElement;var B=null,T=0,Q='[aria-label="Choisir le mode"]';document.addEventListener('click',function(e){var t=e.target&&e.target.closest?e.target.closest(Q):null;B=t;if(t)T=t.getBoundingClientRect().top},true);function g(){var b=B;B=null;if(!b){try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}return}var n=0;(function f(){var x=document.querySelector(Q)||b;var dy=x.getBoundingClientRect().top-T;if(dy)try{window.scrollBy({top:dy,left:0,behavior:'instant'})}catch(e){window.scrollBy(0,dy)}if(++n<24)requestAnimationFrame(f)})()}function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))g()}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
-<style id="kid-palette">html.m-kid { --color-accent: #e8890a; --color-accent-100: #fff6e0; --color-accent-200: #ffe7b0; --color-accent-300: #ffd375; --color-accent-400: #fbb53a; --color-accent-500: #e8890a; --color-accent-600: #c97206; --color-accent-700: #a15a05; --color-accent-800: #7d4504; --color-accent-900: #5e3403; --color-accent-2-100: #fff9ec; --color-accent-2-200: #fdefd2; --color-accent-2-300: #f8dca6; --color-accent-2-800: #85561a; --color-accent-2-900: #6b4312; } html.m-kid .btn-primary, html.m-kid .tag-accent { color: var(--color-accent-900) !important; } .btn-primary { background-image: linear-gradient(90deg, var(--color-accent-500), var(--color-accent-700)) !important; } .btn-primary:hover { background-image: linear-gradient(90deg, var(--color-accent-600), var(--color-accent-800)) !important; } html.m-kid .btn-primary { background-image: linear-gradient(90deg, var(--color-accent-400), var(--color-accent-500)) !important; } html.m-kid .btn-primary:hover { background-image: linear-gradient(90deg, var(--color-accent-500), var(--color-accent-600)) !important; }</style>
+<script>(function(){var d=document.documentElement;var B=null,T=0,Q='[aria-label="Choisir le mode"]';document.addEventListener('click',function(e){var t=e.target&&e.target.closest?e.target.closest(Q):null;B=null},true);function g(){var b=B;B=null;if(!b){try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}return}var n=0;(function f(){var x=document.querySelector(Q)||b;var dy=x.getBoundingClientRect().top-T;if(dy)try{window.scrollBy({top:dy,left:0,behavior:'instant'})}catch(e){window.scrollBy(0,dy)}if(++n<24)requestAnimationFrame(f)})()}function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))g()}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
+<style id="kid-palette">html.m-kid { --color-accent: #f5a614; --color-accent-100: #fff7dc; --color-accent-200: #ffeaa8; --color-accent-300: #ffd96b; --color-accent-400: #ffc23d; --color-accent-500: #f5a614; --color-accent-600: #d88c06; --color-accent-700: #945d03; --color-on-accent: var(--color-accent-900); --color-accent-800: #7f5003; --color-accent-900: #5a3902; --color-accent-2-100: #fffaea; --color-accent-2-200: #fdf1cf; --color-accent-2-300: #f8e2a2; --color-accent-2-800: #87601a; --color-accent-2-900: #6b4a10; }
+    :where(html.m-kid) a:not(.btn), :where(html.m-kid) .btn-ghost, :where(html.m-kid) .tag-outline, :where(html.m-kid) .card-kicker { color: var(--color-accent-800); } html.m-kid .btn-primary, html.m-kid .tag-accent { color: var(--color-accent-900) !important; } .btn-primary { background-image: linear-gradient(90deg, var(--color-accent-500), var(--color-accent-700)) !important; } .btn-primary:hover { background-image: linear-gradient(90deg, var(--color-accent-600), var(--color-accent-800)) !important; } html.m-kid .btn-primary { background-image: linear-gradient(90deg, var(--color-accent-400), var(--color-accent-500)) !important; } html.m-kid .btn-primary:hover { background-image: linear-gradient(90deg, var(--color-accent-500), var(--color-accent-600)) !important; }</style>
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html.m-kid [data-adult-only], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
 <script src="./support.js"></script>
@@ -23,7 +24,7 @@
   <script src="../produits-varietes.js"></script>
   <script src="../produits-antigaspi.js"></script>
   <style>
-    :root { --color-bg: #fbf8f2; --color-accent: #3d8b2f; --color-accent-100: #eef7ea; --color-accent-200: #d9eed0; --color-accent-300: #b6dca5; --color-accent-400: #74b95e; --color-accent-500: #3d8b2f; --color-accent-600: #327426; --color-accent-700: #285e1f; --color-accent-800: #1f4a19; --color-accent-900: #183a14; --color-accent-2-100: #f4f8ed; --color-accent-2-200: #e8efdb; --color-accent-2-300: #d8e2c7; --color-accent-2-800: #56613f; --color-accent-2-900: #46512f;  --color-neutral-100: #fffdf9; --color-text: #5b3b27; --color-divider: color-mix(in srgb, #8c491a 20%, transparent); --font-heading: 'DynaPuff', system-ui, sans-serif; --font-body: 'Nunito', system-ui, sans-serif; }
+    :root { --color-bg: #fbf8f2; --color-accent: #357d28; --color-accent-100: #eef7ea; --color-accent-200: #d9eed0; --color-accent-300: #b6dca5; --color-accent-400: #74b95e; --color-accent-500: #357d28; --color-accent-600: #327426; --color-accent-700: #285e1f; --color-accent-800: #1f4a19; --color-accent-900: #183a14; --color-accent-2-100: #f4f8ed; --color-accent-2-200: #e8efdb; --color-accent-2-300: #d8e2c7; --color-accent-2-800: #56613f; --color-accent-2-900: #46512f;  --color-neutral-100: #fffdf9; --color-text: #5b3b27; --color-divider: color-mix(in srgb, #8c491a 20%, transparent); --font-heading: 'DynaPuff', system-ui, sans-serif; --font-body: 'Nunito', system-ui, sans-serif; }
     body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
     h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 400; }
     a { color: var(--color-accent-700); }
@@ -74,6 +75,7 @@
           <a href="../apropos.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">À propos</a>
           <a href="../contact.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Contact</a>
         
+          <a href="{{ langHref }}" data-lang="en" hreflang="en" lang="en" style="display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;"><span aria-hidden="true">🌐</span>English version</a>
           <div data-nav-extra="1" style="display: flex; flex-direction: column; gap: 10px; margin-top: 6px; padding: 12px 8px 4px; border-top: 1px solid var(--color-divider);"><sc-if value="{{ adult }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ toEnfant }}" style="display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-2-300); background: #ffffff; color: var(--color-accent-2-900); font: inherit; font-size: 16px; font-weight: 700; padding: 10px 18px; min-height: 48px; width: 100%; justify-content: center; box-sizing: border-box; border-radius: 999px; cursor: pointer; white-space: nowrap;" style-hover="background: var(--color-accent-2-100); border-color: var(--color-accent-2-500);">🎒 Mode Enfants</button></sc-if><sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ toNormal }}" style="display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-300); background: #ffffff; color: var(--color-accent-900); font: inherit; font-size: 16px; font-weight: 700; padding: 10px 18px; min-height: 48px; width: 100%; justify-content: center; box-sizing: border-box; border-radius: 999px; cursor: pointer; white-space: nowrap;" style-hover="background: var(--color-accent-100); border-color: var(--color-accent-500);">Mode Parents</button></sc-if><div aria-label="Suivre Sainos" data-nav-social="1" style="display: flex; justify-content: center; gap: var(--space-2); align-items: center;"><a href="https://www.facebook.com/profile.php?id=61594827576678" target="_blank" rel="noopener" aria-label="Sainos sur Facebook" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/facebook/1877F2" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a><a href="https://www.instagram.com/sainos_fr/" target="_blank" rel="noopener" aria-label="Sainos sur Instagram" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/instagram/E4405F" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a><a href="https://www.tiktok.com/@sainos_fr" target="_blank" rel="noopener" aria-label="Sainos sur TikTok" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/tiktok/000000" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a></div></div>
         </div>
       </details>
@@ -175,13 +177,13 @@
             <p style="margin: 0; font-size: 17px; line-height: 1.7;">{{ tx.bienfaitsIntro }}</p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-4);">
               <sc-for list="{{ bienfaits }}" as="b" hint-placeholder-count="4">
-                <div style="display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); background: var(--color-accent-2-100); border: 1px solid color-mix(in srgb, var(--color-accent-2-500) 25%, transparent); border-radius: var(--radius-lg);">
+                <div style="display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); background: var(--color-accent-2-200); border: 1px solid color-mix(in srgb, var(--color-accent-2-500) 25%, transparent); border-radius: var(--radius-lg);">
                   <h3 style="margin: 0; font-size: 20px; color: var(--color-accent-2-900);">{{ b.t }}</h3>
                   <p style="margin: 0; font-size: 15px; line-height: 1.55;">{{ b.x }}</p>
                 </div>
               </sc-for>
             </div>
-            <aside aria-label="Recette mise en avant" style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; padding: var(--space-4); background: #ffffff; border: 1px solid var(--color-divider); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+            <aside role="note" aria-label="Recette mise en avant" style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; padding: var(--space-4); background: #ffffff; border: 1px solid var(--color-divider); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
               <span aria-hidden="true" style="flex: none; width: 88px; height: 88px; border-radius: 50%; display: grid; place-items: center; font-size: 52px; background: var(--color-accent-200);"><sc-if value="{{ hero.noImg }}" hint-placeholder-val="{{ false }}">{{ hero.e }}</sc-if><span role="img" aria-hidden="true" style="width: 64px; height: 64px; background: {{ hero.imgBg }}; display: block;"></span></span>
               <div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 4px; min-width: 0;">
                 <span style="font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: var(--color-accent-700);">Recette mise en avant · 750g</span>
@@ -226,7 +228,7 @@
             </div>
           </section>
 
-          <aside aria-label="Le saviez-vous ?" style="display: flex; gap: var(--space-4); align-items: flex-start; padding: var(--space-6); background: var(--color-accent-2-200); color: var(--color-accent-2-900); border-radius: var(--radius-lg) var(--radius-lg) var(--radius-lg) 6px;">
+          <aside role="note" aria-label="Le saviez-vous ?" style="display: flex; gap: var(--space-4); align-items: flex-start; padding: var(--space-6); background: var(--color-accent-2-200); color: var(--color-accent-2-900); border-radius: var(--radius-lg) var(--radius-lg) var(--radius-lg) 6px;">
             <span aria-hidden="true" style="font-size: 44px; line-height: 1;">💡</span>
             <div style="display: flex; flex-direction: column; gap: var(--space-2);">
               <span style="font-family: var(--font-heading); font-size: 22px;">Le saviez-vous ?</span>
@@ -248,7 +250,7 @@
           </section>
         </div>
       </sc-if>
-          <sc-if value="{{ hasAG }}" hint-placeholder-val="{{ false }}"><section aria-labelledby="h-antigaspi" style="display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-6); background: var(--color-accent-100); border-radius: var(--radius-lg);">
+          <sc-if value="{{ hasAG }}" hint-placeholder-val="{{ false }}"><section aria-labelledby="h-antigaspi" style="display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-6); background: var(--color-accent-200); border-radius: var(--radius-lg);">
             <h2 id="h-antigaspi" style="margin: 0; font-size: clamp(26px, 3vw, 34px); color: var(--color-accent-900);">Anti-gaspi</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: var(--space-3);">
               <div style="display: flex; flex-direction: column; gap: 6px; padding: var(--space-4); background: #ffffff; border-radius: var(--radius-lg);"><span style="font-family: var(--font-heading); font-size: 19px; line-height: 1.2;">🧺 Le garder plus longtemps</span><span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">{{ ag.c }}</span></div>
@@ -348,7 +350,8 @@
         </section></sc-if>
       </div>
 
-      <aside aria-label="Le sais-tu ?" style="display: flex; gap: var(--space-4); align-items: flex-start; padding: var(--space-6); background: var(--color-accent-100); color: var(--color-accent-900); border-radius: var(--radius-lg);">
+
+      <aside role="note" aria-label="Le sais-tu ?" style="display: flex; gap: var(--space-4); align-items: flex-start; padding: var(--space-6); background: var(--color-accent-100); color: var(--color-accent-900); border-radius: var(--radius-lg);">
         <span aria-hidden="true" style="font-size: 48px; line-height: 1;">🤯</span>
         <div style="display: flex; flex-direction: column; gap: var(--space-2);">
           <span style="font-family: var(--font-heading); font-weight: 400; font-size: 26px;">Le sais-tu ?</span>
@@ -360,7 +363,7 @@
         <h2 id="hk-bon" style="margin: 0; font-size: clamp(28px, 3.4vw, 38px);">Pourquoi c’est bon pour toi</h2>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-4);">
           <sc-for list="{{ k.bon }}" as="kb" hint-placeholder-count="3">
-            <div style="display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-6); background: var(--color-accent-2-100); border: 1px solid color-mix(in srgb, var(--color-accent-2-500) 25%, transparent); border-radius: var(--radius-lg);">
+            <div style="display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-6); background: var(--color-accent-2-200); border: 1px solid color-mix(in srgb, var(--color-accent-2-500) 25%, transparent); border-radius: var(--radius-lg);">
               <span aria-hidden="true" style="font-size: 36px;">{{ kb.i }}</span>
               <h3 style="margin: 0; font-size: 22px; color: var(--color-accent-2-900);">{{ kb.t }}</h3>
               <p style="margin: 0; font-size: 19px; line-height: 1.55;">{{ kb.x }}</p>
@@ -368,7 +371,7 @@
           </sc-for>
         </div>
       </section>
-        <sc-if value="{{ hasAG }}" hint-placeholder-val="{{ false }}"><section aria-labelledby="hk-antigaspi" style="display: flex; gap: var(--space-4); align-items: center; padding: var(--space-5, 20px) var(--space-6); background: var(--color-accent-100); border: 2px solid var(--color-accent-300); border-radius: var(--radius-lg);">
+        <sc-if value="{{ hasAG }}" hint-placeholder-val="{{ false }}"><section aria-labelledby="hk-antigaspi" style="display: flex; gap: var(--space-4); align-items: center; padding: var(--space-5, 20px) var(--space-6); background: var(--color-accent-200); border: 2px solid var(--color-accent-300); border-radius: var(--radius-lg);">
           <span aria-hidden="true" style="font-size: 44px; line-height: 1; flex: none;">♻️</span>
           <div style="display: flex; flex-direction: column; gap: 4px;"><h2 id="hk-antigaspi" style="margin: 0; font-size: 24px; color: var(--color-accent-900);">Astuce anti-gaspi</h2><p style="margin: 0; font-size: 20px; line-height: 1.55; color: var(--color-accent-900); text-wrap: pretty;">{{ ag.k }}</p></div>
         </section></sc-if>
@@ -430,7 +433,7 @@
     </section>
   <section aria-label="Choisir le mode" style="margin: var(--space-8) 0;">
       <sc-if value="{{ adult }}" hint-placeholder-val="{{ true }}"><div style="display: flex; flex-direction: column; background: #ffffff; border: 2px solid var(--color-accent-2-300); border-radius: var(--radius-lg); overflow: hidden;">
-        <img src="../images/pano-apropos-adulte-v2.webp" alt="Un jeune agriculteur debout dans son champ de maïs au printemps" width="1500" height="500" loading="lazy" style="display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover;">
+        <img src="../images/pano-apropos-enfant.webp" alt="Un jeune agriculteur dessiné dans son champ, mains sur les hanches" width="1500" height="500" loading="lazy" style="display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover;">
         <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-4) var(--space-6);">
           <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 320px; min-width: 0;">
             <span style="font-family: var(--font-heading); font-weight: 400; font-size: 24px; color: var(--color-accent-2-900);">🧺 Mode parent activé</span>
@@ -465,6 +468,7 @@
         <a href="../apropos.html">À propos</a>
         <a href="../enseignants.html" data-adult-only="1">Enseignants</a>
         <a href="../contact.html" data-adult-only="1">Contact</a>
+        <a href="{{ langHref }}" data-lang="en" hreflang="en" lang="en">English version</a>
       </nav>
       <div aria-label="Suivre Sainos" style="display: flex; gap: var(--space-2); align-items: center;">
         <a href="https://www.facebook.com/profile.php?id=61594827576678" target="_blank" rel="noopener" aria-label="Sainos sur Facebook" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/facebook/1877F2" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
@@ -553,7 +557,7 @@ class Component extends DCLogic {
     const kcal = S.MOIS_C.map((label, i) => {
       const m = i + 1, f = p.f.includes(m), av = p.m.includes(m);
       return { label, icon: f ? '⭐' : av ? '🙂' : '💤', style: { display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, padding: '12px 4px', borderRadius: 18,
-        background: f ? 'var(--color-accent)' : av ? 'var(--color-accent-2-200)' : '#ffffff', color: f ? '#ffffff' : 'var(--color-text)',
+        background: f ? 'var(--color-accent)' : av ? 'var(--color-accent-2-200)' : '#ffffff', color: f ? 'var(--color-on-accent, #ffffff)' : 'var(--color-text)',
         border: m === now ? '2px solid var(--color-text)' : '2px solid transparent' } };
     });
     const pick = this.state.pick, good = d.quiz[2];
@@ -609,7 +613,7 @@ class Component extends DCLogic {
   }
   renderVals() {
     const mini = true; const kv = this._kidVals(); const kf = this._kf(); const kidOn = kv.kid && kf.hasK;
-    const rv = this._rv(); return { ...rv, ...kv, ...kf, share: this._share(rv.nom), kid: kidOn, adult: !kidOn, logoBig: { display: mini ? 'none' : 'block', height: 'clamp(84px, 11vw, 120px)', width: 'auto' }, logoMini: { display: mini ? 'block' : 'none', height: 36, width: 'auto' } };
+    const rv = this._rv(); return { ...rv, ...kv, ...kf, langHref: '../en/produits/' + this.slug() + '.html', share: this._share(rv.nom), kid: kidOn, adult: !kidOn, logoBig: { display: mini ? 'none' : 'block', height: 'clamp(84px, 11vw, 120px)', width: 'auto' }, logoMini: { display: mini ? 'block' : 'none', height: 36, width: 'auto' } };
   }
   _rv() {
     const S = window.SAISON;
@@ -631,7 +635,7 @@ class Component extends DCLogic {
       return { label, state: f ? 'Pleine saison' : av ? 'Disponible' : 'Hors saison', title: S.MOIS[i] + (mm === now ? ' (mois en cours)' : ''),
         style: { display: 'flex', flexDirection: 'column', gap: 2, padding: '10px 12px', borderRadius: 18,
           background: f ? 'var(--color-accent)' : av ? 'var(--color-accent-2-200)' : '#ffffff',
-          color: f ? 'var(--color-bg)' : av ? 'var(--color-accent-2-900)' : 'var(--color-neutral-700)',
+          color: f ? 'var(--color-on-accent, var(--color-bg))' : av ? 'var(--color-accent-2-900)' : 'var(--color-neutral-700)',
           border: mm === now ? '2px solid var(--color-text)' : '2px solid transparent' } };
     });
     const calSummary = p.m.length === 12
