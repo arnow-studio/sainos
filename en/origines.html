@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script id="lang-redirect">(function(){var cur='en',alt='../origines.html';document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-lang]');if(a)try{localStorage.setItem('sainos-lang',a.getAttribute('data-lang'))}catch(_){}},true);try{var p=localStorage.getItem('sainos-lang');if(/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)||p===cur)return;var L=p||((navigator.languages&&navigator.languages[0])||navigator.language||'').slice(0,2).toLowerCase();if((cur==='fr'&&L==='en')||(cur==='en'&&L==='fr'))location.replace(alt+location.hash)}catch(e){}})();</script>
+<link rel="alternate" hreflang="fr" href="https://www.sainos.fr/origines.html">
+<link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/origines.html">
+<link rel="alternate" hreflang="x-default" href="https://www.sainos.fr/origines.html">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){var d=document.documentElement;var B=null,T=0,Q='[aria-label="Choose mode"]';document.addEventListener('click',function(e){var t=e.target&&e.target.closest?e.target.closest(Q):null;B=null},true);function g(){var b=B;B=null;if(!b){try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}return}var n=0;(function f(){var x=document.querySelector(Q)||b;var dy=x.getBoundingClientRect().top-T;if(dy)try{window.scrollBy({top:dy,left:0,behavior:'instant'})}catch(e){window.scrollBy(0,dy)}if(++n<24)requestAnimationFrame(f)})()}function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))g()}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
+<style id="kid-palette">html.m-kid { --color-accent: #f5a614; --color-accent-100: #fff7dc; --color-accent-200: #ffeaa8; --color-accent-300: #ffd96b; --color-accent-400: #ffc23d; --color-accent-500: #f5a614; --color-accent-600: #d88c06; --color-accent-700: #945d03; --color-on-accent: var(--color-accent-900); --color-accent-800: #7f5003; --color-accent-900: #5a3902; --color-accent-2-100: #fffaea; --color-accent-2-200: #fdf1cf; --color-accent-2-300: #f8e2a2; --color-accent-2-800: #87601a; --color-accent-2-900: #6b4a10; }
+    :where(html.m-kid) a:not(.btn), :where(html.m-kid) .btn-ghost, :where(html.m-kid) .tag-outline, :where(html.m-kid) .card-kicker { color: var(--color-accent-800); } html.m-kid .btn-primary, html.m-kid .tag-accent { color: var(--color-accent-900) !important; } .btn-primary { background-image: linear-gradient(90deg, var(--color-accent-500), var(--color-accent-700)) !important; } .btn-primary:hover { background-image: linear-gradient(90deg, var(--color-accent-600), var(--color-accent-800)) !important; } html.m-kid .btn-primary { background-image: linear-gradient(90deg, var(--color-accent-400), var(--color-accent-500)) !important; } html.m-kid .btn-primary:hover { background-image: linear-gradient(90deg, var(--color-accent-500), var(--color-accent-600)) !important; }</style>
+<style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html.m-kid [data-adult-only], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
+<style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400&family=Nunito:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../_ds/organic-f9092e65-12bb-43ea-a459-3e0b5f502c38/styles.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
+<script src="produits-data.js"></script>
+<style>
+  :root { --color-bg: #fbf8f2; --color-accent: #357d28; --color-accent-100: #eef7ea; --color-accent-200: #d9eed0; --color-accent-300: #b6dca5; --color-accent-400: #74b95e; --color-accent-500: #357d28; --color-accent-600: #327426; --color-accent-700: #285e1f; --color-accent-800: #1f4a19; --color-accent-900: #183a14; --color-accent-2-100: #f4f8ed; --color-accent-2-200: #e8efdb; --color-accent-2-300: #d8e2c7; --color-accent-2-800: #56613f; --color-accent-2-900: #46512f; --color-neutral-100: #fffdf9; --color-text: #5b3b27; --color-divider: color-mix(in srgb, #8c491a 20%, transparent); --font-heading: 'DynaPuff', system-ui, sans-serif; --font-body: 'Nunito', system-ui, sans-serif; }
+  body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
+  h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; }
+  a { color: var(--color-accent-700); }
+  a:not(.btn):not(.tag):hover { color: var(--color-accent-600); }
+  *:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+  body.kid .only-adult, body:not(.kid) .only-kid { display: none !important; }
+  .wrap { max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; padding-left: clamp(20px, 5vw, 56px); padding-right: clamp(20px, 5vw, 56px); }
+  .pill { display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-300); background: #fff; color: var(--color-accent-900); font: inherit; font-size: 15px; font-weight: 700; padding: 8px 16px; min-height: 44px; box-sizing: border-box; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+  .pill:hover { background: var(--color-accent-100); border-color: var(--color-accent-500); }
+  .pill[aria-pressed="true"] { background: var(--color-accent); border-color: var(--color-accent); color: #fff; }
+  .mode-btn { display: flex; align-items: center; gap: 6px; background: #fff; font: inherit; font-size: 14px; font-weight: 700; padding: 6px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+  #map { height: 560px; border-radius: var(--radius-lg); overflow: hidden; background: #e6eff4; z-index: 0; }
+  #liste { max-height: 560px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; padding-right: 4px; }
+  .m-item { display: flex; flex-direction: row; align-items: center; gap: 12px; padding: 14px 16px; background: #fff; border: 2px solid transparent; border-radius: 16px; box-shadow: var(--shadow-sm); cursor: pointer; text-align: left; font: inherit; color: inherit; }
+  .m-item:hover, .m-item.on { border-color: var(--color-accent-400); }
+  .opin { width: 44px; height: 44px; border-radius: 50%; background: #fff center / 80% no-repeat; border: 3px solid var(--c); box-shadow: 0 2px 6px rgba(0,0,0,.3); display: grid; place-items: center; font-size: 24px; }
+  .pin { width: 26px; height: 26px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: var(--color-accent); border: 3px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,.3); }
+  .pin.off { background: #a99a86; }
+  .pin.on { background: #e0892f; }
+  .me { width: 18px; height: 18px; border-radius: 50%; background: #3b82c4; border: 3px solid #fff; box-shadow: 0 0 0 6px rgba(59,130,196,.25); }
+  .leaflet-popup-content-wrapper { border-radius: 16px; font-family: var(--font-body); color: var(--color-text); }
+  .leaflet-popup-content { margin: 12px 16px; font-size: 14px; line-height: 1.45; }
+  .chk { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: #fff; border-radius: 16px; border: 2px solid var(--color-accent-200); cursor: pointer; min-height: 44px; }
+  .chk input { width: 22px; height: 22px; accent-color: var(--color-accent); }
+  .mgrid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr); gap: var(--space-4); align-items: start; }
+  @media (max-width: 860px) { .mgrid { grid-template-columns: minmax(0, 1fr); } #map { height: 380px; } #liste { max-height: none; } }
+
+    @media (max-width: 760px) { [data-nav-desk] { display: none !important; } }
+    @media (min-width: 761px) { [data-nav-burger] { display: none !important; } }
+    [data-nav-burger] summary::-webkit-details-marker { display: none; }
+    [data-nav-burger][open] [data-ic="open"], [data-nav-burger]:not([open]) [data-ic="close"] { display: none; }
+    [data-nav-panel] a:hover { background: var(--color-accent-100); }
+  
+  [data-baseline] { transition: opacity .2s, max-height .2s; max-height: 20px; overflow: hidden; }
+  html.is-scrolled [data-baseline] { opacity: 0; max-height: 0; }
+</style>
+<script>(function(){var d=document.documentElement,on=false;function f(){var y=window.scrollY,s=on?y>8:y>60;if(s!==on){on=s;d.classList.toggle('is-scrolled',s);}}window.addEventListener('scroll',f,{passive:true});f();})();</script>
+<title>Map of French fruit and vegetables: PDOs, PGIs and terroirs | Sainos</title>
+<meta name="description" content="Where do our fruit and vegetables come from? The map of France’s PDOs, PGIs and terroirs: Lomagne garlic, Corsican clementines, Espelette pepper, Moissac Chasselas grapes…">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.sainos.fr/en/origines.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The map of French fruit and vegetables | Sainos">
+<meta property="og:description" content="PDOs, PGIs and terroirs: where our fruit and vegetables come from.">
+<meta property="og:url" content="https://www.sainos.fr/en/origines.html">
+<meta property="og:site_name" content="Sainos">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://www.sainos.fr/images/og/sainos.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.sainos.fr/images/og/sainos.jpg">
+</head>
+<body>
+<div style="min-height: 100vh; display: flex; flex-direction: column;">
+  <header style="position: sticky; top: 0; z-index: 1000; background: color-mix(in srgb, var(--color-bg) 92%, transparent); backdrop-filter: blur(8px);">
+    <nav class="nav wrap" aria-label="Main navigation" style="flex-wrap: wrap; row-gap: var(--space-2);">
+      <a href="index.html" class="nav-brand" style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none;" aria-label="Sainos — home">
+        <img src="../images/logo-mini.webp" alt="Sainos — seasonal fruit and vegetables" width="398" height="107" style="display: block; height: 36px; width: auto;"><span data-baseline="1" style="font-family: var(--font-body); font-size: 14px; font-weight: 700; line-height: 1; color: var(--color-text); white-space: nowrap;">The Taste of the <span style="color: var(--color-accent-700);">Seasons</span></span>
+      </a>
+      <div data-nav-desk="1" style="display: flex; gap: var(--space-4); align-items: center; flex-wrap: wrap;">
+        <a href="saisons.html">Calendar</a>
+        <a href="origines.html" aria-current="page">Origins</a>
+        <a href="marches.html" data-nav-mar="1">Markets</a><a href="pousse.html" data-nav-pousse="1">How it grows</a>
+        <a href="bio.html">Organic</a>
+        <a href="enseignants.html" data-nav-lex="1">In class</a>
+        <a href="quiz.html" data-nav-quiz="1">Quiz</a>
+        <a href="apropos.html">About</a>
+      </div>
+      <details data-nav-burger="1" style="position: relative; margin-left: auto;">
+        <summary aria-label="Menu" style="list-style: none; width: 48px; height: 48px; box-sizing: border-box; display: grid; place-items: center; background: transparent; border: 0; color: var(--color-text); cursor: pointer;">
+          <svg data-ic="open" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M4 9h16M4 15h16"></path></svg>
+          <svg data-ic="close" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </summary>
+        <div data-nav-panel="1" style="position: absolute; right: 0; top: calc(100% + 10px); z-index: 50; width: min(280px, 80vw); box-sizing: border-box; padding: 10px; background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 4px;">
+          <a href="saisons.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Calendar</a>
+          <a href="origines.html" aria-current="page" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-accent-900); background: var(--color-accent-100);">Origins</a>
+          <a href="marches.html" data-nav-mar="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Markets</a><a href="pousse.html" data-nav-pousse="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">How it grows</a>
+          <a href="bio.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Organic</a>
+          <a href="enseignants.html" data-nav-lex="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">In class</a>
+        <a href="quiz.html" data-nav-quiz="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Quiz</a>
+          <a href="apropos.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">About</a>
+          <a href="contact.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Contact</a>
+        
+          <a href="../origines.html" data-lang="fr" hreflang="fr" lang="fr" style="display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;"><span aria-hidden="true">🌐</span>Version française</a>
+          <div data-nav-extra="1" style="display: flex; flex-direction: column; gap: 10px; margin-top: 6px; padding: 12px 8px 4px; border-top: 1px solid var(--color-divider);">
+        <button type="button" class="mode-btn only-adult" data-set-mode="enfant" style="min-height: 48px; width: 100%; justify-content: center; font-size: 16px; border: 2px solid var(--color-accent-2-300); color: var(--color-accent-2-900);">🎒 Kids mode</button>
+        <button type="button" class="mode-btn only-kid" data-set-mode="normal" style="min-height: 48px; width: 100%; justify-content: center; font-size: 16px; border: 2px solid var(--color-accent-300); color: var(--color-accent-900);">Parents mode</button>
+      <div aria-label="Follow Sainos" data-nav-social="1" style="display: flex; justify-content: center; gap: var(--space-2); align-items: center;"><a href="https://www.facebook.com/profile.php?id=61594827576678" target="_blank" rel="noopener" aria-label="Sainos on Facebook" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/facebook/1877F2" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a><a href="https://www.instagram.com/sainos_fr/" target="_blank" rel="noopener" aria-label="Sainos on Instagram" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/instagram/E4405F" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a><a href="https://www.tiktok.com/@sainos_fr" target="_blank" rel="noopener" aria-label="Sainos on TikTok" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/tiktok/000000" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a></div></div>
+        </div>
+      </details>
+      <div data-nav-desk="1" style="display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; justify-content: flex-end; margin-left: auto; flex: none;">
+        <button type="button" class="mode-btn only-adult" data-set-mode="enfant" style="border: 2px solid var(--color-accent-2-300); color: var(--color-accent-2-900);">🎒 Kids mode</button>
+        <button type="button" class="mode-btn only-kid" data-set-mode="normal" style="border: 2px solid var(--color-accent-300); color: var(--color-accent-900);">Parents mode</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap" style="flex: 1; display: flex; flex-direction: column; gap: var(--space-8); padding-top: clamp(40px, 7vw, 56px); padding-bottom: var(--space-8);">
+    <section style="display: flex; flex-direction: column; gap: var(--space-4); max-width: 720px;">
+      <nav aria-label="Breadcrumb" style="font-size: 14px; display: flex; gap: var(--space-2);"><a href="index.html">Home</a><span aria-hidden="true">›</span><span aria-current="page">Origins</span></nav>
+      <h1 class="only-adult" style="margin: 0; font-size: clamp(38px, 5.5vw, 64px); line-height: 1.02; text-wrap: balance;">The map of French terroirs</h1>
+      <h1 class="only-kid" style="margin: 0; font-size: clamp(38px, 5.5vw, 64px); line-height: 1.02; text-wrap: balance;">Where do our fruit and vegetables come from?</h1>
+      <p class="only-adult" style="margin: 0; font-size: 19px; line-height: 1.65; text-wrap: pretty;">Lomagne garlic, Corsican clementines, Espelette pepper… Some products are so tied to their terroir that they carry its name. Explore protected designations (PDO, PGI) and renowned terroirs, region by region.</p>
+      <p class="only-kid" style="margin: 0; font-size: 19px; line-height: 1.65; text-wrap: pretty;">Some fruit and vegetables grow so well in one corner of France that they’re named after the place! Click the pictures on the map to find out where they come from.</p>
+    </section>
+
+    <section aria-label="Map of origins" style="display: flex; flex-direction: column; gap: var(--space-4);">
+      <div role="group" aria-label="Filter by label" style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+        <button type="button" class="pill" data-l="tous" aria-pressed="true">All</button>
+        <button type="button" class="pill" data-l="AOP" aria-pressed="false"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #e0892f;"></span>PDO</button>
+        <button type="button" class="pill" data-l="IGP" aria-pressed="false"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: var(--color-accent);"></span>IGP</button>
+        <button type="button" class="pill" data-l="Terroir" aria-pressed="false"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #a99a86;"></span>Renowned terroirs</button>
+      </div>
+      <div class="mgrid">
+        <div id="map" style="min-width: 0;" aria-label="Map of France showing origins"></div>
+        <div id="liste" aria-label="List of origins"></div>
+      </div>
+    </section>
+
+    <section class="only-adult" aria-labelledby="t-labels" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: var(--space-3);">
+      <h2 id="t-labels" style="grid-column: 1 / -1; margin: 0; font-size: clamp(26px, 3vw, 34px);">PDO, PGI: what’s the difference?</h2>
+      <div style="display: flex; flex-direction: column; gap: 6px; padding: var(--space-4); background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);"><span style="display: flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-size: 20px;"><span aria-hidden="true" style="width: 14px; height: 14px; border-radius: 50%; background: #e0892f;"></span>AOP</span><span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">Protected Designation of Origin (AOP in French). Everything happens within the area: production, processing and preparation, following recognised know-how. It’s the strongest link to the terroir.</span></div>
+      <div style="display: flex; flex-direction: column; gap: 6px; padding: var(--space-4); background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);"><span style="display: flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-size: 20px;"><span aria-hidden="true" style="width: 14px; height: 14px; border-radius: 50%; background: var(--color-accent);"></span>IGP</span><span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">Protected Geographical Indication (IGP in French). At least one stage takes place within the area, and the product’s quality or reputation is linked to its origin.</span></div>
+      <div style="display: flex; flex-direction: column; gap: 6px; padding: var(--space-4); background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);"><span style="display: flex; align-items: center; gap: 8px; font-family: var(--font-heading); font-size: 20px;"><span aria-hidden="true" style="width: 14px; height: 14px; border-radius: 50%; background: #a99a86;"></span>Renowned terroir</span><span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">No official label, but a region famous for this product, often thanks to its climate, soil or a long tradition.</span></div>
+    </section>
+
+    <section aria-label="Choose mode" style="margin: var(--space-4) 0 0;">
+      <div class="only-adult" style="display: flex; flex-direction: column; background: #fff; border: 2px solid var(--color-accent-2-300); border-radius: var(--radius-lg); overflow: hidden;">
+        <img src="../images/pano-apropos-enfant.webp" alt="A cartoon young farmer in his field, hands on hips" width="1500" height="500" loading="lazy" style="display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover;">
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-4) var(--space-6);">
+          <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 320px; min-width: 0;">
+            <span style="font-family: var(--font-heading); font-size: 24px; color: var(--color-accent-2-900);">🧺 Parents mode on</span>
+            <span style="font-size: 16px; line-height: 1.5; color: var(--color-accent-2-900); text-wrap: pretty;">Origin, peak season, tips for choosing at the market and recipe ideas: everything you need to shop with the seasons. Your children want to explore too? Switch to kids mode.</span>
+          </div>
+          <button type="button" class="btn btn-primary" data-set-mode="enfant" style="padding: 12px 22px; font-size: 16px; white-space: nowrap;">Switch to kids mode</button>
+        </div>
+      </div>
+      <div class="only-kid" style="display: flex; flex-direction: column; background: #fff; border: 2px solid var(--color-accent-300); border-radius: var(--radius-lg); overflow: hidden;">
+        <img src="../images/pano-apropos-enfant.webp" alt="A drawing of a young farmer in his field, hands on hips" width="1500" height="500" loading="lazy" style="display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover;">
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-4) var(--space-6);">
+          <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 320px; min-width: 0;">
+            <span style="font-family: var(--font-heading); font-size: 24px; color: var(--color-accent-900);">🎒 Kids mode on</span>
+            <span style="font-size: 16px; line-height: 1.5; color: var(--color-accent-900); text-wrap: pretty;">You already have <span id="nb-badges">0</span> badges out of 44. Are your parents doing the shopping? Hand them the parents version, it only takes one click.</span>
+          </div>
+          <button type="button" class="btn btn-secondary" data-set-mode="normal" style="padding: 12px 22px; font-size: 16px; white-space: nowrap;">Switch to parents mode</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background: #f4efe6;">
+    <div class="wrap" style="padding-top: var(--space-6); padding-bottom: var(--space-6); display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: space-between; align-items: center; font-size: 14px;">
+      <img src="../images/logo-mini.webp" alt="Sainos" width="398" height="107" style="display: block; height: 30px; width: auto;">
+      <nav aria-label="Footer" style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
+        <a href="index.html">Home</a>
+        <a href="saisons.html">Calendar</a>
+        <a href="origines.html">Origins</a>
+        <a href="marches.html" data-nav-mar="1">Markets</a><a href="pousse.html" data-nav-pousse="1">How it grows</a>
+        <a href="bio.html">Organic</a>
+        <a href="lexique.html" data-nav-lex="1">Glossary</a>
+        <a href="quiz.html" data-nav-quiz="1">Quiz</a>
+        <a href="apropos.html">About</a>
+        <a href="enseignants.html" data-adult-only="1">Teachers</a>
+        <a href="contact.html" data-adult-only="1">Contact</a>
+        <a href="../origines.html" data-lang="fr" hreflang="fr" lang="fr">Version française</a>
+      </nav>
+      <div aria-label="Follow Sainos" style="display: flex; gap: var(--space-2); align-items: center;">
+        <a href="https://www.facebook.com/profile.php?id=61594827576678" target="_blank" rel="noopener" aria-label="Sainos on Facebook" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/facebook/1877F2" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+        <a href="https://www.instagram.com/sainos_fr/" target="_blank" rel="noopener" aria-label="Sainos on Instagram" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/instagram/E4405F" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+        <a href="https://www.tiktok.com/@sainos_fr" target="_blank" rel="noopener" aria-label="Sainos on TikTok" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/tiktok/000000" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+      </div>
+      <p style="flex-basis: 100%; order: 3; margin: 0; font-size: 13px; line-height: 1.5; color: var(--color-neutral-800);">Sainos is an independent information website. No sales, no advertising, no cookies.</p>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var S = window.SAISON;
+  function ls(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+  function syncMode() {
+    document.body.classList.toggle('kid', ls('sainos-mode') === 'enfant');
+    var b = []; try { b = JSON.parse(ls('sainos-badges') || '[]'); } catch (e) {}
+    var nb = document.getElementById('nb-badges'); if (nb) nb.textContent = b.length;
+  }
+  document.querySelectorAll('[data-set-mode]').forEach(function (b) { b.addEventListener('click', function () { ls('sainos-mode', b.dataset.setMode); syncMode(); }); });
+  window.addEventListener('storage', syncMode); window.addEventListener('pageshow', syncMode); syncMode();
+
+  var O = [{"s":"ail","n":"White Lomagne garlic","l":"IGP","r":"Occitanie","ll":[43.99,0.89],"d":"Grown around Beaumont-de-Lomagne, on clay-limestone hillsides."},{"s":"ail","n":"Purple Cadours garlic","l":"AOP","r":"Occitanie","ll":[43.73,1.05],"d":"Purple cloves with a powerful taste, north-west of Toulouse."},{"s":"ail","n":"Pink Lautrec garlic","l":"IGP","r":"Occitanie","ll":[43.71,2.14],"d":"Braided by hand, it keeps all winter."},{"s":"oignon","n":"Roscoff onion","l":"AOP","r":"Bretagne","ll":[48.72,-3.98],"d":"Pink and mild, once carried all the way to England by the “Onion Johnnies”."},{"s":"oignon","n":"Sweet Cévennes onion","l":"AOP","r":"Occitanie","ll":[43.99,3.61],"d":"Grown on dry-stone terraces, so mild you can eat it raw."},{"s":"pomme-de-terre","n":"Île de Ré potato","l":"AOP","r":"Nouvelle-Aquitaine","ll":[46.2,-1.42],"d":"A new potato harvested in spring, nourished by the sea air."},{"s":"pomme-de-terre","n":"Merville potato","l":"IGP","r":"Hauts-de-France","ll":[50.64,2.64],"d":"Grown in the silty soils of the Lys plain."},{"s":"carotte","n":"Créances sand carrot","l":"IGP","r":"Normandie","ll":[49.2,-1.57],"d":"Grown in the sand of the Cotentin, slender and very tender."},{"s":"piment","n":"Espelette pepper","l":"AOP","r":"Nouvelle-Aquitaine","ll":[43.34,-1.45],"d":"Dried in garlands on house fronts in the Basque Country."},{"s":"tomate","n":"Marmande tomato","l":"Terroir","r":"Nouvelle-Aquitaine","ll":[44.5,0.16],"d":"A big ribbed tomato, emblem of the Garonne valley."},{"s":"raisin","n":"Moissac Chasselas","l":"AOP","r":"Occitanie","ll":[44.1,1.08],"d":"A golden white table grape, France’s first fruit with an AOC (1971)."},{"s":"raisin","n":"Ventoux Muscat","l":"AOP","r":"Provence-Alpes-Côte d’Azur","ll":[44.1,5.2],"d":"A black grape with a musky taste, at the foot of Mont Ventoux."},{"s":"melon","n":"Cavaillon melon","l":"Terroir","r":"Provence-Alpes-Côte d’Azur","ll":[43.84,5.04],"d":"The “melon capital”, famous since the 15th century."},{"s":"melon","n":"Quercy melon","l":"IGP","r":"Occitanie","ll":[44.3,1.3],"d":"Charentais melon grown on the limestone hillsides of Quercy."},{"s":"melon","n":"Haut-Poitou melon","l":"IGP","r":"Nouvelle-Aquitaine","ll":[46.75,0.2],"d":"The first melon in France to be awarded a PGI."},{"s":"pomme","n":"Limousin apple","l":"AOP","r":"Nouvelle-Aquitaine","ll":[45.5,1.6],"d":"Golden apples grown at altitude, crunchy and tangy."},{"s":"pomme","n":"Savoie apples and pears","l":"IGP","r":"Auvergne-Rhône-Alpes","ll":[45.6,6.1],"d":"Mountain orchards between lakes and Alps."},{"s":"poire","n":"Savoie pears","l":"IGP","r":"Auvergne-Rhône-Alpes","ll":[45.9,6.4],"d":"Williams, Conference, Comice… ripened in the Alpine climate."},{"s":"chataigne","n":"Ardèche chestnut","l":"AOP","r":"Auvergne-Rhône-Alpes","ll":[44.7,4.4],"d":"Terraced chestnut groves, a thousand-year-old tradition."},{"s":"kiwi","n":"Adour kiwi","l":"IGP","r":"Nouvelle-Aquitaine","ll":[43.65,-0.9],"d":"The South-West, France’s leading kiwi area."},{"s":"clementine","n":"Corsican clementine","l":"IGP","r":"Corse","ll":[42.1,9.45],"d":"Sold with its leaves, untreated after harvest."},{"s":"citron","n":"Menton lemon","l":"IGP","r":"Provence-Alpes-Côte d’Azur","ll":[43.78,7.5],"d":"Mildly acidic and very fragrant, celebrated every year at the Lemon Festival."},{"s":"fraise","n":"Périgord strawberry","l":"IGP","r":"Nouvelle-Aquitaine","ll":[45,0.9],"d":"The first French strawberry to be awarded a PGI."},{"s":"fraise","n":"Plougastel strawberry","l":"Terroir","r":"Bretagne","ll":[48.37,-4.37],"d":"Grown since the 18th century, with its own museum."},{"s":"fraise","n":"Nîmes strawberry","l":"IGP","r":"Occitanie","ll":[43.84,4.36],"d":"An early strawberry from the Gard, from March."},{"s":"cerise","n":"Céret cherry","l":"Terroir","r":"Occitanie","ll":[42.49,2.75],"d":"France’s first cherries, offered to the president every year."},{"s":"champignon","n":"Saumur button mushroom","l":"Terroir","r":"Pays de la Loire","ll":[47.26,-0.08],"d":"Grown in tufa-stone caves, France’s leading producing region."},{"s":"chou","n":"Alsace sauerkraut","l":"IGP","r":"Grand Est","ll":[48.3,7.45],"d":"Sauerkraut cabbage grown on the Alsace plain."},{"s":"potiron","n":"Rouge vif d’Étampes","l":"Terroir","r":"Île-de-France","ll":[48.43,2.16],"d":"A big ribbed squash that gave its name to the variety."},{"s":"myrtille","n":"Vosges bilberry","l":"Terroir","r":"Grand Est","ll":[48.05,6.9],"d":"Picked wild in the forests of the Vosges."},{"s":"thym","n":"Provence thyme","l":"IGP","r":"Provence-Alpes-Côte d’Azur","ll":[43.95,5.6],"d":"Picked in the garrigue scrubland, very rich in essential oils."},{"s":"peche","n":"Rhône valley peach","l":"Terroir","r":"Auvergne-Rhône-Alpes","ll":[44.9,4.9],"d":"Drôme and Ardèche, France’s leading peach area."},{"s":"mais","n":"Landes sweetcorn","l":"Terroir","r":"Nouvelle-Aquitaine","ll":[43.9,-0.8],"d":"The South-West supplies most of France’s sweetcorn."},{"s":"brocoli","n":"Brittany broccoli","l":"Terroir","r":"Bretagne","ll":[48.65,-3.2],"d":"The “golden belt” of northern Brittany, a great vegetable-growing land."}];
+  var COL = { AOP: '#e0892f', IGP: '#3d8b2f', Terroir: '#a99a86' };
+  var LAB = { AOP: 'PDO', IGP: 'PGI', Terroir: 'Renowned terroir' };
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  var map = L.map('map', { scrollWheelZoom: false, zoomSnap: 0.25 });
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 12, minZoom: 5, attribution: '© OpenStreetMap contributors' }).addTo(map);
+  var FR = L.latLngBounds([41.3, -5.2], [51.1, 9.6]);
+  map.fitBounds(FR, { padding: [10, 10] }); map.setMaxBounds(FR.pad(0.3));
+  var layer = L.layerGroup().addTo(map), markers = [], liste = document.getElementById('liste');
+  O.forEach(function (o, i) {
+    var p = S.bySlug(o.s); o.p = p; o.i = i;
+    var img = p && p.img ? p.img : '';
+    var icon = L.divIcon({ className: '', html: '<div class="opin" style="--c:' + COL[o.l] + ';' + (img ? 'background-image:url(' + img + ');' : '') + '">' + (img ? '' : (p ? p.e : '')) + '</div>', iconSize: [44, 44], iconAnchor: [22, 22], popupAnchor: [0, -20] });
+    var html = '<span style="display:inline-block;font-size:12px;font-weight:800;color:#fff;background:' + COL[o.l] + ';padding:2px 10px;border-radius:999px;margin-bottom:6px;">' + LAB[o.l] + '</span><br><strong style="font-family:var(--font-heading);font-weight:400;font-size:18px;">' + esc(o.n) + '</strong><br><span style="font-size:13px;font-weight:700;">' + esc(o.r) + '</span><br>' + esc(o.d) + (p ? '<br><a href="' + S.url(p) + '">See the ' + esc(p.n.toLowerCase()) + ' guide →</a>' : '');
+    markers[i] = L.marker(o.ll, { icon: icon, title: o.n, riseOnHover: true }).bindPopup(html);
+  });
+  var cur = 'tous';
+  function render() {
+    layer.clearLayers(); liste.innerHTML = '';
+    O.filter(function (o) { return cur === 'tous' || o.l === cur; }).sort(function (a, b) { return a.r.localeCompare(b.r) || a.n.localeCompare(b.n); }).forEach(function (o) {
+      markers[o.i].addTo(layer);
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'm-item';
+      var img = o.p && o.p.img ? '<img loading="lazy" decoding="async" src="' + o.p.img + '" alt="" style="width:44px;height:44px;object-fit:contain;flex:none;">' : '<span style="font-size:32px;flex:none;">' + (o.p ? o.p.e : '') + '</span>';
+      b.innerHTML = img + '<span style="display:flex;flex-direction:column;gap:3px;min-width:0;"><span style="font-family:var(--font-heading);font-size:18px;line-height:1.2;">' + esc(o.n) + '</span><span style="display:flex;gap:8px;align-items:center;font-size:13px;font-weight:700;"><span style="width:10px;height:10px;border-radius:50%;background:' + COL[o.l] + ';flex:none;"></span>' + LAB[o.l] + ' · ' + esc(o.r) + '</span></span>';
+      b.addEventListener('click', function () {
+        document.querySelectorAll('.m-item.on').forEach(function (x) { x.classList.remove('on'); }); b.classList.add('on');
+        map.flyTo(o.ll, 8, { duration: 0.6 }); setTimeout(function () { markers[o.i].openPopup(); }, 650);
+        if (window.innerWidth < 860) window.scrollTo({ top: document.getElementById('map').getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
+      });
+      liste.appendChild(b);
+    });
+  }
+  document.querySelectorAll('[data-l]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('[data-l]').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+      cur = b.dataset.l; map.closePopup(); render(); map.flyToBounds(FR, { padding: [10, 10], duration: 0.5 });
+    });
+  });
+  render();
+})();
+</script>
+<script>(function(){if(window.__navClose)return;window.__navClose=1;function c(){document.querySelectorAll('details[data-nav-burger]').forEach(function(d){d.removeAttribute('open')})}document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('[data-nav-panel] a,[data-nav-panel] button');if(t)setTimeout(c,0)},true);window.addEventListener('pageshow',c)})();</script>
+</body>
+</html>

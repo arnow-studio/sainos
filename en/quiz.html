@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script id="lang-redirect">(function(){var cur='en',alt='../quiz.html';document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-lang]');if(a)try{localStorage.setItem('sainos-lang',a.getAttribute('data-lang'))}catch(_){}},true);try{var p=localStorage.getItem('sainos-lang');if(/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)||p===cur)return;var L=p||((navigator.languages&&navigator.languages[0])||navigator.language||'').slice(0,2).toLowerCase();if((cur==='fr'&&L==='en')||(cur==='en'&&L==='fr'))location.replace(alt+location.hash)}catch(e){}})();</script>
+<link rel="alternate" hreflang="fr" href="https://www.sainos.fr/quiz.html">
+<link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/quiz.html">
+<link rel="alternate" hreflang="x-default" href="https://www.sainos.fr/quiz.html">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){var d=document.documentElement;var B=null,T=0,Q='[aria-label="Choose mode"]';document.addEventListener('click',function(e){var t=e.target&&e.target.closest?e.target.closest(Q):null;B=null},true);function g(){var b=B;B=null;if(!b){try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}return}var n=0;(function f(){var x=document.querySelector(Q)||b;var dy=x.getBoundingClientRect().top-T;if(dy)try{window.scrollBy({top:dy,left:0,behavior:'instant'})}catch(e){window.scrollBy(0,dy)}if(++n<24)requestAnimationFrame(f)})()}function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))g()}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
+<style id="kid-palette">html.m-kid { --color-accent: #f5a614; --color-accent-100: #fff7dc; --color-accent-200: #ffeaa8; --color-accent-300: #ffd96b; --color-accent-400: #ffc23d; --color-accent-500: #f5a614; --color-accent-600: #d88c06; --color-accent-700: #945d03; --color-on-accent: var(--color-accent-900); --color-accent-800: #7f5003; --color-accent-900: #5a3902; --color-accent-2-100: #fffaea; --color-accent-2-200: #fdf1cf; --color-accent-2-300: #f8e2a2; --color-accent-2-800: #87601a; --color-accent-2-900: #6b4a10; }
+    :where(html.m-kid) a:not(.btn), :where(html.m-kid) .btn-ghost, :where(html.m-kid) .tag-outline, :where(html.m-kid) .card-kicker { color: var(--color-accent-800); } html.m-kid .btn-primary, html.m-kid .tag-accent { color: var(--color-accent-900) !important; } .btn-primary { background-image: linear-gradient(90deg, var(--color-accent-500), var(--color-accent-700)) !important; } .btn-primary:hover { background-image: linear-gradient(90deg, var(--color-accent-600), var(--color-accent-800)) !important; } html.m-kid .btn-primary { background-image: linear-gradient(90deg, var(--color-accent-400), var(--color-accent-500)) !important; } html.m-kid .btn-primary:hover { background-image: linear-gradient(90deg, var(--color-accent-500), var(--color-accent-600)) !important; }</style>
+<style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html.m-kid [data-adult-only], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
+<style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400&family=Nunito:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../_ds/organic-f9092e65-12bb-43ea-a459-3e0b5f502c38/styles.css">
+<script src="produits-data.js"></script>
+<script src="produits-enfants.js"></script>
+<style>
+  .qopt { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 60px; padding: 12px 18px; box-sizing: border-box; background: #fff; border: 3px solid var(--color-accent-200); border-radius: 999px; font: inherit; font-size: 18px; font-weight: 700; color: var(--color-text); text-align: left; cursor: pointer; transition: transform .12s, background .12s, border-color .12s; }
+  .qopt:hover:not(:disabled) { border-color: var(--color-accent-500); background: var(--color-accent-100); transform: translateY(-2px); }
+  .qopt:disabled { cursor: default; }
+  .qopt.ok { background: var(--color-accent); border-color: var(--color-accent); color: #fff; }
+  .qopt.ko { background: #fbe3d6; border-color: #e0892f; color: #7a3410; }
+  .qopt.dim { opacity: .55; }
+  .qletter { flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--color-accent-100); color: var(--color-accent-900); font-family: var(--font-heading); font-size: 18px; }
+  .qopt.ok .qletter { background: #fff; color: var(--color-accent-800); }
+  .qopt.ko .qletter { background: #fff; color: #a8481a; }
+  @keyframes pop { 0% { transform: scale(.6); opacity: 0; } 70% { transform: scale(1.08); } 100% { transform: scale(1); opacity: 1; } }
+  @keyframes wob { 0%,100% { transform: rotate(0); } 25% { transform: rotate(-6deg); } 75% { transform: rotate(6deg); } }
+  .pop { animation: pop .35s ease-out both; }
+  .wob { animation: wob .5s ease-in-out; }
+  :root { --color-bg: #fbf8f2; --color-accent: #357d28; --color-accent-100: #eef7ea; --color-accent-200: #d9eed0; --color-accent-300: #b6dca5; --color-accent-400: #74b95e; --color-accent-500: #357d28; --color-accent-600: #327426; --color-accent-700: #285e1f; --color-accent-800: #1f4a19; --color-accent-900: #183a14; --color-accent-2-100: #f4f8ed; --color-accent-2-200: #e8efdb; --color-accent-2-300: #d8e2c7; --color-accent-2-800: #56613f; --color-accent-2-900: #46512f; --color-neutral-100: #fffdf9; --color-text: #5b3b27; --color-divider: color-mix(in srgb, #8c491a 20%, transparent); --font-heading: 'DynaPuff', system-ui, sans-serif; --font-body: 'Nunito', system-ui, sans-serif; }
+  body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
+  h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; }
+  a { color: var(--color-accent-700); }
+  a:not(.btn):not(.tag):hover { color: var(--color-accent-600); }
+  *:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+  body.kid .only-adult, body:not(.kid) .only-kid { display: none !important; }
+  .wrap { max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; padding-left: clamp(20px, 5vw, 56px); padding-right: clamp(20px, 5vw, 56px); }
+  .pill { display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-300); background: #fff; color: var(--color-accent-900); font: inherit; font-size: 15px; font-weight: 700; padding: 8px 16px; min-height: 44px; box-sizing: border-box; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+  .pill:hover { background: var(--color-accent-100); border-color: var(--color-accent-500); }
+  .pill[aria-pressed="true"] { background: var(--color-accent); border-color: var(--color-accent); color: #fff; }
+  .mode-btn { display: flex; align-items: center; gap: 6px; background: #fff; font: inherit; font-size: 14px; font-weight: 700; padding: 6px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+
+    @media (max-width: 760px) { [data-nav-desk] { display: none !important; } }
+    @media (min-width: 761px) { [data-nav-burger] { display: none !important; } }
+    [data-nav-burger] summary::-webkit-details-marker { display: none; }
+    [data-nav-burger][open] [data-ic="open"], [data-nav-burger]:not([open]) [data-ic="close"] { display: none; }
+    [data-nav-panel] a:hover { background: var(--color-accent-100); }
+  
+  [data-baseline] { transition: opacity .2s, max-height .2s; max-height: 20px; overflow: hidden; }
+  html.is-scrolled [data-baseline] { opacity: 0; max-height: 0; }
+</style>
+<script>(function(){var d=document.documentElement,on=false;function f(){var y=window.scrollY,s=on?y>8:y>60;if(s!==on){on=s;d.classList.toggle('is-scrolled',s);}}window.addEventListener('scroll',f,{passive:true});f();})();</script>
+<title>The fruit and vegetable quiz for kids | Sainos</title>
+<meta name="description" content="A fun quiz for 8 to 12-year-olds: 10 questions about seasonal fruit and vegetables, their secrets and their history.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.sainos.fr/en/quiz.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The big fruit and vegetable quiz | Sainos">
+<meta property="og:description" content="10 questions to become an expert in seasonal fruit and vegetables.">
+<meta property="og:url" content="https://www.sainos.fr/en/quiz.html">
+<meta property="og:site_name" content="Sainos">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://www.sainos.fr/images/og/sainos.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.sainos.fr/images/og/sainos.jpg">
+</head>
+<body>
+<div style="min-height: 100vh; display: flex; flex-direction: column;">
+  <header style="position: sticky; top: 0; z-index: 1000; background: color-mix(in srgb, var(--color-bg) 92%, transparent); backdrop-filter: blur(8px);">
+    <nav class="nav wrap" aria-label="Main navigation" style="flex-wrap: wrap; row-gap: var(--space-2);">
+      <a href="index.html" class="nav-brand" style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none;" aria-label="Sainos — home">
+        <img src="../images/logo-mini.webp" alt="Sainos — seasonal fruit and vegetables" width="398" height="107" style="display: block; height: 36px; width: auto;"><span data-baseline="1" style="font-family: var(--font-body); font-size: 14px; font-weight: 700; line-height: 1; color: var(--color-text); white-space: nowrap;">The Taste of the <span style="color: var(--color-accent-700);">Seasons</span></span>
+      </a>
+      <div data-nav-desk="1" style="display: flex; gap: var(--space-4); align-items: center; flex-wrap: wrap;">
+        <a href="saisons.html">Calendar</a>
+        <a href="origines.html">Origins</a>
+        <a href="marches.html" data-nav-mar="1">Markets</a><a href="pousse.html" data-nav-pousse="1">How it grows</a>
+        <a href="bio.html">Organic</a>
+        <a href="enseignants.html" data-nav-lex="1">In class</a>
+        <a href="quiz.html" data-nav-quiz="1" aria-current="page">Quiz</a>
+        <a href="apropos.html">About</a>
+      </div>
+      <details data-nav-burger="1" style="position: relative; margin-left: auto;">
+        <summary aria-label="Menu" style="list-style: none; width: 48px; height: 48px; box-sizing: border-box; display: grid; place-items: center; background: transparent; border: 0; color: var(--color-text); cursor: pointer;">
+          <svg data-ic="open" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M4 9h16M4 15h16"></path></svg>
+          <svg data-ic="close" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </summary>
+        <div data-nav-panel="1" style="position: absolute; right: 0; top: calc(100% + 10px); z-index: 50; width: min(280px, 80vw); box-sizing: border-box; padding: 10px; background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 4px;">
+          <a href="saisons.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Calendar</a>
+          <a href="origines.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Origins</a>
+          <a href="marches.html" data-nav-mar="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Markets</a><a href="pousse.html" data-nav-pousse="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">How it grows</a>
+          <a href="bio.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-accent-900); background: var(--color-accent-100);">Organic</a>
+          <a href="enseignants.html" data-nav-lex="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">In class</a>
+        <a href="quiz.html" data-nav-quiz="1" aria-current="page" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-accent-900); background: var(--color-accent-100);">Quiz</a>
+          <a href="apropos.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">About</a>
+          <a href="contact.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Contact</a>
+        
+          <a href="../quiz.html" data-lang="fr" hreflang="fr" lang="fr" style="display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;"><span aria-hidden="true">🌐</span>Version française</a>
+          <div data-nav-extra="1" style="display: flex; flex-direction: column; gap: 10px; margin-top: 6px; padding: 12px 8px 4px; border-top: 1px solid var(--color-divider);">
+        <button type="button" class="mode-btn only-adult" data-set-mode="enfant" style="min-height: 48px; width: 100%; justify-content: center; font-size: 16px; border: 2px solid var(--color-accent-2-300); color: var(--color-accent-2-900);">🎒 Kids mode</button>
+        <button type="button" class="mode-btn only-kid" data-set-mode="normal" style="min-height: 48px; width: 100%; justify-content: center; font-size: 16px; border: 2px solid var(--color-accent-300); color: var(--color-accent-900);">Parents mode</button>
+      <div aria-label="Follow Sainos" data-nav-social="1" style="display: flex; justify-content: center; gap: var(--space-2); align-items: center;"><a href="https://www.facebook.com/profile.php?id=61594827576678" target="_blank" rel="noopener" aria-label="Sainos on Facebook" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/facebook/1877F2" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a><a href="https://www.instagram.com/sainos_fr/" target="_blank" rel="noopener" aria-label="Sainos on Instagram" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/instagram/E4405F" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a><a href="https://www.tiktok.com/@sainos_fr" target="_blank" rel="noopener" aria-label="Sainos on TikTok" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/tiktok/000000" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a></div></div>
+        </div>
+      </details>
+      <div data-nav-desk="1" style="display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; justify-content: flex-end; margin-left: auto; flex: none;">
+        <button type="button" class="mode-btn only-adult" data-set-mode="enfant" style="border: 2px solid var(--color-accent-2-300); color: var(--color-accent-2-900);">🎒 Kids mode</button>
+        <button type="button" class="mode-btn only-kid" data-set-mode="normal" style="border: 2px solid var(--color-accent-300); color: var(--color-accent-900);">Parents mode</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap" style="flex: 1; display: flex; flex-direction: column; gap: var(--space-8); padding-top: clamp(40px, 7vw, 56px); padding-bottom: var(--space-8);">
+    <section style="display: flex; flex-direction: column; gap: var(--space-4); max-width: 720px;">
+      <nav aria-label="Breadcrumb" style="font-size: 14px; display: flex; gap: var(--space-2);"><a href="index.html">Home</a><span aria-hidden="true">›</span><span aria-current="page">Quiz</span></nav>
+      <h1 style="margin: 0; font-size: clamp(38px, 5.5vw, 64px); line-height: 1.02; text-wrap: balance;">The big fruit and vegetable quiz</h1>
+      <p style="margin: 0; font-size: 19px; line-height: 1.65; text-wrap: pretty;">Choose your age and your theme: 10 questions to test your knowledge. One right answer = one star. Can you win them all?</p>
+    </section>
+
+    <section id="q-start" aria-label="Choose your age and a theme" style="display: flex; flex-direction: column; gap: var(--space-5, 20px); padding: clamp(24px, 4vw, 40px); background: var(--color-accent-100); border: 3px solid var(--color-accent-300); border-radius: 32px; max-width: 820px;">
+      <span style="font-family: var(--font-heading); font-size: 26px; color: var(--color-accent-900);">How old are you?</span>
+      <div role="group" aria-label="Âge" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 170px), 1fr)); gap: var(--space-3);">
+        <button type="button" class="pill" data-age="1" aria-pressed="false" style="flex-direction: column; justify-content: center; gap: 2px; min-height: 84px; white-space: normal; text-align: center; border-radius: 28px;"><span style="font-size: 26px;">🐣</span><span style="font-size: 17px;">Ages 4-6</span><span style="font-size: 13px; font-weight: 600;">Little sprouts</span></button>
+        <button type="button" class="pill" data-age="2" aria-pressed="true" style="flex-direction: column; justify-content: center; gap: 2px; min-height: 84px; white-space: normal; text-align: center; border-radius: 28px;"><span style="font-size: 26px;">🌱</span><span style="font-size: 17px;">Ages 7-9</span><span style="font-size: 13px; font-weight: 600;">Young gardeners</span></button>
+        <button type="button" class="pill" data-age="3" aria-pressed="false" style="flex-direction: column; justify-content: center; gap: 2px; min-height: 84px; white-space: normal; text-align: center; border-radius: 28px;"><span style="font-size: 26px;">🌳</span><span style="font-size: 17px;">Ages 10-12</span><span style="font-size: 13px; font-weight: 600;">Veg patch experts</span></button>
+        <button type="button" class="pill" data-age="4" aria-pressed="false" style="flex-direction: column; justify-content: center; gap: 2px; min-height: 84px; white-space: normal; text-align: center; border-radius: 28px;"><span style="font-size: 26px;">🏅</span><span style="font-size: 17px;">Ages 13+</span><span style="font-size: 13px; font-weight: 600;">Master botanists</span></button>
+      </div>
+      <span style="font-family: var(--font-heading); font-size: 26px; color: var(--color-accent-900);">Choose your theme</span>
+      <div role="group" aria-label="Theme" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 170px), 1fr)); gap: var(--space-3);">
+        <button type="button" class="pill" data-theme="tout" aria-pressed="true" style="justify-content: center; min-height: 56px; font-size: 17px;">🧺 All mixed up</button>
+        <button type="button" class="pill" data-theme="fruit" aria-pressed="false" style="justify-content: center; min-height: 56px; font-size: 17px;">🍎 Fruit</button>
+        <button type="button" class="pill" data-theme="legume" aria-pressed="false" style="justify-content: center; min-height: 56px; font-size: 17px;">🥕 Vegetables</button>
+        <button type="button" class="pill" data-theme="defi" aria-pressed="false" style="justify-content: center; min-height: 56px; font-size: 17px;">🎲 Surprise challenge</button>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center;">
+        <button type="button" id="q-go" class="btn btn-primary" style="padding: 14px 32px; font-size: 19px; min-height: 56px;">Let’s go!</button>
+        <span id="q-best" style="font-size: 16px; font-weight: 700; color: var(--color-accent-900);"></span>
+      </div>
+    </section>
+
+    <section id="q-play" aria-live="polite" hidden style="display: none; flex-direction: column; gap: var(--space-5, 20px); max-width: 820px;">
+      <div style="display: flex; align-items: center; gap: var(--space-3);">
+        <span id="q-count" style="flex: none; font-weight: 700; font-size: 16px;"></span>
+        <div aria-hidden="true" style="flex: 1; height: 14px; background: var(--color-accent-100); border-radius: 999px; overflow: hidden;"><div id="q-bar" style="height: 100%; width: 0; background: var(--color-accent); border-radius: 999px; transition: width .3s;"></div></div>
+        <span id="q-stars" style="flex: none; font-weight: 700; font-size: 16px; color: var(--color-accent-900);"></span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: var(--space-5, 20px); padding: clamp(24px, 4vw, 40px); background: #fff; border-radius: 32px; box-shadow: var(--shadow-md);">
+        <div style="display: flex; gap: var(--space-4); align-items: center;">
+          <span style="flex: none; display: grid; place-items: center; width: clamp(80px, 14vw, 112px); height: clamp(80px, 14vw, 112px); border-radius: 50%; background: var(--color-accent-100);"><img loading="lazy" decoding="async" id="q-img" alt="" width="96" height="96" style="width: 72%; height: 72%; object-fit: contain;"></span>
+          <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0;">
+            <span id="q-name" class="tag tag-accent-2" style="align-self: flex-start; font-size: 14px;"></span>
+            <h2 id="q-text" style="margin: 0; font-size: clamp(22px, 3vw, 30px); line-height: 1.2; text-wrap: balance;"></h2>
+          </div>
+        </div>
+        <div id="q-opts" style="display: flex; flex-direction: column; gap: var(--space-3);"></div>
+        <div id="q-fb" hidden style="display: none; flex-direction: column; gap: var(--space-3); padding: var(--space-4) var(--space-5, 20px); border-radius: 24px;">
+          <span id="q-fb-t" style="font-family: var(--font-heading); font-size: 24px;"></span>
+          <span id="q-fb-x" style="font-size: 17px; line-height: 1.55; text-wrap: pretty;"></span>
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center;">
+            <button type="button" id="q-next" class="btn btn-primary" style="padding: 12px 26px; font-size: 17px; min-height: 52px;">Next question →</button>
+            <a id="q-fiche" href="#" style="font-size: 16px; font-weight: 700;">See the page</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="q-end" hidden aria-live="polite" style="display: none; flex-direction: column; align-items: flex-start; gap: var(--space-4); padding: clamp(28px, 5vw, 48px); background: var(--color-accent-100); border: 3px solid var(--color-accent-300); border-radius: 32px; max-width: 820px;">
+      <span id="q-end-e" class="pop" aria-hidden="true" style="font-size: 72px; line-height: 1;"></span>
+      <h2 id="q-end-t" style="margin: 0; font-size: clamp(30px, 4vw, 44px); line-height: 1.1; color: var(--color-accent-900);"></h2>
+      <span id="q-end-s" aria-hidden="true" style="font-size: 28px; letter-spacing: 2px;"></span>
+      <p id="q-end-p" style="margin: 0; font-size: 18px; line-height: 1.6; text-wrap: pretty;"></p>
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-3);">
+        <button type="button" id="q-again" class="btn btn-primary" style="padding: 14px 28px; font-size: 18px; min-height: 56px;">Play again</button>
+        <button type="button" id="q-theme" class="btn btn-secondary" style="padding: 14px 28px; font-size: 18px; min-height: 56px;">Change theme</button>
+      </div>
+    </section>
+
+    <section aria-label="Choose mode" style="margin: var(--space-4) 0 0;">
+      <div class="only-adult" style="display: flex; flex-direction: column; background: #fff; border: 2px solid var(--color-accent-2-300); border-radius: var(--radius-lg); overflow: hidden;">
+        <img src="../images/pano-apropos-enfant.webp" alt="A cartoon young farmer in his field, hands on hips" width="1500" height="500" loading="lazy" style="display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover;">
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-4) var(--space-6);">
+          <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 320px; min-width: 0;">
+            <span style="font-family: var(--font-heading); font-size: 24px; color: var(--color-accent-2-900);">🧺 Parents mode on</span>
+            <span style="font-size: 16px; line-height: 1.5; color: var(--color-accent-2-900); text-wrap: pretty;">Origin, peak season, tips for choosing at the market and recipe ideas: everything you need to shop with the seasons. Your children want to explore too? Switch to kids mode.</span>
+          </div>
+          <button type="button" class="btn btn-primary" data-set-mode="enfant" style="padding: 12px 22px; font-size: 16px; white-space: nowrap;">Switch to kids mode</button>
+        </div>
+      </div>
+      <div class="only-kid" style="display: flex; flex-direction: column; background: #fff; border: 2px solid var(--color-accent-300); border-radius: var(--radius-lg); overflow: hidden;">
+        <img src="../images/pano-apropos-enfant.webp" alt="A drawing of a young farmer in his field, hands on hips" width="1500" height="500" loading="lazy" style="display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover;">
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-4) var(--space-6);">
+          <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 320px; min-width: 0;">
+            <span style="font-family: var(--font-heading); font-size: 24px; color: var(--color-accent-900);">🎒 Kids mode on</span>
+            <span style="font-size: 16px; line-height: 1.5; color: var(--color-accent-900); text-wrap: pretty;">You already have <span id="nb-badges">0</span> badges out of 44. Are your parents doing the shopping? Hand them the parents version, it only takes one click.</span>
+          </div>
+          <button type="button" class="btn btn-secondary" data-set-mode="normal" style="padding: 12px 22px; font-size: 16px; white-space: nowrap;">Switch to parents mode</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background: #f4efe6;">
+    <div class="wrap" style="padding-top: var(--space-6); padding-bottom: var(--space-6); display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: space-between; align-items: center; font-size: 14px;">
+      <img src="../images/logo-mini.webp" alt="Sainos" width="398" height="107" style="display: block; height: 30px; width: auto;">
+      <nav aria-label="Footer" style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
+        <a href="index.html">Home</a>
+        <a href="saisons.html">Calendar</a>
+        <a href="origines.html">Origins</a>
+        <a href="marches.html" data-nav-mar="1">Markets</a><a href="pousse.html" data-nav-pousse="1">How it grows</a>
+        <a href="bio.html">Organic</a>
+        <a href="lexique.html">Glossary</a>
+        <a href="apropos.html">About</a>
+        <a href="enseignants.html" data-adult-only="1">Teachers</a>
+        <a href="contact.html" data-adult-only="1">Contact</a>
+        <a href="../quiz.html" data-lang="fr" hreflang="fr" lang="fr">Version française</a>
+      </nav>
+      <div aria-label="Follow Sainos" style="display: flex; gap: var(--space-2); align-items: center;">
+        <a href="https://www.facebook.com/profile.php?id=61594827576678" target="_blank" rel="noopener" aria-label="Sainos on Facebook" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/facebook/1877F2" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+        <a href="https://www.instagram.com/sainos_fr/" target="_blank" rel="noopener" aria-label="Sainos on Instagram" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/instagram/E4405F" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+        <a href="https://www.tiktok.com/@sainos_fr" target="_blank" rel="noopener" aria-label="Sainos on TikTok" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/tiktok/000000" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+      </div>
+      <p style="flex-basis: 100%; order: 3; margin: 0; font-size: 13px; line-height: 1.5; color: var(--color-neutral-800);">Sainos is an independent information website. No sales, no advertising, no cookies.</p>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var S = window.SAISON, now = new Date(), M = now.getMonth() + 1;
+  var MOIS = S.MOIS;
+  document.querySelectorAll('.mois').forEach(function (e) { e.textContent = MOIS[M - 1]; });
+
+  // Mode parent / enfant
+  function ls(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+  function syncMode() {
+    document.body.classList.toggle('kid', ls('sainos-mode') === 'enfant');
+    var b = []; try { b = JSON.parse(ls('sainos-badges') || '[]'); } catch (e) {}
+    document.getElementById('nb-badges').textContent = b.length;
+  }
+  document.querySelectorAll('[data-set-mode]').forEach(function (b) { b.addEventListener('click', function () { ls('sainos-mode', b.dataset.setMode); syncMode(); }); });
+  window.addEventListener('storage', syncMode); window.addEventListener('pageshow', syncMode); syncMode();
+
+})();
+</script>
+
+<script>
+(function () {
+  var S = window.SAISON, K = window.SAISON_ENFANTS, M = new Date().getMonth() + 1, N = 10, L = 'ABCD', NB = '\u202F';
+  function $(i) { return document.getElementById(i); }
+  function ls(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+  var theme = 'tout', age = +(ls('sainos-quiz-age') || 2), deck = [], i = 0, score = 0;
+  var all = S.produits, kp = function (p) { return K.produits[p.s] || {}; };
+  var SAIS = ['Winter', 'Winter', 'Spring', 'Spring', 'Spring', 'Summer', 'Summer', 'Summer', 'Autumn', 'Autumn', 'Autumn', 'Winter'];
+  function shuffle(a) { a = a.slice(); for (var j = a.length - 1; j > 0; j--) { var r = Math.floor(Math.random() * (j + 1)), t = a[j]; a[j] = a[r]; a[r] = t; } return a; }
+  var PLUR = { 'petit-pois': 1, 'haricot-vert': 1, ciboulette: 1 };
+  function art(p) { return 'the '; }
+  function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+  function mk(p, text, good, wrong, expl, hide) {
+    var opts = shuffle([good].concat(shuffle(wrong).slice(0, 2)));
+    return { p: p, text: text, opts: opts, ans: opts.indexOf(good), expl: expl, hide: hide };
+  }
+  function qPhoto(p) { var o = all.filter(function (x) { return x.s !== p.s && x.t === p.t; }).map(function (x) { return x.n; }); return mk(p, 'What is this ' + (p.t === 'fruit' ? 'fruit' : p.t === 'herbe' ? 'herb' : 'vegetable') + ' called?', p.n, o, 'It’s ' + (PLUR[p.s] ? '' : /^[aeiou]/i.test(p.n) ? 'an ' : 'a ') + p.n.toLowerCase() + '! ' + (kp(p).intro || ''), true); }
+  function qType(p) { if (p.t === 'herbe') return null; var g = p.t === 'fruit' ? 'A fruit' : 'A vegetable'; var q = { p: p, text: 'Is ' + art(p) + p.n.toLowerCase() + ' a fruit or a vegetable?', opts: ['A fruit', 'A vegetable'], expl: 'It’s ' + g.toLowerCase() + '! ' + (kp(p).sais || '') }; q.ans = q.opts.indexOf(g); return q; }
+  function season(p) { var c = {}; (p.f && p.f.length ? p.f : p.m).forEach(function (m) { var s = SAIS[m - 1]; c[s] = (c[s] || 0) + 1; }); return Object.keys(c).sort(function (a, b) { return c[b] - c[a]; })[0]; }
+  function qSaison(p) { var s = season(p); return mk(p, 'When is ' + art(p) + p.n.toLowerCase() + ' at its peak?', s, ['Spring', 'Summer', 'Autumn', 'Winter'].filter(function (x) { return x !== s; }), 'In ' + s.toLowerCase() + '! That’s when there’s the most of it, with the most flavour.'); }
+  function qFiche(p) { var q = kp(p).quiz; return { p: p, text: q[0], opts: q[1], ans: q[2], expl: q[3] }; }
+  function qFam(p) { var o = []; all.forEach(function (x) { if (x.fam && x.fam !== p.fam && o.indexOf(x.fam) < 0) o.push(x.fam); }); return mk(p, 'Which plant family does ' + art(p) + p.n.toLowerCase() + ' belong to?', p.fam, o, cap(art(p)) + p.n.toLowerCase() + ' belongs to the ' + p.fam + ' family. ' + (p.d || '')); }
+  function qOrig(p) { var lab = S.ORIG && S.ORIG[p.o] ? S.ORIG[p.o].label : null; if (!lab) return null; var o = ['France', 'Spain', 'Italy', 'Peru', 'Costa Rica', 'French Caribbean', 'Corsica'].filter(function (x) { return x !== lab; }); return mk(p, 'Where does ' + art(p) + p.n.toLowerCase() + ' sold in France most often come from?', lab, o, 'Most often, ' + art(p) + p.n.toLowerCase() + ' comes from ' + ({ 'French Caribbean': 'the French Caribbean' }[lab] || lab) + '. ' + (kp(p).ou || '')); }
+  var GEN = { 1: [qPhoto, qPhoto, qType], 2: [qPhoto, qType, qSaison, qSaison], 3: [qFiche, qFiche, qFiche, qSaison], 4: [qFiche, qFam, qFam, qOrig] };
+  var LAB = { 1: '🐣 Ages 4-6', 2: '🌱 Ages 7-9', 3: '🌳 Ages 10-12', 4: '🏅 Ages 13+' };
+  function pool() { return all.filter(function (p) { return theme === 'tout' || theme === 'defi' || p.t === theme; }); }
+  function key() { return 'sainos-quiz-best-' + age; }
+  function showBest() { var b = +ls(key()) || 0; $('q-best').textContent = b ? '⭐ Your record (' + LAB[age] + '): ' + b + ' / ' + N : ''; }
+  function build() {
+    var g = theme === 'defi' ? (age < 4 ? GEN[age + 1] : [qFiche, qFam, qOrig, qSaison]) : GEN[age], out = [];
+    shuffle(pool()).forEach(function (p) {
+      if (out.length >= N) return;
+      var fs = shuffle(g); for (var j = 0; j < fs.length; j++) { var q; try { q = fs[j](p); } catch (e) { q = null; } if (q && q.opts && q.opts.length > 1 && q.ans >= 0) { out.push(q); return; } }
+    });
+    return out;
+  }
+  function show(id) { ['q-start', 'q-play', 'q-end'].forEach(function (x) { $(x).hidden = x !== id; $(x).style.display = x === id ? 'flex' : 'none'; }); }
+  function start() { deck = build(); i = 0; score = 0; show('q-play'); ask(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  function ask() {
+    var q = deck[i], p = q.p;
+    $('q-count').textContent = 'Question ' + (i + 1) + ' / ' + deck.length;
+    $('q-bar').style.width = (i / deck.length * 100) + '%';
+    $('q-stars').textContent = '⭐ ' + score;
+    $('q-img').src = '../images/' + p.s + '.webp'; $('q-img').alt = q.hide ? 'Guess!' : p.n;
+    $('q-name').textContent = q.hide ? '❓ Guess' : p.e + ' ' + p.n;
+    $('q-text').textContent = q.text;
+    var box = $('q-opts'); box.innerHTML = '';
+    q.opts.forEach(function (o, k) {
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'qopt pop'; b.style.animationDelay = (k * 60) + 'ms';
+      b.innerHTML = '<span class="qletter">' + L[k] + '</span><span></span>'; b.lastChild.textContent = o;
+      b.addEventListener('click', function () { answer(k); });
+      box.appendChild(b);
+    });
+    $('q-fb').hidden = true; $('q-fb').style.display = 'none';
+  }
+  function answer(k) {
+    var q = deck[i], p = q.p, good = k === q.ans, bs = $('q-opts').children;
+    for (var j = 0; j < bs.length; j++) { bs[j].disabled = true; bs[j].classList.remove('pop'); bs[j].classList.add(j === q.ans ? 'ok' : j === k ? 'ko' : 'dim'); }
+    if (good) score++; else bs[k].classList.add('wob');
+    $('q-stars').textContent = '⭐ ' + score;
+    if (q.hide) { $('q-name').textContent = p.e + ' ' + p.n; $('q-img').alt = p.n; }
+    var fb = $('q-fb'); fb.hidden = false; fb.style.display = 'flex';
+    fb.style.background = good ? 'var(--color-accent-100)' : '#fdf0e7';
+    $('q-fb-t').textContent = good ? ['Well done', 'Correct', 'Nice one', 'Brilliant'][Math.floor(Math.random() * 4)] + '!' : 'Missed, but now you know!';
+    $('q-fb-t').style.color = good ? 'var(--color-accent-800)' : '#8a3a12';
+    $('q-fb-x').textContent = q.expl;
+    $('q-fiche').href = 'produits/' + p.s + '.html'; $('q-fiche').textContent = 'Discover the ' + p.n.toLowerCase() + ' page →';
+    $('q-next').textContent = i + 1 < deck.length ? 'Next question →' : 'See my score →';
+    $('q-next').focus({ preventScroll: true });
+  }
+  function end() {
+    $('q-bar').style.width = '100%';
+    var n = deck.length, r = score / n, best = +ls(key()) || 0;
+    if (n === N && score > best) ls(key(), score);
+    $('q-end-e').textContent = r === 1 ? '🏆' : r >= .7 ? '🥇' : r >= .4 ? '🌱' : '🐛';
+    $('q-end-t').textContent = (r === 1 ? 'Perfect score' : r >= .7 ? 'Veg patch expert' : r >= .4 ? 'Not bad at all' : 'That’s a good start') + '! ' + score + ' / ' + n;
+    $('q-end-s').textContent = '⭐'.repeat(score) + '☆'.repeat(n - score);
+    $('q-end-p').textContent = (n === N && score > best && best ? 'New record! ' : '') + (r === 1 ? (age < 4 ? 'Amazing! Try the next age group for a real challenge.' : 'You’re a true master botanist!') : 'Every game mixes up new questions. Play again to win all the stars!');
+    var e = $('q-end-e'); e.classList.remove('pop'); void e.offsetWidth; e.classList.add('pop');
+    show('q-end'); showBest();
+  }
+  function pick(sel, attr, set) { document.querySelectorAll(sel).forEach(function (b) { b.addEventListener('click', function () { set(b.dataset[attr]); document.querySelectorAll(sel).forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); showBest(); }); }); }
+  pick('[data-theme]', 'theme', function (v) { theme = v; });
+  pick('[data-age]', 'age', function (v) { age = +v; ls('sainos-quiz-age', v); });
+  document.querySelectorAll('[data-age]').forEach(function (x) { x.setAttribute('aria-pressed', +x.dataset.age === age); });
+  $('q-go').addEventListener('click', start);
+  $('q-next').addEventListener('click', function () { i++; if (i < deck.length) ask(); else end(); });
+  $('q-again').addEventListener('click', start);
+  $('q-theme').addEventListener('click', function () { show('q-start'); });
+  showBest();
+})();
+</script>
+<script>(function(){if(window.__navClose)return;window.__navClose=1;function c(){document.querySelectorAll('details[data-nav-burger]').forEach(function(d){d.removeAttribute('open')})}document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('[data-nav-panel] a,[data-nav-panel] button');if(t)setTimeout(c,0)},true);window.addEventListener('pageshow',c)})();</script>
+</body>
+</html>

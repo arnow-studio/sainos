@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="alternate" hreflang="fr" href="https://www.sainos.fr/fiche-enseignants.html">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <title>Sainos in class — information sheet</title>
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;600&family=Nunito:wght@500;600;700;800&display=swap">
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
+  <style>body { margin: 0; background: #e9e4da; } a { color: #285e1f; } a:hover { color: #327426; } @page { size: 210mm 297mm; margin: 0; } @media print { [data-noprint] { display: none !important; } body { background: #fbf8f2; } #wrap { padding: 0 !important; } }</style>
+</helmet>
+<div data-noprint="1" style="position: fixed; top: 16px; right: 16px; z-index: 10; display: flex; gap: 8px; align-items: center; padding: 8px 8px 8px 16px; background: #ffffff; border-radius: 999px; box-shadow: 0 6px 20px rgba(60,40,20,.18); font-family: 'Nunito', sans-serif;">
+  <span style="font-size: 14px; font-weight: 700; color: #5b3b27;">Choose “Save as PDF”</span>
+  <button type="button" onClick="{{ doPrint }}" style="border: 0; cursor: pointer; background: #3d8b2f; color: #ffffff; font: inherit; font-weight: 800; font-size: 15px; padding: 10px 18px; border-radius: 999px;">⬇️ Download as PDF</button>
+</div>
+<div id="wrap" style="display: flex; justify-content: center; padding: 40px;">
+  <div data-screen-label="Fiche A4" style="position: relative; width: 210mm; height: 297mm; overflow: hidden; background: #fbf8f2; font-family: 'Nunito', sans-serif; color: #5b3b27; box-sizing: border-box; padding: 14mm 14mm 12mm; display: flex; flex-direction: column; gap: 7mm;">
+    <div style="position: absolute; right: -40mm; top: -42mm; width: 120mm; height: 120mm; border-radius: 50%; background: #d9eed0;"></div>
+    <img loading="lazy" decoding="async" src="../images/pomme.webp" alt="" style="position: absolute; right: 12mm; top: 10mm; width: 30mm; height: 30mm; object-fit: contain; transform: rotate(-10deg);">
+    <img loading="lazy" decoding="async" src="../images/carotte.webp" alt="" style="position: absolute; right: 42mm; top: 30mm; width: 20mm; height: 20mm; object-fit: contain; transform: rotate(14deg);">
+    <img loading="lazy" decoding="async" src="../images/fraise.webp" alt="" style="position: absolute; right: 10mm; top: 44mm; width: 18mm; height: 18mm; object-fit: contain; transform: rotate(-4deg);">
+
+    <div style="position: relative; display: flex; flex-direction: column; gap: 3mm; max-width: 120mm;">
+      <img src="../images/logo-mini.webp" alt="Sainos" style="height: 11mm; width: auto; align-self: flex-start;">
+      <span style="align-self: flex-start; background: #3d8b2f; color: #fff; font-weight: 800; font-size: 9pt; padding: 1.2mm 4mm; border-radius: 999px; letter-spacing: .03em;">A FREE CLASSROOM RESOURCE</span>
+      <h1 style="margin: 0; font-family: 'DynaPuff', sans-serif; font-weight: 400; font-size: 30pt; line-height: 1.05; color: #183a14;">Seasonal fruit and vegetables in the classroom</h1>
+      <p style="margin: 0; font-size: 11.5pt; line-height: 1.5;">Sainos is an independent educational website that teaches children to recognise fruit and vegetables, understand the seasons and discover where their food comes from.</p>
+    </div>
+
+    <div style="position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm;">
+      <div style="display: flex; flex-direction: column; gap: 1mm; padding: 4mm; background: #fff; border-radius: 5mm;"><span style="font-size: 16pt;">🔓</span><span style="font-weight: 800; font-size: 10pt;">No account</span><span style="font-size: 8.5pt; line-height: 1.4;">No sign-up, for pupils or teachers.</span></div>
+      <div style="display: flex; flex-direction: column; gap: 1mm; padding: 4mm; background: #fff; border-radius: 5mm;"><span style="font-size: 16pt;">🛡️</span><span style="font-weight: 800; font-size: 10pt;">Zero data</span><span style="font-size: 8.5pt; line-height: 1.4;">No cookies, no data collection. GDPR-compliant.</span></div>
+      <div style="display: flex; flex-direction: column; gap: 1mm; padding: 4mm; background: #fff; border-radius: 5mm;"><span style="font-size: 16pt;">🚫</span><span style="font-weight: 800; font-size: 10pt;">No advertising</span><span style="font-size: 8.5pt; line-height: 1.4;">Nothing to sell, no commercial partners.</span></div>
+      <div style="display: flex; flex-direction: column; gap: 1mm; padding: 4mm; background: #fff; border-radius: 5mm;"><span style="font-size: 16pt;">🖥️</span><span style="font-weight: 800; font-size: 10pt;">Anywhere</span><span style="font-size: 8.5pt; line-height: 1.4;">Whiteboard, tablet, computer, phone.</span></div>
+    </div>
+
+    <div style="position: relative; display: flex; flex-direction: column; gap: 3mm;">
+      <h2 style="margin: 0; font-family: 'DynaPuff', sans-serif; font-weight: 400; font-size: 16pt; color: #183a14;">What pupils will find</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5mm 6mm; font-size: 10pt; line-height: 1.45;">
+        <div><strong>44 illustrated guides</strong> : history, season, where it grows, benefits, cooking challenge.</div>
+        <div><strong>A quiz for each age</strong> : ages 4-6, 7-9, 10-12 and secondary, 10 questions per game.</div>
+        <div><strong>A seasonal calendar</strong> month by month.</div>
+        <div><strong>A map of origins</strong> : where our fruit and vegetables come from.</div>
+        <div><strong>A glossary</strong> : drupe, tuber, PDO… explained simply.</div>
+        <div><strong>A kids mode</strong> with texts written for ages 8-12, and badges.</div>
+      </div>
+    </div>
+
+    <div style="position: relative; display: flex; flex-direction: column; gap: 3mm;">
+      <h2 style="margin: 0; font-family: 'DynaPuff', sans-serif; font-weight: 400; font-size: 16pt; color: #183a14;">Links with the French curriculum</h2>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm;">
+        <div style="display: flex; flex-direction: column; gap: 1mm; padding: 3.5mm 4mm; background: #eef7ea; border-radius: 5mm;"><span style="font-weight: 800; font-size: 10pt; color: #285e1f;">Cycle 1 (ages 3-6)</span><span style="font-size: 8.5pt; line-height: 1.4;">Exploring the living world: naming, recognising, tasting.</span></div>
+        <div style="display: flex; flex-direction: column; gap: 1mm; padding: 3.5mm 4mm; background: #eef7ea; border-radius: 5mm;"><span style="font-weight: 800; font-size: 10pt; color: #285e1f;">Cycle 2 (ages 6-9)</span><span style="font-size: 8.5pt; line-height: 1.4;">Understanding the world: living things, the passing of time, the seasons.</span></div>
+        <div style="display: flex; flex-direction: column; gap: 1mm; padding: 3.5mm 4mm; background: #eef7ea; border-radius: 5mm;"><span style="font-weight: 800; font-size: 10pt; color: #285e1f;">Cycle 3 (ages 9-12)</span><span style="font-size: 8.5pt; line-height: 1.4;">Science: diet, where food comes from. Geography: consumption.</span></div>
+        <div style="display: flex; flex-direction: column; gap: 1mm; padding: 3.5mm 4mm; background: #eef7ea; border-radius: 5mm;"><span style="font-weight: 800; font-size: 10pt; color: #285e1f;">Sustainability</span><span style="font-size: 8.5pt; line-height: 1.4;">Responsible consumption, short supply chains, reducing food waste.</span></div>
+      </div>
+    </div>
+
+    <div style="position: relative; margin-top: auto; display: flex; gap: 7mm; align-items: center; background: #fff; border-radius: 8mm; padding: 6mm;">
+      <img loading="lazy" decoding="async" src="{{ qr }}" alt="QR code to sainos.fr/en/enseignants.html" style="flex: none; width: 36mm; height: 36mm; display: block;">
+      <div style="display: flex; flex-direction: column; gap: 2mm;">
+        <span style="font-family: 'DynaPuff', sans-serif; font-size: 15pt; color: #183a14;">Lesson ideas by level</span>
+        <span style="font-size: 10pt; line-height: 1.45;">Scan the QR code or visit the teachers’ page:</span>
+        <span style="font-weight: 800; font-size: 13pt; color: #285e1f;">sainos.fr/en/enseignants.html</span>
+      </div>
+    </div>
+    <p style="position: relative; margin: 0; font-size: 8pt; color: #7a6a5c;">Sainos is an independent, non-commercial project. A question, a lesson idea? sainos.fr/en/contact.html</p>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() { if (/[?&]pdf/.test(location.search)) { const go = () => setTimeout(() => window.print(), 600); if (document.fonts && document.fonts.ready) document.fonts.ready.then(go); else go(); } }
+  renderVals() {
+    let qr = '';
+    if (window.qrcode) {
+      const q = window.qrcode(0, 'M'); q.addData('https://www.sainos.fr/en/enseignants.html?utm_source=fiche'); q.make();
+      const svg = q.createSvgTag({ cellSize: 8, margin: 0, scalable: true }).replace(/fill="black"/g, 'fill="#183a14"').replace(/fill="white"/g, 'fill="#ffffff"');
+      qr = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+    } else setTimeout(() => this.forceUpdate(), 150);
+    return { qr, doPrint: () => window.print() };
+  }
+}
+</script>
+</body>
+</html>

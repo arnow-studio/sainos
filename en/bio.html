@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script id="lang-redirect">(function(){var cur='en',alt='../bio.html';document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-lang]');if(a)try{localStorage.setItem('sainos-lang',a.getAttribute('data-lang'))}catch(_){}},true);try{var p=localStorage.getItem('sainos-lang');if(/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)||p===cur)return;var L=p||((navigator.languages&&navigator.languages[0])||navigator.language||'').slice(0,2).toLowerCase();if((cur==='fr'&&L==='en')||(cur==='en'&&L==='fr'))location.replace(alt+location.hash)}catch(e){}})();</script>
+<link rel="alternate" hreflang="fr" href="https://www.sainos.fr/bio.html">
+<link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/bio.html">
+<link rel="alternate" hreflang="x-default" href="https://www.sainos.fr/bio.html">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){var d=document.documentElement;var B=null,T=0,Q='[aria-label="Choose mode"]';document.addEventListener('click',function(e){var t=e.target&&e.target.closest?e.target.closest(Q):null;B=null},true);function g(){var b=B;B=null;if(!b){try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}return}var n=0;(function f(){var x=document.querySelector(Q)||b;var dy=x.getBoundingClientRect().top-T;if(dy)try{window.scrollBy({top:dy,left:0,behavior:'instant'})}catch(e){window.scrollBy(0,dy)}if(++n<24)requestAnimationFrame(f)})()}function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))g()}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
+<style id="kid-palette">html.m-kid { --color-accent: #f5a614; --color-accent-100: #fff7dc; --color-accent-200: #ffeaa8; --color-accent-300: #ffd96b; --color-accent-400: #ffc23d; --color-accent-500: #f5a614; --color-accent-600: #d88c06; --color-accent-700: #945d03; --color-on-accent: var(--color-accent-900); --color-accent-800: #7f5003; --color-accent-900: #5a3902; --color-accent-2-100: #fffaea; --color-accent-2-200: #fdf1cf; --color-accent-2-300: #f8e2a2; --color-accent-2-800: #87601a; --color-accent-2-900: #6b4a10; }
+    :where(html.m-kid) a:not(.btn), :where(html.m-kid) .btn-ghost, :where(html.m-kid) .tag-outline, :where(html.m-kid) .card-kicker { color: var(--color-accent-800); } html.m-kid .btn-primary, html.m-kid .tag-accent { color: var(--color-accent-900) !important; } .btn-primary { background-image: linear-gradient(90deg, var(--color-accent-500), var(--color-accent-700)) !important; } .btn-primary:hover { background-image: linear-gradient(90deg, var(--color-accent-600), var(--color-accent-800)) !important; } html.m-kid .btn-primary { background-image: linear-gradient(90deg, var(--color-accent-400), var(--color-accent-500)) !important; } html.m-kid .btn-primary:hover { background-image: linear-gradient(90deg, var(--color-accent-500), var(--color-accent-600)) !important; }</style>
+<style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html.m-kid [data-adult-only], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
+<style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400&family=Nunito:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../_ds/organic-f9092e65-12bb-43ea-a459-3e0b5f502c38/styles.css">
+<script src="produits-data.js"></script>
+<style>
+  :root { --color-bg: #fbf8f2; --color-accent: #357d28; --color-accent-100: #eef7ea; --color-accent-200: #d9eed0; --color-accent-300: #b6dca5; --color-accent-400: #74b95e; --color-accent-500: #357d28; --color-accent-600: #327426; --color-accent-700: #285e1f; --color-accent-800: #1f4a19; --color-accent-900: #183a14; --color-accent-2-100: #f4f8ed; --color-accent-2-200: #e8efdb; --color-accent-2-300: #d8e2c7; --color-accent-2-800: #56613f; --color-accent-2-900: #46512f; --color-neutral-100: #fffdf9; --color-text: #5b3b27; --color-divider: color-mix(in srgb, #8c491a 20%, transparent); --font-heading: 'DynaPuff', system-ui, sans-serif; --font-body: 'Nunito', system-ui, sans-serif; }
+  body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
+  h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; }
+  a { color: var(--color-accent-700); }
+  a:not(.btn):not(.tag):hover { color: var(--color-accent-600); }
+  *:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+  body.kid .only-adult, body:not(.kid) .only-kid { display: none !important; }
+  .wrap { max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; padding-left: clamp(20px, 5vw, 56px); padding-right: clamp(20px, 5vw, 56px); }
+  .pill { display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-300); background: #fff; color: var(--color-accent-900); font: inherit; font-size: 15px; font-weight: 700; padding: 8px 16px; min-height: 44px; box-sizing: border-box; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+  .pill:hover { background: var(--color-accent-100); border-color: var(--color-accent-500); }
+  .pill[aria-pressed="true"] { background: var(--color-accent); border-color: var(--color-accent); color: #fff; }
+  .mode-btn { display: flex; align-items: center; gap: 6px; background: #fff; font: inherit; font-size: 14px; font-weight: 700; padding: 6px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+
+    @media (max-width: 760px) { [data-nav-desk] { display: none !important; } }
+    @media (min-width: 761px) { [data-nav-burger] { display: none !important; } }
+    [data-nav-burger] summary::-webkit-details-marker { display: none; }
+    [data-nav-burger][open] [data-ic="open"], [data-nav-burger]:not([open]) [data-ic="close"] { display: none; }
+    [data-nav-panel] a:hover { background: var(--color-accent-100); }
+  
+  [data-baseline] { transition: opacity .2s, max-height .2s; max-height: 20px; overflow: hidden; }
+  html.is-scrolled [data-baseline] { opacity: 0; max-height: 0; }
+</style>
+<script>(function(){var d=document.documentElement,on=false;function f(){var y=window.scrollY,s=on?y>8:y>60;if(s!==on){on=s;d.classList.toggle('is-scrolled',s);}}window.addEventListener('scroll',f,{passive:true});f();})();</script>
+<title>Choosing organic wisely: what to buy organic, budget tips and labels | Sainos</title>
+<meta name="description" content="Which fruit and vegetables to buy organic first, how to eat organic on a budget, the difference between organic, local and seasonal, and the labels to know.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.sainos.fr/en/bio.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Choosing organic wisely | Sainos">
+<meta property="og:description" content="What’s worth buying organic, tips to pay less and the labels to recognise.">
+<meta property="og:url" content="https://www.sainos.fr/en/bio.html">
+<meta property="og:site_name" content="Sainos">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://www.sainos.fr/images/og/sainos.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.sainos.fr/images/og/sainos.jpg">
+</head>
+<body>
+<div style="min-height: 100vh; display: flex; flex-direction: column;">
+  <header style="position: sticky; top: 0; z-index: 1000; background: color-mix(in srgb, var(--color-bg) 92%, transparent); backdrop-filter: blur(8px);">
+    <nav class="nav wrap" aria-label="Main navigation" style="flex-wrap: wrap; row-gap: var(--space-2);">
+      <a href="index.html" class="nav-brand" style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none;" aria-label="Sainos — home">
+        <img src="../images/logo-mini.webp" alt="Sainos — seasonal fruit and vegetables" width="398" height="107" style="display: block; height: 36px; width: auto;"><span data-baseline="1" style="font-family: var(--font-body); font-size: 14px; font-weight: 700; line-height: 1; color: var(--color-text); white-space: nowrap;">The Taste of the <span style="color: var(--color-accent-700);">Seasons</span></span>
+      </a>
+      <div data-nav-desk="1" style="display: flex; gap: var(--space-4); align-items: center; flex-wrap: wrap;">
+        <a href="saisons.html">Calendar</a>
+        <a href="origines.html">Origins</a>
+        <a href="marches.html" data-nav-mar="1">Markets</a><a href="pousse.html" data-nav-pousse="1">How it grows</a>
+        <a href="bio.html" aria-current="page">Organic</a>
+        <a href="enseignants.html" data-nav-lex="1">In class</a>
+        <a href="quiz.html" data-nav-quiz="1">Quiz</a>
+        <a href="apropos.html">About</a>
+      </div>
+      <details data-nav-burger="1" style="position: relative; margin-left: auto;">
+        <summary aria-label="Menu" style="list-style: none; width: 48px; height: 48px; box-sizing: border-box; display: grid; place-items: center; background: transparent; border: 0; color: var(--color-text); cursor: pointer;">
+          <svg data-ic="open" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M4 9h16M4 15h16"></path></svg>
+          <svg data-ic="close" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </summary>
+        <div data-nav-panel="1" style="position: absolute; right: 0; top: calc(100% + 10px); z-index: 50; width: min(280px, 80vw); box-sizing: border-box; padding: 10px; background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 4px;">
+          <a href="saisons.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Calendar</a>
+          <a href="origines.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Origins</a>
+          <a href="marches.html" data-nav-mar="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Markets</a><a href="pousse.html" data-nav-pousse="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">How it grows</a>
+          <a href="bio.html" aria-current="page" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-accent-900); background: var(--color-accent-100);">Organic</a>
+          <a href="enseignants.html" data-nav-lex="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">In class</a>
+        <a href="quiz.html" data-nav-quiz="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Quiz</a>
+          <a href="apropos.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">About</a>
+          <a href="contact.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Contact</a>
+        
+          <a href="../bio.html" data-lang="fr" hreflang="fr" lang="fr" style="display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;"><span aria-hidden="true">🌐</span>Version française</a>
+          <div data-nav-extra="1" style="display: flex; flex-direction: column; gap: 10px; margin-top: 6px; padding: 12px 8px 4px; border-top: 1px solid var(--color-divider);">
+        <button type="button" class="mode-btn only-adult" data-set-mode="enfant" style="min-height: 48px; width: 100%; justify-content: center; font-size: 16px; border: 2px solid var(--color-accent-2-300); color: var(--color-accent-2-900);">🎒 Kids mode</button>
+        <button type="button" class="mode-btn only-kid" data-set-mode="normal" style="min-height: 48px; width: 100%; justify-content: center; font-size: 16px; border: 2px solid var(--color-accent-300); color: var(--color-accent-900);">Parents mode</button>
+      <div aria-label="Follow Sainos" data-nav-social="1" style="display: flex; justify-content: center; gap: var(--space-2); align-items: center;"><a href="https://www.facebook.com/profile.php?id=61594827576678" target="_blank" rel="noopener" aria-label="Sainos on Facebook" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/facebook/1877F2" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a><a href="https://www.instagram.com/sainos_fr/" target="_blank" rel="noopener" aria-label="Sainos on Instagram" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/instagram/E4405F" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a><a href="https://www.tiktok.com/@sainos_fr" target="_blank" rel="noopener" aria-label="Sainos on TikTok" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/tiktok/000000" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a></div></div>
+        </div>
+      </details>
+      <div data-nav-desk="1" style="display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; justify-content: flex-end; margin-left: auto; flex: none;">
+        <button type="button" class="mode-btn only-adult" data-set-mode="enfant" style="border: 2px solid var(--color-accent-2-300); color: var(--color-accent-2-900);">🎒 Kids mode</button>
+        <button type="button" class="mode-btn only-kid" data-set-mode="normal" style="border: 2px solid var(--color-accent-300); color: var(--color-accent-900);">Parents mode</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap" style="flex: 1; display: flex; flex-direction: column; gap: var(--space-8); padding-top: clamp(40px, 7vw, 56px); padding-bottom: var(--space-8);">
+    <section style="display: flex; flex-direction: column; gap: var(--space-4); max-width: 720px;">
+      <nav aria-label="Breadcrumb" style="font-size: 14px; display: flex; gap: var(--space-2);"><a href="index.html">Home</a><span aria-hidden="true">›</span><span aria-current="page">Organic</span></nav>
+      <h1 class="only-adult" style="margin: 0; font-size: clamp(38px, 5.5vw, 64px); line-height: 1.02; text-wrap: balance;">Choosing organic wisely</h1>
+      <h1 class="only-kid" style="margin: 0; font-size: clamp(38px, 5.5vw, 64px); line-height: 1.02; text-wrap: balance;">What does organic mean?</h1>
+      <p class="only-adult" style="margin: 0; font-size: 19px; line-height: 1.65; text-wrap: pretty;">Do you need to buy everything organic? No. Here are the fruit and vegetables where organic really makes a difference, how to pay less for it, and the labels to recognise in the shop.</p>
+      <p class="only-kid" style="margin: 0; font-size: 19px; line-height: 1.65; text-wrap: pretty;">An organic fruit or vegetable has grown without chemical pesticides or synthetic fertilisers. You can spot it by the green AB logo or the little European leaf made of stars.</p>
+    </section>
+
+<section class="only-adult" aria-labelledby="t-prio" style="display: flex; flex-direction: column; gap: var(--space-4);">
+      <div style="display: flex; flex-direction: column; gap: var(--space-2); max-width: 720px;">
+        <h2 id="t-prio" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">Organic or not? Where it matters most</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; text-wrap: pretty;">No need to buy everything organic. Thin-skinned fruit eaten with the skin on are the most treated; those protected by a thick skin or grown with few treatments are much less so.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: var(--space-4);">
+        <div style="display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-6); border-radius: var(--radius-lg); background: var(--color-accent-100); border: 2px solid var(--color-accent-300);">
+          <span class="tag tag-accent" style="align-self: flex-start; font-size: 13px;">Organic first</span>
+          <h3 style="margin: 0; font-size: 22px; color: var(--color-accent-900);">Best bought organic</h3>
+          <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2);">
+            <li><a href="produits/fraise.html" style="display: flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; min-height: 44px; box-sizing: border-box; background: #fff; border-radius: 999px; text-decoration: none; color: var(--color-text); font-weight: 700; font-size: 15px;"><img src="../images/fraise.webp" alt="" width="32" height="32" loading="lazy" style="width: 32px; height: 32px; object-fit: contain;">Strawberry</a></li><li><a href="produits/raisin.html" style="display: flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; min-height: 44px; box-sizing: border-box; background: #fff; border-radius: 999px; text-decoration: none; color: var(--color-text); font-weight: 700; font-size: 15px;"><img src="../images/raisin.webp" alt="" width="32" height="32" loading="lazy" style="width: 32px; height: 32px; object-fit: contain;">Grape</a></li><li><a href="produits/pomme.html" style="display: flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; min-height: 44px; box-sizing: border-box; background: #fff; border-radius: 999px; text-decoration: none; color: var(--color-text); font-weight: 700; font-size: 15px;"><img src="../images/pomme.webp" alt="" width="32" height="32" loading="lazy" style="width: 32px; height: 32px; object-fit: contain;">Apple</a></li><li><a href="produits/poire.html" style="display: flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; min-height: 44px; box-sizing: border-box; background: #fff; border-radius: 999px; text-decoration: none; color: var(--color-text); font-weight: 700; font-size: 15px;"><img src="../images/poire.webp" alt="" width="32" height="32" loading="lazy" style="width: 32px; height: 32px; object-fit: contain;">Pear</a></li><li><a href="produits/peche.html" style="display: flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; min-height: 44px; box-sizing: border-box; background: #fff; border-radius: 999px; text-decoration: none; color: var(--color-text); font-weight: 700; font-size: 15px;"><img src="../images/peche.webp" alt="" width="32" height="32" loading="lazy" style="width: 32px; height: 32px; object-fit: contain;">Peach</a></li><li><a href="produits/cerise.html" style="display: flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; min-height: 44px; box-sizing: border-box; background: #fff; border-radius: 999px; text-decoration: none; color: var(--color-text); font-weight: 700; font-size: 15px;"><img src="../images/cerise.webp" alt="" width="32" height="32" loading="lazy" style="width: 32px; height: 32px; object-fit: contain;">Cherry</a></li><li style="display: flex; align-items: center; padding: 6px 14px; min-height: 44px; box-sizing: border-box; background: #fff; border-radius: 999px; font-weight: 700; font-size: 15px;">Celery</li><li style="display: flex; align-items: center; padding: 6px 14px; min-height: 44px; box-sizing: border-box; background: #fff; border-radius: 999px; font-weight: 700; font-size: 15px;">Lettuce</li><li style="display: flex; align-items: center; padding: 6px 14px; min-height: 44px; box-sizing: border-box; background: #fff; border-radius: 999px; font-weight: 700; font-size: 15px;">Fresh herbs</li>
+          </ul>
+          <p style="margin: 0; font-size: 14px; line-height: 1.55; color: var(--color-accent-900);">Thin skin, eaten whole, often treated several times a season.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-6); border-radius: var(--radius-lg); background: var(--color-accent-2-100); border: 2px solid var(--color-accent-2-300);">
+          <span class="tag tag-accent-2" style="align-self: flex-start; font-size: 13px;">Lower priority</span>
+          <h3 style="margin: 0; font-size: 22px; color: var(--color-accent-2-900);">Conventional is often fine</h3>
+          <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2);">
+            <li><a href="produits/avocat.html" style="display: flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; min-height: 44px; box-sizing: border-box; background: #fff; border-radius: 999px; text-decoration: none; color: var(--color-text); font-weight: 700; font-size: 15px;"><img src="../images/avocat.webp" alt="" width="32" height="32" loading="lazy" style="width: 32px; height: 32px; object-fit: contain;">Avocado</a></li><li><a href="produits/oignon.html" style="display: flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; min-height: 44px; box-sizing: border-box; background: #fff; border-radius: 999px; text-decoration: none; color: var(--color-text); font-weight: 700; font-size: 15px;"><img src="../images/oignon.webp" alt="" width="32" height="32" loading="lazy" style="width: 32px; height: 32px; object-fit: contain;">Onion</a></li><li><a href="produits/chou.html" style="display: flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; min-height: 44px; box-sizing: border-box; background: #fff; border-radius: 999px; text-decoration: none; color: var(--color-text); font-weight: 700; font-size: 15px;"><img src="../images/chou.webp" alt="" width="32" height="32" loading="lazy" style="width: 32px; height: 32px; object-fit: contain;">Cabbage</a></li><li><a href="produits/mais.html" style="display: flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; min-height: 44px; box-sizing: border-box; background: #fff; border-radius: 999px; text-decoration: none; color: var(--color-text); font-weight: 700; font-size: 15px;"><img src="../images/mais.webp" alt="" width="32" height="32" loading="lazy" style="width: 32px; height: 32px; object-fit: contain;">Sweetcorn</a></li><li style="display: flex; align-items: center; padding: 6px 14px; min-height: 44px; box-sizing: border-box; background: #fff; border-radius: 999px; font-weight: 700; font-size: 15px;">Garlic</li><li style="display: flex; align-items: center; padding: 6px 14px; min-height: 44px; box-sizing: border-box; background: #fff; border-radius: 999px; font-weight: 700; font-size: 15px;">Asparagus</li>
+          </ul>
+          <p style="margin: 0; font-size: 14px; line-height: 1.55; color: var(--color-accent-2-900);">A thick skin you remove, or crops with few treatments: residues are rarely found.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="only-adult" aria-labelledby="t-astuces" style="display: flex; flex-direction: column; gap: var(--space-4);">
+      <div style="display: flex; flex-direction: column; gap: var(--space-2); max-width: 720px;">
+        <h2 id="t-astuces" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">Buying organic on a budget</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; text-wrap: pretty;">Five simple habits for eating organic on a small budget.</p>
+      </div>
+      <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: var(--space-3);">
+        <li style="display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4) var(--space-5, 20px); background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <span aria-hidden="true" style="display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--color-accent); color: #fff; font-family: var(--font-heading); font-size: 20px;">1</span>
+          <span style="font-family: var(--font-heading); font-size: 20px; line-height: 1.2;">Seasonal</span>
+          <span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">In peak season, organic produce is plentiful and its price gets close to conventional.</span>
+          <span style="font-size: 15px; font-weight: 700; margin-top: auto;"><a href="saisons.html">See the calendar</a> →</span>
+        </li>
+        <li style="display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4) var(--space-5, 20px); background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <span aria-hidden="true" style="display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--color-accent); color: #fff; font-family: var(--font-heading); font-size: 20px;">2</span>
+          <span style="font-family: var(--font-heading); font-size: 20px; line-height: 1.2;">At the market</span>
+          <span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">Organic growers sell there with no middleman. At the end of the market, you can often haggle over unsold produce.</span>
+          <span style="font-size: 15px; font-weight: 700; margin-top: auto;"><a href="marches.html">Find a market</a> →</span>
+        </li>
+        <li style="display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4) var(--space-5, 20px); background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <span aria-hidden="true" style="display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--color-accent); color: #fff; font-family: var(--font-heading); font-size: 20px;">3</span>
+          <span style="font-family: var(--font-heading); font-size: 20px; line-height: 1.2;">Loose, unpackaged</span>
+          <span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">Dried fruit, pulses, grains: with no packaging, you pay less and buy just the right amount.</span>
+        </li>
+        <li style="display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4) var(--space-5, 20px); background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <span aria-hidden="true" style="display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--color-accent); color: #fff; font-family: var(--font-heading); font-size: 20px;">4</span>
+          <span style="font-family: var(--font-heading); font-size: 20px; line-height: 1.2;">With a veg box scheme (AMAP)</span>
+          <span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">A subscription with a local grower: an organic box every week, at a fixed price all year round.</span>
+        </li>
+        <li style="display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4) var(--space-5, 20px); background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <span aria-hidden="true" style="display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--color-accent); color: #fff; font-family: var(--font-heading); font-size: 20px;">5</span>
+          <span style="font-family: var(--font-heading); font-size: 20px; line-height: 1.2;">At the farm</span>
+          <span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">Buying direct cuts out the margins: farm shops and producers near you are often the cheapest way to buy organic.</span>
+        </li>
+      </ol>
+    </section>
+
+    <section class="only-adult" aria-labelledby="t-diff" style="display: flex; flex-direction: column; gap: var(--space-4);">
+      <div style="display: flex; flex-direction: column; gap: var(--space-2); max-width: 720px;">
+        <h2 id="t-diff" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">Organic, local, seasonal: what’s the difference?</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; text-wrap: pretty;">Three different promises that complement each other. Ideally: all three at once.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: var(--space-3);">
+        <div style="display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-5, 20px) var(--space-5, 20px) var(--space-6); background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <span style="display: flex; align-items: baseline; gap: var(--space-2); flex-wrap: wrap;"><span style="font-family: var(--font-heading); font-size: 26px;">Bio</span><span class="tag tag-accent" style="font-size: 13px;">A way of farming</span></span>
+          <span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--color-accent-700);">What it guarantees</span><span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">No synthetic chemical pesticides or fertilisers, no GMOs, inspected every year.</span></span>
+          <span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--color-neutral-800);">What it doesn’t tell you</span><span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">Where it comes from: an organic fruit can cross the planet.</span></span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-5, 20px) var(--space-5, 20px) var(--space-6); background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <span style="display: flex; align-items: baseline; gap: var(--space-2); flex-wrap: wrap;"><span style="font-family: var(--font-heading); font-size: 26px;">Local</span><span class="tag tag-accent-2" style="font-size: 13px;">A distance</span></span>
+          <span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--color-accent-700);">What it guarantees</span><span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">Grown near you: little transport, freshness, a producer you can meet.</span></span>
+          <span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--color-neutral-800);">What it doesn’t tell you</span><span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">How it’s grown: local doesn’t mean organic.</span></span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-5, 20px) var(--space-5, 20px) var(--space-6); background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <span style="display: flex; align-items: baseline; gap: var(--space-2); flex-wrap: wrap;"><span style="font-family: var(--font-heading); font-size: 26px;">Seasonal</span><span class="tag tag-neutral" style="font-size: 13px;">A moment in time</span></span>
+          <span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--color-accent-700);">What it guarantees</span><span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">Harvested ripe, at the right time of year: more flavour, fewer heated greenhouses.</span></span>
+          <span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--color-neutral-800);">What it doesn’t tell you</span><span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">Neither the origin nor the farming method.</span></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="only-adult" aria-labelledby="t-certif" style="display: flex; flex-direction: column; gap: var(--space-4);">
+      <div style="display: flex; flex-direction: column; gap: var(--space-2); max-width: 720px;">
+        <h2 id="t-certif" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">Organic certifications</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; text-wrap: pretty;">In French shops, several logos sit side by side. They all guarantee farming without synthetic chemical pesticides or fertilisers, but some go further on origin, fairness or farming practices.</p>
+      </div>
+      <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: var(--space-3);">
+        <li style="display: flex; flex-direction: column; gap: 6px; padding: var(--space-4) var(--space-5, 20px); background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <span style="display: flex; align-items: center; gap: var(--space-3);"><img src="../images/labels/ab.png" alt="AB logo — Agriculture Biologique" width="64" height="64" loading="lazy" onerror="this.remove()" style="width: 64px; height: 64px; object-fit: contain; flex: none; background: #ffffff; border-radius: 12px;"><span style="font-family: var(--font-heading); font-size: 20px; line-height: 1.2;">AB — Agriculture Biologique (organic farming)</span></span>
+          <span class="tag tag-accent-2" style="align-self: flex-start; font-size: 13px;">French logo</span>
+          <span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">The best-known organic label in France. It guarantees at least 95 % organic ingredients, with no synthetic chemical pesticides or GMOs. It follows the same rules as the EU logo.</span>
+        </li>
+        <li style="display: flex; flex-direction: column; gap: 6px; padding: var(--space-4) var(--space-5, 20px); background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <span style="display: flex; align-items: center; gap: var(--space-3);"><img src="../images/labels/eurofeuille.png" alt="EU organic Euro-leaf logo" width="64" height="64" loading="lazy" onerror="this.remove()" style="width: 64px; height: 64px; object-fit: contain; flex: none; background: #ffffff; border-radius: 12px;"><span style="font-family: var(--font-heading); font-size: 20px; line-height: 1.2;">Euro-leaf</span></span>
+          <span class="tag tag-accent-2" style="align-self: flex-start; font-size: 13px;">EU organic logo</span>
+          <span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">Mandatory on all packaged organic products sold in the European Union. It shows the certification body’s code and the origin of the raw materials (EU, non-EU).</span>
+        </li>
+        <li style="display: flex; flex-direction: column; gap: 6px; padding: var(--space-4) var(--space-5, 20px); background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <span style="display: flex; align-items: center; gap: var(--space-3);"><img src="../images/labels/bio-coherence.jpeg" alt="Bio Cohérence logo" width="64" height="64" loading="lazy" onerror="this.remove()" style="width: 64px; height: 64px; object-fit: contain; flex: none; background: #ffffff; border-radius: 12px;"><span style="font-family: var(--font-heading); font-size: 20px; line-height: 1.2;">Bio Cohérence</span></span>
+          <span class="tag tag-accent-2" style="align-self: flex-start; font-size: 13px;">French association label</span>
+          <span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">Goes further than EU rules: 100 % organic ingredients, fully organic farms, preference for French origin and social requirements.</span>
+        </li>
+        <li style="display: flex; flex-direction: column; gap: 6px; padding: var(--space-4) var(--space-5, 20px); background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <span style="display: flex; align-items: center; gap: var(--space-3);"><img src="../images/labels/nature-progres.jpg" alt="Nature & Progrès logo" width="64" height="64" loading="lazy" onerror="this.remove()" style="width: 64px; height: 64px; object-fit: contain; flex: none; background: #ffffff; border-radius: 12px;"><span style="font-family: var(--font-heading); font-size: 20px; line-height: 1.2;">Nature & Progrès</span></span>
+          <span class="tag tag-accent-2" style="align-self: flex-start; font-size: 13px;">Association label</span>
+          <span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">Founded in 1964, an organic pioneer. Stricter standards than AB, checked by producers and consumers themselves (a participatory system).</span>
+        </li>
+        <li style="display: flex; flex-direction: column; gap: 6px; padding: var(--space-4) var(--space-5, 20px); background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <span style="display: flex; align-items: center; gap: var(--space-3);"><img src="../images/labels/demeter.png" alt="Demeter logo" width="64" height="64" loading="lazy" onerror="this.remove()" style="width: 64px; height: 64px; object-fit: contain; flex: none; background: #ffffff; border-radius: 12px;"><span style="font-family: var(--font-heading); font-size: 20px; line-height: 1.2;">Demeter</span></span>
+          <span class="tag tag-accent-2" style="align-self: flex-start; font-size: 13px;">Biodynamic label</span>
+          <span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">Biodynamic farming: the farm seen as a living organism, natural preparations, following lunar rhythms. Organic certification is required first.</span>
+        </li>
+        <li style="display: flex; flex-direction: column; gap: 6px; padding: var(--space-4) var(--space-5, 20px); background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <span style="display: flex; align-items: center; gap: var(--space-3);"><img src="../images/labels/bio-equitable-en-france.svg" alt="Bio Équitable en France logo" width="64" height="64" loading="lazy" onerror="this.remove()" style="width: 64px; height: 64px; object-fit: contain; flex: none; background: #ffffff; border-radius: 12px;"><span style="font-family: var(--font-heading); font-size: 20px; line-height: 1.2;">Bio Équitable en France</span></span>
+          <span class="tag tag-accent-2" style="align-self: flex-start; font-size: 13px;">Organic and fair-trade label</span>
+          <span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">French organic supply chains with a fair price guaranteed to producers, multi-year contracts and shared governance.</span>
+        </li>
+        <li style="display: flex; flex-direction: column; gap: 6px; padding: var(--space-4) var(--space-5, 20px); background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <span style="display: flex; align-items: center; gap: var(--space-3);"><img src="../images/labels/biopartenaire.png" alt="Biopartenaire logo" width="64" height="64" loading="lazy" onerror="this.remove()" style="width: 64px; height: 64px; object-fit: contain; flex: none; background: #ffffff; border-radius: 12px;"><span style="font-family: var(--font-heading); font-size: 20px; line-height: 1.2;">Biopartenaire</span></span>
+          <span class="tag tag-accent-2" style="align-self: flex-start; font-size: 13px;">Organic and fair-trade label</span>
+          <span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">Combines organic and fair trade, in France and internationally: fair pay for producers and long-term trading relationships.</span>
+        </li>
+      </ul>
+    </section>
+
+<section class="only-kid" aria-labelledby="t-k-ferme" style="display: flex; flex-direction: column; gap: var(--space-4);">
+      <div style="display: flex; flex-direction: column; gap: var(--space-2); max-width: 720px;">
+        <h2 id="t-k-ferme" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">The organic farmer’s tricks</h2>
+        <p style="margin: 0; font-size: 17px; line-height: 1.6; text-wrap: pretty;">Without chemicals, how do you protect your fruit and vegetables? With nature!</p>
+      </div>
+      <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: var(--space-3);">
+        <li style="display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-5, 20px); background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <span aria-hidden="true" style="display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--color-accent-100); font-size: 30px;">🐞</span>
+          <span style="font-family: var(--font-heading); font-size: 21px; line-height: 1.2;">Ladybirds</span>
+          <span style="font-size: 16px; line-height: 1.55; text-wrap: pretty;">Instead of chemicals, the organic farmer invites ladybirds: just one can eat dozens of aphids a day!</span>
+        </li>
+        <li style="display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-5, 20px); background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <span aria-hidden="true" style="display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--color-accent-100); font-size: 30px;">🪱</span>
+          <span style="font-family: var(--font-heading); font-size: 21px; line-height: 1.2;">Compost</span>
+          <span style="font-size: 16px; line-height: 1.55; text-wrap: pretty;">Peelings and manure become a natural fertiliser. Earthworms love it and bring the soil to life.</span>
+        </li>
+        <li style="display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-5, 20px); background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <span aria-hidden="true" style="display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--color-accent-100); font-size: 30px;">🔄</span>
+          <span style="font-family: var(--font-heading); font-size: 21px; line-height: 1.2;">Moving around</span>
+          <span style="font-size: 16px; line-height: 1.55; text-wrap: pretty;">Every year, the vegetables move to a different corner of the field. That way, the little bugs that love them can’t find them.</span>
+        </li>
+        <li style="display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-5, 20px); background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <span aria-hidden="true" style="display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--color-accent-100); font-size: 30px;">🌾</span>
+          <span style="font-family: var(--font-heading); font-size: 21px; line-height: 1.2;">Straw at the base</span>
+          <span style="font-size: 16px; line-height: 1.55; text-wrap: pretty;">To stop weeds growing, straw is put around the plants, or the weeds are pulled out by hand.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="only-kid" aria-labelledby="t-k-logo" style="display: flex; flex-direction: column; gap: var(--space-4);">
+      <div style="display: flex; flex-direction: column; gap: var(--space-2); max-width: 720px;">
+        <h2 id="t-k-logo" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">Be a detective at the shop</h2>
+        <p style="margin: 0; font-size: 17px; line-height: 1.6; text-wrap: pretty;">While shopping, look for these two logos on the labels. How many organic products will you find?</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-3);">
+        <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4) var(--space-6) var(--space-4) var(--space-4); background: #fff; border-radius: 999px; box-shadow: var(--shadow-sm);">
+          <img src="../images/labels/ab.png" alt="AB logo" width="64" height="64" loading="lazy" style="width: 64px; height: 64px; object-fit: contain;">
+          <span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-family: var(--font-heading); font-size: 20px;">The AB logo</span><span style="font-size: 15px;">Green and white, it’s the French logo.</span></span>
+        </div>
+        <div style="display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4) var(--space-6) var(--space-4) var(--space-4); background: #fff; border-radius: 999px; box-shadow: var(--shadow-sm);">
+          <img src="../images/labels/eurofeuille.png" alt="EU organic Euro-leaf logo" width="64" height="64" loading="lazy" style="width: 64px; height: 64px; object-fit: contain;">
+          <span style="display: flex; flex-direction: column; gap: 2px;"><span style="font-family: var(--font-heading); font-size: 20px;">The starry leaf</span><span style="font-size: 15px;">A leaf made of stars: the European logo.</span></span>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="t-vf" style="display: flex; flex-direction: column; gap: var(--space-4);">
+      <div style="display: flex; flex-direction: column; gap: var(--space-2); max-width: 720px;">
+        <h2 id="t-vf" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">True or false?</h2>
+        <p class="only-adult" style="margin: 0; font-size: 16px; line-height: 1.6; text-wrap: pretty;">Five common ideas about organic. Click to reveal the answer.</p>
+        <p class="only-kid" style="margin: 0; font-size: 16px; line-height: 1.6; text-wrap: pretty;">Guess the answer, then click to check!</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: var(--space-2); max-width: 820px;">
+        <details style="background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <summary style="display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding: var(--space-4) var(--space-5, 20px); min-height: 44px; cursor: pointer; font-family: var(--font-heading); font-size: 19px; line-height: 1.3;">“Organic means zero pesticides.”<span aria-hidden="true" style="flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--color-accent-100); color: var(--color-accent-800); font-family: var(--font-body); font-size: 20px; font-weight: 700;">?</span></summary>
+          <div style="display: flex; gap: var(--space-3); align-items: flex-start; padding: 0 var(--space-5, 20px) var(--space-4);">
+            <span class="tag tag-neutral" style="flex: none; font-size: 14px; font-weight: 700;">False</span>
+            <span class="only-adult" style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">A few naturally derived products are still allowed, such as copper or sulphur. Synthetic chemical pesticides, however, are banned.</span>
+            <span class="only-kid" style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">Organic farming can use a few natural products, but never synthetic chemicals.</span>
+          </div>
+        </details>
+        <details style="background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <summary style="display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding: var(--space-4) var(--space-5, 20px); min-height: 44px; cursor: pointer; font-family: var(--font-heading); font-size: 19px; line-height: 1.3;">“An organic fruit can come from very far away.”<span aria-hidden="true" style="flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--color-accent-100); color: var(--color-accent-800); font-family: var(--font-body); font-size: 20px; font-weight: 700;">?</span></summary>
+          <div style="display: flex; gap: var(--space-3); align-items: flex-start; padding: 0 var(--space-5, 20px) var(--space-4);">
+            <span class="tag tag-accent" style="flex: none; font-size: 14px; font-weight: 700;">True</span>
+            <span class="only-adult" style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">The organic label says nothing about the distance travelled. For fruit from near you, check the origin on the label.</span>
+            <span class="only-kid" style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">Yes! An organic banana comes from very far away. Look at the label to find out where your fruit comes from.</span>
+          </div>
+        </details>
+        <details style="background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <summary style="display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding: var(--space-4) var(--space-5, 20px); min-height: 44px; cursor: pointer; font-family: var(--font-heading); font-size: 19px; line-height: 1.3;">“GMOs are banned in organic farming.”<span aria-hidden="true" style="flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--color-accent-100); color: var(--color-accent-800); font-family: var(--font-body); font-size: 20px; font-weight: 700;">?</span></summary>
+          <div style="display: flex; gap: var(--space-3); align-items: flex-start; padding: 0 var(--space-5, 20px) var(--space-4);">
+            <span class="tag tag-accent" style="flex: none; font-size: 14px; font-weight: 700;">True</span>
+            <span class="only-adult" style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">It’s one of the basic rules of the EU regulation.</span>
+            <span class="only-kid" style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">Yes, in organic farming, plants modified in a lab are banned.</span>
+          </div>
+        </details>
+        <details style="background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <summary style="display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding: var(--space-4) var(--space-5, 20px); min-height: 44px; cursor: pointer; font-family: var(--font-heading); font-size: 19px; line-height: 1.3;">“Organic is always more expensive.”<span aria-hidden="true" style="flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--color-accent-100); color: var(--color-accent-800); font-family: var(--font-body); font-size: 20px; font-weight: 700;">?</span></summary>
+          <div style="display: flex; gap: var(--space-3); align-items: flex-start; padding: 0 var(--space-5, 20px) var(--space-4);">
+            <span class="tag tag-neutral" style="flex: none; font-size: 14px; font-weight: 700;">False</span>
+            <span class="only-adult" style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">In season, at the market, loose or in a veg box, the gap with conventional shrinks a lot.</span>
+            <span class="only-kid" style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">Not always! In peak season and at the market, organic sometimes costs almost the same.</span>
+          </div>
+        </details>
+        <details style="background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+          <summary style="display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding: var(--space-4) var(--space-5, 20px); min-height: 44px; cursor: pointer; font-family: var(--font-heading); font-size: 19px; line-height: 1.3;">“Washing fruit removes all pesticides.”<span aria-hidden="true" style="flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--color-accent-100); color: var(--color-accent-800); font-family: var(--font-body); font-size: 20px; font-weight: 700;">?</span></summary>
+          <div style="display: flex; gap: var(--space-3); align-items: flex-start; padding: 0 var(--space-5, 20px) var(--space-4);">
+            <span class="tag tag-neutral" style="flex: none; font-size: 14px; font-weight: 700;">False</span>
+            <span class="only-adult" style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">Washing removes some of the surface residues, peeling a bit more, but never all of them.</span>
+            <span class="only-kid" style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">Washing helps, but it doesn’t remove everything. Always wash your fruit anyway!</span>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <section aria-label="Choose mode" style="margin: var(--space-4) 0 0;">
+      <div class="only-adult" style="display: flex; flex-direction: column; background: #fff; border: 2px solid var(--color-accent-2-300); border-radius: var(--radius-lg); overflow: hidden;">
+        <img src="../images/pano-apropos-enfant.webp" alt="A cartoon young farmer in his field, hands on hips" width="1500" height="500" loading="lazy" style="display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover;">
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-4) var(--space-6);">
+          <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 320px; min-width: 0;">
+            <span style="font-family: var(--font-heading); font-size: 24px; color: var(--color-accent-2-900);">🧺 Parents mode on</span>
+            <span style="font-size: 16px; line-height: 1.5; color: var(--color-accent-2-900); text-wrap: pretty;">Origin, peak season, tips for choosing at the market and recipe ideas: everything you need to shop with the seasons. Your children want to explore too? Switch to kids mode.</span>
+          </div>
+          <button type="button" class="btn btn-primary" data-set-mode="enfant" style="padding: 12px 22px; font-size: 16px; white-space: nowrap;">Switch to kids mode</button>
+        </div>
+      </div>
+      <div class="only-kid" style="display: flex; flex-direction: column; background: #fff; border: 2px solid var(--color-accent-300); border-radius: var(--radius-lg); overflow: hidden;">
+        <img src="../images/pano-apropos-enfant.webp" alt="A drawing of a young farmer in his field, hands on hips" width="1500" height="500" loading="lazy" style="display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover;">
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-4) var(--space-6);">
+          <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 320px; min-width: 0;">
+            <span style="font-family: var(--font-heading); font-size: 24px; color: var(--color-accent-900);">🎒 Kids mode on</span>
+            <span style="font-size: 16px; line-height: 1.5; color: var(--color-accent-900); text-wrap: pretty;">You already have <span id="nb-badges">0</span> badges out of 44. Are your parents doing the shopping? Hand them the parents version, it only takes one click.</span>
+          </div>
+          <button type="button" class="btn btn-secondary" data-set-mode="normal" style="padding: 12px 22px; font-size: 16px; white-space: nowrap;">Switch to parents mode</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background: #f4efe6;">
+    <div class="wrap" style="padding-top: var(--space-6); padding-bottom: var(--space-6); display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: space-between; align-items: center; font-size: 14px;">
+      <img src="../images/logo-mini.webp" alt="Sainos" width="398" height="107" style="display: block; height: 30px; width: auto;">
+      <nav aria-label="Footer" style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
+        <a href="index.html">Home</a>
+        <a href="saisons.html">Calendar</a>
+        <a href="origines.html">Origins</a>
+        <a href="marches.html" data-nav-mar="1">Markets</a><a href="pousse.html" data-nav-pousse="1">How it grows</a>
+        <a href="bio.html">Organic</a>
+        <a href="lexique.html" data-nav-lex="1">Glossary</a>
+        <a href="quiz.html" data-nav-quiz="1">Quiz</a>
+        <a href="apropos.html">About</a>
+        <a href="enseignants.html" data-adult-only="1">Teachers</a>
+        <a href="contact.html" data-adult-only="1">Contact</a>
+        <a href="../bio.html" data-lang="fr" hreflang="fr" lang="fr">Version française</a>
+      </nav>
+      <div aria-label="Follow Sainos" style="display: flex; gap: var(--space-2); align-items: center;">
+        <a href="https://www.facebook.com/profile.php?id=61594827576678" target="_blank" rel="noopener" aria-label="Sainos on Facebook" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/facebook/1877F2" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+        <a href="https://www.instagram.com/sainos_fr/" target="_blank" rel="noopener" aria-label="Sainos on Instagram" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/instagram/E4405F" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+        <a href="https://www.tiktok.com/@sainos_fr" target="_blank" rel="noopener" aria-label="Sainos on TikTok" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/tiktok/000000" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+      </div>
+      <p style="flex-basis: 100%; order: 3; margin: 0; font-size: 13px; line-height: 1.5; color: var(--color-neutral-800);">Sainos is an independent information website. No sales, no advertising, no cookies.</p>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var S = window.SAISON, now = new Date(), M = now.getMonth() + 1;
+  var MOIS = S.MOIS;
+  document.querySelectorAll('.mois').forEach(function (e) { e.textContent = MOIS[M - 1]; });
+
+  // Mode parent / enfant
+  function ls(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+  function syncMode() {
+    document.body.classList.toggle('kid', ls('sainos-mode') === 'enfant');
+    var b = []; try { b = JSON.parse(ls('sainos-badges') || '[]'); } catch (e) {}
+    document.getElementById('nb-badges').textContent = b.length;
+  }
+  document.querySelectorAll('[data-set-mode]').forEach(function (b) { b.addEventListener('click', function () { ls('sainos-mode', b.dataset.setMode); syncMode(); }); });
+  window.addEventListener('storage', syncMode); window.addEventListener('pageshow', syncMode); syncMode();
+
+})();
+</script>
+<script>(function(){if(window.__navClose)return;window.__navClose=1;function c(){document.querySelectorAll('details[data-nav-burger]').forEach(function(d){d.removeAttribute('open')})}document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('[data-nav-panel] a,[data-nav-panel] button');if(t)setTimeout(c,0)},true);window.addEventListener('pageshow',c)})();</script>
+</body>
+</html>

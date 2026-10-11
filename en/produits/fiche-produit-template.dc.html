@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){var d=document.documentElement;var B=null,T=0,Q='[aria-label="Choose mode"]';document.addEventListener('click',function(e){var t=e.target&&e.target.closest?e.target.closest(Q):null;B=null},true);function g(){var b=B;B=null;if(!b){try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}return}var n=0;(function f(){var x=document.querySelector(Q)||b;var dy=x.getBoundingClientRect().top-T;if(dy)try{window.scrollBy({top:dy,left:0,behavior:'instant'})}catch(e){window.scrollBy(0,dy)}if(++n<24)requestAnimationFrame(f)})()}function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))g()}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
+<style id="kid-palette">html.m-kid { --color-accent: #f5a614; --color-accent-100: #fff7dc; --color-accent-200: #ffeaa8; --color-accent-300: #ffd96b; --color-accent-400: #ffc23d; --color-accent-500: #f5a614; --color-accent-600: #d88c06; --color-accent-700: #945d03; --color-on-accent: var(--color-accent-900); --color-accent-800: #7f5003; --color-accent-900: #5a3902; --color-accent-2-100: #fffaea; --color-accent-2-200: #fdf1cf; --color-accent-2-300: #f8e2a2; --color-accent-2-800: #87601a; --color-accent-2-900: #6b4a10; }
+    :where(html.m-kid) a:not(.btn), :where(html.m-kid) .btn-ghost, :where(html.m-kid) .tag-outline, :where(html.m-kid) .card-kicker { color: var(--color-accent-800); } html.m-kid .btn-primary, html.m-kid .tag-accent { color: var(--color-accent-900) !important; } .btn-primary { background-image: linear-gradient(90deg, var(--color-accent-500), var(--color-accent-700)) !important; } .btn-primary:hover { background-image: linear-gradient(90deg, var(--color-accent-600), var(--color-accent-800)) !important; } html.m-kid .btn-primary { background-image: linear-gradient(90deg, var(--color-accent-400), var(--color-accent-500)) !important; } html.m-kid .btn-primary:hover { background-image: linear-gradient(90deg, var(--color-accent-500), var(--color-accent-600)) !important; }</style>
+<style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html.m-kid [data-adult-only], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
+<style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400&family=Nunito:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../../_ds/organic-f9092e65-12bb-43ea-a459-3e0b5f502c38/styles.css">
+  <script src="../../_ds/organic-f9092e65-12bb-43ea-a459-3e0b5f502c38/_ds_bundle.js"></script>
+  <script src="../produits-data.js"></script>
+  <script src="../produits-textes.js"></script>
+  <script src="../produits-enfants.js"></script>
+  <script src="../produits-pousse.js"></script>
+  <script src="../produits-varietes.js"></script>
+  <script src="../produits-antigaspi.js"></script>
+  <style>
+    :root { --color-bg: #fbf8f2; --color-accent: #357d28; --color-accent-100: #eef7ea; --color-accent-200: #d9eed0; --color-accent-300: #b6dca5; --color-accent-400: #74b95e; --color-accent-500: #357d28; --color-accent-600: #327426; --color-accent-700: #285e1f; --color-accent-800: #1f4a19; --color-accent-900: #183a14; --color-accent-2-100: #f4f8ed; --color-accent-2-200: #e8efdb; --color-accent-2-300: #d8e2c7; --color-accent-2-800: #56613f; --color-accent-2-900: #46512f;  --color-neutral-100: #fffdf9; --color-text: #5b3b27; --color-divider: color-mix(in srgb, #8c491a 20%, transparent); --font-heading: 'DynaPuff', system-ui, sans-serif; --font-body: 'Nunito', system-ui, sans-serif; }
+    body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
+    h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 400; }
+    a { color: var(--color-accent-700); }
+    a:not(.btn):not(.tag):hover { color: var(--color-accent-600); }
+    *:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+    summary::-webkit-details-marker { display: none; }
+  
+    @media (max-width: 760px) { [data-nav-desk] { display: none !important; } }
+    @media (min-width: 761px) { [data-nav-burger] { display: none !important; } }
+    [data-nav-burger] summary::-webkit-details-marker { display: none; }
+    [data-nav-burger][open] [data-ic="open"], [data-nav-burger]:not([open]) [data-ic="close"] { display: none; }
+    [data-nav-panel] a:hover { background: var(--color-accent-100); }
+  
+  [data-baseline] { transition: opacity .2s, max-height .2s; max-height: 20px; overflow: hidden; }
+  html.is-scrolled [data-baseline] { opacity: 0; max-height: 0; }
+</style>
+<script>(function(){var d=document.documentElement,on=false;function f(){var y=window.scrollY,s=on?y>8:y>60;if(s!==on){on=s;d.classList.toggle('is-scrolled',s);}}window.addEventListener('scroll',f,{passive:true});f();})();</script>
+<script>(function(){if(window.__navClose)return;window.__navClose=1;function c(){document.querySelectorAll('details[data-nav-burger]').forEach(function(d){d.removeAttribute('open')})}document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('[data-nav-panel] a,[data-nav-panel] button');if(t)setTimeout(c,0)},true);window.addEventListener('pageshow',c)})();</script>
+</helmet>
+<div style="min-height: 100vh; display: flex; flex-direction: column;">
+  <header style="position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--color-bg) 92%, transparent); backdrop-filter: blur(8px);">
+    <nav class="nav" aria-label="Main navigation" style="max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; padding-left: clamp(20px, 5vw, 56px); padding-right: clamp(20px, 5vw, 56px); flex-wrap: wrap; row-gap: var(--space-2);">
+      <a href="../index.html" class="nav-brand" style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none;" aria-label="Sainos — home">
+        <img src="../../images/logo.webp" alt="Sainos — seasonal fruit and vegetables" width="398" height="107" style="{{ logoBig }}">
+        <img src="../../images/logo-mini.webp" alt="" aria-hidden="true" width="398" height="107" style="{{ logoMini }}"><span data-baseline="1" style="font-family: var(--font-body); font-size: 14px; font-weight: 700; line-height: 1; color: var(--color-text); white-space: nowrap;">The Taste of the <span style="color: var(--color-accent-700);">Seasons</span></span>
+      </a>
+      <div data-nav-desk="1" style="display: flex; gap: var(--space-4); align-items: center;">
+        <a href="../saisons.html">Calendar</a>
+        <a href="../origines.html">Origins</a>
+        <a href="../marches.html" data-nav-mar="1">Markets</a><a href="../pousse.html" data-nav-pousse="1">How it grows</a>
+        <a href="../bio.html">Organic</a>
+        <a href="../enseignants.html" data-nav-lex="1">In class</a>
+        <a href="../quiz.html" data-nav-quiz="1">Quiz</a>
+        <a href="../apropos.html">About</a>
+      </div>
+      <details data-nav-burger="1" style="position: relative; margin-left: auto;">
+        <summary aria-label="Menu" style="list-style: none; width: 48px; height: 48px; box-sizing: border-box; display: grid; place-items: center; background: transparent; border: 0; color: var(--color-text); cursor: pointer;">
+          <svg data-ic="open" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M4 9h16M4 15h16"></path></svg>
+          <svg data-ic="close" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </summary>
+        <div data-nav-panel="1" style="position: absolute; right: 0; top: calc(100% + 10px); z-index: 50; width: min(280px, 80vw); box-sizing: border-box; padding: 10px; background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 4px;">
+          <a href="../saisons.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Calendar</a>
+          <a href="../origines.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Origins</a>
+          <a href="../marches.html" data-nav-mar="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Markets</a><a href="../pousse.html" data-nav-pousse="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">How it grows</a>
+          <a href="../bio.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Organic</a>
+          <a href="../enseignants.html" data-nav-lex="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">In class</a>
+        <a href="../quiz.html" data-nav-quiz="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Quiz</a>
+          <a href="../apropos.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">About</a>
+          <a href="../contact.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Contact</a>
+        
+          <a href="{{ langHref }}" data-lang="fr" hreflang="fr" lang="fr" style="display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;"><span aria-hidden="true">🌐</span>Version française</a>
+          <div data-nav-extra="1" style="display: flex; flex-direction: column; gap: 10px; margin-top: 6px; padding: 12px 8px 4px; border-top: 1px solid var(--color-divider);"><sc-if value="{{ adult }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ toEnfant }}" style="display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-2-300); background: #ffffff; color: var(--color-accent-2-900); font: inherit; font-size: 16px; font-weight: 700; padding: 10px 18px; min-height: 48px; width: 100%; justify-content: center; box-sizing: border-box; border-radius: 999px; cursor: pointer; white-space: nowrap;" style-hover="background: var(--color-accent-2-100); border-color: var(--color-accent-2-500);">🎒 Kids mode</button></sc-if><sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ toNormal }}" style="display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-300); background: #ffffff; color: var(--color-accent-900); font: inherit; font-size: 16px; font-weight: 700; padding: 10px 18px; min-height: 48px; width: 100%; justify-content: center; box-sizing: border-box; border-radius: 999px; cursor: pointer; white-space: nowrap;" style-hover="background: var(--color-accent-100); border-color: var(--color-accent-500);">Parents mode</button></sc-if><div aria-label="Follow Sainos" data-nav-social="1" style="display: flex; justify-content: center; gap: var(--space-2); align-items: center;"><a href="https://www.facebook.com/profile.php?id=61594827576678" target="_blank" rel="noopener" aria-label="Sainos on Facebook" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/facebook/1877F2" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a><a href="https://www.instagram.com/sainos_fr/" target="_blank" rel="noopener" aria-label="Sainos on Instagram" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/instagram/E4405F" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a><a href="https://www.tiktok.com/@sainos_fr" target="_blank" rel="noopener" aria-label="Sainos on TikTok" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/tiktok/000000" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a></div></div>
+        </div>
+      </details>
+      <div data-nav-desk="1" style="display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; justify-content: flex-end; margin-left: auto; flex: none;"><sc-if value="{{ adult }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ toEnfant }}" style="display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-2-300); background: #ffffff; color: var(--color-accent-2-900); font: inherit; font-size: 14px; font-weight: 700; padding: 6px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap;" style-hover="background: var(--color-accent-2-100); border-color: var(--color-accent-2-500);">🎒 Kids mode</button></sc-if><sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ toNormal }}" style="display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-300); background: #ffffff; color: var(--color-accent-900); font: inherit; font-size: 14px; font-weight: 700; padding: 6px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap;" style-hover="background: var(--color-accent-100); border-color: var(--color-accent-500);">Parents mode</button></sc-if></div>
+    </nav>
+  </header>
+
+  <main style="flex: 1; max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; padding: clamp(40px, 7vw, 56px) clamp(20px, 5vw, 56px) 0; display: flex; flex-direction: column; gap: var(--space-8);">
+          <sc-if value="{{ adult }}" hint-placeholder-val="{{ true }}">
+    <article style="display: flex; flex-direction: column; gap: var(--space-8);">
+      <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+        <nav aria-label="Breadcrumb" style="font-size: 14px;">
+          <ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2);">
+            <li><a href="../index.html">Home</a></li>
+            <li aria-hidden="true">›</li>
+            <li><a href="../saisons.html">{{ typeLabel }}</a></li>
+            <li aria-hidden="true">›</li>
+            <li aria-current="page">{{ nom }}</li>
+          </ol>
+        </nav>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8); align-items: center;">
+          <div style="display: flex; flex-direction: column; gap: var(--space-4); max-width: 620px;">
+            <h1 style="margin: 0; font-size: clamp(36px, 5vw, 58px); line-height: 1.04; text-wrap: balance;">{{ h1 }}</h1>
+            <p style="margin: 0; font-size: 18px; line-height: 1.6; color: var(--color-neutral-800); text-wrap: pretty;">{{ intro }}</p>
+            <ul aria-label="At a glance" style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2);">
+              <sc-for list="{{ facts }}" as="fa" hint-placeholder-count="4">
+                <li class="{{ fa.cls }}" style="background: #ffffff; color: var(--color-text); border: 1px solid color-mix(in srgb, var(--color-accent-700) 20%, transparent); white-space: nowrap; font-size: 14px; padding: 7px 14px; gap: 6px;"><span style="opacity: 0.75;">{{ fa.k }}</span><strong>{{ fa.v }}</strong></li>
+              </sc-for>
+            </ul>
+          </div>
+          <div aria-hidden="true" style="position: relative; justify-self: center; width: min(380px, 80vw); aspect-ratio: 1;">
+            <div style="position: absolute; inset: 0; background: var(--color-accent-200); border-radius: 46% 54% 42% 58% / 55% 45% 55% 45%;"></div>
+            
+            <div style="position: absolute; inset: 0; display: grid; place-items: center; font-size: clamp(140px, 22vw, 210px); line-height: 1; transform: rotate(-10deg);"><sc-if value="{{ hero.img }}" hint-placeholder-val="{{ false }}"><span role="img" aria-hidden="true" style="width: 1em; height: 1em; background: {{ hero.imgBg }}; display: block;"></span></sc-if><sc-if value="{{ hero.noImg }}" hint-placeholder-val="{{ true }}">{{ hero.e }}</sc-if></div>
+          </div>
+        </div>
+      </div>
+
+      <section aria-labelledby="h-calendrier" style="display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-6); background: #f4efe6; border-radius: var(--radius-lg);">
+        <h2 id="h-calendrier" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">Seasonal calendar{{ duDe }}</h2>
+        <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)); gap: 6px;">
+          <sc-for list="{{ cal }}" as="cm" hint-placeholder-count="12">
+            <li style="{{ cm.style }}" title="{{ cm.title }}">
+              <span style="font-weight: 700; font-size: 14px;">{{ cm.label }}</span>
+              <span style="font-size: 11px;">{{ cm.state }}</span>
+            </li>
+          </sc-for>
+        </ol>
+        <p style="margin: 0; font-size: 15px; color: var(--color-neutral-800);">{{ calSummary }}</p>
+      </section>
+
+      <sc-if value="{{ hasTextes }}" hint-placeholder-val="{{ true }}">
+        <div style="display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-8); max-width: 860px;">
+          <section aria-labelledby="h-histoire" style="display: flex; flex-direction: column; gap: var(--space-3);">
+            <h2 id="h-histoire" style="margin: 0; font-size: clamp(26px, 3vw, 34px); display: flex; gap: 14px; align-items: center;">History</h2>
+            <p style="margin: 0; font-size: 17px; line-height: 1.7; text-wrap: pretty;">{{ tx.histoire }}</p>
+          </section>
+
+          <section aria-labelledby="h-origine" style="display: flex; flex-direction: column; gap: var(--space-3);">
+            <h2 id="h-origine" style="margin: 0; font-size: clamp(26px, 3vw, 34px); display: flex; gap: 14px; align-items: center;">Origin</h2>
+            <p style="margin: 0; font-size: 17px; line-height: 1.7; text-wrap: pretty;">{{ tx.origine }}</p>
+            <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2);">
+              <sc-for list="{{ tx.regions }}" as="rg" hint-placeholder-count="3">
+                <li class="tag tag-accent-2" style="background: #ffffff; border: 1px solid color-mix(in srgb, var(--color-accent-2-500) 30%, transparent); white-space: nowrap; font-size: 14px; padding: 7px 14px;">📍 {{ rg }}</li>
+              </sc-for>
+            </ul>
+            <sc-if value="{{ tx.label }}" hint-placeholder-val="{{ false }}">
+              <p style="margin: 0; display: flex; gap: var(--space-3); align-items: flex-start; padding: var(--space-3) var(--space-4); background: var(--color-accent-100); color: var(--color-accent-900); border-radius: var(--radius-lg); font-size: 16px; line-height: 1.6;"><span aria-hidden="true" style="font-size: 22px; line-height: 1.2;">🏅</span><span>{{ tx.label }}</span></p>
+            </sc-if>
+          </section>
+
+          <section aria-labelledby="h-classification" style="display: flex; flex-direction: column; gap: var(--space-3);">
+            <h2 id="h-classification" style="margin: 0; font-size: clamp(26px, 3vw, 34px); display: flex; gap: 14px; align-items: center;">Classification</h2>
+            <dl style="margin: 0; display: flex; flex-direction: column; gap: 6px;">
+              <sc-for list="{{ classification }}" as="cl" hint-placeholder-count="4">
+                <div style="display: flex; flex-wrap: wrap; gap: 4px var(--space-4); padding: var(--space-3) var(--space-4); background: var(--color-neutral-100); border-radius: var(--radius-lg);">
+                  <dt style="flex: 0 0 210px; font-weight: 700; font-size: 15px; line-height: 1.55;">{{ cl.k }}</dt>
+                  <dd style="flex: 1 1 280px; margin: 0; font-size: 16px; line-height: 1.55; min-width: 0;">{{ cl.v }}</dd>
+                </div>
+              </sc-for>
+            </dl>
+          </section>
+          <sc-if value="{{ hasVar }}" hint-placeholder-val="{{ false }}"><section aria-labelledby="h-varietes" style="display: flex; flex-direction: column; gap: var(--space-4);">
+            <h2 id="h-varietes" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">Varieties to know</h2>
+            <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: var(--space-3);">
+              <sc-for list="{{ varietes }}" as="va" hint-placeholder-count="4"><li style="display: flex; flex-direction: column; gap: 4px; padding: var(--space-4); background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);"><span style="font-family: var(--font-heading); font-size: 19px; line-height: 1.2;">{{ va.n }}</span><span style="font-size: 15px; line-height: 1.5; text-wrap: pretty;">{{ va.x }}</span></li></sc-for>
+            </ul>
+            <sc-if value="{{ hasCousins }}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-direction: column; gap: var(--space-3); margin-top: var(--space-2);">
+              <h3 style="margin: 0; font-size: 22px;">Its cousins in the {{ fam }} family</h3>
+              <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                <sc-for list="{{ cousinsLinked }}" as="co" hint-placeholder-count="0"><a href="{{ co.href }}" class="tag tag-accent" style="display: flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; font-size: 15px; text-decoration: none; min-height: 44px; box-sizing: border-box;"><span aria-hidden="true" style="flex: none; width: 32px; height: 32px; background: {{ co.bg }};"></span>{{ co.n }}</a></sc-for>
+                <sc-for list="{{ cousinsExtra }}" as="cx" hint-placeholder-count="2"><span class="tag tag-neutral" style="display: flex; align-items: center; padding: 6px 14px; font-size: 15px; min-height: 44px; box-sizing: border-box;">{{ cx }}</span></sc-for>
+              </div>
+            </div></sc-if>
+          </section></sc-if>
+
+          <section aria-labelledby="h-bienfaits" style="display: flex; flex-direction: column; gap: var(--space-4);">
+            <h2 id="h-bienfaits" style="margin: 0; font-size: clamp(26px, 3vw, 34px); display: flex; gap: 14px; align-items: center;">Benefits &amp; nutrition</h2>
+            <p style="margin: 0; font-size: 17px; line-height: 1.7;">{{ tx.bienfaitsIntro }}</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-4);">
+              <sc-for list="{{ bienfaits }}" as="b" hint-placeholder-count="4">
+                <div style="display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); background: var(--color-accent-2-200); border: 1px solid color-mix(in srgb, var(--color-accent-2-500) 25%, transparent); border-radius: var(--radius-lg);">
+                  <h3 style="margin: 0; font-size: 20px; color: var(--color-accent-2-900);">{{ b.t }}</h3>
+                  <p style="margin: 0; font-size: 15px; line-height: 1.55;">{{ b.x }}</p>
+                </div>
+              </sc-for>
+            </div>
+            <aside role="note" aria-label="Featured recipe" style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; padding: var(--space-4); background: #ffffff; border: 1px solid var(--color-divider); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+              <span aria-hidden="true" style="flex: none; width: 88px; height: 88px; border-radius: 50%; display: grid; place-items: center; font-size: 52px; background: var(--color-accent-200);"><sc-if value="{{ hero.noImg }}" hint-placeholder-val="{{ false }}">{{ hero.e }}</sc-if><span role="img" aria-hidden="true" style="width: 64px; height: 64px; background: {{ hero.imgBg }}; display: block;"></span></span>
+              <div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 4px; min-width: 0;">
+                <span style="font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: var(--color-accent-700);">Featured recipe · BBC Good Food</span>
+                <h3 style="margin: 0; font-size: 22px; line-height: 1.2;">{{ rec.titre }}</h3>
+                <a href="{{ rec.toutes }}" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">All {{ nomLower }} recipes on BBC Good Food ↗</a>
+                <span style="font-size: 13px; color: var(--color-neutral-800);">External link, no partnership or commission.</span>
+              </div>
+              <a href="{{ rec.url }}" target="_blank" rel="noopener" class="btn btn-primary" style="white-space: nowrap; flex: none; padding: 12px 20px; font-size: 15px; text-decoration: none;">See the recipe ↗</a>
+            </aside>
+          </section>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ hasDetail }}" hint-placeholder-val="{{ false }}">
+        <div style="display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-8); max-width: 860px;">
+          <section aria-labelledby="h-choisir" style="display: flex; flex-direction: column; gap: var(--space-4);">
+            <h2 id="h-choisir" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">How to choose and store it</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-4);">
+              <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+                <h3 style="margin: 0; font-size: 21px; display: flex; gap: 8px; align-items: center;">At the market</h3>
+                <p style="margin: 0; font-size: 16px; line-height: 1.6;">{{ d.choisir }}</p>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+                <h3 style="margin: 0; font-size: 21px; display: flex; gap: 8px; align-items: center;">At home</h3>
+                <p style="margin: 0; font-size: 16px; line-height: 1.6;">{{ d.conserver }}</p>
+              </div>
+            </div>
+          </section>
+
+          <section aria-labelledby="h-recettes" style="display: flex; flex-direction: column; gap: var(--space-4);">
+            <h2 id="h-recettes" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">Recipe ideas</h2>
+            <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+              <sc-for list="{{ recettes }}" as="r" hint-placeholder-count="3">
+                <div style="display: flex; gap: var(--space-4); align-items: center; padding: var(--space-3) var(--space-4); background: var(--color-neutral-100); border-radius: 999px;">
+                  <span aria-hidden="true" style="flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--color-accent-200); color: var(--color-accent-900); display: grid; place-items: center; font-family: var(--font-heading); font-size: 18px;">{{ r.i }}</span>
+                  <div style="display: flex; flex-direction: column; gap: 2px;">
+                    <h3 style="margin: 0; font-size: 19px;">{{ r.t }}</h3>
+                    <p style="margin: 0; font-size: 15px; color: var(--color-neutral-800);">{{ r.x }}</p>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </section>
+
+          <aside role="note" aria-label="Did you know?" style="display: flex; gap: var(--space-4); align-items: flex-start; padding: var(--space-6); background: var(--color-accent-2-200); color: var(--color-accent-2-900); border-radius: var(--radius-lg) var(--radius-lg) var(--radius-lg) 6px;">
+            <span aria-hidden="true" style="font-size: 44px; line-height: 1;">💡</span>
+            <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+              <span style="font-family: var(--font-heading); font-size: 22px;">Did you know?</span>
+              <p style="margin: 0; font-size: 16px; line-height: 1.6;">{{ d.saviez }}</p>
+            </div>
+          </aside>
+
+          <section aria-labelledby="h-faq" style="display: flex; flex-direction: column; gap: var(--space-3);">
+            <h2 id="h-faq" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">Frequently asked questions</h2>
+            <sc-for list="{{ faq }}" as="fq" hint-placeholder-count="3">
+              <details style="background: var(--color-neutral-100); border-radius: var(--radius-lg); padding: var(--space-3) var(--space-4);">
+                <summary style="cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: var(--space-3); align-items: center;">
+                  <h3 style="margin: 0; font-family: var(--font-body); font-weight: 700; font-size: 17px;">{{ fq.q }}</h3>
+                  <span aria-hidden="true" style="flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--color-accent-200); display: grid; place-items: center; font-weight: 700;">+</span>
+                </summary>
+                <p style="margin: var(--space-2) 0 0; font-size: 16px; line-height: 1.6;">{{ fq.a }}</p>
+              </details>
+            </sc-for>
+          </section>
+        </div>
+      </sc-if>
+          <sc-if value="{{ hasAG }}" hint-placeholder-val="{{ false }}"><section aria-labelledby="h-antigaspi" style="display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-6); background: var(--color-accent-200); border-radius: var(--radius-lg);">
+            <h2 id="h-antigaspi" style="margin: 0; font-size: clamp(26px, 3vw, 34px); color: var(--color-accent-900);">Zero waste</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: var(--space-3);">
+              <div style="display: flex; flex-direction: column; gap: 6px; padding: var(--space-4); background: #ffffff; border-radius: var(--radius-lg);"><span style="font-family: var(--font-heading); font-size: 19px; line-height: 1.2;">🧺 Keep it longer</span><span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">{{ ag.c }}</span></div>
+              <div style="display: flex; flex-direction: column; gap: 6px; padding: var(--space-4); background: #ffffff; border-radius: var(--radius-lg);"><span style="font-family: var(--font-heading); font-size: 19px; line-height: 1.2;">❄️ Freeze it</span><span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">{{ ag.g }}</span></div>
+              <div style="display: flex; flex-direction: column; gap: 6px; padding: var(--space-4); background: #ffffff; border-radius: var(--radius-lg);"><span style="font-family: var(--font-heading); font-size: 19px; line-height: 1.2;">♻️ Nothing goes to waste</span><span style="font-size: 15px; line-height: 1.55; text-wrap: pretty;">{{ ag.r }}</span></div>
+            </div>
+          </section></sc-if>
+
+      <sc-if value="{{ hasLex }}" hint-placeholder-val="{{ false }}">
+        <section aria-labelledby="h-lexique" style="display: flex; flex-direction: column; gap: var(--space-3);">
+          <h2 id="h-lexique" style="margin: 0; font-size: clamp(22px, 2.4vw, 28px);">Words to know</h2>
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-2);">
+            <sc-for list="{{ lex }}" as="lx" hint-placeholder-count="3">
+              <a href="{{ lx.href }}" class="tag tag-outline" style="font-size: 14px; padding: 7px 14px; text-decoration: none;">{{ lx.terme }}</a>
+            </sc-for>
+          </div>
+        </section>
+      </sc-if>
+      <section aria-labelledby="h-partage" style="display: flex; flex-direction: column; gap: var(--space-3);">
+        <h2 id="h-partage" style="margin: 0; font-size: clamp(22px, 2.6vw, 28px);">Share this page</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center;">
+          <a href="{{ share.fb }}" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 8px; padding: 10px 18px; min-height: 44px; box-sizing: border-box; border-radius: 999px; font: inherit; font-size: 15px; font-weight: 700; text-decoration: none; cursor: pointer; border: 2px solid var(--color-accent-2-300); background: #ffffff; color: var(--color-accent-2-900);" style-hover="background: var(--color-accent-2-100); border-color: var(--color-accent-2-500); color: var(--color-accent-2-900);"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/facebook/1877F2" alt="" aria-hidden="true" width="20" height="20" style="display: block; width: 20px; height: 20px;">Facebook</a>
+          <a href="{{ share.wa }}" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 8px; padding: 10px 18px; min-height: 44px; box-sizing: border-box; border-radius: 999px; font: inherit; font-size: 15px; font-weight: 700; text-decoration: none; cursor: pointer; border: 2px solid var(--color-accent-2-300); background: #ffffff; color: var(--color-accent-2-900);" style-hover="background: var(--color-accent-2-100); border-color: var(--color-accent-2-500); color: var(--color-accent-2-900);"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/whatsapp/25D366" alt="" aria-hidden="true" width="20" height="20" style="display: block; width: 20px; height: 20px;">WhatsApp</a>
+          <button type="button" onClick="{{ share.native }}" style="display: flex; align-items: center; gap: 8px; padding: 10px 18px; min-height: 44px; box-sizing: border-box; border-radius: 999px; font: inherit; font-size: 15px; font-weight: 700; text-decoration: none; cursor: pointer; border: 2px solid var(--color-accent-2-300); background: #ffffff; color: var(--color-accent-2-900);" style-hover="background: var(--color-accent-2-100); border-color: var(--color-accent-2-500); color: var(--color-accent-2-900);"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/instagram/E4405F" alt="" aria-hidden="true" width="20" height="20" style="display: block; width: 20px; height: 20px;">Instagram</button>
+          <button type="button" onClick="{{ share.native }}" style="display: flex; align-items: center; gap: 8px; padding: 10px 18px; min-height: 44px; box-sizing: border-box; border-radius: 999px; font: inherit; font-size: 15px; font-weight: 700; text-decoration: none; cursor: pointer; border: 2px solid var(--color-accent-2-300); background: #ffffff; color: var(--color-accent-2-900);" style-hover="background: var(--color-accent-2-100); border-color: var(--color-accent-2-500); color: var(--color-accent-2-900);"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/tiktok/000000" alt="" aria-hidden="true" width="20" height="20" style="display: block; width: 20px; height: 20px;">TikTok</button>
+          <sc-if value="{{ share.copied }}" hint-placeholder-val="{{ false }}"><span role="status" style="font-size: 14px; font-weight: 700; color: var(--color-accent-700);">Link copied: paste it into Instagram or TikTok.</span></sc-if>
+        </div>
+      </section>
+    </article>
+    </sc-if>
+    <sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}">
+    <article style="display: flex; flex-direction: column; gap: var(--space-8);">
+      <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8); align-items: center;">
+        <div style="display: flex; flex-direction: column; gap: var(--space-4); max-width: 560px;">
+          <span style="align-self: flex-start; padding: 6px 14px; background: var(--color-accent-200); color: var(--color-accent-900); border-radius: 999px; font-weight: 800; font-size: 16px;">{{ k.tag }}</span>
+          <h1 style="margin: 0; font-size: clamp(44px, 6vw, 68px); line-height: 1;">{{ k.titre }}</h1>
+          <p style="margin: 0; font-size: 21px; line-height: 1.55; text-wrap: pretty;">{{ k.intro }}</p>
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-2);">
+            <span style="flex: none; max-width: 100%; box-sizing: border-box; padding: 8px 16px; background: #ffffff; border: 1px solid var(--color-divider); border-radius: 999px; font-size: 18px;">{{ k.orig }}</span>
+            <span style="flex: none; max-width: 100%; box-sizing: border-box; padding: 8px 16px; background: #ffffff; border: 1px solid var(--color-divider); border-radius: 999px; font-size: 18px;">⭐ {{ k.best }}</span>
+          </div>
+        </div>
+        <div aria-hidden="true" style="position: relative; justify-self: center; width: min(360px, 80vw); aspect-ratio: 1;">
+          <div style="position: absolute; inset: 0; background: var(--color-accent-200); border-radius: 46% 54% 42% 58% / 55% 45% 55% 45%;"></div>
+          <div style="position: absolute; inset: 0; display: grid; place-items: center; font-size: clamp(150px, 22vw, 220px); line-height: 1; transform: rotate(-10deg);"><sc-if value="{{ hero.img }}" hint-placeholder-val="{{ false }}"><span role="img" aria-hidden="true" style="width: 1em; height: 1em; background: {{ hero.imgBg }}; display: block;"></span></sc-if><sc-if value="{{ hero.noImg }}" hint-placeholder-val="{{ true }}">{{ hero.e }}</sc-if></div>
+        </div>
+      </section>
+
+      <section aria-labelledby="hk-quand" style="display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-6); background: #f4efe6; border-radius: var(--radius-lg);">
+        <h2 id="hk-quand" style="margin: 0; font-size: clamp(28px, 3.4vw, 38px);">When to eat it?</h2>
+        <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(max(62px, calc((100% - 88px) / 12)), 1fr)); gap: 8px;">
+          <sc-for list="{{ kcal }}" as="cm" hint-placeholder-count="12">
+            <li style="{{ cm.style }}"><span style="font-weight: 800; font-size: 16px;">{{ cm.label }}</span><span style="font-size: 20px;">{{ cm.icon }}</span></li>
+          </sc-for>
+        </ol>
+        <p style="margin: 0; font-size: 19px; display: flex; flex-wrap: wrap; gap: var(--space-4);"><span>⭐ Best time</span><span>🙂 You can find it</span><span>💤 Resting</span></p>
+      </section>
+
+      <section aria-labelledby="hk-quiz" style="display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-6); background: #ffffff; border: 1px solid var(--color-divider); border-radius: var(--radius-lg);">
+        <span style="font-size: 16px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700);">Trick question</span>
+        <h2 id="hk-quiz" style="margin: 0; font-size: clamp(28px, 3.4vw, 38px);">{{ k.quizQ }}</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-3);">
+          <sc-for list="{{ quiz }}" as="qz" hint-placeholder-count="3">
+            <button type="button" onClick="{{ qz.pick }}" style="{{ qz.style }}">{{ qz.label }}</button>
+          </sc-for>
+        </div>
+        <sc-if value="{{ answered }}" hint-placeholder-val="{{ false }}">
+          <p style="margin: 0; padding: var(--space-4); background: var(--color-accent-2-100); color: var(--color-accent-2-900); border-radius: var(--radius-lg); font-size: 20px; line-height: 1.6;"><strong>{{ quizVerdict }}</strong> {{ k.quizWhy }}</p>
+        </sc-if>
+      </section>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-6);">
+        <section aria-labelledby="hk-histoire" style="display: flex; flex-direction: column; gap: var(--space-3);">
+          <h2 id="hk-histoire" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">Its story</h2>
+          <p style="margin: 0; font-size: 20px; line-height: 1.65; text-wrap: pretty;">{{ k.hist }}</p>
+        </section>
+        <section aria-labelledby="hk-ou" style="display: flex; flex-direction: column; gap: var(--space-3);">
+          <h2 id="hk-ou" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">Where does it grow?</h2>
+          <p style="margin: 0; font-size: 20px; line-height: 1.65; text-wrap: pretty;">{{ k.ou }}</p>
+          <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2);">
+            <sc-for list="{{ tx.regions }}" as="rg" hint-placeholder-count="3">
+              <li style="padding: 7px 14px; background: #ffffff; border: 1px solid color-mix(in srgb, var(--color-accent-2-500) 30%, transparent); border-radius: 999px; font-size: 18px;">📍 {{ rg }}</li>
+            </sc-for>
+          </ul>
+        </section>
+        <sc-if value="{{ hasVar }}" hint-placeholder-val="{{ false }}"><section aria-labelledby="hk-var" style="display: flex; flex-direction: column; gap: var(--space-3);">
+          <h2 id="hk-var" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">Its varieties</h2>
+          <p style="margin: 0; font-size: 20px; line-height: 1.65; text-wrap: pretty;">{{ varK }}</p>
+          <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2);">
+            <sc-for list="{{ varietes }}" as="va" hint-placeholder-count="4"><li style="padding: 7px 14px; background: #ffffff; border: 1px solid color-mix(in srgb, var(--color-accent-2-500) 30%, transparent); border-radius: 999px; font-size: 18px;">{{ va.n }}</li></sc-for>
+          </ul>
+          <sc-if value="{{ hasCousins }}" hint-placeholder-val="{{ false }}"><p style="margin: var(--space-2) 0 0; font-size: 19px; font-weight: 700;">In its family, there’s also:</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+            <sc-for list="{{ cousinsLinked }}" as="co" hint-placeholder-count="0"><a href="{{ co.href }}" class="tag tag-accent" style="display: flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; font-size: 18px; text-decoration: none; min-height: 44px; box-sizing: border-box;"><span aria-hidden="true" style="flex: none; width: 32px; height: 32px; background: {{ co.bg }};"></span>{{ co.n }}</a></sc-for>
+            <sc-for list="{{ cousinsExtra }}" as="cx" hint-placeholder-count="2"><span class="tag tag-neutral" style="display: flex; align-items: center; padding: 6px 14px; font-size: 18px; min-height: 44px; box-sizing: border-box;">{{ cx }}</span></sc-for>
+          </div></sc-if>
+        </section></sc-if>
+      </div>
+
+
+      <aside role="note" aria-label="Did you know?" style="display: flex; gap: var(--space-4); align-items: flex-start; padding: var(--space-6); background: var(--color-accent-100); color: var(--color-accent-900); border-radius: var(--radius-lg);">
+        <span aria-hidden="true" style="font-size: 48px; line-height: 1;">🤯</span>
+        <div style="display: flex; flex-direction: column; gap: var(--space-2);">
+          <span style="font-family: var(--font-heading); font-weight: 400; font-size: 26px;">Did you know?</span>
+          <p style="margin: 0; font-size: 20px; line-height: 1.6;">{{ k.sais }}</p>
+        </div>
+      </aside>
+
+      <section aria-labelledby="hk-bon" style="display: flex; flex-direction: column; gap: var(--space-4);">
+        <h2 id="hk-bon" style="margin: 0; font-size: clamp(28px, 3.4vw, 38px);">Why it’s good for you</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-4);">
+          <sc-for list="{{ k.bon }}" as="kb" hint-placeholder-count="3">
+            <div style="display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-6); background: var(--color-accent-2-200); border: 1px solid color-mix(in srgb, var(--color-accent-2-500) 25%, transparent); border-radius: var(--radius-lg);">
+              <span aria-hidden="true" style="font-size: 36px;">{{ kb.i }}</span>
+              <h3 style="margin: 0; font-size: 22px; color: var(--color-accent-2-900);">{{ kb.t }}</h3>
+              <p style="margin: 0; font-size: 19px; line-height: 1.55;">{{ kb.x }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+        <sc-if value="{{ hasAG }}" hint-placeholder-val="{{ false }}"><section aria-labelledby="hk-antigaspi" style="display: flex; gap: var(--space-4); align-items: center; padding: var(--space-5, 20px) var(--space-6); background: var(--color-accent-200); border: 2px solid var(--color-accent-300); border-radius: var(--radius-lg);">
+          <span aria-hidden="true" style="font-size: 44px; line-height: 1; flex: none;">♻️</span>
+          <div style="display: flex; flex-direction: column; gap: 4px;"><h2 id="hk-antigaspi" style="margin: 0; font-size: 24px; color: var(--color-accent-900);">Zero-waste tip</h2><p style="margin: 0; font-size: 20px; line-height: 1.55; color: var(--color-accent-900); text-wrap: pretty;">{{ ag.k }}</p></div>
+        </section></sc-if>
+
+      <section aria-labelledby="hk-defi" style="display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-6); background: #ffffff; border: 1px solid var(--color-divider); border-radius: var(--radius-lg);">
+        <span style="font-size: 16px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700);">Cooking challenge · with an adult</span>
+        <h2 id="hk-defi" style="margin: 0; font-size: clamp(28px, 3.4vw, 38px);">{{ k.defiTitre }}</h2>
+        <ol style="margin: 0; padding-left: 24px; display: flex; flex-direction: column; gap: var(--space-2); font-size: 20px; line-height: 1.55;">
+          <sc-for list="{{ k.etapes }}" as="st" hint-placeholder-count="4"><li>{{ st.x }}</li></sc-for>
+        </ol>
+      </section>
+
+      <sc-if value="{{ hasPousse }}" hint-placeholder-val="{{ false }}"><a href="{{ pousseHref }}" style="display: flex; flex-wrap: wrap; gap: var(--space-6); align-items: center; padding: var(--space-6) var(--space-8); background: var(--color-accent); color: #ffffff; border-radius: var(--radius-lg); text-decoration: none; box-shadow: var(--shadow-md); transition: transform .18s ease;" style-hover="transform: translateY(-3px) rotate(-0.4deg); color: #ffffff; background: var(--color-accent-600);">
+        <span aria-hidden="true" style="flex: none; width: 96px; height: 96px; border-radius: 50%; background: #ffffff; display: grid; place-items: center; font-size: 52px;">🌱</span>
+        <span style="flex: 1 1 280px; display: flex; flex-direction: column; gap: 6px; min-width: 0;">
+          <span style="font-size: 16px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">From seed to plate</span>
+          <span style="font-family: var(--font-heading); font-size: clamp(28px, 3.4vw, 38px); line-height: 1.1;">How does it grow?</span>
+          <span style="font-size: 20px; line-height: 1.5; text-wrap: pretty;">From the seed all the way to your plate: follow its whole adventure in 6 steps, and earn your gardener badge.</span>
+          <span aria-hidden="true" style="font-size: 26px; letter-spacing: 6px; margin-top: 4px;">{{ pousseEmojis }}</span>
+        </span>
+        <span style="flex: none; background: #ffffff; color: var(--color-accent-800); font-weight: 800; font-size: 20px; padding: 14px 26px; border-radius: 999px;">Discover →</span>
+      </a></sc-if>
+
+
+      <section style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-6); background: var(--color-accent-200); border-radius: var(--radius-lg);">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <span style="font-family: var(--font-heading); font-weight: 400; font-size: 26px; color: var(--color-accent-900);">{{ badgeTitle }}</span>
+          <span style="font-size: 19px; color: var(--color-accent-900);">{{ badgeText }}</span>
+        </div>
+        <button type="button" class="btn btn-primary" onClick="{{ collect }}" disabled="{{ hasBadge }}" style="padding: 14px 26px; font-size: 20px; min-height: 52px;">{{ badgeBtn }}</button>
+      </section>
+
+      <details style="background: var(--color-neutral-100); border: 1px solid var(--color-divider); border-radius: var(--radius-lg); padding: var(--space-4) var(--space-6);">
+        <summary style="cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: var(--space-3); align-items: center;">
+          <h2 style="margin: 0; font-size: 22px;">Parents’ corner</h2>
+          <span aria-hidden="true" style="flex: none; width: 32px; height: 32px; border-radius: 50%; background: var(--color-accent-200); display: grid; place-items: center; font-weight: 700;">+</span>
+        </summary>
+        <div style="display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-3); margin-top: var(--space-3); font-size: 18px; line-height: 1.6;">
+          <p style="margin: 0;">{{ k.parents }}</p>
+          <button type="button" class="btn btn-secondary" onClick="{{ voirComplet }}" style="padding: 10px 18px; font-size: 16px;">See the full page</button>
+        </div>
+      </details>
+    </article>
+    </sc-if>
+
+    <section aria-labelledby="h-related" style="display: flex; flex-direction: column; gap: var(--space-4); padding-bottom: var(--space-8);">
+      <h2 id="h-related" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">{{ relatedTitle }}</h2>
+      <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(170px, 40vw), 1fr)); gap: var(--space-3);">
+        <sc-for list="{{ related }}" as="rp" hint-placeholder-count="6">
+          <li style="display: flex;">
+            <a href="{{ rp.href }}" style="flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2); padding: var(--space-4); background: #ffffff; border: none; border-radius: var(--radius-lg); text-decoration: none; color: var(--color-text); transition: transform .18s ease;" style-hover="transform: translateY(-3px) rotate(-0.6deg); color: var(--color-text);">
+              <span aria-hidden="true" style="font-size: 44px; line-height: 1;"><sc-if value="{{ rp.img }}" hint-placeholder-val="{{ false }}"><span role="img" aria-hidden="true" style="width: 1em; height: 1em; background: {{ rp.imgBg }}; display: block;"></span></sc-if><sc-if value="{{ rp.noImg }}" hint-placeholder-val="{{ true }}">{{ rp.e }}</sc-if></span>
+              <span style="font-family: var(--font-heading); font-size: 19px;">{{ rp.n }}</span>
+              <span style="font-size: 13px; color: var(--color-neutral-700);">{{ rp.flag }} {{ rp.origine }}</span>
+            </a>
+          </li>
+        </sc-for>
+      </ul>
+    </section>
+  <section aria-label="Choose mode" style="margin: var(--space-8) 0;">
+      <sc-if value="{{ adult }}" hint-placeholder-val="{{ true }}"><div style="display: flex; flex-direction: column; background: #ffffff; border: 2px solid var(--color-accent-2-300); border-radius: var(--radius-lg); overflow: hidden;">
+        <img src="../../images/pano-apropos-enfant.webp" alt="A cartoon young farmer in his field, hands on hips" width="1500" height="500" loading="lazy" style="display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover;">
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-4) var(--space-6);">
+          <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 320px; min-width: 0;">
+            <span style="font-family: var(--font-heading); font-weight: 400; font-size: 24px; color: var(--color-accent-2-900);">🧺 Parents mode on</span>
+            <span style="font-size: 16px; line-height: 1.5; color: var(--color-accent-2-900); text-wrap: pretty;">Origin, peak season, tips for choosing at the market and recipe ideas: everything you need to shop with the seasons. Your children want to explore too? Switch to kids mode.</span>
+          </div>
+          <button type="button" class="btn btn-primary" onClick="{{ toEnfant }}" style="padding: 12px 22px; font-size: 16px; white-space: nowrap;">Switch to kids mode</button>
+        </div>
+      </div></sc-if><sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-direction: column; background: #ffffff; border: 2px solid var(--color-accent-300); border-radius: var(--radius-lg); overflow: hidden;">
+        <img src="../../images/pano-apropos-enfant.webp" alt="A drawing of a young farmer in his field, hands on hips" width="1500" height="500" loading="lazy" style="display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover;">
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-4) var(--space-6);">
+          <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 320px; min-width: 0;">
+            <span style="font-family: var(--font-heading); font-weight: 400; font-size: 24px; color: var(--color-accent-900);">🎒 Kids mode on</span>
+            <span style="font-size: 16px; line-height: 1.5; color: var(--color-accent-900); text-wrap: pretty;">You already have {{ badgeCount }} badges out of {{ nbTotal }}. Are your parents doing the shopping? Hand them the parents version, it only takes one click.</span>
+          </div>
+          <button type="button" class="btn btn-secondary" onClick="{{ toNormal }}" style="padding: 12px 22px; font-size: 16px; white-space: nowrap;">Switch to parents mode</button>
+        </div>
+      </div></sc-if>
+    </section>
+    </main>
+
+  <footer style="background: #f4efe6;">
+    <div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: var(--space-6) clamp(20px, 5vw, 56px); display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: space-between; align-items: center; font-size: 14px;">
+      <img src="../../images/logo-mini.webp" alt="Sainos" width="398" height="107" style="display: block; height: 30px; width: auto;">
+      <nav aria-label="Footer" style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
+        <a href="../index.html">Home</a>
+        <a href="../saisons.html">Calendar</a>
+        <a href="../origines.html">Origins</a>
+        <a href="../marches.html" data-nav-mar="1">Markets</a><a href="../pousse.html" data-nav-pousse="1">How it grows</a>
+        <a href="../bio.html">Organic</a>
+        <a href="../lexique.html" data-nav-lex="1">Glossary</a>
+        <a href="../quiz.html" data-nav-quiz="1">Quiz</a>
+        <a href="../apropos.html">About</a>
+        <a href="../enseignants.html" data-adult-only="1">Teachers</a>
+        <a href="../contact.html" data-adult-only="1">Contact</a>
+        <a href="{{ langHref }}" data-lang="fr" hreflang="fr" lang="fr">Version française</a>
+      </nav>
+      <div aria-label="Follow Sainos" style="display: flex; gap: var(--space-2); align-items: center;">
+        <a href="https://www.facebook.com/profile.php?id=61594827576678" target="_blank" rel="noopener" aria-label="Sainos on Facebook" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/facebook/1877F2" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+        <a href="https://www.instagram.com/sainos_fr/" target="_blank" rel="noopener" aria-label="Sainos on Instagram" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/instagram/E4405F" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+        <a href="https://www.tiktok.com/@sainos_fr" target="_blank" rel="noopener" aria-label="Sainos on TikTok" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/tiktok/000000" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+      </div>
+      <p style="flex-basis: 100%; order: 3; margin: 0; font-size: 13px; line-height: 1.5; color: var(--color-neutral-800);">Sainos is an independent information website. No sales, no advertising, no cookies.</p>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;produit&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;carotte&quot;,&quot;options&quot;:[&quot;carotte&quot;,&quot;tomate&quot;,&quot;fraise&quot;,&quot;pomme&quot;,&quot;basilic&quot;,&quot;potiron&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;label&quot;:&quot;Product (preview)&quot;}}">
+class Component extends DCLogic {
+  _mode() { try { return localStorage.getItem('sainos-mode') === 'enfant' ? 'enfant' : 'normal'; } catch (e) { return 'normal'; } }
+  _badges() { try { return JSON.parse(localStorage.getItem('sainos-badges') || '[]'); } catch (e) { return []; } }
+  _syncMode = () => this.setState({ mode: this._mode(), badges: this._badges() });
+  setMode(m) { try { localStorage.setItem('sainos-mode', m); } catch (e) {} this._syncMode(); }
+  _kidVals() { const kid = this.state.mode === 'enfant'; return { kid, adult: !kid, badgeCount: (this.state.badges || []).length, nbTotal: window.SAISON ? window.SAISON.produits.length : 44, toEnfant: () => this.setMode('enfant'), toNormal: () => this.setMode('normal') }; }
+  state = { mode: this._mode(), badges: this._badges(), pick: null, ready: !!(window.SAISON && window.SAISON_TEXTES) };
+
+  _PRODUCE = { carotte: 'carrot', tomate: 'tomato', aubergine: 'aubergine|eggplant', courgette: 'courgette|zucchini', concombre: 'cucumber', poivron: 'pepper|bell_pepper', piment: 'chili|chilli|pepper', brocoli: 'broccoli', chou: 'cabbage|kale', laitue: 'lettuce|salad', epinard: 'spinach', 'pomme-de-terre': 'potato', mais: 'maize|corn', 'petit-pois': 'pea', 'haricot-vert': 'bean', potiron: 'pumpkin|squash', ail: 'garlic', oignon: 'onion', champignon: 'mushroom', 'patate-douce': 'sweet_potato', fraise: 'strawberr', cerise: 'cherr', peche: 'peach|nectarine', melon: 'melon', pasteque: 'watermelon', myrtille: 'blueberr|bilberr', raisin: 'grape', pomme: 'apple', poire: 'pear', chataigne: 'chestnut', kiwi: 'kiwi', clementine: 'clementine|mandarin', orange: 'orange', citron: 'lemon', avocat: 'avocado', banane: 'banana', ananas: 'pineapple', mangue: 'mango', basilic: 'basil', menthe: 'mint', persil: 'parsley', ciboulette: 'chive', thym: 'thyme', gingembre: 'ginger' };
+  _prodSay(t) { this.setState({ prodStatus: t }); }
+  _prodLoad(ll) {
+    const id = (this._prodReq = (this._prodReq || 0) + 1), S = window.SAISON, p = S.bySlug(this.slug());
+    this.setState({ prodStatus: 'Recherche des producteurs autour de vous…', prodList: [] });
+    const q = '[out:json][timeout:25];(nwr["shop"="farm"](around:20000,' + ll[0] + ',' + ll[1] + ');nwr["shop"~"greengrocer|deli|convenience"]["name"~"producteur|ferme|paysan|circuit court",i](around:20000,' + ll[0] + ',' + ll[1] + ');nwr["produce"]["shop"](around:20000,' + ll[0] + ',' + ll[1] + ');nwr["shop"="organic"](around:20000,' + ll[0] + ',' + ll[1] + ');nwr["shop"~"supermarket|greengrocer|convenience|health_food"]["organic"="only"](around:20000,' + ll[0] + ',' + ll[1] + '););out center tags;';
+    const EP = ['https://overpass-api.de/api/interpreter', 'https://overpass.kumi.systems/api/interpreter'];
+    const call = i => fetch(EP[i], { method: 'POST', body: 'data=' + encodeURIComponent(q), headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).then(r => { if (!r.ok) throw 0; return r.json(); }).catch(e => { if (i + 1 < EP.length) return call(i + 1); throw e; });
+    const en = new RegExp('\\b(' + (this._PRODUCE[p.s] || '^$') + ')', 'i');
+    const frBase = p.n.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/s$/, '');
+    const fr = new RegExp('\\b' + frBase + 's?\\b' + (p.s === 'pomme' ? '(?!\\s+de\\s+terre)' : ''), 'i');
+    const strip = s => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const dist = (a, b) => { const R = 6371, r = Math.PI / 180, dLa = (b[0] - a[0]) * r, dLo = (b[1] - a[1]) * r; const x = Math.sin(dLa / 2) ** 2 + Math.cos(a[0] * r) * Math.cos(b[0] * r) * Math.sin(dLo / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(x)); };
+    call(0).then(j => {
+      if (id !== this._prodReq) return;
+      const seen = new Set();
+      const list = j.elements.map(e => {
+        const t = e.tags || {}, c = e.type === 'node' ? [e.lat, e.lon] : [e.center.lat, e.center.lon];
+        const produce = t.produce || '', txt = strip([t.description, t.produce, t['description:fr']].join(' '));
+        const match = en.test(produce) || fr.test(txt);
+        const addr = [[t['addr:housenumber'], t['addr:street'] || t['addr:place']].filter(Boolean).join(' '), [t['addr:postcode'], t['addr:city']].filter(Boolean).join(' ')].filter(Boolean).join(', ');
+        const web = t.website || t['contact:website'] || '', tel = t.phone || t['contact:phone'] || '';
+        const d = dist(ll, c);
+        return { key: (t.name || '') + c[0].toFixed(3), name: t.name || 'Vente à la ferme', kind: t.shop === 'farm' ? 'Vente à la ferme' : (t.shop === 'organic' || t.organic === 'only') && !/producteur|ferme|paysan/i.test(strip(t.name)) ? 'Magasin bio' : 'Magasin de producteurs', addr, hasAddr: !!addr, match, bio: t.organic === 'only' || t.organic === 'yes' || /\bbio\b/i.test(txt + ' ' + strip(t.name)), d, km: d < 1 ? Math.round(d * 100) * 10 + ' m' : d.toFixed(1).replace('.', ',') + ' km', nav: 'https://www.google.com/maps/dir/?api=1&destination=' + c[0] + ',' + c[1], web, hasWeb: !!web, tel, hasTel: !!tel, telHref: 'tel:' + tel.replace(/[^+\d]/g, '') };
+      }).filter(x => !seen.has(x.key) && seen.add(x.key)).sort((a, b) => (b.match - a.match) || (a.d - b.d)).slice(0, 15);
+      const nm = list.filter(x => x.match).length;
+      this.setState({ prodList: list, prodStatus: !list.length ? 'Aucune ferme, magasin de producteurs ou magasin bio recensé dans un rayon de 20 km.' : list.length + ' adresse' + (list.length > 1 ? 's' : '') + ' à moins de 20 km' + (nm ? ', dont ' + nm + ' qui indique' + (nm > 1 ? 'nt' : '') + ' vendre ' + this._art(p) + '.' : '. Aucune n’indique encore ses produits : appelez pour savoir.') });
+    }).catch(() => { if (id === this._prodReq) this._prodSay('Le service de cartographie ne répond pas pour le moment. Réessayez dans quelques instants.'); });
+  }
+  _FEM = ['carotte', 'laitue', 'tomate', 'aubergine', 'courgette', 'pomme-de-terre', 'patate-douce', 'fraise', 'cerise', 'peche', 'pasteque', 'myrtille', 'pomme', 'poire', 'chataigne', 'clementine', 'orange', 'banane', 'mangue', 'menthe', 'ciboulette'];
+  _PLUR = ['petit-pois', 'haricot-vert', 'champignon'];
+  _art(p) { const n = p.n.toLowerCase(); if (this._PLUR.includes(p.s)) return 'des ' + (/s$/.test(n) ? n : n + 's'); return /^[aeiouyhéèâ]/i.test(n) && n !== 'haricot vert' ? 'de l’' + n : (this._FEM.includes(p.s) ? 'de la ' : 'du ') + n; }
+  prodGeo = () => {
+    if (!navigator.geolocation) return this._prodSay('Géolocalisation indisponible : indiquez un code postal.');
+    this._prodSay('Localisation en cours…');
+    navigator.geolocation.getCurrentPosition(pos => this._prodLoad([pos.coords.latitude, pos.coords.longitude]), () => this._prodSay('Position indisponible : autorisez la localisation ou indiquez un code postal.'), { timeout: 10000, maximumAge: 600000 });
+  };
+  prodCp = e => {
+    e.preventDefault(); const v = (e.target.elements.cp.value || '').trim(); if (!v) return;
+    this._prodSay('Recherche de « ' + v + ' »…');
+    fetch('https://data.geopf.fr/geocodage/search?limit=1&type=municipality&q=' + encodeURIComponent(v)).then(r => r.json()).then(j => {
+      const f = j.features && j.features[0]; if (!f) return this._prodSay('Commune introuvable. Vérifiez le code postal ou le nom de la ville.');
+      this._prodLoad([f.geometry.coordinates[1], f.geometry.coordinates[0]]);
+    }).catch(() => this._prodSay('Recherche d’adresse indisponible pour le moment.'));
+  };
+  componentDidMount() {
+    window.addEventListener('storage', this._syncMode); window.addEventListener('pageshow', this._syncMode);
+    this._onScroll = () => { const y = window.scrollY, cur = !!this.state.mini; const s = cur ? y > 8 : y > 140; if (s !== cur) this.setState({ mini: s }); };
+    window.addEventListener('scroll', this._onScroll, { passive: true }); this._onScroll();
+    const done = () => { this.applySeo(); this.setState({ ready: true }); };
+    const ok = () => window.SAISON && window.SAISON_TEXTES && window.SAISON_ENFANTS && window.SAISON_VARIETES && window.SAISON_ANTIGASPI;
+    if (ok()) setTimeout(done, 0); else this._t = setInterval(() => { if (ok()) { clearInterval(this._t); done(); } }, 50);
+  }
+  componentWillUnmount() { window.removeEventListener('storage', this._syncMode); window.removeEventListener('pageshow', this._syncMode); window.removeEventListener('scroll', this._onScroll); clearInterval(this._t); }
+  _kf() {
+    const S = window.SAISON, E = window.SAISON_ENFANTS;
+    const p = S && S.bySlug(this.slug()), d = p && E && E.produits[p.s];
+    if (!d) return { hasPousse: false, pousseHref: '', pousseEmojis: '', hasK: false, k: { bon: [], etapes: [] }, kcal: [], quiz: [], answered: false, quizVerdict: '', hasBadge: false, badgeTitle: '', badgeText: '', badgeBtn: '', collect: () => {}, voirComplet: () => {} };
+    const now = new Date().getMonth() + 1, pk = p.f[0];
+    const sea = !pk ? 'All-year' : [12, 1, 2].includes(pk) ? 'Winter' : pk <= 5 ? 'Spring' : pk <= 8 ? 'Summer' : 'Autumn'; const seaE = !pk ? ' 📅' : [12, 1, 2].includes(pk) ? ' ❄️' : pk <= 5 ? ' 🌸' : pk <= 8 ? ' ☀️' : ' 🍂';
+    const k = { titre: d.titre, intro: d.intro, tag: sea + ' ' + S.TYPES[p.t].one.toLowerCase() + seaE, orig: p.orig.flag + ' ' + p.orig.label,
+      best: p.f.length ? 'Best in ' + p.f.map(x => S.MOIS[x - 1]).join(', ') : 'All year round',
+      quizQ: d.quiz[0], quizWhy: d.quiz[3], hist: d.hist, ou: d.ou, sais: d.sais,
+      bon: d.bon.map(([i, t, x]) => ({ i, t, x })), defiTitre: d.defi[0], etapes: d.defi[1].map(x => ({ x })),
+      parents: 'Family: ' + p.fam + '. ' + p.d };
+    const kcal = S.MOIS_C.map((label, i) => {
+      const m = i + 1, f = p.f.includes(m), av = p.m.includes(m);
+      return { label, icon: f ? '⭐' : av ? '🙂' : '💤', style: { display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, padding: '12px 4px', borderRadius: 18,
+        background: f ? 'var(--color-accent)' : av ? 'var(--color-accent-2-200)' : '#ffffff', color: f ? 'var(--color-on-accent, #ffffff)' : 'var(--color-text)',
+        border: m === now ? '2px solid var(--color-text)' : '2px solid transparent' } };
+    });
+    const pick = this.state.pick, good = d.quiz[2];
+    const quiz = d.quiz[1].map((label, i) => {
+      const sel = pick === i, ok = pick !== null && i === good;
+      return { label, pick: () => this.setState({ pick: i }), style: { padding: '14px 24px', minHeight: 54, fontSize: 18, fontWeight: 800, fontFamily: 'var(--font-body)', cursor: 'pointer', borderRadius: 999,
+        border: '2px solid ' + (ok ? 'var(--color-accent-2-800)' : sel ? 'var(--color-accent)' : 'var(--color-divider)'),
+        background: ok ? 'var(--color-accent-2-200)' : sel ? 'var(--color-accent-100)' : '#ffffff', color: 'var(--color-text)' } };
+    });
+    const has = (this.state.badges || []).includes(p.s), nom = d.titre.replace(/^(The )/, '');
+    return { hasK: true, k, kcal, quiz, answered: pick !== null,
+      quizVerdict: pick === good ? 'Well done, great job! 🎉' : 'Nearly! The right answer: “' + d.quiz[1][good] + '”.',
+      hasPousse: !!(window.SAISON_POUSSE && window.SAISON_POUSSE[p.s]), pousseHref: '../pousse.html#' + p.s, pousseEmojis: window.SAISON_POUSSE && window.SAISON_POUSSE[p.s] ? window.SAISON_POUSSE[p.s].e.join(' ') : '',
+      hasBadge: has, badgeTitle: has ? nom.charAt(0).toUpperCase() + nom.slice(1) + ' badge earned! 🏅' : 'Read it all?',
+      badgeText: has ? 'It’s in your collection. Next product?' : 'Earn the ' + nom.toLowerCase() + ' badge for your collection.',
+      badgeBtn: has ? 'Badge earned ✓' : 'Earn my badge',
+      collect: () => { const b = [...new Set([...(this.state.badges || []), p.s])]; try { localStorage.setItem('sainos-badges', JSON.stringify(b)); } catch (e) {} this.setState({ badges: b }); },
+      voirComplet: () => { this.setMode('normal'); window.scrollTo(0, 0); } };
+  }
+  slug() { return new URLSearchParams(location.search).get('p') || this.props.produit || 'carotte'; }
+  applySeo() {
+    const S = window.SAISON, p = S.bySlug(this.slug());
+    if (!p) return;
+    const base = 'https://www.sainos.fr/en/produits/' + p.s + '.html';
+    // Pages statiques (ex. carotte.dc.html) déclarent déjà leurs balises : on ne complète que les fiches générées.
+    if (document.querySelector('script[type="application/ld+json"]')) return;
+    const title = p.detail ? p.detail.title : p.n + ' in season: origin, calendar & tips';
+    document.title = title + ' | Sainos';
+    const meta = (attr, key, content) => { let m = document.querySelector('meta[' + attr + '="' + key + '"]'); if (!m) { m = document.createElement('meta'); m.setAttribute(attr, key); document.head.appendChild(m); } m.setAttribute('content', content); };
+    const months = p.m.length === 12 ? 'all year round' : 'from ' + S.MOIS[p.m[0] - 1] + ' to ' + S.MOIS[p.m[p.m.length - 1] - 1];
+    meta('name', 'description', p.n + ': in season ' + months + '. ' + p.d);
+    meta('property', 'og:title', title);
+    let c = document.querySelector('link[rel="canonical"]'); if (!c) { c = document.createElement('link'); c.rel = 'canonical'; document.head.appendChild(c); } c.href = base;
+    const s = document.createElement('script'); s.type = 'application/ld+json';
+    s.textContent = JSON.stringify({ '@context': 'https://schema.org', '@graph': [
+      { '@type': 'Thing', name: p.n, description: p.d, url: base, additionalType: 'https://www.wikidata.org/wiki/Q11004' },
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.sainos.fr/en/' },
+        { '@type': 'ListItem', position: 2, name: S.TYPES[p.t].label, item: 'https://www.sainos.fr/en/saisons.html' },
+        { '@type': 'ListItem', position: 3, name: p.n, item: base }] }] });
+    document.head.appendChild(s);
+  }
+  _share(nom) {
+    const url = 'https://www.sainos.fr/en/produits/' + this.slug() + '.html';
+    const txt = (nom ? nom + ' in season' : 'Seasonal fruit and vegetables') + ' — Sainos';
+    return { fb: 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url), wa: 'https://wa.me/?text=' + encodeURIComponent(txt + ' ' + url), copied: !!this.state.copied,
+      native: async () => {
+        const mobile = window.matchMedia && matchMedia('(pointer: coarse)').matches;
+        if (navigator.share && mobile) { try { await navigator.share({ title: txt, text: txt, url }); } catch (e) {} return; }
+        try { await navigator.clipboard.writeText(url); } catch (e) {}
+        this.setState({ copied: true }); clearTimeout(this._ct); this._ct = setTimeout(() => this.setState({ copied: false }), 4000);
+      } };
+  }
+  renderVals() {
+    const mini = true; const kv = this._kidVals(); const kf = this._kf(); const kidOn = kv.kid && kf.hasK;
+    const rv = this._rv(); return { ...rv, ...kv, ...kf, langHref: '../../produits/' + this.slug() + '.html', share: this._share(rv.nom), kid: kidOn, adult: !kidOn, logoBig: { display: mini ? 'none' : 'block', height: 'clamp(84px, 11vw, 120px)', width: 'auto' }, logoMini: { display: mini ? 'block' : 'none', height: 36, width: 'auto' } };
+  }
+  _rv() {
+    const S = window.SAISON;
+    const p = S && S.bySlug(this.slug());
+    if (!p) return { hero: {}, nom: '', h1: '', intro: '', typeLabel: '', emoji: '', facts: [], cal: [], calSummary: '', hasDetail: false, d: {}, rec: {}, hasTextes: false, tx: {}, classification: [], hasNutrition: false, bienfaits: [], nutrition: [], recettes: [], faq: [], lex: [], hasLex: false, related: [], relatedTitle: '', duDe: '', nomLower: '', hasProd: false, prodList: [], prodHas: false, prodArt: '', prodStatus: '', hasAG: false, ag: {}, hasVar: false, varietes: [], varK: '', fam: '', cousinsLinked: [], cousinsExtra: [], hasCousins: false };
+    const now = new Date().getMonth() + 1;
+    const d = p.detail || null;
+    const tx = (window.SAISON_TEXTES || {})[p.s] || null;
+    const duDe = ': ' + p.n.toLowerCase();
+    const range = arr => arr.length ? arr.map(x => S.MOIS[x - 1]).join(', ') : '';
+    const facts = [
+      { k: 'Type', v: S.TYPES[p.t].one, cls: 'tag tag-neutral' },
+      { k: 'Family', v: p.fam, cls: 'tag tag-accent-2' },
+      { k: 'Origin', v: p.orig.flag + ' ' + p.orig.label, cls: 'tag tag-neutral' },
+      { k: 'Peak season', v: p.f.length ? p.f.map(x => S.MOIS_C[x - 1]).join(' · ') : (p.m.length === 12 ? 'All year' : '—'), cls: 'tag tag-accent' }
+    ];
+    const cal = S.MOIS_C.map((label, i) => {
+      const mm = i + 1, f = p.f.includes(mm), av = p.m.includes(mm);
+      return { label, state: f ? 'Peak season' : av ? 'Available' : 'Out of season', title: S.MOIS[i] + (mm === now ? ' (this month)' : ''),
+        style: { display: 'flex', flexDirection: 'column', gap: 2, padding: '10px 12px', borderRadius: 18,
+          background: f ? 'var(--color-accent)' : av ? 'var(--color-accent-2-200)' : '#ffffff',
+          color: f ? 'var(--color-on-accent, var(--color-bg))' : av ? 'var(--color-accent-2-900)' : 'var(--color-neutral-700)',
+          border: mm === now ? '2px solid var(--color-text)' : '2px solid transparent' } };
+    });
+    const calSummary = p.m.length === 12
+      ? p.n + ' is available all year round' + (p.f.length ? ', with a peak season in ' + range(p.f) + '.' : '.')
+      : 'Available in ' + range(p.m) + (p.f.length ? '; peak season in ' + range(p.f) + '.' : '.');
+    const lexIds = (d && d.lexique) || [];
+    const famTerm = S.lexique.find(t => S.norm(t.terme) === S.norm(p.fam));
+    const lexList = [...new Set([...(famTerm ? [famTerm.id] : []), ...lexIds, ...S.lexique.filter(t => t.ex.includes(p.s)).map(t => t.id)])]
+      .map(id => S.lexique.find(t => t.id === id)).filter(Boolean)
+      .map(t => ({ terme: t.terme, href: '../lexique.html#' + t.id }));
+    const peak = p.f.includes(now) ? now : (p.f[0] || now);
+    const related = S.produits.filter(o => o.s !== p.s && o.f.includes(peak)).sort((a, b) => (b.t === p.t) - (a.t === p.t)).slice(0, 6)
+      .map(o => ({ ...S.vis(o, '../'), href: S.url(o, '../'), n: o.n, flag: o.orig.flag, origine: o.orig.label }));
+    const V = (window.SAISON_VARIETES || {})[p.s];
+    const cousinsLinked = S.produits.filter(o => o.s !== p.s && o.fam === p.fam).map(o => ({ n: o.n, href: S.url(o, '../'), img: o.img ? '../' + o.img : '', bg: o.img ? 'center / contain no-repeat url("../' + o.img + '")' : 'none' }));
+    const cousinsExtra = (V && V.c) || [];
+    const exo = ['banane', 'ananas', 'mangue', 'avocat', 'kiwi', 'orange', 'citron', 'clementine', 'gingembre', 'patate-douce'].includes(p.s) && p.orig && !/France/.test(p.orig.label);
+    const pl = this.state.prodList || [];
+    return {
+      hasProd: !exo, prodArt: this._art(p), prodGeo: this.prodGeo, prodCp: this.prodCp, prodStatus: this.state.prodStatus || 'Share your location or enter a postcode.', prodList: pl, prodHas: pl.length > 0,
+      hasAG: !!(window.SAISON_ANTIGASPI || {})[p.s], ag: (window.SAISON_ANTIGASPI || {})[p.s] || {},
+      hasVar: !!V, varietes: V ? V.v.map(([n, x]) => ({ n, x })) : [], varK: V ? V.k : '', fam: p.fam, cousinsLinked, cousinsExtra, hasCousins: cousinsLinked.length + cousinsExtra.length > 0,
+      nom: p.n, nomLower: p.n.toLowerCase(), emoji: p.e, hero: S.vis(p, '../'), typeLabel: S.TYPES[p.t].label,
+      h1: p.n + ' in season',
+      intro: d ? d.intro : p.d, facts, cal, calSummary, duDe,
+      hasDetail: !!d, d: d || {},
+      bienfaits: tx ? tx.bienfaits.map(([t, x]) => ({ t, x })) : [],
+      rec: S.recette750 ? S.recette750(p) : {}, hasTextes: !!tx, tx: tx || {}, classification: tx ? tx.classification.map(([k, v]) => ({ k, v })) : [], hasNutrition: !!(d && d.nutrition),
+      nutrition: d ? d.nutrition.map(([k, v]) => ({ k, v })) : [],
+      recettes: d ? d.recettes.map(([t, x], i) => ({ t, x, i: i + 1 })) : [],
+      faq: d ? d.faq.map(([q, a]) => ({ q, a })) : [],
+      lex: lexList, hasLex: lexList.length > 0,
+      related, relatedTitle: 'Also at its peak in ' + S.MOIS[peak - 1]
+    };
+  }
+}
+</script>
+</body>
+</html>

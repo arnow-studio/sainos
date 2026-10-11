@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script id="lang-redirect">(function(){var cur='en',alt='../marches.html';document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-lang]');if(a)try{localStorage.setItem('sainos-lang',a.getAttribute('data-lang'))}catch(_){}},true);try{var p=localStorage.getItem('sainos-lang');if(/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)||p===cur)return;var L=p||((navigator.languages&&navigator.languages[0])||navigator.language||'').slice(0,2).toLowerCase();if((cur==='fr'&&L==='en')||(cur==='en'&&L==='fr'))location.replace(alt+location.hash)}catch(e){}})();</script>
+<link rel="alternate" hreflang="fr" href="https://www.sainos.fr/marches.html">
+<link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/marches.html">
+<link rel="alternate" hreflang="x-default" href="https://www.sainos.fr/marches.html">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){var d=document.documentElement;var B=null,T=0,Q='[aria-label="Choose mode"]';document.addEventListener('click',function(e){var t=e.target&&e.target.closest?e.target.closest(Q):null;B=null},true);function g(){var b=B;B=null;if(!b){try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}return}var n=0;(function f(){var x=document.querySelector(Q)||b;var dy=x.getBoundingClientRect().top-T;if(dy)try{window.scrollBy({top:dy,left:0,behavior:'instant'})}catch(e){window.scrollBy(0,dy)}if(++n<24)requestAnimationFrame(f)})()}function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))g()}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
+<style id="kid-palette">html.m-kid { --color-accent: #f5a614; --color-accent-100: #fff7dc; --color-accent-200: #ffeaa8; --color-accent-300: #ffd96b; --color-accent-400: #ffc23d; --color-accent-500: #f5a614; --color-accent-600: #d88c06; --color-accent-700: #945d03; --color-on-accent: var(--color-accent-900); --color-accent-800: #7f5003; --color-accent-900: #5a3902; --color-accent-2-100: #fffaea; --color-accent-2-200: #fdf1cf; --color-accent-2-300: #f8e2a2; --color-accent-2-800: #87601a; --color-accent-2-900: #6b4a10; }
+    :where(html.m-kid) a:not(.btn), :where(html.m-kid) .btn-ghost, :where(html.m-kid) .tag-outline, :where(html.m-kid) .card-kicker { color: var(--color-accent-800); } html.m-kid .btn-primary, html.m-kid .tag-accent { color: var(--color-accent-900) !important; } .btn-primary { background-image: linear-gradient(90deg, var(--color-accent-500), var(--color-accent-700)) !important; } .btn-primary:hover { background-image: linear-gradient(90deg, var(--color-accent-600), var(--color-accent-800)) !important; } html.m-kid .btn-primary { background-image: linear-gradient(90deg, var(--color-accent-400), var(--color-accent-500)) !important; } html.m-kid .btn-primary:hover { background-image: linear-gradient(90deg, var(--color-accent-500), var(--color-accent-600)) !important; }</style>
+<style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html.m-kid [data-adult-only], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
+<style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400&family=Nunito:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../_ds/organic-f9092e65-12bb-43ea-a459-3e0b5f502c38/styles.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
+<script src="produits-data.js"></script>
+<style>
+  :root { --color-bg: #fbf8f2; --color-accent: #357d28; --color-accent-100: #eef7ea; --color-accent-200: #d9eed0; --color-accent-300: #b6dca5; --color-accent-400: #74b95e; --color-accent-500: #357d28; --color-accent-600: #327426; --color-accent-700: #285e1f; --color-accent-800: #1f4a19; --color-accent-900: #183a14; --color-accent-2-100: #f4f8ed; --color-accent-2-200: #e8efdb; --color-accent-2-300: #d8e2c7; --color-accent-2-800: #56613f; --color-accent-2-900: #46512f; --color-neutral-100: #fffdf9; --color-text: #5b3b27; --color-divider: color-mix(in srgb, #8c491a 20%, transparent); --font-heading: 'DynaPuff', system-ui, sans-serif; --font-body: 'Nunito', system-ui, sans-serif; }
+  body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
+  h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; }
+  a { color: var(--color-accent-700); }
+  a:not(.btn):not(.tag):hover { color: var(--color-accent-600); }
+  *:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+  body.kid .only-adult, body:not(.kid) .only-kid { display: none !important; }
+  .wrap { max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; padding-left: clamp(20px, 5vw, 56px); padding-right: clamp(20px, 5vw, 56px); }
+  .pill { display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-300); background: #fff; color: var(--color-accent-900); font: inherit; font-size: 15px; font-weight: 700; padding: 8px 16px; min-height: 44px; box-sizing: border-box; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+  .pill:hover { background: var(--color-accent-100); border-color: var(--color-accent-500); }
+  .pill[aria-pressed="true"] { background: var(--color-accent); border-color: var(--color-accent); color: #fff; }
+  .mode-btn { display: flex; align-items: center; gap: 6px; background: #fff; font: inherit; font-size: 14px; font-weight: 700; padding: 6px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+  #map { height: 560px; border-radius: var(--radius-lg); overflow: hidden; background: #e6eff4; z-index: 0; }
+  #liste { max-height: 560px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; padding-right: 4px; }
+  .m-item { display: flex; flex-direction: column; gap: 6px; padding: 14px 16px; background: #fff; border: 2px solid transparent; border-radius: 16px; box-shadow: var(--shadow-sm); cursor: pointer; text-align: left; font: inherit; color: inherit; }
+  .m-item:hover, .m-item.on { border-color: var(--color-accent-400); }
+  .pin { width: 26px; height: 26px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: var(--color-accent); border: 3px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,.3); }
+  .pin.off { background: #a99a86; }
+  .pin.on { background: #e0892f; }
+  .me { width: 18px; height: 18px; border-radius: 50%; background: #3b82c4; border: 3px solid #fff; box-shadow: 0 0 0 6px rgba(59,130,196,.25); }
+  .leaflet-popup-content-wrapper { border-radius: 16px; font-family: var(--font-body); color: var(--color-text); }
+  .leaflet-popup-content { margin: 12px 16px; font-size: 14px; line-height: 1.45; }
+  .chk { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: #fff; border-radius: 16px; border: 2px solid var(--color-accent-200); cursor: pointer; min-height: 44px; }
+  .chk input { width: 22px; height: 22px; accent-color: var(--color-accent); }
+  .mgrid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr); gap: var(--space-4); align-items: start; }
+  @media (max-width: 860px) { .mgrid { grid-template-columns: minmax(0, 1fr); } #map { height: 380px; } #liste { max-height: none; } }
+
+    @media (max-width: 760px) { [data-nav-desk] { display: none !important; } }
+    @media (min-width: 761px) { [data-nav-burger] { display: none !important; } }
+    [data-nav-burger] summary::-webkit-details-marker { display: none; }
+    [data-nav-burger][open] [data-ic="open"], [data-nav-burger]:not([open]) [data-ic="close"] { display: none; }
+    [data-nav-panel] a:hover { background: var(--color-accent-100); }
+  
+  [data-baseline] { transition: opacity .2s, max-height .2s; max-height: 20px; overflow: hidden; }
+  html.is-scrolled [data-baseline] { opacity: 0; max-height: 0; }
+</style>
+<script>(function(){var d=document.documentElement,on=false;function f(){var y=window.scrollY,s=on?y>8:y>60;if(s!==on){on=s;d.classList.toggle('is-scrolled',s);}}window.addEventListener('scroll',f,{passive:true});f();})();</script>
+<title>Markets near you: find a fruit and vegetable market in France | Sainos</title>
+<meta name="description" content="Find the markets nearest you in France, their days and opening hours, and a list of the seasonal fruit and vegetables to look for this month.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.sainos.fr/en/marches.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Markets near you | Sainos">
+<meta property="og:description" content="A map of the markets around you and the seasonal produce to find there.">
+<meta property="og:url" content="https://www.sainos.fr/en/marches.html">
+<meta property="og:site_name" content="Sainos">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://www.sainos.fr/images/og/sainos.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.sainos.fr/images/og/sainos.jpg">
+</head>
+<body>
+<div style="min-height: 100vh; display: flex; flex-direction: column;">
+  <header style="position: sticky; top: 0; z-index: 1000; background: color-mix(in srgb, var(--color-bg) 92%, transparent); backdrop-filter: blur(8px);">
+    <nav class="nav wrap" aria-label="Main navigation" style="flex-wrap: wrap; row-gap: var(--space-2);">
+      <a href="index.html" class="nav-brand" style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none;" aria-label="Sainos — home">
+        <img src="../images/logo-mini.webp" alt="Sainos — seasonal fruit and vegetables" width="398" height="107" style="display: block; height: 36px; width: auto;"><span data-baseline="1" style="font-family: var(--font-body); font-size: 14px; font-weight: 700; line-height: 1; color: var(--color-text); white-space: nowrap;">The Taste of the <span style="color: var(--color-accent-700);">Seasons</span></span>
+      </a>
+      <div data-nav-desk="1" style="display: flex; gap: var(--space-4); align-items: center; flex-wrap: wrap;">
+        <a href="saisons.html">Calendar</a>
+        <a href="origines.html">Origins</a>
+        <a href="marches.html" data-nav-mar="1" aria-current="page">Markets</a><a href="pousse.html" data-nav-pousse="1">How it grows</a>
+        <a href="bio.html">Organic</a>
+        <a href="enseignants.html" data-nav-lex="1">In class</a>
+        <a href="quiz.html" data-nav-quiz="1">Quiz</a>
+        <a href="apropos.html">About</a>
+      </div>
+      <details data-nav-burger="1" style="position: relative; margin-left: auto;">
+        <summary aria-label="Menu" style="list-style: none; width: 48px; height: 48px; box-sizing: border-box; display: grid; place-items: center; background: transparent; border: 0; color: var(--color-text); cursor: pointer;">
+          <svg data-ic="open" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M4 9h16M4 15h16"></path></svg>
+          <svg data-ic="close" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </summary>
+        <div data-nav-panel="1" style="position: absolute; right: 0; top: calc(100% + 10px); z-index: 50; width: min(280px, 80vw); box-sizing: border-box; padding: 10px; background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 4px;">
+          <a href="saisons.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Calendar</a>
+          <a href="origines.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Origins</a>
+          <a href="marches.html" data-nav-mar="1" aria-current="page" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-accent-900); background: var(--color-accent-100);">Markets</a><a href="pousse.html" data-nav-pousse="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">How it grows</a>
+          <a href="bio.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Organic</a>
+          <a href="enseignants.html" data-nav-lex="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">In class</a>
+        <a href="quiz.html" data-nav-quiz="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Quiz</a>
+          <a href="apropos.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">About</a>
+          <a href="contact.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Contact</a>
+        
+          <a href="../marches.html" data-lang="fr" hreflang="fr" lang="fr" style="display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;"><span aria-hidden="true">🌐</span>Version française</a>
+          <div data-nav-extra="1" style="display: flex; flex-direction: column; gap: 10px; margin-top: 6px; padding: 12px 8px 4px; border-top: 1px solid var(--color-divider);">
+        <button type="button" class="mode-btn only-adult" data-set-mode="enfant" style="min-height: 48px; width: 100%; justify-content: center; font-size: 16px; border: 2px solid var(--color-accent-2-300); color: var(--color-accent-2-900);">🎒 Kids mode</button>
+        <button type="button" class="mode-btn only-kid" data-set-mode="normal" style="min-height: 48px; width: 100%; justify-content: center; font-size: 16px; border: 2px solid var(--color-accent-300); color: var(--color-accent-900);">Parents mode</button>
+      <div aria-label="Follow Sainos" data-nav-social="1" style="display: flex; justify-content: center; gap: var(--space-2); align-items: center;"><a href="https://www.facebook.com/profile.php?id=61594827576678" target="_blank" rel="noopener" aria-label="Sainos on Facebook" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/facebook/1877F2" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a><a href="https://www.instagram.com/sainos_fr/" target="_blank" rel="noopener" aria-label="Sainos on Instagram" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/instagram/E4405F" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a><a href="https://www.tiktok.com/@sainos_fr" target="_blank" rel="noopener" aria-label="Sainos on TikTok" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/tiktok/000000" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a></div></div>
+        </div>
+      </details>
+      <div data-nav-desk="1" style="display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; justify-content: flex-end; margin-left: auto; flex: none;">
+        <button type="button" class="mode-btn only-adult" data-set-mode="enfant" style="border: 2px solid var(--color-accent-2-300); color: var(--color-accent-2-900);">🎒 Kids mode</button>
+        <button type="button" class="mode-btn only-kid" data-set-mode="normal" style="border: 2px solid var(--color-accent-300); color: var(--color-accent-900);">Parents mode</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap" style="flex: 1; display: flex; flex-direction: column; gap: var(--space-8); padding-top: clamp(40px, 7vw, 56px); padding-bottom: var(--space-8);">
+    <section style="display: flex; flex-direction: column; gap: var(--space-4); max-width: 720px;">
+      <nav aria-label="Breadcrumb" style="font-size: 14px; display: flex; gap: var(--space-2);"><a href="index.html">Home</a><span aria-hidden="true">›</span><span aria-current="page">Markets</span></nav>
+      <h1 class="only-adult" style="margin: 0; font-size: clamp(38px, 5.5vw, 64px); line-height: 1.02; text-wrap: balance;">Markets near you</h1>
+      <h1 class="only-kid" style="margin: 0; font-size: clamp(38px, 5.5vw, 64px); line-height: 1.02; text-wrap: balance;">Find a market near you</h1>
+      <p class="only-adult" style="margin: 0; font-size: 19px; line-height: 1.65; text-wrap: pretty;">The best place to buy seasonal food is often just minutes from home. Find the markets around you and their opening days, and head off with a list of what’s at its best this month.</p>
+      <p class="only-kid" style="margin: 0; font-size: 19px; line-height: 1.65; text-wrap: pretty;">At the market, fruit and vegetables often come from close by. Find the nearest market, then take on this month’s challenge with your parents!</p>
+    </section>
+
+    <section aria-label="Search for markets" style="display: flex; flex-direction: column; gap: var(--space-4);">
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center;">
+        <button type="button" id="geo" class="btn btn-primary" style="white-space: nowrap; flex-shrink: 0; padding: 12px 22px; font-size: 16px; min-height: 48px;">📍 Near me</button>
+        <span style="font-weight: 700;">ou</span>
+        <form id="cp-form" style="display: flex; gap: var(--space-2); flex: 1 1 320px; max-width: 460px; margin: 0;">
+          <label for="cp" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0);">Postcode or town</label>
+          <input id="cp" class="input" type="text" placeholder="Postcode or town: 69004, Nantes…" autocomplete="postal-code" style="flex: 1; min-width: 0; min-height: 48px; font-size: 16px; background: #fff;">
+          <button type="submit" class="btn btn-secondary" style="padding: 12px 20px; font-size: 16px; min-height: 48px;">Search</button>
+        </form>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-4) var(--space-6); align-items: center;">
+        <div role="group" aria-label="Opening day" style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+          <span style="font-size: 14px; font-weight: 700;">Open</span>
+          <button type="button" class="pill" data-f="tous" aria-pressed="true">Every day</button>
+          <button type="button" class="pill" data-f="today" aria-pressed="false">Today</button>
+          <button type="button" class="pill" data-f="we" aria-pressed="false">This weekend</button>
+        </div>
+      </div>
+      <p id="status" role="status" aria-live="polite" style="margin: 0; font-size: 16px; font-weight: 700; color: var(--color-accent-800);">Share your location or enter a French postcode to see markets.</p>
+    </section>
+
+    <section class="mgrid" aria-label="Map and list of markets">
+      <div id="map" style="min-width: 0;" aria-label="Map of markets"></div>
+      <div id="liste" aria-label="List of markets, nearest first">
+        <div style="padding: var(--space-6); background: #f4efe6; border-radius: var(--radius-lg); display: flex; flex-direction: column; gap: var(--space-2);">
+          <span style="font-family: var(--font-heading); font-size: 22px;">🧺 No markets shown</span>
+          <span style="font-size: 15px; line-height: 1.55;">Start a search: markets will appear here, nearest first, with their opening days.</span>
+        </div>
+      </div>
+    </section>
+    <p style="margin: calc(var(--space-6) * -1) 0 0; font-size: 13px; line-height: 1.55; color: var(--color-neutral-800); max-width: 820px;">Data <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>, added by volunteers: opening hours may be incomplete, so check with the local town hall. A market missing? <a href="https://www.openstreetmap.org/fixthemap" target="_blank" rel="noopener">Report it on OpenStreetMap</a>. Your location is never stored or sent to Sainos.</p>
+
+    <section class="only-adult" aria-labelledby="t-liste" style="display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-6); background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
+      <h2 id="t-liste" style="margin: 0; font-size: clamp(24px, 3vw, 32px);">My market list for <span class="mois"></span></h2>
+      <p style="margin: 0; font-size: 16px; line-height: 1.6;">The produce at its peak this month: this is when it’s tastiest and cheapest on the stalls.</p>
+      <div id="liste-mois" style="display: flex; flex-wrap: wrap; gap: 8px;"></div>
+    </section>
+
+    <section class="only-kid" aria-labelledby="t-defi" style="display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-6); background: var(--color-accent-100); border: 2px solid var(--color-accent-300); border-radius: var(--radius-lg);">
+      <h2 id="t-defi" style="margin: 0; font-size: clamp(24px, 3vw, 32px); color: var(--color-accent-900);">🕵️ Market challenge for <span class="mois"></span></h2>
+      <p style="margin: 0; font-size: 17px; line-height: 1.6; color: var(--color-accent-900);">At the market, find these 3 seasonal products on the stalls. Tick them off as soon as you spot them!</p>
+      <div id="defi" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-3);"></div>
+      <p id="defi-ok" role="status" aria-live="polite" style="margin: 0; font-family: var(--font-heading); font-size: 22px; color: var(--color-accent-800);"></p>
+    </section>
+
+    <section aria-label="Choose mode" style="margin: var(--space-4) 0 0;">
+      <div class="only-adult" style="display: flex; flex-direction: column; background: #fff; border: 2px solid var(--color-accent-2-300); border-radius: var(--radius-lg); overflow: hidden;">
+        <img src="../images/pano-apropos-enfant.webp" alt="A cartoon young farmer in his field, hands on hips" width="1500" height="500" loading="lazy" style="display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover;">
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-4) var(--space-6);">
+          <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 320px; min-width: 0;">
+            <span style="font-family: var(--font-heading); font-size: 24px; color: var(--color-accent-2-900);">🧺 Parents mode on</span>
+            <span style="font-size: 16px; line-height: 1.5; color: var(--color-accent-2-900); text-wrap: pretty;">Origin, peak season, tips for choosing at the market and recipe ideas: everything you need to shop with the seasons. Your children want to explore too? Switch to kids mode.</span>
+          </div>
+          <button type="button" class="btn btn-primary" data-set-mode="enfant" style="padding: 12px 22px; font-size: 16px; white-space: nowrap;">Switch to kids mode</button>
+        </div>
+      </div>
+      <div class="only-kid" style="display: flex; flex-direction: column; background: #fff; border: 2px solid var(--color-accent-300); border-radius: var(--radius-lg); overflow: hidden;">
+        <img src="../images/pano-apropos-enfant.webp" alt="A drawing of a young farmer in his field, hands on hips" width="1500" height="500" loading="lazy" style="display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover;">
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-4) var(--space-6);">
+          <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 320px; min-width: 0;">
+            <span style="font-family: var(--font-heading); font-size: 24px; color: var(--color-accent-900);">🎒 Kids mode on</span>
+            <span style="font-size: 16px; line-height: 1.5; color: var(--color-accent-900); text-wrap: pretty;">You already have <span id="nb-badges">0</span> badges out of 44. Are your parents doing the shopping? Hand them the parents version, it only takes one click.</span>
+          </div>
+          <button type="button" class="btn btn-secondary" data-set-mode="normal" style="padding: 12px 22px; font-size: 16px; white-space: nowrap;">Switch to parents mode</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background: #f4efe6;">
+    <div class="wrap" style="padding-top: var(--space-6); padding-bottom: var(--space-6); display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: space-between; align-items: center; font-size: 14px;">
+      <img src="../images/logo-mini.webp" alt="Sainos" width="398" height="107" style="display: block; height: 30px; width: auto;">
+      <nav aria-label="Footer" style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
+        <a href="index.html">Home</a>
+        <a href="saisons.html">Calendar</a>
+        <a href="origines.html">Origins</a>
+        <a href="marches.html" data-nav-mar="1">Markets</a><a href="pousse.html" data-nav-pousse="1">How it grows</a>
+        <a href="bio.html">Organic</a>
+        <a href="lexique.html" data-nav-lex="1">Glossary</a>
+        <a href="quiz.html" data-nav-quiz="1">Quiz</a>
+        <a href="apropos.html">About</a>
+        <a href="enseignants.html" data-adult-only="1">Teachers</a>
+        <a href="contact.html" data-adult-only="1">Contact</a>
+        <a href="../marches.html" data-lang="fr" hreflang="fr" lang="fr">Version française</a>
+      </nav>
+      <div aria-label="Follow Sainos" style="display: flex; gap: var(--space-2); align-items: center;">
+        <a href="https://www.facebook.com/profile.php?id=61594827576678" target="_blank" rel="noopener" aria-label="Sainos on Facebook" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/facebook/1877F2" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+        <a href="https://www.instagram.com/sainos_fr/" target="_blank" rel="noopener" aria-label="Sainos on Instagram" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/instagram/E4405F" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+        <a href="https://www.tiktok.com/@sainos_fr" target="_blank" rel="noopener" aria-label="Sainos on TikTok" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/tiktok/000000" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+      </div>
+      <p style="flex-basis: 100%; order: 3; margin: 0; font-size: 13px; line-height: 1.5; color: var(--color-neutral-800);">Sainos is an independent information website. No sales, no advertising, no cookies.</p>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var S = window.SAISON, now = new Date(), M = now.getMonth() + 1;
+  var MOIS = S.MOIS;
+  document.querySelectorAll('.mois').forEach(function (e) { e.textContent = MOIS[M - 1]; });
+
+  // Mode parent / enfant
+  function ls(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+  function syncMode() {
+    document.body.classList.toggle('kid', ls('sainos-mode') === 'enfant');
+    var b = []; try { b = JSON.parse(ls('sainos-badges') || '[]'); } catch (e) {}
+    document.getElementById('nb-badges').textContent = b.length;
+  }
+  document.querySelectorAll('[data-set-mode]').forEach(function (b) { b.addEventListener('click', function () { ls('sainos-mode', b.dataset.setMode); syncMode(); }); });
+  window.addEventListener('storage', syncMode); window.addEventListener('pageshow', syncMode); syncMode();
+
+  // Liste du mois (parent) et défi (enfant)
+  var pleine = S.produits.filter(function (p) { return p.f.indexOf(M) >= 0; });
+  var lm = document.getElementById('liste-mois');
+  pleine.forEach(function (p) {
+    var a = document.createElement('a'); a.href = S.url(p); a.className = 'tag tag-accent';
+    a.style.cssText = 'display:flex;align-items:center;gap:8px;padding:6px 14px 6px 6px;font-size:15px;text-decoration:none;min-height:44px;box-sizing:border-box;';
+    a.innerHTML = (p.img ? '<img loading="lazy" decoding="async" src="' + p.img + '" alt="" style="width:32px;height:32px;object-fit:contain;">' : '<span aria-hidden="true" style="font-size:22px;">' + p.e + '</span>') + p.n;
+    lm.appendChild(a);
+  });
+  var seed = now.getFullYear() * 12 + M, pool = pleine.slice(), defi = [];
+  while (defi.length < 3 && pool.length) { seed = (seed * 9301 + 49297) % 233280; defi.push(pool.splice(seed % pool.length, 1)[0]); }
+  var dKey = 'sainos-defi-marche-' + now.getFullYear() + '-' + M, done = []; try { done = JSON.parse(ls(dKey) || '[]'); } catch (e) {}
+  var dBox = document.getElementById('defi');
+  function defiMsg() { document.getElementById('defi-ok').textContent = done.length >= defi.length ? '🏅 Well done, challenge complete! Come back next month for a new challenge.' : done.length + ' / ' + defi.length + ' found'; }
+  defi.forEach(function (p) {
+    var l = document.createElement('label'); l.className = 'chk';
+    l.innerHTML = '<input type="checkbox"' + (done.indexOf(p.s) >= 0 ? ' checked' : '') + '>' + (p.img ? '<img loading="lazy" decoding="async" src="' + p.img + '" alt="" style="width:52px;height:52px;object-fit:contain;">' : '<span style="font-size:36px;">' + p.e + '</span>') + '<span style="font-family:var(--font-heading);font-size:20px;">' + p.n + '</span>';
+    l.querySelector('input').addEventListener('change', function (e) {
+      done = done.filter(function (s) { return s !== p.s; }); if (e.target.checked) done.push(p.s);
+      ls(dKey, JSON.stringify(done)); defiMsg();
+    });
+    dBox.appendChild(l);
+  });
+  defiMsg();
+
+  // Carte
+  var map = L.map('map', { scrollWheelZoom: false }).setView([46.6, 2.4], 5);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '© OpenStreetMap contributors' }).addTo(map);
+  var layer = L.layerGroup().addTo(map), meMarker = null, circle = null;
+  var state = { center: null, r: 5, f: 'tous', data: [] };
+  var status = document.getElementById('status'), liste = document.getElementById('liste');
+  function say(t) { status.textContent = t; }
+
+  var DAYS = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+  var FR = { Mo: 'Mon', Tu: 'Tue', We: 'Wed', Th: 'Thu', Fr: 'Fri', Sa: 'Sat', Su: 'Sun' };
+  var JOURS = ['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'];
+  function daysOf(oh) {
+    if (!oh) return null; if (/24\/7/.test(oh)) return [0,1,2,3,4,5,6];
+    var set = {}, found = false;
+    oh.split(';').forEach(function (part) {
+      if (/\boff\b|closed/i.test(part) || /^\s*PH/.test(part)) return;
+      var re = /\b(Mo|Tu|We|Th|Fr|Sa|Su)\b(?:\s*-\s*\b(Mo|Tu|We|Th|Fr|Sa|Su)\b)?/g, m;
+      while ((m = re.exec(part))) {
+        found = true; var a = DAYS.indexOf(m[1]), b = m[2] ? DAYS.indexOf(m[2]) : a;
+        for (var i = a; ; i = (i + 1) % 7) { set[i] = 1; if (i === b) break; }
+      }
+    });
+    return found ? Object.keys(set).map(Number) : null;
+  }
+  function ohFr(oh) {
+    return oh.replace(/\bPH off\b;?/g, '').replace(/\b(Mo|Tu|We|Th|Fr|Sa|Su)\b/g, function (d) { return FR[d]; })
+      .replace(/\s*-\s*(?=[A-Z][a-z]{2}\b)/g, '–').replace(/;\s*/g, ' · ').replace(/,\s*/g, ', ').trim();
+  }
+  function dist(a, b) {
+    var R = 6371, dLat = (b[0] - a[0]) * Math.PI / 180, dLon = (b[1] - a[1]) * Math.PI / 180;
+    var x = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(a[0] * Math.PI / 180) * Math.cos(b[0] * Math.PI / 180) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    return 2 * R * Math.asin(Math.sqrt(x));
+  }
+  function km(d) { return d < 1 ? Math.round(d * 1000 / 10) * 10 + ' m' : d.toFixed(1) + ' km'; }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+  var ENDPOINTS = ['https://overpass-api.de/api/interpreter', 'https://overpass.kumi.systems/api/interpreter'];
+  function overpass(q, i) {
+    i = i || 0;
+    var ctl = window.AbortController ? new AbortController() : null, to = ctl && setTimeout(function () { ctl.abort(); }, 15000);
+    return fetch(ENDPOINTS[i], { method: 'POST', body: 'data=' + encodeURIComponent(q), headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, signal: ctl ? ctl.signal : undefined })
+      .then(function (r) { clearTimeout(to); if (!r.ok) throw new Error(r.status); return r.json(); })
+      .catch(function (e) { if (i + 1 < ENDPOINTS.length) return overpass(q, i + 1); throw e; });
+  }
+  var reqId = 0;
+  function load() {
+    if (!state.center) return;
+    var id = ++reqId, c = state.center, rm = state.r * 1000;
+    say('Searching for markets within ' + state.r + ' km…');
+    var q = '[out:json][timeout:25];(nwr["amenity"="marketplace"](around:' + rm + ',' + c[0] + ',' + c[1] + '););out center tags;';
+    overpass(q).then(function (j) {
+      if (id !== reqId) return;
+      state.data = j.elements.map(function (e) {
+        var t = e.tags || {}, ll = e.type === 'node' ? [e.lat, e.lon] : [e.center.lat, e.center.lon];
+        var oh = t.opening_hours || '';
+        var addr = [t['addr:housenumber'], t['addr:street'] || t['addr:place']].filter(Boolean).join(' ');
+        return { id: e.type + e.id, ll: ll, d: dist(c, ll), name: t.name || t['name:fr'] || 'Market', addr: addr, city: t['addr:city'] || '', oh: oh, days: daysOf(oh), note: t.description || '' };
+      }).sort(function (a, b) { return a.d - b.d; });
+      render(true); fillCities(id);
+    }).catch(function () { if (id === reqId) say('The map service isn’t responding right now. Please try again in a moment.'); });
+  }
+  var cityCache = {};
+  function fillCities(id) {
+    var todo = state.data.filter(function (m) { return !m.city; }).slice(0, 60), i = 0;
+    function next() {
+      if (id !== reqId || i >= todo.length) return;
+      var m = todo[i++], k = m.ll[0].toFixed(3) + ',' + m.ll[1].toFixed(3);
+      var p = k in cityCache ? Promise.resolve(cityCache[k]) : fetch('https://data.geopf.fr/geocodage/reverse?index=address&limit=1&lat=' + m.ll[0] + '&lon=' + m.ll[1])
+        .then(function (r) { return r.json(); }).then(function (j) { var f = j.features && j.features[0]; return (cityCache[k] = f ? f.properties.city || '' : ''); });
+      p.then(function (c) {
+        if (!c) return; m.city = c;
+        var el = document.querySelector('[data-city="' + m.id + '"]'); if (el) el.textContent = c;
+      }).catch(function () {}).then(next);
+    }
+    for (var n = 0; n < 4; n++) next();
+  }
+  function isOpen(m, which) {
+    if (!m.days) return false;
+    var t = now.getDay();
+    return which === 'today' ? m.days.indexOf(t) >= 0 : (m.days.indexOf(6) >= 0 || m.days.indexOf(0) >= 0);
+  }
+  var markers = {};
+  function render(fit) {
+    layer.clearLayers(); markers = {}; liste.innerHTML = '';
+    var list = state.data.filter(function (m) { return state.f === 'tous' || isOpen(m, state.f); });
+    var today = now.getDay();
+    if (!list.length) {
+      var kid = document.body.classList.contains('kid');
+      say(state.data.length ? 'No markets with known opening hours for this filter. Try “Every day”.' : 'No markets found within 5 km. Try a nearby town.');
+      liste.innerHTML = '<div style="padding:24px;background:#f4efe6;border-radius:var(--radius-lg);font-size:15px;line-height:1.55;">' + (kid ? 'No market here… Try a nearby town!' : 'Try a nearby town, or report a missing market on OpenStreetMap.') + '</div>';
+    } else {
+      var sans = list.filter(function (m) { return !m.oh; }).length;
+      say(list.length + ' market' + (list.length !== 1 ? 's' : '') + ' within ' + state.r + ' km' + (sans && state.f === 'tous' ? ' (' + sans + ' without known hours)' : '') + '.');
+    }
+    list.forEach(function (m) {
+      var open = m.days && m.days.indexOf(today) >= 0;
+      var icon = L.divIcon({ className: '', html: '<div class="pin' + (open ? ' on' : m.days ? '' : ' off') + '"></div>', iconSize: [26, 26], iconAnchor: [13, 26], popupAnchor: [0, -24] });
+      var nav = 'https://www.google.com/maps/dir/?api=1&destination=' + m.ll[0] + ',' + m.ll[1];
+      var hours = m.oh ? ohFr(m.oh) : 'Opening hours not listed';
+      var html = '<strong style="font-family:var(--font-heading);font-weight:400;font-size:17px;">' + esc(m.name) + '</strong><br>' + (m.addr || m.city ? esc([m.addr, m.city].filter(Boolean).join(', ')) + '<br>' : '') + esc(hours) + '<br><a href="' + nav + '" target="_blank" rel="noopener">Directions →</a>';
+      markers[m.id] = L.marker(m.ll, { icon: icon, title: m.name }).bindPopup(html).addTo(layer);
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'm-item';
+      b.innerHTML = '<span style="display:flex;justify-content:space-between;gap:12px;align-items:baseline;"><span style="display:flex;flex-direction:column;gap:2px;min-width:0;"><span style="font-family:var(--font-heading);font-size:19px;line-height:1.2;">' + esc(m.name) + '</span><span data-city="' + m.id + '" style="font-size:13px;font-weight:700;color:var(--color-accent-2-800);">' + esc(m.city) + '</span></span><span style="font-size:14px;font-weight:700;white-space:nowrap;">' + km(m.d) + '</span></span>'
+        + (m.addr ? '<span style="font-size:14px;">' + esc(m.addr) + '</span>' : '')
+        + '<span style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:14px;">' + (open ? '<span class="tag tag-accent" style="font-size:13px;">Open today</span>' : '') + '<span style="color:' + (m.oh ? 'inherit' : 'var(--color-neutral-700)') + ';">' + esc(hours) + '</span></span>';
+      b.addEventListener('click', function () {
+        document.querySelectorAll('.m-item.on').forEach(function (x) { x.classList.remove('on'); }); b.classList.add('on');
+        map.setView(m.ll, Math.max(map.getZoom(), 15)); markers[m.id].openPopup();
+        if (window.innerWidth < 860) window.scrollTo({ top: document.getElementById('map').getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
+      });
+      liste.appendChild(b);
+    });
+    if (fit) {
+      if (circle) map.removeLayer(circle);
+      circle = L.circle(state.center, { radius: state.r * 1000, color: '#3d8b2f', weight: 2, fillOpacity: 0.04, interactive: false }).addTo(map);
+      map.fitBounds(circle.getBounds(), { padding: [10, 10] });
+    }
+  }
+  function setCenter(ll, label) {
+    state.center = ll;
+    if (meMarker) map.removeLayer(meMarker);
+    meMarker = L.marker(ll, { icon: L.divIcon({ className: '', html: '<div class="me"></div>', iconSize: [18, 18], iconAnchor: [9, 9] }), title: label, keyboard: false, zIndexOffset: 1000 }).addTo(map);
+    load();
+  }
+
+  document.getElementById('geo').addEventListener('click', function () {
+    if (!navigator.geolocation) return say('Your browser doesn’t support geolocation: enter a postcode.');
+    say('Locating you…');
+    navigator.geolocation.getCurrentPosition(function (p) { setCenter([p.coords.latitude, p.coords.longitude], 'You are here'); },
+      function () { say('Location unavailable: allow location access or enter a postcode.'); }, { enableHighAccuracy: false, timeout: 10000, maximumAge: 600000 });
+  });
+  document.getElementById('cp-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = document.getElementById('cp').value.trim(); if (!v) return;
+    say('Searching for “' + v + '”…');
+    fetch('https://data.geopf.fr/geocodage/search?limit=1&type=municipality&q=' + encodeURIComponent(v))
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        var f = j.features && j.features[0];
+        if (!f) return say('Town not found. Check the postcode or town name (France only).');
+        var c = f.geometry.coordinates; setCenter([c[1], c[0]], f.properties.label);
+      }).catch(function () { say('Address search unavailable right now.'); });
+  });
+  document.querySelectorAll('[data-f]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('[data-f]').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+      state.f = b.dataset.f; if (state.data.length || state.center) render(false);
+    });
+  });
+})();
+</script>
+<script>(function(){if(window.__navClose)return;window.__navClose=1;function c(){document.querySelectorAll('details[data-nav-burger]').forEach(function(d){d.removeAttribute('open')})}document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('[data-nav-panel] a,[data-nav-panel] button');if(t)setTimeout(c,0)},true);window.addEventListener('pageshow',c)})();</script>
+</body>
+</html>
