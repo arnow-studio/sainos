@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<script id="lang-redirect">(function(){function ask(alt){if(document.getElementById('lang-ask'))return;var d=document.createElement('div');d.id='lang-ask';d.setAttribute('role','dialog');d.setAttribute('aria-modal','true');d.setAttribute('aria-labelledby','lang-ask-t');d.setAttribute('lang','en');d.style.cssText='position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:20px;background:rgba(32,30,29,.45)';var B='min-height:48px;padding:0 22px;border-radius:999px;font:inherit;font-weight:700;font-size:16px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;flex:1 1 auto;text-decoration:none;';d.innerHTML='<div style="background:#fff;border-radius:24px;padding:28px;max-width:420px;width:100%;box-sizing:border-box;box-shadow:0 20px 50px rgba(0,0,0,.2);display:flex;flex-direction:column;gap:14px;font-family:var(--font-body);color:var(--color-text)"><h2 id="lang-ask-t" style="margin:0;font-family:var(--font-heading);font-weight:400;font-size:26px;line-height:1.15">Would you like the English version?</h2><p style="margin:0;font-size:16px;line-height:1.5">Your browser is set to English, but you seem to be in France.</p><div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px"><a href="'+alt+location.hash+'" data-lang="en" style="'+B+'background:var(--color-accent-strong,var(--color-accent));color:#fff;border:0">Switch to English</a><button type="button" data-lang="fr" lang="fr" style="'+B+'background:#fff;color:var(--color-text);border:2px solid var(--color-accent-300)">Rester en fran\u00e7ais</button></div></div>';function close(){try{localStorage.setItem('sainos-lang','fr')}catch(_){}d.remove();document.removeEventListener('keydown',k)}function k(e){if(e.key==='Escape')close()}d.querySelector('button').addEventListener('click',close);d.addEventListener('click',function(e){if(e.target===d)close()});document.addEventListener('keydown',k);document.body.appendChild(d);d.querySelector('a').focus()}var cur='fr',alt='en/fromages.html';document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-lang]');if(a)try{localStorage.setItem('sainos-lang',a.getAttribute('data-lang'))}catch(_){}},true);try{var p=localStorage.getItem('sainos-lang');if(/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)||p===cur)return;var L=p||((navigator.languages&&navigator.languages[0])||navigator.language||'').slice(0,2).toLowerCase();if(cur==='en'&&L==='fr')location.replace(alt+location.hash);else if(cur==='fr'&&L==='en'){var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(_){}if(tz!=='Europe/Paris')location.replace(alt+location.hash);else if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){ask(alt)});else ask(alt)}}catch(e){}})();</script>
+<link rel="alternate" hreflang="fr" href="https://www.sainos.fr/fromages.html">
+<link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/fromages.html">
+<link rel="alternate" hreflang="x-default" href="https://www.sainos.fr/fromages.html">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){var d=document.documentElement;var B=null,T=0,Q='[aria-label="Choisir le mode"]';document.addEventListener('click',function(e){var t=e.target&&e.target.closest?e.target.closest(Q):null;B=t;if(t)T=t.getBoundingClientRect().top},true);function g(){var b=B;B=null;if(!b){try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}return}var n=0;(function f(){var x=document.querySelector(Q)||b;var dy=x.getBoundingClientRect().top-T;if(dy)try{window.scrollBy({top:dy,left:0,behavior:'instant'})}catch(e){window.scrollBy(0,dy)}if(++n<24)requestAnimationFrame(f)})()}function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))g()}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
+<style id="kid-palette">html.m-kid { --color-accent: #e8822f; --color-accent-100: #fff3e8; --color-accent-200: #ffe0c4; --color-accent-300: #fbc18f; --color-accent-400: #f39f55; --color-accent-500: #e8822f; --color-accent-600: #cf6c1c; --color-accent-700: #b05912; --color-on-accent: #ffffff; --color-accent-strong: #b85c12; --color-accent-strong-hover: #9c4d0c; --color-accent-800: #8a450e; --color-accent-900: #66330b; --color-accent-2-100: #fffaea; --color-accent-2-200: #fdf1cf; --color-accent-2-300: #f8e2a2; --color-accent-2-800: #87601a; --color-accent-2-900: #6b4a10; }
+    :where(html.m-kid) a:not(.btn), :where(html.m-kid) .btn-ghost, :where(html.m-kid) .tag-outline, :where(html.m-kid) .card-kicker { color: var(--color-accent-800); } html.m-kid .btn-primary { color: #ffffff !important; } html.m-kid .tag-accent { color: var(--color-accent-900) !important; } .btn-primary { background-image: none !important; background-color: var(--color-accent-strong, var(--color-accent)) !important; box-shadow: none !important; transition: background-color .12s ease; } .btn-primary:hover { background-color: var(--color-accent-strong-hover, var(--color-accent-700)) !important; } .btn-primary:active { background-color: var(--color-accent-800) !important; } html.m-kid img[data-logo] { display: none !important; } html:not(.m-kid) img[data-kid-logo] { display: none !important; } :root { --color-logo: #3d8b2f; } html.m-kid { --color-logo: #f97a00; }</style>
+<style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html.m-kid [data-adult-only], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
+<style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400&family=Nunito:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="_ds/organic-f9092e65-12bb-43ea-a459-3e0b5f502c38/styles.css">
+<script src="produits-data.js"></script>
+<script src="fromages-data.js"></script>
+<style>
+  :root { --color-bg: #fbf8f2; --color-accent: #357d28; --color-accent-100: #eef7ea; --color-accent-200: #d9eed0; --color-accent-300: #b6dca5; --color-accent-400: #74b95e; --color-accent-500: #357d28; --color-accent-600: #327426; --color-accent-700: #285e1f; --color-accent-800: #1f4a19; --color-accent-900: #183a14; --color-accent-2-100: #f4f8ed; --color-accent-2-200: #e8efdb; --color-accent-2-300: #d8e2c7; --color-accent-2-800: #56613f; --color-accent-2-900: #46512f; --color-neutral-100: #fffdf9; --color-text: #5b3b27; --color-divider: color-mix(in srgb, #8c491a 20%, transparent); --font-heading: 'DynaPuff', system-ui, sans-serif; --font-body: 'Nunito', system-ui, sans-serif; }
+  body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
+  h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; }
+  a { color: var(--color-accent-700); }
+  a:not(.btn):not(.tag):hover { color: var(--color-accent-600); }
+  *:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+  body.kid .only-adult, body:not(.kid) .only-kid { display: none !important; }
+  .wrap { max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; padding-left: clamp(20px, 5vw, 56px); padding-right: clamp(20px, 5vw, 56px); }
+  .pill { display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-300); background: #fff; color: var(--color-accent-900); font: inherit; font-size: 15px; font-weight: 700; padding: 8px 16px; min-height: 44px; box-sizing: border-box; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+  .pill:hover { background: var(--color-accent-100); border-color: var(--color-accent-500); }
+  .pill[aria-pressed="true"] { background: var(--color-accent-strong, var(--color-accent)); border-color: var(--color-accent-strong, var(--color-accent)); color: #fff; }
+  .mode-btn { display: flex; align-items: center; gap: 6px; background: #fff; font: inherit; font-size: 14px; font-weight: 700; padding: 6px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+  #map { height: 560px; border-radius: var(--radius-lg); overflow: hidden; background: #e6eff4; z-index: 0; }
+  #liste { max-height: 560px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; padding-right: 4px; }
+  .m-item { display: flex; flex-direction: row; align-items: center; gap: 12px; padding: 14px 16px; background: #fff; border: 2px solid transparent; border-radius: 16px; box-shadow: var(--shadow-sm); cursor: pointer; text-align: left; font: inherit; color: inherit; }
+  .m-item:hover, .m-item.on { border-color: var(--color-accent-400); }
+  .opin { width: 44px; height: 44px; border-radius: 50%; background: #fff center / 80% no-repeat; border: 3px solid var(--c); box-shadow: 0 2px 6px rgba(0,0,0,.3); display: grid; place-items: center; font-size: 24px; }
+  .pin { width: 26px; height: 26px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: var(--color-accent); border: 3px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,.3); }
+  .pin.off { background: #a99a86; }
+  .pin.on { background: #e0892f; }
+  .me { width: 18px; height: 18px; border-radius: 50%; background: #3b82c4; border: 3px solid #fff; box-shadow: 0 0 0 6px rgba(59,130,196,.25); }
+  .leaflet-popup-content-wrapper { border-radius: 16px; font-family: var(--font-body); color: var(--color-text); }
+  .leaflet-popup-content { margin: 12px 16px; font-size: 14px; line-height: 1.45; }
+  .chk { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: #fff; border-radius: 16px; border: 2px solid var(--color-accent-200); cursor: pointer; min-height: 44px; }
+  .chk input { width: 22px; height: 22px; accent-color: var(--color-accent); }
+  .mgrid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr); gap: var(--space-4); align-items: start; }
+  @media (max-width: 860px) { .mgrid { grid-template-columns: minmax(0, 1fr); } #map { height: 380px; } #liste { max-height: none; } }
+
+    @media (max-width: 760px) { [data-nav-desk] { display: none !important; } }
+    @media (min-width: 761px) { [data-nav-burger] { display: none !important; } }
+    [data-nav-burger] summary::-webkit-details-marker { display: none; }
+    [data-nav-burger][open] [data-ic="open"], [data-nav-burger]:not([open]) [data-ic="close"] { display: none; }
+    [data-nav-panel] a:hover { background: var(--color-accent-100); }
+  
+  [data-baseline] { transition: opacity .2s, max-height .2s; max-height: 20px; overflow: hidden; }
+  html.is-scrolled [data-baseline] { opacity: 0; max-height: 0; }
+</style>
+<script>(function(){var d=document.documentElement,on=false;function f(){var y=window.scrollY,s=on?y>8:y>60;if(s!==on){on=s;d.classList.toggle('is-scrolled',s);}}window.addEventListener('scroll',f,{passive:true});f();})();</script>
+<title>Fromages de saison : quand les manger, d’où ils viennent | Sainos</title>
+<meta name="description" content="36 fromages de France et d’Europe : lait, région, meilleure saison et accords avec les fruits et légumes de saison.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.sainos.fr/fromages.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Les fromages de saison | Sainos">
+<meta property="og:description" content="Le fromage aussi a ses saisons.">
+<meta property="og:url" content="https://www.sainos.fr/fromages.html">
+<meta property="og:site_name" content="Sainos">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://www.sainos.fr/images/og/sainos.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.sainos.fr/images/og/sainos.jpg">
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-O95OL7ls2dxJH93cMg8p4.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+</head>
+<body>
+<div style="min-height: 100vh; display: flex; flex-direction: column;">
+  <header style="position: sticky; top: 0; z-index: 1000; background: color-mix(in srgb, var(--color-bg) 92%, transparent); backdrop-filter: blur(8px);">
+    <nav class="nav wrap" aria-label="Navigation principale" style="flex-wrap: wrap; row-gap: var(--space-2);">
+      <a href="index.html" class="nav-brand" style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none;" aria-label="Sainos — accueil">
+        <img data-logo="1" src="images/logo-mini.webp" alt="Sainos — fruits et légumes de saison" width="398" height="107" style="display: block; height: 36px; width: auto;"><img data-kid-logo="1" src="images/logo-enfants-v2.webp" alt="Sainos — fruits et légumes de saison" width="398" height="107" style="display: block; height: 36px; width: auto;"><span data-baseline="1" style="font-family: var(--font-body); font-size: 14px; font-weight: 700; line-height: 1; color: var(--color-text); white-space: nowrap;">Le Goût des <span style="color: var(--color-logo, var(--color-accent-700));">Saisons</span></span>
+      </a>
+      <div data-nav-desk="1" style="display: flex; gap: var(--space-4); align-items: center; flex-wrap: wrap;">
+        <a href="saisons.html">Calendrier</a>
+        <a href="fromages.html" data-adult-only="1" aria-current="page">Fromages</a>
+        <a href="origines.html">Origines</a>
+        <a href="marches.html" data-nav-mar="1">Marchés</a><a href="pousse.html" data-nav-pousse="1">Ça pousse !</a>
+        <a href="bio.html">Bio</a>
+        <a href="enseignants.html" data-nav-lex="1">En classe</a>
+        <a href="quiz.html" data-nav-quiz="1">Quiz</a>
+        <a href="apropos.html">À propos</a>
+      </div>
+      <details data-nav-burger="1" style="position: relative; margin-left: auto;">
+        <summary aria-label="Menu" style="list-style: none; width: 48px; height: 48px; box-sizing: border-box; display: grid; place-items: center; background: transparent; border: 0; color: var(--color-text); cursor: pointer;">
+          <svg data-ic="open" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M4 9h16M4 15h16"></path></svg>
+          <svg data-ic="close" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </summary>
+        <div data-nav-panel="1" style="position: absolute; right: 0; top: calc(100% + 10px); z-index: 50; width: min(280px, 80vw); box-sizing: border-box; padding: 10px; background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 4px;">
+          <a href="saisons.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Calendrier</a>
+        <a href="fromages.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Fromages</a>
+          <a href="origines.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-accent-900); background: var(--color-accent-100);">Origines</a>
+          <a href="marches.html" data-nav-mar="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Marchés</a><a href="pousse.html" data-nav-pousse="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Ça pousse !</a>
+          <a href="bio.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Bio</a>
+          <a href="enseignants.html" data-nav-lex="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">En classe</a>
+        <a href="quiz.html" data-nav-quiz="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Quiz</a>
+          <a href="apropos.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">À propos</a>
+          <a href="contact.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Contact</a>
+        
+          <a href="en/fromages.html" data-lang="en" hreflang="en" lang="en" style="display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;"><span aria-hidden="true">🌐</span>English version</a>
+          <div data-nav-extra="1" style="display: flex; flex-direction: column; gap: 10px; margin-top: 6px; padding: 12px 8px 4px; border-top: 1px solid var(--color-divider);">
+        <button type="button" class="mode-btn only-adult" data-set-mode="enfant" style="min-height: 48px; width: 100%; justify-content: center; font-size: 16px; border: 2px solid var(--color-accent-2-300); color: var(--color-accent-2-900);">🎒 Mode Enfants</button>
+        <button type="button" class="mode-btn only-kid" data-set-mode="normal" style="min-height: 48px; width: 100%; justify-content: center; font-size: 16px; border: 2px solid var(--color-accent-300); color: var(--color-accent-900);">Mode Parents</button>
+      <div aria-label="Suivre Sainos" data-nav-social="1" style="display: flex; justify-content: center; gap: var(--space-2); align-items: center;"><a href="https://www.facebook.com/profile.php?id=61594827576678" target="_blank" rel="noopener" aria-label="Sainos sur Facebook" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/facebook/1877F2" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a><a href="https://www.instagram.com/sainos_fr/" target="_blank" rel="noopener" aria-label="Sainos sur Instagram" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/instagram/E4405F" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a><a href="https://www.tiktok.com/@sainos_fr" target="_blank" rel="noopener" aria-label="Sainos sur TikTok" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/tiktok/000000" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a></div></div>
+        </div>
+      </details>
+      <div data-nav-desk="1" style="display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; justify-content: flex-end; margin-left: auto; flex: none;">
+        <button type="button" class="mode-btn only-adult" data-set-mode="enfant" style="border: 2px solid var(--color-accent-2-300); color: var(--color-accent-2-900);">🎒 Mode Enfants</button>
+        <button type="button" class="mode-btn only-kid" data-set-mode="normal" style="border: 2px solid var(--color-accent-300); color: var(--color-accent-900);">Mode Parents</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap" style="flex: 1; display: flex; flex-direction: column; gap: var(--space-6); padding-top: clamp(40px, 7vw, 56px); padding-bottom: var(--space-8);">
+    <section class="only-adult" style="display: flex; flex-direction: column; gap: var(--space-3); max-width: 720px;">
+      <nav aria-label="Fil d’Ariane" style="font-size: 14px; display: flex; gap: var(--space-2);"><a href="index.html">Accueil</a><span aria-hidden="true">›</span><span aria-current="page">Fromages</span></nav>
+      <h1 style="margin: 0; font-size: clamp(36px, 5vw, 58px); line-height: 1.05; text-wrap: balance;">Le fromage aussi a ses saisons.</h1>
+      <p style="margin: 0; font-size: 18px; line-height: 1.55; color: var(--color-neutral-800); text-wrap: pretty;">Le goût du lait change selon ce que mangent les bêtes : l’herbe fraîche du printemps, le foin de l’hiver. Voici les fromages à leur meilleur ce mois-ci.</p>
+    </section>
+    <section class="only-adult" aria-labelledby="t-fromages" style="display: flex; flex-direction: column; gap: var(--space-5, 20px);">
+      <div id="f-mois" role="group" aria-label="Choisir un mois" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: var(--space-2);"></div>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center; padding: 12px; height: auto; position: relative; background: #f4efe6; border-radius: var(--radius-lg);">
+        <div role="group" aria-label="Filtrer par lait" id="f-lait" style="display: flex; gap: 8px; flex-wrap: wrap;"></div>
+        
+      </div>
+      <div style="display: flex; align-items: baseline; gap: 4px 12px; flex-wrap: wrap; position: relative; z-index: 0;"><h2 id="t-fromages" style="margin: 0; min-width: 0; text-wrap: balance; font-size: clamp(26px, 3vw, 34px);"></h2><span id="n-fromages" style="font-size: 15px; white-space: nowrap; flex-shrink: 0; color: var(--color-neutral-700);"></span></div>
+      <ul id="grille" style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(220px, 42vw), 1fr)); gap: clamp(10px, 2.5vw, 16px);"></ul>
+      <div id="autres" style="display: flex; flex-direction: column; gap: var(--space-4); margin-top: var(--space-4); padding: clamp(20px, 4vw, 32px); background: #ffffff; border-radius: var(--radius-lg);"></div>
+    </section>
+    <section class="only-kid" style="display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-4); padding: var(--space-8); background: #ffffff; border-radius: var(--radius-lg);">
+      <span aria-hidden="true" style="font-size: 56px; line-height: 1;">🧀</span>
+      <h1 style="margin: 0; font-size: clamp(30px, 4vw, 44px);">Les fromages sont dans la version parent</h1>
+      <p style="margin: 0; font-size: 20px; line-height: 1.55;">Demande à un adulte de passer en mode parent, ou retourne découvrir les fruits et légumes de saison.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-2);"><a href="index.html" class="btn btn-primary" style="padding: 12px 22px; font-size: 17px;">Fruits et légumes</a><button type="button" class="btn btn-secondary" data-set-mode="normal" style="padding: 12px 22px; font-size: 17px;">Passer en mode parent</button></div>
+    </section>
+  </main>
+
+  <footer style="background: #f4efe6;">
+    <div class="wrap" style="padding-top: var(--space-6); padding-bottom: var(--space-6); display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: space-between; align-items: center; font-size: 14px;">
+      <img data-logo="1" src="images/logo-mini.webp" alt="Sainos" width="398" height="107" style="display: block; height: 30px; width: auto;"><img data-kid-logo="1" src="images/logo-enfants-v2.webp" alt="Sainos" width="398" height="107" style="display: block; height: 30px; width: auto;">
+      <nav aria-label="Pied de page" style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
+        <a href="index.html">Accueil</a>
+        <a href="saisons.html">Calendrier</a>
+        <a href="fromages.html" data-adult-only="1">Fromages</a>
+        <a href="origines.html">Origines</a>
+        <a href="marches.html" data-nav-mar="1">Marchés</a><a href="pousse.html" data-nav-pousse="1">Ça pousse !</a>
+        <a href="bio.html">Bio</a>
+        <a href="lexique.html" data-nav-lex="1">Lexique</a>
+        <a href="quiz.html" data-nav-quiz="1">Quiz</a>
+        <a href="apropos.html">À propos</a>
+        <a href="enseignants.html" data-adult-only="1">Enseignants</a>
+        <a href="contact.html" data-adult-only="1">Contact</a>
+        <a href="en/fromages.html" data-lang="en" hreflang="en" lang="en">English version</a>
+      </nav>
+      <div aria-label="Suivre Sainos" style="display: flex; gap: var(--space-2); align-items: center;">
+        <a href="https://www.facebook.com/profile.php?id=61594827576678" target="_blank" rel="noopener" aria-label="Sainos sur Facebook" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/facebook/1877F2" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+        <a href="https://www.instagram.com/sainos_fr/" target="_blank" rel="noopener" aria-label="Sainos sur Instagram" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/instagram/E4405F" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+        <a href="https://www.tiktok.com/@sainos_fr" target="_blank" rel="noopener" aria-label="Sainos sur TikTok" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/tiktok/000000" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+      </div>
+      <p style="flex-basis: 100%; order: 3; margin: 0; font-size: 13px; line-height: 1.5; color: var(--color-neutral-800);">Sainos est un site informatif et indépendant. Aucune vente, aucune publicité, aucun cookie.</p>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var F = window.FROMAGES, S = window.SAISON, EN = false;
+  function ls(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+  function syncMode() { document.body.classList.toggle('kid', ls('sainos-mode') === 'enfant'); }
+  document.querySelectorAll('[data-set-mode]').forEach(function (b) { b.addEventListener('click', function () { ls('sainos-mode', b.dataset.setMode); syncMode(); }); });
+  window.addEventListener('storage', syncMode); window.addEventListener('pageshow', syncMode); syncMode();
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  var now = new Date().getMonth() + 1, MOIS = EN ? ['January','February','March','April','May','June','July','August','September','October','November','December'] : ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+  var MC = EN ? ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'] : ['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+  var LAITS = [['tous', EN ? 'All' : 'Tous', ''], ['Vache', EN ? 'Cow' : 'Vache', '🐄'], ['Chèvre', EN ? 'Goat' : 'Chèvre', '🐐'], ['Brebis', EN ? 'Sheep' : 'Brebis', '🐑'], ['Bufflonne', EN ? 'Buffalo' : 'Bufflonne', '🐃']];
+  var lait = 'tous', per = now;
+  var STAR = (function () { var used = {}, r = {}; for (var m = 1; m <= 12; m++) { var c = F.fromages.filter(function (f) { return f.f.length < 12 && f.f.indexOf(m) >= 0; }); var pick = c.filter(function (f) { return !used[f.s]; })[0] || F.fromages.filter(function (f) { return f.f.length === 12 && !used[f.s]; })[0]; if (pick) { used[pick.s] = 1; r[m] = pick.s; } } return r; })();
+  var TRIO = (function () { var u = {}; for (var k in STAR) u[STAR[k]] = 1; var a = F.fromages.filter(function (f) { return f.f.length === 12 && !u[f.s]; }); if (a.length < 3) a = a.concat(F.fromages.filter(function (f) { return f.f.length === 12 && u[f.s]; })); return a.slice(0, 3).map(function (f) { return f.s; }); })();
+  var AUTRES = {"Vache":[["Abondance","🇫🇷","Savoie, pâte pressée au goût fruité et noisette.","Savoie"],["Bleu d’Auvergne","🇫🇷","Persillé crémeux, plus doux que le roquefort.","Auvergne"],["Bleu des Causses","🇫🇷","Persillé affiné en caves naturelles, goût franc.","Aveyron"],["Bleu de Gex","🇫🇷","Bleu du Jura, doux et légèrement amer.","Jura"],["Brie de Melun","🇫🇷","Cousin du brie de Meaux, plus petit et plus corsé.","Île-de-France"],["Brillat-Savarin","🇫🇷","Triple crème très riche, beurré et acidulé.","Bourgogne, Normandie"],["Chaource","🇫🇷","Croûte fleurie de Champagne, cœur crayeux et frais.","Champagne"],["Coulommiers","🇫🇷","Proche du brie, en petit format, doux et crémeux.","Île-de-France"],["Gaperon","🇫🇷","Petit dôme d’Auvergne parfumé à l’ail et au poivre.","Auvergne"],["Laguiole","🇫🇷","Grande tomme de l’Aubrac, base de l’aligot.","Aubrac"],["Langres","🇫🇷","Croûte lavée orangée, creusée en cuvette au sommet.","Champagne"],["Neufchâtel","🇫🇷","Normand, souvent en forme de cœur, croûte fleurie.","Normandie"],["Saint-Félicien","🇫🇷","Petit fromage coulant de l’Isère, très crémeux.","Isère, Ardèche"],["Saint-Marcellin","🇫🇷","Petit fromage du Dauphiné, crémeux à coulant.","Isère"],["Salers","🇫🇷","Cantal d’été fabriqué à la ferme, goût puissant.","Auvergne (Cantal)"],["Tomme des Pyrénées","🇫🇷","Pâte souple et douce, croûte noire ou dorée.","Pyrénées"],["Appenzeller","🇨🇭","Suisse, frotté aux herbes, goût épicé.","Appenzell"],["Vacherin fribourgeois","🇨🇭","Suisse, fondant, roi de la fondue moitié-moitié.","Fribourg"],["Taleggio","🇮🇹","Croûte lavée lombarde, pâte fondante et fruitée.","Lombardie"],["Fontina","🇮🇹","Val d’Aoste, fondant, idéal pour la fonduta.","Val d’Aoste"],["Asiago","🇮🇹","Vénétie, doux jeune, plus piquant affiné.","Vénétie"],["Edam","🇳🇱","Boule à croûte rouge, doux et légèrement salé.","Hollande-Septentrionale"],["Stilton","🇬🇧","Grand bleu anglais, crémeux et puissant.","Derbyshire, Leicestershire, Nottinghamshire"],["Herve","🇧🇪","Belge, croûte lavée au caractère affirmé.","Pays de Herve (Liège)"]],"Chèvre":[["Banon","🇫🇷","Chèvre de Provence enveloppé dans des feuilles de châtaignier.","Provence"],["Chabichou du Poitou","🇫🇷","Petit cylindre de chèvre, doux et noisette.","Poitou"],["Charolais","🇫🇷","Grand chèvre de Bourgogne, ferme et lacté.","Bourgogne"],["Chevrotin","🇫🇷","Reblochon de chèvre, fondant et parfumé.","Savoie"],["Mâconnais","🇫🇷","Petit chèvre bourguignon, sec et salé.","Bourgogne"],["Pélardon","🇫🇷","Petit palet des Cévennes, goût de noisette.","Cévennes"],["Picodon","🇫🇷","Petit chèvre de la Drôme et de l’Ardèche, piquant.","Drôme, Ardèche"],["Pouligny-Saint-Pierre","🇫🇷","Pyramide du Berry, pâte fine et salée.","Berry"],["Rigotte de Condrieu","🇫🇷","Petit chèvre du Lyonnais, doux et lacté.","Lyonnais"],["Selles-sur-Cher","🇫🇷","Chèvre cendré, pâte fondante et noisette.","Loir-et-Cher"],["Bûche de chèvre","🇫🇷","Rondelles à griller pour les salades de chèvre chaud.","Poitou, Centre"]],"Brebis":[["Brocciu","🇫🇷","Corse, frais et doux, en salé comme en sucré.","Corse"],["Pérail","🇫🇷","Petit brebis de l’Aveyron, souple et lacté.","Aveyron"],["Tomme corse de brebis","🇫🇷","Pâte ferme au goût de maquis.","Corse"],["Pecorino Toscano","🇮🇹","Plus doux que le romano, à croquer.","Toscane"],["Pecorino Sardo","🇮🇹","Sardaigne, ferme et légèrement fumé.","Sardaigne"],["Idiazabal","🇪🇸","Basque espagnol, souvent fumé.","Pays basque, Navarre"],["Roncal","🇪🇸","Navarre, pâte dure et piquante.","Navarre"],["Kefalotyri","🇬🇷","Grec, dur et salé, à râper ou frire.","Grèce"],["Halloumi","🇨🇾","Chypre, se grille sans fondre.","Chypre"]],"Bufflonne":[["Burrata di bufala","🇮🇹","Mozzarella fourrée de crème et d’effilochés.","Campanie, Pouilles"],["Ricotta di bufala campana","🇮🇹","Ricotta de lactosérum de bufflonne, très fine.","Campanie"],["Scamorza di bufala","🇮🇹","Pâte filée en forme de poire, souvent fumée.","Campanie"],["Treccia di bufala","🇮🇹","Mozzarella tressée, fraîche et filante.","Campanie"]]};
+  function autres() { var el = document.getElementById('autres'), h = '<div style="display:flex;flex-direction:column;gap:6px;"><h2 style="margin:0;font-size:clamp(22px,2.6vw,28px);">' + (EN ? 'Other cheeses' : 'D’autres fromages') + '</h2><p style="margin:0;font-size:16px;color:var(--color-neutral-700);">' + (EN ? 'No sheet for these yet.' : 'Pas encore de fiche pour ceux-là.') + '</p></div>';
+    LAITS.slice(1).forEach(function (L) { if (lait !== 'tous' && lait !== L[0]) return; h += '<div style="display:flex;flex-direction:column;gap:10px;"><h3 style="margin:0;font-family:var(--font-body);font-size:15px;font-weight:700;display:flex;gap:8px;align-items:center;"><span aria-hidden="true">' + L[2] + '</span>' + (EN ? L[1] + '’s milk' : 'Lait de ' + L[1].toLowerCase()) + '</h3><ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px;">' + AUTRES[L[0]].map(function (n) { return '<li style="display:flex;"><button type="button" class="tag tag-neutral" data-tip="' + esc(n[2]) + '" data-tip-t="' + esc(n[0]) + '" data-tip-r="' + esc(n[1] + ' ' + n[3]) + '" aria-label="' + esc(n[0] + (EN ? ': ' : '\u00a0: ') + n[2]) + '" style="font:inherit;font-size:14px;background:var(--color-bg);white-space:nowrap;display:inline-flex;gap:6px;align-items:center;cursor:help;border:0;"><span aria-hidden="true">' + n[1] + '</span>' + esc(n[0]) + '</button></li>'; }).join('') + '</ul></div>'; });
+    el.innerHTML = h; }
+  (function () { var tip = document.createElement('div'); tip.setAttribute('role', 'tooltip'); tip.style.cssText = 'position:fixed;z-index:50;max-width:240px;padding:10px 14px;background:var(--color-text);color:var(--color-bg);font-size:14px;line-height:1.4;border-radius:14px;box-shadow:var(--shadow-md);pointer-events:none;opacity:0;transition:opacity .12s;'; document.body.appendChild(tip); var cur = null;
+    function show(b) { cur = b; tip.innerHTML = '<strong style="display:block;margin-bottom:2px;font-family:var(--font-heading);font-weight:400;font-size:16px;">' + esc(b.getAttribute('data-tip-t')) + '</strong><span style="display:block;margin-bottom:6px;font-size:13px;font-weight:700;opacity:.8;">' + esc(b.getAttribute('data-tip-r')) + '</span>' + esc(b.getAttribute('data-tip')); tip.style.opacity = '1'; var r = b.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight; var x = Math.max(8, Math.min(window.innerWidth - w - 8, r.left + r.width / 2 - w / 2)), y = r.top - h - 8; if (y < 8) y = r.bottom + 8; tip.style.left = x + 'px'; tip.style.top = y + 'px'; }
+    function hide() { cur = null; tip.style.opacity = '0'; }
+    var root = document.getElementById('autres');
+    root.addEventListener('mouseover', function (e) { var b = e.target.closest('[data-tip]'); if (b) show(b); });
+    root.addEventListener('mouseout', function (e) { if (e.target.closest('[data-tip]')) hide(); });
+    root.addEventListener('focusin', function (e) { var b = e.target.closest('[data-tip]'); if (b) show(b); });
+    root.addEventListener('focusout', hide);
+    root.addEventListener('click', function (e) { var b = e.target.closest('[data-tip]'); if (b) { if (cur === b) hide(); else show(b); } });
+    window.addEventListener('scroll', hide, { passive: true }); })();
+  function perCtl() { var el = document.getElementById('f-mois'); el.innerHTML = '';
+    MOIS.concat([EN ? 'All year' : 'Toute l’année']).forEach(function (n, i) { var mm = i < 12 ? i + 1 : 'an', on = per === mm;
+      var b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-pressed', on);
+      b.style.cssText = 'display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 10px;border-radius:var(--radius-lg);cursor:pointer;font:inherit;text-align:center;transition:transform .15s ease;' + (on ? 'background:var(--color-accent);color:var(--color-bg);border:1.5px solid var(--color-accent);' : 'background:var(--color-neutral-100);color:var(--color-text);border:1.5px solid ' + (mm === now ? 'var(--color-accent-400)' : 'var(--color-divider)') + ';');
+      b.onmouseenter = function () { b.style.transform = 'translateY(-2px)'; }; b.onmouseleave = function () { b.style.transform = ''; };
+      var ic = mm === 'an' ? '<span aria-hidden="true" style="display:flex;height:48px;align-items:center;">' + TRIO.map(function (x, k) { return '<span style="width:40px;height:40px;border-radius:50%;background:#fff center / 86% no-repeat url(images/fromages/' + x + '.webp);box-shadow:0 0 0 2px var(--color-neutral-100);' + (k ? 'margin-left:-14px;' : '') + '"></span>'; }).join('') + '</span>' : !STAR[mm] ? '<span aria-hidden="true" style="font-size:44px;line-height:1;">🧀</span>' : '<span aria-hidden="true" style="width:48px;height:48px;border-radius:50%;background:#fff center / 86% no-repeat url(images/fromages/' + STAR[mm] + '.webp);"></span>';
+      b.innerHTML = ic + '<span style="font-weight:700;font-size:15px;">' + esc(n.charAt(0).toUpperCase() + n.slice(1)) + '</span>';
+      b.addEventListener('click', function () { per = mm; draw(); }); el.appendChild(b); }); }
+  function pills(id, list, get, set) { var el = document.getElementById(id); el.innerHTML = '';
+    list.forEach(function (x) { var b = document.createElement('button'); b.type = 'button'; b.className = 'pill'; b.setAttribute('aria-pressed', x[0] === get());
+      b.style.gap = '7px'; b.innerHTML = (x[2] ? '<span aria-hidden="true">' + x[2] + '</span>' : '') + '<span>' + esc(x[1]) + '</span>';
+      b.addEventListener('click', function () { set(x[0]); draw(); }); el.appendChild(b); }); }
+  function rng(a) { return a.length === 12 ? (EN ? 'All year' : 'Toute l’année') : MC[a[0] - 1] + ' → ' + MC[a[a.length - 1] - 1]; }
+  function draw() {
+    pills('f-lait', LAITS, function () { return lait; }, function (v) { lait = v; });
+    perCtl(); autres();
+    var okL = function (f) { return lait === 'tous' || f.lait === lait; };
+    var list = F.fromages.filter(function (f) { return okL(f) && (per === 'an' || (f.f.length < 12 && f.f.indexOf(per) >= 0)); });
+    var vide = per !== 'an' && !F.fromages.some(function (f) { return f.f.length < 12 && f.f.indexOf(per) >= 0; });
+    if (vide) list = F.fromages.filter(function (f) { return okL(f) && f.f.length === 12; });
+    document.getElementById('t-fromages').textContent = vide ? (EN ? 'In ' + MOIS[per - 1] + ', enjoy the year-round cheeses' : 'En ' + MOIS[per - 1] + ', place aux fromages de toute l’année') : per !== 'an' ? (EN ? 'At their best in ' + MOIS[per - 1] : 'À leur meilleur en ' + MOIS[per - 1]) : (EN ? 'All cheeses' : 'Tous les fromages');
+    document.getElementById('n-fromages').textContent = list.length + (EN ? (list.length > 1 ? ' cheeses' : ' cheese') : (list.length > 1 ? ' fromages' : ' fromage'));
+    var g = document.getElementById('grille'); g.innerHTML = '';
+    list.forEach(function (f) { var li = document.createElement('li'); li.style.display = 'flex';
+      var r = EN ? f.en.r : f.r, l = EN ? F.en.laits[f.lait] : f.lait;
+      li.innerHTML = '<a href="fromages/' + f.s + '.html" style="flex:1;display:flex;flex-direction:column;gap:12px;padding:16px;background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);text-decoration:none;color:var(--color-text);min-width:0;">'
+        + '<span style="display:flex;justify-content:flex-end;"><span class="tag tag-neutral" style="font-size:12px;background:var(--color-bg);display:inline-flex;gap:6px;align-items:center;"><span aria-hidden="true">' + F.pays[f.p].flag + '</span><span>' + esc(r) + '</span></span></span>'
+        + '<span style="height:120px;display:grid;place-items:center;"><img src="images/fromages/' + f.s + '.webp" alt="" loading="lazy" style="max-width:100%;max-height:120px;object-fit:contain;"></span>'
+        + '<span style="display:flex;flex-direction:column;gap:2px;"><span style="font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--color-neutral-700);">' + esc(l) + '</span><span style="font-family:var(--font-heading);font-size:22px;line-height:1.1;">' + esc(f.n) + '</span></span>'
+        + '<span style="display:flex;flex-wrap:wrap;gap:4px;"><span class="tag tag-accent" style="font-size:12px;">' + rng(f.f) + '</span>' + (f.cru === 'oui' ? '<span class="tag tag-accent-2" style="font-size:12px;">' + (EN ? 'Raw milk' : 'Lait cru') + '</span>' : '') + '</span>'
+        + '<span style="margin-top:auto;font-weight:700;font-size:14px;color:var(--color-accent-700);">' + (EN ? 'Find out more →' : 'En savoir plus →') + '</span></a>';
+      g.appendChild(li); });
+  }
+  draw();
+})();
+</script>
+<script>(function(){if(window.__navClose)return;window.__navClose=1;function c(){document.querySelectorAll('details[data-nav-burger]').forEach(function(d){d.removeAttribute('open')})}document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('[data-nav-panel] a,[data-nav-panel] button');if(t)setTimeout(c,0)},true);window.addEventListener('pageshow',c)})();</script>
+</body>
+</html>
