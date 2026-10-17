@@ -28,6 +28,12 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/sainos.jpg">
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-O95OL7ls2dxJH93cMg8p4.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
 </head>
 <body>
 <x-dc>
@@ -67,6 +73,7 @@
       </a>
       <div data-nav-desk="1" style="display: flex; gap: var(--space-4); align-items: center;">
         <a href="saisons.html">Calendar</a>
+        <a href="fromages.html" data-adult-only="1">Cheeses</a>
         <a href="origines.html">Origins</a>
         <a href="marches.html" data-nav-mar="1">Markets</a><a href="pousse.html" data-nav-pousse="1">How it grows</a>
         <a href="bio.html">Organic</a>
@@ -81,6 +88,7 @@
         </summary>
         <div data-nav-panel="1" style="position: absolute; right: 0; top: calc(100% + 10px); z-index: 50; width: min(280px, 80vw); box-sizing: border-box; padding: 10px; background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 4px;">
           <a href="saisons.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Calendar</a>
+        <a href="fromages.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Cheeses</a>
           <a href="origines.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Origins</a>
           <a href="marches.html" data-nav-mar="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Markets</a><a href="pousse.html" data-nav-pousse="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">How it grows</a>
           <a href="bio.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Organic</a>
@@ -126,8 +134,9 @@
       <div style="display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-6); background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);">
         <span aria-hidden="true" style="width: 84px; height: 84px; border-radius: 50%; background: #e6eff4; display: grid; place-items: center;"><img loading="lazy" decoding="async" src="../images/myrtille.webp" alt="" style="width: 62%; height: 62%; object-fit: contain;"></span>
         <sc-if value="{{ adult }}" hint-placeholder-val="{{ true }}"><h2 style="margin: 0; font-size: 26px;">Your privacy</h2>
-        <p style="margin: 0; font-size: 16px; line-height: 1.6;">No cookies are used to track you or collect your data. You can browse with complete peace of mind!</p></sc-if><sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}"><h2 style="margin: 0; font-size: 26px;">We don’t follow you</h2>
-        <p style="margin: 0; font-size: 16px; line-height: 1.6;">No cookies: nobody watches what you do on Sainos.</p></sc-if>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6;">No cookies are used to track you or collect your data. You can browse with complete peace of mind!</p>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6;">To find out which pages are useful, we use <a href="https://plausible.io/privacy-focused-web-analytics" target="_blank" rel="noopener">Plausible</a>, a European, privacy-friendly analytics tool. It sets no cookies, collects no personal data and does not follow you from site to site. Statistics are anonymous and hosted in the European Union.</p></sc-if><sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}"><h2 style="margin: 0; font-size: 26px;">We don’t follow you</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6;">No cookies: we just count visits, without ever knowing who you are.</p></sc-if>
       </div>
     </section>
 
@@ -282,6 +291,7 @@
       <nav aria-label="Footer" style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
         <a href="index.html">Home</a>
         <a href="saisons.html">Calendar</a>
+        <a href="fromages.html" data-adult-only="1">Cheeses</a>
         <a href="origines.html">Origins</a>
         <a href="marches.html" data-nav-mar="1">Markets</a><a href="pousse.html" data-nav-pousse="1">How it grows</a>
         <a href="bio.html">Organic</a>

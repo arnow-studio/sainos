@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
 <script src="produits-data.js"></script>
+<script src="../fromages-data.js"></script>
 <style>
   :root { --color-bg: #fbf8f2; --color-accent: #357d28; --color-accent-100: #eef7ea; --color-accent-200: #d9eed0; --color-accent-300: #b6dca5; --color-accent-400: #74b95e; --color-accent-500: #357d28; --color-accent-600: #327426; --color-accent-700: #285e1f; --color-accent-800: #1f4a19; --color-accent-900: #183a14; --color-accent-2-100: #f4f8ed; --color-accent-2-200: #e8efdb; --color-accent-2-300: #d8e2c7; --color-accent-2-800: #56613f; --color-accent-2-900: #46512f; --color-neutral-100: #fffdf9; --color-text: #5b3b27; --color-divider: color-mix(in srgb, #8c491a 20%, transparent); --font-heading: 'DynaPuff', system-ui, sans-serif; --font-body: 'Nunito', system-ui, sans-serif; }
   body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
@@ -72,6 +73,12 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/sainos.jpg">
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-O95OL7ls2dxJH93cMg8p4.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
 </head>
 <body>
 <div style="min-height: 100vh; display: flex; flex-direction: column;">
@@ -82,6 +89,7 @@
       </a>
       <div data-nav-desk="1" style="display: flex; gap: var(--space-4); align-items: center; flex-wrap: wrap;">
         <a href="saisons.html">Calendar</a>
+        <a href="fromages.html" data-adult-only="1">Cheeses</a>
         <a href="origines.html" aria-current="page">Origins</a>
         <a href="marches.html" data-nav-mar="1">Markets</a><a href="pousse.html" data-nav-pousse="1">How it grows</a>
         <a href="bio.html">Organic</a>
@@ -96,6 +104,7 @@
         </summary>
         <div data-nav-panel="1" style="position: absolute; right: 0; top: calc(100% + 10px); z-index: 50; width: min(280px, 80vw); box-sizing: border-box; padding: 10px; background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 4px;">
           <a href="saisons.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Calendar</a>
+        <a href="fromages.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Cheeses</a>
           <a href="origines.html" aria-current="page" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-accent-900); background: var(--color-accent-100);">Origins</a>
           <a href="marches.html" data-nav-mar="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Markets</a><a href="pousse.html" data-nav-pousse="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">How it grows</a>
           <a href="bio.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Organic</a>
@@ -128,6 +137,10 @@
     </section>
 
     <section aria-label="Map of origins" style="display: flex; flex-direction: column; gap: var(--space-4);">
+      <div class="only-adult" role="group" aria-label="Fruit and vegetables or cheeses" style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+        <button type="button" class="pill" data-u="fl" aria-pressed="true">🥕 Fruit and vegetables</button>
+        <button type="button" class="pill" data-u="fr" aria-pressed="false">🧀 Cheeses</button>
+      </div>
       <div role="group" aria-label="Filter by label" style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
         <button type="button" class="pill" data-l="tous" aria-pressed="true">All</button>
         <button type="button" class="pill" data-l="AOP" aria-pressed="false"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: #e0892f;"></span>PDO</button>
@@ -177,6 +190,7 @@
       <nav aria-label="Footer" style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
         <a href="index.html">Home</a>
         <a href="saisons.html">Calendar</a>
+        <a href="fromages.html" data-adult-only="1">Cheeses</a>
         <a href="origines.html">Origins</a>
         <a href="marches.html" data-nav-mar="1">Markets</a><a href="pousse.html" data-nav-pousse="1">How it grows</a>
         <a href="bio.html">Organic</a>
@@ -210,6 +224,11 @@
   window.addEventListener('storage', syncMode); window.addEventListener('pageshow', syncMode); syncMode();
 
   var O = [{"s":"ail","n":"White Lomagne garlic","l":"IGP","r":"Occitanie","ll":[43.99,0.89],"d":"Grown around Beaumont-de-Lomagne, on clay-limestone hillsides."},{"s":"ail","n":"Purple Cadours garlic","l":"AOP","r":"Occitanie","ll":[43.73,1.05],"d":"Purple cloves with a powerful taste, north-west of Toulouse."},{"s":"ail","n":"Pink Lautrec garlic","l":"IGP","r":"Occitanie","ll":[43.71,2.14],"d":"Braided by hand, it keeps all winter."},{"s":"oignon","n":"Roscoff onion","l":"AOP","r":"Bretagne","ll":[48.72,-3.98],"d":"Pink and mild, once carried all the way to England by the “Onion Johnnies”."},{"s":"oignon","n":"Sweet Cévennes onion","l":"AOP","r":"Occitanie","ll":[43.99,3.61],"d":"Grown on dry-stone terraces, so mild you can eat it raw."},{"s":"pomme-de-terre","n":"Île de Ré potato","l":"AOP","r":"Nouvelle-Aquitaine","ll":[46.2,-1.42],"d":"A new potato harvested in spring, nourished by the sea air."},{"s":"pomme-de-terre","n":"Merville potato","l":"IGP","r":"Hauts-de-France","ll":[50.64,2.64],"d":"Grown in the silty soils of the Lys plain."},{"s":"carotte","n":"Créances sand carrot","l":"IGP","r":"Normandie","ll":[49.2,-1.57],"d":"Grown in the sand of the Cotentin, slender and very tender."},{"s":"piment","n":"Espelette pepper","l":"AOP","r":"Nouvelle-Aquitaine","ll":[43.34,-1.45],"d":"Dried in garlands on house fronts in the Basque Country."},{"s":"tomate","n":"Marmande tomato","l":"Terroir","r":"Nouvelle-Aquitaine","ll":[44.5,0.16],"d":"A big ribbed tomato, emblem of the Garonne valley."},{"s":"raisin","n":"Moissac Chasselas","l":"AOP","r":"Occitanie","ll":[44.1,1.08],"d":"A golden white table grape, France’s first fruit with an AOC (1971)."},{"s":"raisin","n":"Ventoux Muscat","l":"AOP","r":"Provence-Alpes-Côte d’Azur","ll":[44.1,5.2],"d":"A black grape with a musky taste, at the foot of Mont Ventoux."},{"s":"melon","n":"Cavaillon melon","l":"Terroir","r":"Provence-Alpes-Côte d’Azur","ll":[43.84,5.04],"d":"The “melon capital”, famous since the 15th century."},{"s":"melon","n":"Quercy melon","l":"IGP","r":"Occitanie","ll":[44.3,1.3],"d":"Charentais melon grown on the limestone hillsides of Quercy."},{"s":"melon","n":"Haut-Poitou melon","l":"IGP","r":"Nouvelle-Aquitaine","ll":[46.75,0.2],"d":"The first melon in France to be awarded a PGI."},{"s":"pomme","n":"Limousin apple","l":"AOP","r":"Nouvelle-Aquitaine","ll":[45.5,1.6],"d":"Golden apples grown at altitude, crunchy and tangy."},{"s":"pomme","n":"Savoie apples and pears","l":"IGP","r":"Auvergne-Rhône-Alpes","ll":[45.6,6.1],"d":"Mountain orchards between lakes and Alps."},{"s":"poire","n":"Savoie pears","l":"IGP","r":"Auvergne-Rhône-Alpes","ll":[45.9,6.4],"d":"Williams, Conference, Comice… ripened in the Alpine climate."},{"s":"chataigne","n":"Ardèche chestnut","l":"AOP","r":"Auvergne-Rhône-Alpes","ll":[44.7,4.4],"d":"Terraced chestnut groves, a thousand-year-old tradition."},{"s":"kiwi","n":"Adour kiwi","l":"IGP","r":"Nouvelle-Aquitaine","ll":[43.65,-0.9],"d":"The South-West, France’s leading kiwi area."},{"s":"clementine","n":"Corsican clementine","l":"IGP","r":"Corse","ll":[42.1,9.45],"d":"Sold with its leaves, untreated after harvest."},{"s":"citron","n":"Menton lemon","l":"IGP","r":"Provence-Alpes-Côte d’Azur","ll":[43.78,7.5],"d":"Mildly acidic and very fragrant, celebrated every year at the Lemon Festival."},{"s":"fraise","n":"Périgord strawberry","l":"IGP","r":"Nouvelle-Aquitaine","ll":[45,0.9],"d":"The first French strawberry to be awarded a PGI."},{"s":"fraise","n":"Plougastel strawberry","l":"Terroir","r":"Bretagne","ll":[48.37,-4.37],"d":"Grown since the 18th century, with its own museum."},{"s":"fraise","n":"Nîmes strawberry","l":"IGP","r":"Occitanie","ll":[43.84,4.36],"d":"An early strawberry from the Gard, from March."},{"s":"cerise","n":"Céret cherry","l":"Terroir","r":"Occitanie","ll":[42.49,2.75],"d":"France’s first cherries, offered to the president every year."},{"s":"champignon","n":"Saumur button mushroom","l":"Terroir","r":"Pays de la Loire","ll":[47.26,-0.08],"d":"Grown in tufa-stone caves, France’s leading producing region."},{"s":"chou","n":"Alsace sauerkraut","l":"IGP","r":"Grand Est","ll":[48.3,7.45],"d":"Sauerkraut cabbage grown on the Alsace plain."},{"s":"potiron","n":"Rouge vif d’Étampes","l":"Terroir","r":"Île-de-France","ll":[48.43,2.16],"d":"A big ribbed squash that gave its name to the variety."},{"s":"myrtille","n":"Vosges bilberry","l":"Terroir","r":"Grand Est","ll":[48.05,6.9],"d":"Picked wild in the forests of the Vosges."},{"s":"thym","n":"Provence thyme","l":"IGP","r":"Provence-Alpes-Côte d’Azur","ll":[43.95,5.6],"d":"Picked in the garrigue scrubland, very rich in essential oils."},{"s":"peche","n":"Rhône valley peach","l":"Terroir","r":"Auvergne-Rhône-Alpes","ll":[44.9,4.9],"d":"Drôme and Ardèche, France’s leading peach area."},{"s":"mais","n":"Landes sweetcorn","l":"Terroir","r":"Nouvelle-Aquitaine","ll":[43.9,-0.8],"d":"The South-West supplies most of France’s sweetcorn."},{"s":"brocoli","n":"Brittany broccoli","l":"Terroir","r":"Bretagne","ll":[48.65,-3.2],"d":"The “golden belt” of northern Brittany, a great vegetable-growing land."}];
+  (function () { var F = window.FROMAGES, C = {"camembert-de-normandie":[48.89,0.18],"pont-l-eveque":[49.29,0.18],"livarot":[49.01,0.15],"brie-de-meaux":[48.96,2.88],"comte":[46.9,6.35],"morbier":[46.54,6.02],"mont-d-or":[46.75,6.33],"beaufort":[45.72,6.57],"reblochon":[45.86,6.42],"tomme-de-savoie":[45.6,6.2],"raclette-de-savoie":[45.45,6.4],"emmental-de-savoie":[45.95,5.95],"saint-nectaire":[45.59,3],"cantal":[45.03,2.65],"fourme-d-ambert":[45.55,3.74],"munster":[48.04,7.13],"maroilles":[50.14,3.76],"epoisses":[47.51,4.17],"mimolette":[50.63,3.06],"crottin-de-chavignol":[47.33,2.81],"sainte-maure-de-touraine":[47.11,0.62],"valencay":[47.16,1.56],"rocamadour":[44.8,1.62],"roquefort":[43.98,2.99],"ossau-iraty":[43.1,-0.8]}; if (!F) return;
+    F.fromages.forEach(function (f) { if (!C[f.s]) return; var en = true;
+      O.push({ u: 'fr', s: f.s, n: f.n, l: f.label === 'AOP' || f.label === 'IGP' ? f.label : 'Terroir', r: en ? f.en.r : f.r, ll: C[f.s], d: en ? f.en.d : f.d,
+        p: { n: f.n, e: '🧀', img: '../images/fromages/' + f.s + '.webp', href: 'fromages/' + f.s + '.html' } }); }); })();
+  var univ = 'fl';
   var COL = { AOP: '#e0892f', IGP: '#3d8b2f', Terroir: '#a99a86' };
   var LAB = { AOP: 'PDO', IGP: 'PGI', Terroir: 'Renowned terroir' };
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
@@ -219,16 +238,16 @@
   map.fitBounds(FR, { padding: [10, 10] }); map.setMaxBounds(FR.pad(0.3));
   var layer = L.layerGroup().addTo(map), markers = [], liste = document.getElementById('liste');
   O.forEach(function (o, i) {
-    var p = S.bySlug(o.s); o.p = p; o.i = i;
+    var p = o.p && o.u === 'fr' ? o.p : S.bySlug(o.s); o.p = p; o.i = i;
     var img = p && p.img ? p.img : '';
     var icon = L.divIcon({ className: '', html: '<div class="opin" style="--c:' + COL[o.l] + ';' + (img ? 'background-image:url(' + img + ');' : '') + '">' + (img ? '' : (p ? p.e : '')) + '</div>', iconSize: [44, 44], iconAnchor: [22, 22], popupAnchor: [0, -20] });
-    var html = '<span style="display:inline-block;font-size:12px;font-weight:800;color:#fff;background:' + COL[o.l] + ';padding:2px 10px;border-radius:999px;margin-bottom:6px;">' + LAB[o.l] + '</span><br><strong style="font-family:var(--font-heading);font-weight:400;font-size:18px;">' + esc(o.n) + '</strong><br><span style="font-size:13px;font-weight:700;">' + esc(o.r) + '</span><br>' + esc(o.d) + (p ? '<br><a href="' + S.url(p) + '">See the ' + esc(p.n.toLowerCase()) + ' guide →</a>' : '');
+    var html = '<span style="display:inline-block;font-size:12px;font-weight:800;color:#fff;background:' + COL[o.l] + ';padding:2px 10px;border-radius:999px;margin-bottom:6px;">' + LAB[o.l] + '</span><br><strong style="font-family:var(--font-heading);font-weight:400;font-size:18px;">' + esc(o.n) + '</strong><br><span style="font-size:13px;font-weight:700;">' + esc(o.r) + '</span><br>' + esc(o.d) + (p ? '<br><a href="' + (p.href || S.url(p)) + '">See the ' + esc(p.n.toLowerCase()) + ' guide →</a>' : '');
     markers[i] = L.marker(o.ll, { icon: icon, title: o.n, riseOnHover: true }).bindPopup(html);
   });
   var cur = 'tous';
   function render() {
     layer.clearLayers(); liste.innerHTML = '';
-    O.filter(function (o) { return cur === 'tous' || o.l === cur; }).sort(function (a, b) { return a.r.localeCompare(b.r) || a.n.localeCompare(b.n); }).forEach(function (o) {
+    O.filter(function (o) { var u = document.body.classList.contains('kid') ? 'fl' : univ; return (o.u || 'fl') === u && (cur === 'tous' || o.l === cur); }).sort(function (a, b) { return a.r.localeCompare(b.r) || a.n.localeCompare(b.n); }).forEach(function (o) {
       markers[o.i].addTo(layer);
       var b = document.createElement('button'); b.type = 'button'; b.className = 'm-item';
       var img = o.p && o.p.img ? '<img loading="lazy" decoding="async" src="' + o.p.img + '" alt="" style="width:44px;height:44px;object-fit:contain;flex:none;">' : '<span style="font-size:32px;flex:none;">' + (o.p ? o.p.e : '') + '</span>';
@@ -247,6 +266,13 @@
       cur = b.dataset.l; map.closePopup(); render(); map.flyToBounds(FR, { padding: [10, 10], duration: 0.5 });
     });
   });
+  document.querySelectorAll('[data-u]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('[data-u]').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+      univ = b.dataset.u; map.closePopup(); render(); map.flyToBounds(FR, { padding: [10, 10], duration: 0.5 });
+    });
+  });
+  window.addEventListener('storage', function () { render(); });
   render();
 })();
 </script>
