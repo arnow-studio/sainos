@@ -9,6 +9,12 @@
 <style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html.m-kid [data-adult-only], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
 <style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
 <script src="./support.js"></script>
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-O95OL7ls2dxJH93cMg8p4.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
 </head>
 <body>
 <x-dc>
@@ -23,6 +29,7 @@
   <script src="../produits-pousse.js"></script>
   <script src="../produits-varietes.js"></script>
   <script src="../produits-antigaspi.js"></script>
+  <script src="../../fromages-data.js"></script>
   <style>
     :root { --color-bg: #fbf8f2; --color-accent: #357d28; --color-accent-100: #eef7ea; --color-accent-200: #d9eed0; --color-accent-300: #b6dca5; --color-accent-400: #74b95e; --color-accent-500: #357d28; --color-accent-600: #327426; --color-accent-700: #285e1f; --color-accent-800: #1f4a19; --color-accent-900: #183a14; --color-accent-2-100: #f4f8ed; --color-accent-2-200: #e8efdb; --color-accent-2-300: #d8e2c7; --color-accent-2-800: #56613f; --color-accent-2-900: #46512f;  --color-neutral-100: #fffdf9; --color-text: #5b3b27; --color-divider: color-mix(in srgb, #8c491a 20%, transparent); --font-heading: 'DynaPuff', system-ui, sans-serif; --font-body: 'Nunito', system-ui, sans-serif; }
     body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
@@ -53,6 +60,7 @@
       </a>
       <div data-nav-desk="1" style="display: flex; gap: var(--space-4); align-items: center;">
         <a href="../saisons.html">Calendar</a>
+        <a href="../fromages.html" data-adult-only="1">Cheeses</a>
         <a href="../origines.html">Origins</a>
         <a href="../marches.html" data-nav-mar="1">Markets</a><a href="../pousse.html" data-nav-pousse="1">How it grows</a>
         <a href="../bio.html">Organic</a>
@@ -67,6 +75,7 @@
         </summary>
         <div data-nav-panel="1" style="position: absolute; right: 0; top: calc(100% + 10px); z-index: 50; width: min(280px, 80vw); box-sizing: border-box; padding: 10px; background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 4px;">
           <a href="../saisons.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Calendar</a>
+        <a href="../fromages.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Cheeses</a>
           <a href="../origines.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Origins</a>
           <a href="../marches.html" data-nav-mar="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Markets</a><a href="../pousse.html" data-nav-pousse="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">How it grows</a>
           <a href="../bio.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Organic</a>
@@ -417,6 +426,20 @@
     </article>
     </sc-if>
 
+    <sc-if value="{{ hasFx }}" hint-placeholder-val="{{ false }}"><section aria-labelledby="h-fromages" style="display: flex; flex-direction: column; gap: var(--space-4);">
+      <h2 id="h-fromages" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">Goes well with these cheeses</h2>
+      <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(190px, 42vw), 1fr)); gap: var(--space-3);">
+        <sc-for list="{{ fx }}" as="fx" hint-placeholder-count="3">
+          <li style="display: flex;">
+            <a href="{{ fx.href }}" style="flex: 1; display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); background: #ffffff; border-radius: var(--radius-lg); text-decoration: none; color: var(--color-text); transition: transform .18s ease;" style-hover="transform: translateY(-3px) rotate(-0.6deg); color: var(--color-text);">
+              <span style="height: 90px; display: grid; place-items: center;"><img src="{{ fx.img }}" alt="" loading="lazy" style="max-width: 100%; max-height: 90px; object-fit: contain;"></span>
+              <span style="font-family: var(--font-heading); font-size: 19px;">{{ fx.n }}</span>
+              <span style="font-size: 13px; color: var(--color-neutral-700); display: flex; gap: 6px;"><span aria-hidden="true">{{ fx.flag }}</span><span>{{ fx.r }}</span></span>
+            </a>
+          </li>
+        </sc-for>
+      </ul>
+    </section></sc-if>
     <section aria-labelledby="h-related" style="display: flex; flex-direction: column; gap: var(--space-4); padding-bottom: var(--space-8);">
       <h2 id="h-related" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">{{ relatedTitle }}</h2>
       <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(170px, 40vw), 1fr)); gap: var(--space-3);">
@@ -460,6 +483,7 @@
       <nav aria-label="Footer" style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
         <a href="../index.html">Home</a>
         <a href="../saisons.html">Calendar</a>
+        <a href="../fromages.html" data-adult-only="1">Cheeses</a>
         <a href="../origines.html">Origins</a>
         <a href="../marches.html" data-nav-mar="1">Markets</a><a href="../pousse.html" data-nav-pousse="1">How it grows</a>
         <a href="../bio.html">Organic</a>
@@ -611,9 +635,15 @@ class Component extends DCLogic {
         this.setState({ copied: true }); clearTimeout(this._ct); this._ct = setTimeout(() => this.setState({ copied: false }), 4000);
       } };
   }
+  _fx(kid) {
+    const F = window.FROMAGES, s = this.slug();
+    if (kid || !F) return { hasFx: false, fx: [] };
+    const fx = F.fromages.filter(f => f.acc.includes(s)).slice(0, 6).map(f => ({ n: f.n, href: '../fromages/' + f.s + '.html', img: '../../images/fromages/' + f.s + '.webp', flag: F.pays[f.p].flag, r: f.en.r }));
+    return { hasFx: fx.length > 0, fx };
+  }
   renderVals() {
     const mini = true; const kv = this._kidVals(); const kf = this._kf(); const kidOn = kv.kid && kf.hasK;
-    const rv = this._rv(); return { ...rv, ...kv, ...kf, langHref: '../../produits/' + this.slug() + '.html', share: this._share(rv.nom), kid: kidOn, adult: !kidOn, logoBig: { display: mini ? 'none' : 'block', height: 'clamp(84px, 11vw, 120px)', width: 'auto' }, logoMini: { display: mini ? 'block' : 'none', height: 36, width: 'auto' } };
+    const rv = this._rv(); return { ...rv, ...kv, ...kf, ...this._fx(kidOn), langHref: '../../produits/' + this.slug() + '.html', share: this._share(rv.nom), kid: kidOn, adult: !kidOn, logoBig: { display: mini ? 'none' : 'block', height: 'clamp(84px, 11vw, 120px)', width: 'auto' }, logoMini: { display: mini ? 'block' : 'none', height: 36, width: 'auto' } };
   }
   _rv() {
     const S = window.SAISON;
