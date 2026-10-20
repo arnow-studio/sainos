@@ -36,6 +36,8 @@
   plausible.init()
 </script>
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<style id="nav-current">[data-nav-desk]{gap:4px!important}[data-nav-desk] a{padding:6px 10px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s}[data-nav-desk] a:not([aria-current="page"]):hover{background:var(--color-accent-100)}[data-nav-desk] a[aria-current="page"]{font-weight:800;color:var(--color-accent-700)!important;background:none}</style>
+<script id="nav-current-js">(function(){var p=location.pathname,k=/\/produits\//.test(p)?'saisons.html':/\/fromages\//.test(p)?'fromages.html':(p.split('/').pop()||'index.html');var q=0;function m(){q=0;document.querySelectorAll('[data-nav-desk] a').forEach(function(a){var h=(a.getAttribute('href')||'').split('/').pop();if(h===k)a.setAttribute('aria-current','page');else if(a.getAttribute('aria-current'))a.removeAttribute('aria-current')})}function s(){if(!q){q=1;requestAnimationFrame(m)}}document.addEventListener('DOMContentLoaded',function(){m();new MutationObserver(s).observe(document.body,{childList:true,subtree:true})})})();</script>
 </head>
 <body>
 <x-dc>
@@ -116,10 +118,10 @@
       <p style="margin: 0; font-size: 18px; line-height: 1.55; color: var(--color-neutral-800); text-wrap: pretty;">Pick a month and discover the fruit, vegetables and herbs at their very best.</p></sc-if>
     </div>
 
-    <section aria-label="Choose a month" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: var(--space-2);">
+    <section aria-label="Choose a month" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: var(--space-2);">
       <sc-for list="{{ months }}" as="mo" hint-placeholder-count="12">
         <button type="button" onClick="{{ mo.pick }}" aria-pressed="{{ mo.on }}" style="{{ mo.style }}" style-hover="transform: translateY(-2px);">
-          <span style="font-size: 44px; line-height: 1;" aria-hidden="true"><sc-if value="{{ mo.img }}" hint-placeholder-val="{{ false }}"><span role="img" aria-hidden="true" style="width: 1em; height: 1em; background: {{ mo.imgBg }}; display: inline-block; vertical-align: -0.15em;"></span></sc-if><sc-if value="{{ mo.noImg }}" hint-placeholder-val="{{ true }}">{{ mo.e }}</sc-if></span>
+          <sc-if value="{{ mo.single }}" hint-placeholder-val="{{ true }}"><span style="width: 60px; height: 60px; border-radius: 50%; background: #ffffff; display: grid; place-items: center; font-size: 52px; line-height: 1;" aria-hidden="true"><sc-if value="{{ mo.img }}" hint-placeholder-val="{{ false }}"><span role="img" aria-hidden="true" style="width: 1em; height: 1em; background: {{ mo.imgBg }}; display: block;"></span></sc-if><sc-if value="{{ mo.noImg }}" hint-placeholder-val="{{ true }}">{{ mo.e }}</sc-if></span></sc-if><sc-if value="{{ mo.duo }}" hint-placeholder-val="{{ false }}"><span style="display: flex; height: 60px; align-items: center;" aria-hidden="true"><span style="width: 56px; height: 56px; border-radius: 50%; background: #ffffff; display: grid; place-items: center; font-size: 46px; line-height: 1;"><span style="width: 1em; height: 1em; background: {{ mo.bgA }}; display: block;"></span></span><span style="width: 56px; height: 56px; margin-left: -16px; border-radius: 50%; background: #ffffff; box-shadow: 0 0 0 2px var(--color-neutral-100); display: grid; place-items: center; font-size: 46px; line-height: 1;"><span style="width: 1em; height: 1em; background: {{ mo.bgB }}; display: block;"></span></span></span></sc-if>
           <span style="font-weight: 700; font-size: 15px;">{{ mo.label }}</span>
         </button>
       </sc-for>
@@ -140,7 +142,7 @@
             <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: var(--space-2);">
               <sc-for list="{{ g.items }}" as="it" hint-placeholder-count="6">
                 <li>
-                  <a href="{{ it.href }}" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; height: 100%; padding: 14px 8px 12px; background: var(--color-bg); border: 2px solid {{ it.border }}; border-radius: var(--radius-lg); text-decoration: none; color: var(--color-text); text-align: center;" style-hover="transform: translateY(-2px); box-shadow: var(--shadow-sm); color: var(--color-text);">
+                  <a href="{{ it.href }}" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; height: 100%; padding: 14px 8px 12px; background: #ffffff; border: 2px solid {{ it.border }}; border-radius: var(--radius-lg); text-decoration: none; color: var(--color-text); text-align: center;" style-hover="transform: translateY(-2px); box-shadow: var(--shadow-sm); color: var(--color-text);">
                     <span aria-hidden="true" style="font-size: 52px; line-height: 1; display: grid; place-items: center;"><sc-if value="{{ it.img }}" hint-placeholder-val="{{ false }}"><span role="img" aria-hidden="true" style="width: 1em; height: 1em; background: {{ it.imgBg }}; display: block;"></span></sc-if><sc-if value="{{ it.noImg }}" hint-placeholder-val="{{ true }}">{{ it.e }}</sc-if></span>
                     <span style="font-weight: 700; font-size: 15px; line-height: 1.2; text-wrap: balance;">{{ it.n }}</span>
                   </a>
@@ -270,7 +272,7 @@ class Component extends DCLogic {
     const now = new Date().getMonth() + 1;
     const pill = on => 'btn ' + (on ? 'btn-primary' : 'btn-secondary');
     const typeFilters = [['all', 'All'], ['fruit', '🍊 Fruit'], ['legume', '🥦 Vegetables'], ['herbe', '🌿 Herbs']].map(([k, label]) => ({ label, on: type === k, cls: pill(type === k), pick: () => this.setState({ type: k }) }));
-    const go = d => () => this.setState(s => ({ m: ((s.m - 1 + d + 12) % 12) + 1 }));
+    const go = d => () => this.setState(s => ({ m: ((s.m - 1 + d + 13) % 13) + 1 }));
     if (!S) return { dicton: '', dictonSens: '', dictonKid: '', dictonLabel: '', legendSmiley: '', months: [], groups: [], rows: [], headMonths: [], typeFilters, moisTitre: '', isNow: false, prev: go(-1), next: go(1) };
     if (!this._stars) {
       const stars = {}, used = new Set();
@@ -292,12 +294,16 @@ class Component extends DCLogic {
         style: 'display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 10px;border-radius:var(--radius-lg);cursor:pointer;font:inherit;text-align:center;transition:transform .15s ease;' +
           (on ? 'background:var(--color-accent);color:var(--color-bg);border:1.5px solid var(--color-accent);' : 'background:var(--color-neutral-100);color:var(--color-text);border:1.5px solid ' + (mm === now ? 'var(--color-accent-400)' : 'var(--color-divider)') + ';') };
     });
+    months.forEach(x => { x.single = true; x.duo = false; });
+    { const used = new Set(Object.values(stars).map(x => x && x.s)); const yr = S.produits.filter(x => x.m.length === 12 && S.vis(x).img); const two = yr.filter(x => !used.has(x.s)).concat(yr).slice(0, 2); const on = m === 13;
+      months.push({ label: 'All year', single: false, duo: true, bgA: two[0] ? S.vis(two[0]).imgBg : '', bgB: two[1] ? S.vis(two[1]).imgBg : '', on, pick: () => this.setState({ m: 13 }, () => { const el = document.getElementById('titre-mois'); if (el) { const y = el.closest('section').getBoundingClientRect().top + window.scrollY - 90; window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' }); } }),
+        style: 'display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:14px 10px;border-radius:var(--radius-lg);cursor:pointer;font:inherit;text-align:center;transition:transform .15s ease;' + (on ? 'background:var(--color-accent);color:var(--color-bg);border:1.5px solid var(--color-accent);' : 'background:var(--color-neutral-100);color:var(--color-text);border:1.5px solid var(--color-divider);') }); }
     const toObj = s => s.split(';').filter(Boolean).reduce((o, kv) => { const i = kv.indexOf(':'); o[kv.slice(0, i).trim().replace(/-([a-z])/g, (_, c) => c.toUpperCase())] = kv.slice(i + 1).trim(); return o; }, {});
     months.forEach(x => x.style = toObj(x.style));
     const groups = ['fruit', 'legume', 'herbe'].map(t => {
-      const items = S.produits.filter(p => p.t === t && p.m.includes(m))
+      const items = S.produits.filter(p => p.t === t && (m === 13 ? p.m.length === 12 : p.m.includes(m)))
         .sort((a, b) => (b.f.includes(m) - a.f.includes(m)) || a.n.localeCompare(b.n, 'en'))
-        .map(p => { const pleine = p.f.includes(m); return { ...S.vis(p), pleine, href: S.url(p), n: p.n, status: pleine ? 'Peak season' : 'Available', border: pleine ? 'var(--color-accent-600)' : 'transparent', bgc: pleine ? 'var(--color-accent-100)' : 'var(--color-neutral-100)', cls: 'tag ' + (pleine ? 'tag-accent' : 'tag-accent-2') }; });
+        .map(p => { const pleine = m === 13 ? p.f.length === 12 : p.f.includes(m); return { ...S.vis(p), pleine, href: S.url(p), n: p.n, status: pleine ? 'Peak season' : 'Available', border: pleine ? 'var(--color-accent-600)' : 'transparent', bgc: pleine ? 'var(--color-accent-100)' : 'var(--color-neutral-100)', cls: 'tag ' + (pleine ? 'tag-accent' : 'tag-accent-2') }; });
       return { label: S.TYPES[t].label, e: S.TYPES[t].e, items };
     }).filter(g => g.items.length);
     const headMonths = S.MOIS_C.map((l, i) => ({ label: l, style: { textAlign: 'center', padding: '8px 2px', position: 'sticky', top: 0, zIndex: 2, background: 'var(--color-neutral-100)', paddingTop: 'var(--space-3)', color: i + 1 === m ? 'var(--color-accent-700)' : undefined, fontWeight: i + 1 === m ? 700 : undefined } }));
@@ -325,8 +331,8 @@ class Component extends DCLogic {
       ['On St Catherine’s Day, every twig takes root.', 'Around November 25th is the ideal time to plant fruit trees and bushes.', 'At the end of November, everything you plant grows easily: it’s time to plant a tree!'],
       ['A December with too little cold won’t make the farmer rich.', 'Winter cold rests the soil and keeps harmful insects away.', 'Cold is useful: it lets the soil rest and chases away the little bugs that damage plants.']
     ];
-    const dic = DICTONS[m - 1];
-    return { dicton: dic[0], dictonSens: dic[1], dictonKid: dic[2], dictonLabel: 'French saying for ' + S.MOIS[m - 1], legendSmiley: SMILEYS[m - 1], months, groups, rows, headMonths, typeFilters, moisTitre: 'In ' + S.MOIS[m - 1], isNow: m === now, prev: go(-1), next: go(1) };
+    const md = m === 13 ? now : m; const dic = DICTONS[md - 1];
+    return { dicton: dic[0], dictonSens: dic[1], dictonKid: dic[2], dictonLabel: 'French saying for ' + S.MOIS[md - 1], legendSmiley: SMILEYS[md - 1], months, groups, rows, headMonths, typeFilters, moisTitre: m === 13 ? 'Available all year round' : 'In ' + S.MOIS[m - 1], isNow: m === now, prev: go(-1), next: go(1) };
   }
 }
 </script>
