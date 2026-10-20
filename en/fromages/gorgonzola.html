@@ -38,6 +38,8 @@
   plausible.init()
 </script>
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<style id="nav-current">[data-nav-desk]{gap:4px!important}[data-nav-desk] a{padding:6px 10px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s}[data-nav-desk] a:not([aria-current="page"]):hover{background:var(--color-accent-100)}[data-nav-desk] a[aria-current="page"]{font-weight:800;color:var(--color-accent-700)!important;background:none}</style>
+<script id="nav-current-js">(function(){var p=location.pathname,k=/\/produits\//.test(p)?'saisons.html':/\/fromages\//.test(p)?'fromages.html':(p.split('/').pop()||'index.html');var q=0;function m(){q=0;document.querySelectorAll('[data-nav-desk] a').forEach(function(a){var h=(a.getAttribute('href')||'').split('/').pop();if(h===k)a.setAttribute('aria-current','page');else if(a.getAttribute('aria-current'))a.removeAttribute('aria-current')})}function s(){if(!q){q=1;requestAnimationFrame(m)}}document.addEventListener('DOMContentLoaded',function(){m();new MutationObserver(s).observe(document.body,{childList:true,subtree:true})})})();</script>
 </head>
 <body>
 <!-- fiche-statique:start -->
@@ -45,7 +47,7 @@
 <nav aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="../fromages.html">The Cheese</a> › Gorgonzola</nav>
 <h1>Gorgonzola</h1>
 <img src="../../images/fromages/gorgonzola.webp" alt="Gorgonzola" width="320" loading="lazy">
-<p>Blue paste, ultra-creamy (dolce) or firm and crumbly (piccante).</p>
+<p>Born in the village of Gorgonzola, near Milan, this blue cheese comes in two styles: dolce, creamy and mild, and piccante, firmer and stronger. Its blue-green veins develop as needles pierce the paste during ripening.</p>
 <ul><li><strong>Milk:</strong> Cow</li><li><strong>Family:</strong> Blue</li><li><strong>Origin:</strong> Lombardy and Piedmont, Italy</li><li><strong>Best season:</strong> all year</li></ul>
 <h2>Ripening</h2><p>Ripened for at least 2 to 3 months in a damp cellar.</p>
 <h2>What to serve it with</h2><p>Gnocchi, fresh pears and pumpkin</p>

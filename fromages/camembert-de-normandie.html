@@ -35,6 +35,8 @@
   plausible.init()
 </script>
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<style id="nav-current">[data-nav-desk]{gap:4px!important}[data-nav-desk] a{padding:6px 10px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s}[data-nav-desk] a:not([aria-current="page"]):hover{background:var(--color-accent-100)}[data-nav-desk] a[aria-current="page"]{font-weight:800;color:var(--color-accent-700)!important;background:none}</style>
+<script id="nav-current-js">(function(){var p=location.pathname,k=/\/produits\//.test(p)?'saisons.html':/\/fromages\//.test(p)?'fromages.html':(p.split('/').pop()||'index.html');var q=0;function m(){q=0;document.querySelectorAll('[data-nav-desk] a').forEach(function(a){var h=(a.getAttribute('href')||'').split('/').pop();if(h===k)a.setAttribute('aria-current','page');else if(a.getAttribute('aria-current'))a.removeAttribute('aria-current')})}function s(){if(!q){q=1;requestAnimationFrame(m)}}document.addEventListener('DOMContentLoaded',function(){m();new MutationObserver(s).observe(document.body,{childList:true,subtree:true})})})();</script>
 </head>
 <body>
 <!-- fiche-statique:start -->
@@ -42,7 +44,7 @@
 <nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../fromages.html">La Fromagerie</a> › Camembert de Normandie</nav>
 <h1>Camembert de Normandie</h1>
 <img src="../images/fromages/camembert-de-normandie.webp" alt="Camembert de Normandie" width="320" loading="lazy">
-<p>Pâte souple et onctueuse, arômes intenses de sous-bois, champignon et beurre chaud.</p>
+<p>Né à la fin du XVIIIe siècle dans le pays d’Auge, le camembert de Normandie AOP est moulé à la louche, en cinq passages, dans du lait cru de vaches normandes. Sa croûte blanche duvetée protège une pâte qui s’affine du cœur vers l’extérieur et gagne en caractère au fil des semaines.</p>
 <ul><li><strong>Lait&nbsp;:</strong> Vache</li><li><strong>Famille&nbsp;:</strong> Croûte fleurie</li><li><strong>Origine&nbsp;:</strong> Normandie, France</li><li><strong>Meilleure saison&nbsp;:</strong> avril – octobre</li></ul>
 <h2>Affinage</h2><p>Affiné au minimum 21 jours avec retournements réguliers.</p>
 <h2>Avec quoi le servir</h2><p>Baguette fraîche et tranches de pomme</p>

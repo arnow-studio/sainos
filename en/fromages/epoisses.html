@@ -38,6 +38,8 @@
   plausible.init()
 </script>
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<style id="nav-current">[data-nav-desk]{gap:4px!important}[data-nav-desk] a{padding:6px 10px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s}[data-nav-desk] a:not([aria-current="page"]):hover{background:var(--color-accent-100)}[data-nav-desk] a[aria-current="page"]{font-weight:800;color:var(--color-accent-700)!important;background:none}</style>
+<script id="nav-current-js">(function(){var p=location.pathname,k=/\/produits\//.test(p)?'saisons.html':/\/fromages\//.test(p)?'fromages.html':(p.split('/').pop()||'index.html');var q=0;function m(){q=0;document.querySelectorAll('[data-nav-desk] a').forEach(function(a){var h=(a.getAttribute('href')||'').split('/').pop();if(h===k)a.setAttribute('aria-current','page');else if(a.getAttribute('aria-current'))a.removeAttribute('aria-current')})}function s(){if(!q){q=1;requestAnimationFrame(m)}}document.addEventListener('DOMContentLoaded',function(){m();new MutationObserver(s).observe(document.body,{childList:true,subtree:true})})})();</script>
 </head>
 <body>
 <!-- fiche-statique:start -->
@@ -45,7 +47,7 @@
 <nav aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="../fromages.html">The Cheese</a> › Époisses</nav>
 <h1>Époisses</h1>
 <img src="../../images/fromages/epoisses.webp" alt="Époisses" width="320" loading="lazy">
-<p>Very soft paste, runny at the heart, with rich yet balanced flavours.</p>
+<p>Created by Cistercian monks in the 16th century, Époisses is washed with water and then with Marc de Bourgogne as it ripens. The result is a shiny rust-coloured rind and a creamy paste that is almost runny at the centre.</p>
 <ul><li><strong>Milk:</strong> Cow</li><li><strong>Family:</strong> Washed rind</li><li><strong>Origin:</strong> Burgundy, France</li><li><strong>Best season:</strong> May – October</li></ul>
 <h2>Ripening</h2><p>Ripened for 4 to 6 weeks and washed with Marc de Bourgogne.</p>
 <h2>What to serve it with</h2><p>Toast and grapes</p>

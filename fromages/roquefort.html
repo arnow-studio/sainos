@@ -35,6 +35,8 @@
   plausible.init()
 </script>
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<style id="nav-current">[data-nav-desk]{gap:4px!important}[data-nav-desk] a{padding:6px 10px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s}[data-nav-desk] a:not([aria-current="page"]):hover{background:var(--color-accent-100)}[data-nav-desk] a[aria-current="page"]{font-weight:800;color:var(--color-accent-700)!important;background:none}</style>
+<script id="nav-current-js">(function(){var p=location.pathname,k=/\/produits\//.test(p)?'saisons.html':/\/fromages\//.test(p)?'fromages.html':(p.split('/').pop()||'index.html');var q=0;function m(){q=0;document.querySelectorAll('[data-nav-desk] a').forEach(function(a){var h=(a.getAttribute('href')||'').split('/').pop();if(h===k)a.setAttribute('aria-current','page');else if(a.getAttribute('aria-current'))a.removeAttribute('aria-current')})}function s(){if(!q){q=1;requestAnimationFrame(m)}}document.addEventListener('DOMContentLoaded',function(){m();new MutationObserver(s).observe(document.body,{childList:true,subtree:true})})})();</script>
 </head>
 <body>
 <!-- fiche-statique:start -->
@@ -42,7 +44,7 @@
 <nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../fromages.html">La Fromagerie</a> › Roquefort</nav>
 <h1>Roquefort</h1>
 <img src="../images/fromages/roquefort.webp" alt="Roquefort" width="320" loading="lazy">
-<p>Pâte persillée beurrée et fondante, goût puissant, salé et piquant aux nuances d'agrumes et de cave.</p>
+<p>Premier fromage à avoir obtenu une appellation d’origine, en 1925, le roquefort est affiné exclusivement dans les caves naturelles de Roquefort-sur-Soulzon. Les failles de la roche, les « fleurines », y apportent l’air frais et humide qui fait se développer le Penicillium roqueforti.</p>
 <ul><li><strong>Lait&nbsp;:</strong> Brebis</li><li><strong>Famille&nbsp;:</strong> Persillé</li><li><strong>Origine&nbsp;:</strong> Occitanie (Aveyron), France</li><li><strong>Meilleure saison&nbsp;:</strong> toute l’année</li></ul>
 <h2>Affinage</h2><p>Affiné au moins 3 mois dans les grottes ventilées de Roquefort-sur-Soulzon.</p>
 <h2>Avec quoi le servir</h2><p>Pain aux raisins et poires</p>

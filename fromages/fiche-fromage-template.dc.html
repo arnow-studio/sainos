@@ -16,6 +16,8 @@
   plausible.init()
 </script>
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<style id="nav-current">[data-nav-desk]{gap:4px!important}[data-nav-desk] a{padding:6px 10px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s}[data-nav-desk] a:not([aria-current="page"]):hover{background:var(--color-accent-100)}[data-nav-desk] a[aria-current="page"]{font-weight:800;color:var(--color-accent-700)!important;background:none}</style>
+<script id="nav-current-js">(function(){var p=location.pathname,k=/\/produits\//.test(p)?'saisons.html':/\/fromages\//.test(p)?'fromages.html':(p.split('/').pop()||'index.html');var q=0;function m(){q=0;document.querySelectorAll('[data-nav-desk] a').forEach(function(a){var h=(a.getAttribute('href')||'').split('/').pop();if(h===k)a.setAttribute('aria-current','page');else if(a.getAttribute('aria-current'))a.removeAttribute('aria-current')})}function s(){if(!q){q=1;requestAnimationFrame(m)}}document.addEventListener('DOMContentLoaded',function(){m();new MutationObserver(s).observe(document.body,{childList:true,subtree:true})})})();</script>
 </head>
 <body>
 <x-dc>
@@ -26,6 +28,7 @@
   <script src="../_ds/organic-f9092e65-12bb-43ea-a459-3e0b5f502c38/_ds_bundle.js"></script>
   <script src="../produits-data.js"></script>
   <script src="../fromages-data.js"></script>
+  <script src="../fromages-extra.js"></script>
   <style>
     :root { --color-bg: #fbf8f2; --color-accent: #357d28; --color-accent-100: #eef7ea; --color-accent-200: #d9eed0; --color-accent-300: #b6dca5; --color-accent-400: #74b95e; --color-accent-500: #357d28; --color-accent-600: #327426; --color-accent-700: #285e1f; --color-accent-800: #1f4a19; --color-accent-900: #183a14; --color-accent-2-100: #f4f8ed; --color-accent-2-200: #e8efdb; --color-accent-2-300: #d8e2c7; --color-accent-2-800: #56613f; --color-accent-2-900: #46512f;  --color-neutral-100: #fffdf9; --color-text: #5b3b27; --color-divider: color-mix(in srgb, #8c491a 20%, transparent); --font-heading: 'DynaPuff', system-ui, sans-serif; --font-body: 'Nunito', system-ui, sans-serif; }
     body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
@@ -104,7 +107,7 @@
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8); align-items: center;">
           <div style="display: flex; flex-direction: column; gap: var(--space-4); max-width: 620px;">
             <h1 style="margin: 0; font-size: clamp(36px, 5vw, 58px); line-height: 1.04; text-wrap: balance;">{{ nom }}</h1>
-            <p style="margin: 0; font-size: 18px; line-height: 1.6; color: var(--color-neutral-800); text-wrap: pretty;">{{ d }}</p>
+            <p style="margin: 0; font-size: 18px; line-height: 1.6; color: var(--color-neutral-800); text-wrap: pretty;">{{ intro }}</p>
             <ul aria-label="En bref" style="list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2);">
               <sc-for list="{{ facts }}" as="fa" hint-placeholder-count="5">
                 <li class="{{ fa.cls }}" style="background: #ffffff; color: var(--color-text); border: 1px solid color-mix(in srgb, var(--color-accent-700) 20%, transparent); white-space: nowrap; font-size: 14px; padding: 7px 14px; gap: 6px;"><span style="opacity: 0.75;">{{ fa.k }}</span><strong>{{ fa.v }}</strong></li>
@@ -142,6 +145,19 @@
           <p style="margin: 0; font-size: 17px; line-height: 1.65; text-wrap: pretty;">{{ accord }}</p>
         </section>
       </div>
+
+      <sc-if value="{{ hasRec }}" hint-placeholder-val="{{ true }}">
+        <aside role="note" aria-label="Recette mise en avant" style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; padding: var(--space-4); background: var(--color-accent-100); border: 2px solid var(--color-accent-200); border-radius: var(--radius-lg);">
+          <span aria-hidden="true" style="flex: none; width: 88px; height: 88px; border-radius: 50%; display: grid; place-items: center; overflow: hidden; background: #ffffff;"><img src="{{ img }}" alt="" width="720" height="720" loading="lazy" style="display: block; width: 68px; height: 68px; object-fit: contain;"></span>
+          <div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 4px; min-width: 0;">
+            <span style="font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: var(--color-accent-700);">Recette mise en avant · 750g</span>
+            <h3 style="margin: 0; font-size: 22px; line-height: 1.2;">{{ rec.titre }}</h3>
+            <a href="{{ rec.toutes }}" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">Toutes les recettes avec {{ nomLower }} sur 750g ↗</a>
+            <span style="font-size: 13px; color: var(--color-neutral-800);">Lien externe, sans partenariat ni commission.</span>
+          </div>
+          <a href="{{ rec.url }}" target="_blank" rel="noopener" class="btn btn-primary" style="white-space: nowrap; flex: none; padding: 12px 20px; font-size: 15px; text-decoration: none;">Voir la recette ↗</a>
+        </aside>
+      </sc-if>
 
       <section aria-labelledby="h-marie" style="display: flex; flex-direction: column; gap: var(--space-4);">
         <h2 id="h-marie" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">Se marie avec</h2>
@@ -182,6 +198,7 @@
           </li>
         </sc-for>
       </ul>
+      <a href="../fromages.html#f-mois" style="align-self: flex-start; display: flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 700; text-decoration: none;"><span aria-hidden="true">←</span><span style="text-decoration: underline;">{{ backLabel }}</span></a>
     </section>
     </sc-if>
     <sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}">
@@ -259,7 +276,7 @@ class Component extends DCLogic {
       logoBig: { display: 'none' }, logoMini: { display: 'block', height: 36, width: 'auto' } };
     const S = window.SAISON, F = window.FROMAGES;
     const f = F && F.fromages.find(x => x.s === this.slug());
-    if (!S || !f) return { ...base, nom: '', d: '', aff: '', accord: '', facts: [], cal: [], calSummary: '', maries: [], related: [], relatedTitle: '', hasImg: false, img: '', imgAlt: '', hasCru: false, cruTexte: '' };
+    if (!S || !f) return { ...base, nom: '', nomLower: '', intro: '', rec: {}, hasRec: false, backLabel: '', d: '', aff: '', accord: '', facts: [], cal: [], calSummary: '', maries: [], related: [], relatedTitle: '', hasImg: false, img: '', imgAlt: '', hasCru: false, cruTexte: '' };
     const X = en ? f.en : f, E = F.en, img = (en ? '../../' : '../') + 'images/fromages/';
     const lait = en ? E.laits[f.lait] : f.lait, fam = en ? E.familles[f.fam] : f.fam;
     const now = new Date().getMonth() + 1, pays = F.pays[f.p];
@@ -283,7 +300,8 @@ class Component extends DCLogic {
     const others = F.fromages.filter(o => o.s !== f.s), same = others.filter(o => o.fam === f.fam);
     const related = (same.length >= 2 ? same : others.filter(o => o.r === f.r || o.lait === f.lait)).slice(0, 4)
       .map(o => ({ n: o.n, href: o.s + '.html', img: img + o.s + '.webp', flag: F.pays[o.p].flag, r: en ? o.en.r : o.r }));
-    return { ...base, nom: f.n, d: X.d, aff: X.aff, accord: X.accord, facts, cal, calSummary, maries,
+    const mNow = S.MOIS[now - 1];
+    return { ...base, nom: f.n, nomLower: f.n.charAt(0).toLowerCase() + f.n.slice(1), intro: X.intro || X.d, rec: X.rec || f.rec || {}, hasRec: !!(X.rec || f.rec), backLabel: 'Retrouvez les fromages de pleine saison de ce mois', d: X.d, aff: X.aff, accord: X.accord, facts, cal, calSummary, maries,
       hasImg: true, img: img + f.s + '.webp', imgAlt: T.illus + f.n,
       hasCru: !!cruTexte, cruTexte, related, relatedTitle: same.length >= 2 ? T.same + fam.toLowerCase() : T.also };
   }

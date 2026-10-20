@@ -35,6 +35,8 @@
   plausible.init()
 </script>
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<style id="nav-current">[data-nav-desk]{gap:4px!important}[data-nav-desk] a{padding:6px 10px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s}[data-nav-desk] a:not([aria-current="page"]):hover{background:var(--color-accent-100)}[data-nav-desk] a[aria-current="page"]{font-weight:800;color:var(--color-accent-700)!important;background:none}</style>
+<script id="nav-current-js">(function(){var p=location.pathname,k=/\/produits\//.test(p)?'saisons.html':/\/fromages\//.test(p)?'fromages.html':(p.split('/').pop()||'index.html');var q=0;function m(){q=0;document.querySelectorAll('[data-nav-desk] a').forEach(function(a){var h=(a.getAttribute('href')||'').split('/').pop();if(h===k)a.setAttribute('aria-current','page');else if(a.getAttribute('aria-current'))a.removeAttribute('aria-current')})}function s(){if(!q){q=1;requestAnimationFrame(m)}}document.addEventListener('DOMContentLoaded',function(){m();new MutationObserver(s).observe(document.body,{childList:true,subtree:true})})})();</script>
 </head>
 <body>
 <!-- fiche-statique:start -->
@@ -42,7 +44,7 @@
 <nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../fromages.html">La Fromagerie</a> › Emmental de Savoie</nav>
 <h1>Emmental de Savoie</h1>
 <img src="../images/fromages/emmental-de-savoie.webp" alt="Emmental de Savoie" width="320" loading="lazy">
-<p>Pâte ferme aux larges ouvertures rondes, saveur douce, fruitée et légèrement sucrée.</p>
+<p>Plus petit cousin savoyard de l’emmental suisse, l’emmental de Savoie IGP est fabriqué au lait cru dans de grandes meules percées d’« yeux ». Ces trous naissent pendant l’affinage en cave chaude, quand les bactéries libèrent du gaz carbonique.</p>
 <ul><li><strong>Lait&nbsp;:</strong> Vache</li><li><strong>Famille&nbsp;:</strong> Pressée cuite</li><li><strong>Origine&nbsp;:</strong> Savoie, France</li><li><strong>Meilleure saison&nbsp;:</strong> toute l’année</li></ul>
 <h2>Affinage</h2><p>Affiné au moins 75 jours en cave chaude puis tempérée.</p>
 <h2>Avec quoi le servir</h2><p>Gratins, croque-monsieur et salades d’été</p>
