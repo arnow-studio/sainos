@@ -24,12 +24,12 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Sainos","url":"https://www.sainos.fr/","potentialAction":{"@type":"SearchAction","target":"https://www.sainos.fr/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
 <meta property="og:site_name" content="Sainos">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:image" content="https://www.sainos.fr/images/og/sainos.jpg">
-<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image" content="https://www.sainos.fr/images/og/sainos.webp">
+<meta property="og:image:type" content="image/webp">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://www.sainos.fr/images/og/sainos.jpg">
+<meta name="twitter:image" content="https://www.sainos.fr/images/og/sainos.webp">
 <!-- Privacy-friendly analytics by Plausible -->
 <script async src="https://plausible.io/js/pa-O95OL7ls2dxJH93cMg8p4.js"></script>
 <script>
@@ -122,12 +122,12 @@
         </div>
       </div>
       <div style="position: relative; justify-self: center; width: min(420px, 90vw); aspect-ratio: 1;">
-        <div aria-hidden="true" style="position: absolute; inset: 0; background: var(--color-accent-2-200); border-radius: 58% 42% 55% 45% / 48% 56% 44% 52%;"></div>
-        <a href="{{ star.href }}" aria-labelledby="titre-star" style="position: absolute; inset: 12%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 10px; text-decoration: none; color: var(--color-accent-2-900);" style-hover="color: var(--color-accent-2-900);">
-          <span style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-2-800); font-weight: 700;">En ce moment, mangeons</span>
-          <span id="titre-star" style="max-width: 100%; overflow-wrap: anywhere; text-wrap: balance; font-family: var(--font-heading); font-size: clamp(32px, 4.6vw, 48px); line-height: 1.02;">{{ star.n }}</span>
+        <div aria-hidden="true" style="position: absolute; inset: 0; background: #ffffff; border-radius: 58% 42% 55% 45% / 48% 56% 44% 52%;"></div>
+        <a href="{{ star.href }}" aria-labelledby="titre-star" style="position: absolute; inset: 12%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 10px; text-decoration: none; color: var(--color-accent-500);" style-hover="color: var(--color-accent-500);">
+          <span style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-500); font-weight: 700;">En ce moment, mangeons</span>
+          <span id="titre-star" style="max-width: 100%; overflow-wrap: anywhere; text-wrap: balance; font-family: var(--font-heading); font-size: clamp(32px, 4.6vw, 48px); line-height: 1.02; color: var(--color-accent-800);">{{ star.n }}</span>
           <span aria-hidden="true" style="align-self: center; display: grid; place-items: center; font-size: clamp(110px, 30vw, 170px); line-height: 1;"><sc-if value="{{ star.img }}" hint-placeholder-val="{{ false }}"><span role="img" aria-hidden="true" style="width: 1em; height: 1em; background: {{ star.imgBg }}; display: block; transform: rotate(-6deg);"></span></sc-if><sc-if value="{{ star.noImg }}" hint-placeholder-val="{{ true }}">{{ star.e }}</sc-if></span>
-          <span style="margin-top: 14px; font-weight: 800; font-size: 16px; color: var(--color-accent-700);">{{ star.cta }}</span>
+          <span style="margin-top: 14px; font-weight: 800; font-size: 16px; color: var(--color-accent-500);">{{ star.cta }}</span>
         </a>
       </div>
     </section>
@@ -152,12 +152,12 @@
       </div>
 
       <sc-if value="{{ hasResults }}" hint-placeholder-val="{{ true }}">
-        <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(210px, 42vw), 1fr)); gap: clamp(10px, 2.5vw, 16px);">
+        <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(max(min(160px, 42vw), calc((100% - 64px) / 5)), 1fr)); gap: clamp(10px, 2.5vw, 16px);">
           <sc-for list="{{ cards }}" as="c" hint-placeholder-count="8">
             <li style="display: flex;">
               <a href="{{ c.href }}" aria-label="{{ c.aria }}" style="flex: 1; display: flex; flex-direction: column; gap: var(--space-3); padding: clamp(12px, 3vw, 16px); background: #ffffff; min-width: 0; border: {{ c.ring }}; border-radius: var(--radius-lg); text-decoration: none; color: var(--color-text); box-shadow: var(--shadow-sm); transition: transform .18s ease, box-shadow .18s ease;" style-hover="transform: translateY(-4px) rotate(-0.6deg); box-shadow: var(--shadow-lg); color: var(--color-text);">
                 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: var(--space-2);">
-                  <span aria-hidden="true" style="width: clamp(64px, 18vw, 96px); height: clamp(64px, 18vw, 96px); border-radius: 50%; display: grid; place-items: center; font-size: clamp(40px, 11vw, 58px); background: {{ c.bg }};"><sc-if value="{{ c.img }}" hint-placeholder-val="{{ false }}"><span role="img" aria-hidden="true" style="width: 1em; height: 1em; background: {{ c.imgBg }}; display: block;"></span></sc-if><sc-if value="{{ c.noImg }}" hint-placeholder-val="{{ true }}">{{ c.e }}</sc-if></span>
+                  <span aria-hidden="true" style="width: clamp(88px, 24vw, 140px); height: clamp(88px, 24vw, 140px); border-radius: 50%; display: grid; place-items: center; font-size: clamp(60px, 16vw, 96px); background: #ffffff;"><sc-if value="{{ c.img }}" hint-placeholder-val="{{ false }}"><span role="img" aria-hidden="true" style="width: 1em; height: 1em; background: {{ c.imgBg }}; display: block;"></span></sc-if><sc-if value="{{ c.noImg }}" hint-placeholder-val="{{ true }}">{{ c.e }}</sc-if></span>
                   <span style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px;"><sc-if value="{{ c.badge }}" hint-placeholder-val="{{ false }}"><span class="tag tag-accent" style="font-size: 12px;">🏅 Badge gagné</span></sc-if></span>
                 </div>
                 <div style="display: flex; flex-direction: column; gap: 2px;">
