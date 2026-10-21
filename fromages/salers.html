@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<script id="lang-redirect">(function(){function ask(alt){if(document.getElementById('lang-ask'))return;var d=document.createElement('div');d.id='lang-ask';d.setAttribute('role','dialog');d.setAttribute('aria-modal','true');d.setAttribute('aria-labelledby','lang-ask-t');d.setAttribute('lang','en');d.style.cssText='position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:20px;background:rgba(32,30,29,.45)';var B='min-height:48px;padding:0 22px;border-radius:999px;font:inherit;font-weight:700;font-size:16px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;flex:1 1 auto;text-decoration:none;';d.innerHTML='<div style="background:#fff;border-radius:24px;padding:28px;max-width:420px;width:100%;box-sizing:border-box;box-shadow:0 20px 50px rgba(0,0,0,.2);display:flex;flex-direction:column;gap:14px;font-family:var(--font-body);color:var(--color-text)"><h2 id="lang-ask-t" style="margin:0;font-family:var(--font-heading);font-weight:400;font-size:26px;line-height:1.15">Would you like the English version?</h2><p style="margin:0;font-size:16px;line-height:1.5">Your browser is set to English, but you seem to be in France.</p><div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px"><a href="'+alt+location.hash+'" data-lang="en" style="'+B+'background:var(--color-accent-strong,var(--color-accent));color:#fff;border:0">Switch to English</a><button type="button" data-lang="fr" lang="fr" style="'+B+'background:#fff;color:var(--color-text);border:2px solid var(--color-accent-300)">Rester en fran\u00e7ais</button></div></div>';function close(){try{localStorage.setItem('sainos-lang','fr')}catch(_){}d.remove();document.removeEventListener('keydown',k)}function k(e){if(e.key==='Escape')close()}d.querySelector('button').addEventListener('click',close);d.addEventListener('click',function(e){if(e.target===d)close()});document.addEventListener('keydown',k);document.body.appendChild(d);d.querySelector('a').focus()}var cur='fr',alt='../en/fromages/salers.html';document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-lang]');if(a)try{localStorage.setItem('sainos-lang',a.getAttribute('data-lang'))}catch(_){}},true);try{var p=localStorage.getItem('sainos-lang');if(/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)||p===cur)return;var L=p||((navigator.languages&&navigator.languages[0])||navigator.language||'').slice(0,2).toLowerCase();if(cur==='en'&&L==='fr')location.replace(alt+location.hash);else if(cur==='fr'&&L==='en'){var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(_){}if(tz!=='Europe/Paris')location.replace(alt+location.hash);else if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){ask(alt)});else ask(alt)}}catch(e){}})();</script>
+<link rel="alternate" hreflang="fr" href="https://www.sainos.fr/fromages/salers.html">
+<link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/fromages/salers.html">
+<link rel="alternate" hreflang="x-default" href="https://www.sainos.fr/fromages/salers.html">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){var d=document.documentElement;var B=null,T=0,Q='[aria-label="Choisir le mode"]';document.addEventListener('click',function(e){var t=e.target&&e.target.closest?e.target.closest(Q):null;B=t;if(t)T=t.getBoundingClientRect().top},true);function g(){var b=B;B=null;if(!b){try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}return}var n=0;(function f(){var x=document.querySelector(Q)||b;var dy=x.getBoundingClientRect().top-T;if(dy)try{window.scrollBy({top:dy,left:0,behavior:'instant'})}catch(e){window.scrollBy(0,dy)}if(++n<24)requestAnimationFrame(f)})()}function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))g()}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
+<style id="kid-palette">html.m-kid { --color-accent: #e8822f; --color-accent-100: #fff3e8; --color-accent-200: #ffe0c4; --color-accent-300: #fbc18f; --color-accent-400: #f39f55; --color-accent-500: #e8822f; --color-accent-600: #cf6c1c; --color-accent-700: #b05912; --color-on-accent: #ffffff; --color-accent-strong: #b85c12; --color-accent-strong-hover: #9c4d0c; --color-accent-800: #8a450e; --color-accent-900: #66330b; --color-accent-2-100: #fffaea; --color-accent-2-200: #fdf1cf; --color-accent-2-300: #f8e2a2; --color-accent-2-800: #87601a; --color-accent-2-900: #6b4a10; }
+    :where(html.m-kid) a:not(.btn), :where(html.m-kid) .btn-ghost, :where(html.m-kid) .tag-outline, :where(html.m-kid) .card-kicker { color: var(--color-accent-800); } html.m-kid .btn-primary { color: #ffffff !important; } html.m-kid .tag-accent { color: var(--color-accent-900) !important; } .btn-primary { background-image: none !important; background-color: var(--color-accent-strong, var(--color-accent)) !important; box-shadow: none !important; transition: background-color .12s ease; } .btn-primary:hover { background-color: var(--color-accent-strong-hover, var(--color-accent-700)) !important; } .btn-primary:active { background-color: var(--color-accent-800) !important; } html.m-kid img[data-logo] { display: none !important; } html:not(.m-kid) img[data-kid-logo] { display: none !important; } :root { --color-logo: #3d8b2f; } html.m-kid { --color-logo: #f97a00; }</style>
+<style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
+<style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script id="js-flag">document.documentElement.classList.add('js')</script>
+<style>html.js #fiche-statique { display: none !important; }</style>
+<script src="./support.js"></script>
+<title>Salers : goût, saison &amp; accords | Sainos</title>
+<meta name="description" content="Salers — fromage au lait de vache, Auvergne (Cantal). Pâte ferme, goût puissant et fruité, notes d’herbes et de fleurs des prairies d’été.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.sainos.fr/fromages/salers.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Salers : goût, saison &amp; accords">
+<meta property="og:description" content="Salers — fromage au lait de vache, Auvergne (Cantal). Pâte ferme, goût puissant et fruité, notes d’herbes et de fleurs des prairies d’été.">
+<meta property="og:url" content="https://www.sainos.fr/fromages/salers.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Thing","name":"Salers","description":"Pâte ferme, goût puissant et fruité, notes d’herbes et de fleurs des prairies d’été.","url":"https://www.sainos.fr/fromages/salers.html","image":"https://www.sainos.fr/images/fromages/salers.webp"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://www.sainos.fr/"},{"@type":"ListItem","position":2,"name":"Fromages","item":"https://www.sainos.fr/fromages.html"},{"@type":"ListItem","position":3,"name":"Salers","item":"https://www.sainos.fr/fromages/salers.html"}]}]}</script>
+<meta property="og:site_name" content="Sainos">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://www.sainos.fr/images/fromages/salers.webp">
+<meta name="twitter:card" content="summary_large_image">
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-O95OL7ls2dxJH93cMg8p4.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<style id="nav-current">[data-nav-desk]{gap:4px!important}[data-nav-desk] a{padding:6px 10px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s}[data-nav-desk] a:not([aria-current="page"]):hover{background:var(--color-accent-100)}[data-nav-desk] a[aria-current="page"]{font-weight:800;color:var(--color-accent-700)!important;background:none}</style>
+<script id="nav-current-js">(function(){var p=location.pathname,k=/\/produits\//.test(p)?'saisons.html':/\/fromages\//.test(p)?'fromages.html':(p.split('/').pop()||'index.html');var q=0;function m(){q=0;document.querySelectorAll('[data-nav-desk] a').forEach(function(a){var h=(a.getAttribute('href')||'').split('/').pop();if(h===k)a.setAttribute('aria-current','page');else if(a.getAttribute('aria-current'))a.removeAttribute('aria-current')})}function s(){if(!q){q=1;requestAnimationFrame(m)}}document.addEventListener('DOMContentLoaded',function(){m();new MutationObserver(s).observe(document.body,{childList:true,subtree:true})})})();</script>
+</head>
+<body>
+<!-- fiche-statique:start -->
+<article id="fiche-statique" style="max-width:760px;margin:0 auto;padding:24px;font-family:Nunito,system-ui,sans-serif;line-height:1.6;color:#5b3b27;">
+<nav aria-label="Fil d’Ariane"><a href="../index.html">Accueil</a> › <a href="../fromages.html">La Fromagerie</a> › Salers</nav>
+<h1>Salers</h1>
+<img src="../images/fromages/salers.webp" alt="Salers" width="320" loading="lazy">
+<p>Le salers est fabriqué uniquement à la ferme, du 15 avril au 15 novembre, quand les vaches pâturent l’herbe des montagnes du Cantal. Il est caillé dans une « gerle », une cuve en bois de châtaignier. Ses grosses meules de 40 kg peuvent s’affiner plus d’un an et demi.</p>
+<ul><li><strong>Lait&nbsp;:</strong> Vache</li><li><strong>Famille&nbsp;:</strong> Pressée non cuite</li><li><strong>Origine&nbsp;:</strong> Auvergne (Cantal), France</li><li><strong>Meilleure saison&nbsp;:</strong> août – novembre</li></ul>
+<h2>Affinage</h2><p>Affiné au moins 3 mois, souvent jusqu’à 18 mois.</p>
+<h2>Avec quoi le servir</h2><p>Une salade d’Auvergne aux pommes de terre</p>
+<p><a href="../fromages.html">Voir tous les fromages</a></p>
+</article>
+<!-- fiche-statique:end -->
+<x-dc>
+<helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</helmet>
+<dc-import name="fiche-fromage-template" fromage="salers" hint-size="100%,2000px"></dc-import>
+</x-dc>
+</body>
+</html>
