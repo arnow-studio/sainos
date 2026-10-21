@@ -17,7 +17,7 @@
 </script>
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 <style id="nav-current">[data-nav-desk]{gap:4px!important}[data-nav-desk] a{padding:6px 10px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s}[data-nav-desk] a:not([aria-current="page"]):hover{background:var(--color-accent-100)}[data-nav-desk] a[aria-current="page"]{font-weight:800;color:var(--color-accent-700)!important;background:none}</style>
-<script id="nav-current-js">(function(){var p=location.pathname,k=/\/produits\//.test(p)?'saisons.html':/\/fromages\//.test(p)?'fromages.html':(p.split('/').pop()||'index.html');var q=0;function m(){q=0;document.querySelectorAll('[data-nav-desk] a').forEach(function(a){var h=(a.getAttribute('href')||'').split('/').pop();if(h===k)a.setAttribute('aria-current','page');else if(a.getAttribute('aria-current'))a.removeAttribute('aria-current')})}function s(){if(!q){q=1;requestAnimationFrame(m)}}document.addEventListener('DOMContentLoaded',function(){m();new MutationObserver(s).observe(document.body,{childList:true,subtree:true})})})();</script>
+<script id="nav-current-js">(function(){var p=location.pathname,k=/\/produits\//.test(p)?'saisons.html':/\/fromages\//.test(p)?'fromages.html':({'marches.html':'origines.html','bio.html':'origines.html'}[p.split('/').pop()]||p.split('/').pop()||'index.html');var q=0;function m(){q=0;document.querySelectorAll('[data-nav-desk] a').forEach(function(a){var h=(a.getAttribute('href')||'').split('/').pop();if(h===k)a.setAttribute('aria-current','page');else if(a.getAttribute('aria-current'))a.removeAttribute('aria-current')})}function s(){if(!q){q=1;requestAnimationFrame(m)}}document.addEventListener('DOMContentLoaded',function(){m();new MutationObserver(s).observe(document.body,{childList:true,subtree:true})})})();</script>
 </head>
 <body>
 <x-dc>
@@ -59,14 +59,13 @@
     <nav class="nav" aria-label="Main navigation" style="max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; padding-left: clamp(20px, 5vw, 56px); padding-right: clamp(20px, 5vw, 56px); flex-wrap: wrap; row-gap: var(--space-2);">
       <a href="../index.html" class="nav-brand" style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none;" aria-label="Sainos — home">
         <img data-logo="1" src="../../images/logo.webp" alt="Sainos — seasonal fruit and vegetables" width="398" height="107" style="{{ logoBig }}"><img data-kid-logo="1" src="../../images/logo-enfants-v2.webp" alt="Sainos — seasonal fruit and vegetables" width="398" height="107" style="{{ logoBig }}">
-        <img data-logo="1" src="../../images/logo-mini.webp" alt="" aria-hidden="true" width="398" height="107" style="{{ logoMini }}"><img data-kid-logo="1" src="../../images/logo-enfants-v2.webp" alt="" aria-hidden="true" width="398" height="107" style="{{ logoMini }}"><span data-baseline="1" style="font-family: var(--font-body); font-size: 14px; font-weight: 700; line-height: 1; color: var(--color-text); white-space: nowrap;">The Taste of the <span style="color: var(--color-logo, var(--color-accent-700));">Seasons</span></span>
+        <img data-logo="1" src="../../images/logo-mini.webp" alt="" aria-hidden="true" width="398" height="107" style="{{ logoMini }}"><img data-kid-logo="1" src="../../images/logo-enfants-v2.webp" alt="" aria-hidden="true" width="398" height="107" style="{{ logoMini }}"><span data-baseline="1" style="font-family: var(--font-body); font-size: 14px; font-weight: 700; line-height: 1; color: var(--color-text); white-space: nowrap;">The Spirit of the <span style="color: var(--color-logo, var(--color-accent-700));">Seasons</span></span>
       </a>
       <div data-nav-desk="1" style="display: flex; gap: var(--space-4); align-items: center;">
-        <a href="../saisons.html">The Garden</a>
+        <a href="../saisons.html">The Garden</a><a href="../jardin.html">The Flower Garden</a>
         <a href="../fromages.html" data-adult-only="1">The Cheese</a>
-        <a href="../origines.html">Origins</a>
-        <a href="../marches.html" data-nav-mar="1">Markets</a><a href="../pousse.html" data-nav-pousse="1">How it grows</a>
-        <a href="../bio.html">Organic</a>
+        <a href="../origines.html">Choosing well</a>
+        <a href="../pousse.html" data-nav-pousse="1">How it grows</a>
         <a href="../enseignants.html" data-nav-lex="1">In class</a>
         <a href="../quiz.html" data-nav-quiz="1">Quiz</a>
         <a href="../apropos.html">About</a>
@@ -77,11 +76,10 @@
           <svg data-ic="close" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
         </summary>
         <div data-nav-panel="1" style="position: absolute; right: 0; top: calc(100% + 10px); z-index: 50; width: min(280px, 80vw); box-sizing: border-box; padding: 10px; background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 4px;">
-          <a href="../saisons.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">The Garden</a>
+          <a href="../saisons.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">The Garden</a><a href="../jardin.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">The Flower Garden</a>
         <a href="../fromages.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">The Cheese</a>
-          <a href="../origines.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Origins</a>
-          <a href="../marches.html" data-nav-mar="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Markets</a><a href="../pousse.html" data-nav-pousse="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">How it grows</a>
-          <a href="../bio.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Organic</a>
+          <a href="../origines.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Choosing well</a>
+          <a href="../pousse.html" data-nav-pousse="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">How it grows</a>
           <a href="../enseignants.html" data-nav-lex="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">In class</a>
         <a href="../quiz.html" data-nav-quiz="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Quiz</a>
           <a href="../apropos.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">About</a>
@@ -486,11 +484,10 @@
       <img data-logo="1" src="../../images/logo-mini.webp" alt="Sainos" width="398" height="107" style="display: block; height: 30px; width: auto;"><img data-kid-logo="1" src="../../images/logo-enfants-v2.webp" alt="Sainos" width="398" height="107" style="display: block; height: 30px; width: auto;">
       <nav aria-label="Footer" style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
         <a href="../index.html">Home</a>
-        <a href="../saisons.html">The Garden</a>
+        <a href="../saisons.html">The Garden</a><a href="../jardin.html">The Flower Garden</a>
         <a href="../fromages.html" data-adult-only="1">The Cheese</a>
-        <a href="../origines.html">Origins</a>
-        <a href="../marches.html" data-nav-mar="1">Markets</a><a href="../pousse.html" data-nav-pousse="1">How it grows</a>
-        <a href="../bio.html">Organic</a>
+        <a href="../origines.html">Choosing well</a>
+        <a href="../pousse.html" data-nav-pousse="1">How it grows</a>
         <a href="../lexique.html" data-nav-lex="1">Glossary</a>
         <a href="../quiz.html" data-nav-quiz="1">Quiz</a>
         <a href="../apropos.html">About</a>

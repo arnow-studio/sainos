@@ -3,10 +3,10 @@
   if (window.__sainosSearch) return; window.__sainosSearch = 1;
   var me = document.currentScript, BASE = me ? me.src.replace(/recherche\.js.*$/, '') : '/';
   var EN = /\/en(\/|$)/.test(location.pathname) || document.documentElement.lang === 'en';
-  var T = EN ? { btn: 'Search', ph: 'Search a fruit, vegetable, cheese…', none: 'No results for', hint: 'Type at least 2 letters', close: 'Close', fruit: 'Fruit', legume: 'Vegetable', herbe: 'Herb', fromage: 'Cheese', page: 'Page' }
-             : { btn: 'Rechercher', ph: 'Chercher un fruit, un légume, un fromage…', none: 'Aucun résultat pour', hint: 'Tapez au moins 2 lettres', close: 'Fermer', fruit: 'Fruit', legume: 'Légume', herbe: 'Herbe', fromage: 'Fromage', page: 'Page' };
-  var PAGES = EN ? [['The Garden', 'saisons.html'], ['The Cheese', 'fromages.html', 1], ['Origins map', 'origines.html'], ['Markets', 'marches.html'], ['Organic', 'bio.html'], ['Glossary', 'lexique.html'], ['Quiz', 'quiz.html'], ['For teachers', 'enseignants.html'], ['How it grows', 'pousse.html'], ['About', 'apropos.html']]
-                 : [['Le Potager', 'saisons.html'], ['La Fromagerie', 'fromages.html', 1], ['Carte des origines', 'origines.html'], ['Marchés', 'marches.html'], ['Bio', 'bio.html'], ['Lexique', 'lexique.html'], ['Quiz', 'quiz.html'], ['En classe', 'enseignants.html'], ['Ça pousse !', 'pousse.html'], ['À propos', 'apropos.html']];
+  var T = EN ? { btn: 'Search', ph: 'Search a fruit, vegetable, cheese…', none: 'No results for', hint: 'Type at least 2 letters', close: 'Close', fruit: 'Fruit', legume: 'Vegetable', herbe: 'Herb', fromage: 'Cheese', page: 'Page', fleur: 'Flower', fleurc: 'Edible flower', arom: 'Herb' }
+             : { btn: 'Rechercher', ph: 'Chercher un fruit, un légume, un fromage…', none: 'Aucun résultat pour', hint: 'Tapez au moins 2 lettres', close: 'Fermer', fruit: 'Fruit', legume: 'Légume', herbe: 'Herbe', fromage: 'Fromage', page: 'Page', fleur: 'Fleur', fleurc: 'Fleur comestible', arom: 'Aromatique' };
+  var PAGES = EN ? [['The Garden', 'saisons.html'], ['The Flower Garden', 'jardin.html'], ['Choosing well', 'origines.html'], ['The Cheese', 'fromages.html', 1], ['Origins map', 'origines.html'], ['Markets', 'marches.html'], ['Organic', 'bio.html'], ['Glossary', 'lexique.html'], ['Quiz', 'quiz.html'], ['For teachers', 'enseignants.html'], ['How it grows', 'pousse.html'], ['About', 'apropos.html']]
+                 : [['Le Potager', 'saisons.html'], ['Le Jardin', 'jardin.html'], ['Bien choisir', 'origines.html'], ['La Fromagerie', 'fromages.html', 1], ['Carte des origines', 'origines.html'], ['Marchés', 'marches.html'], ['Bio', 'bio.html'], ['Lexique', 'lexique.html'], ['Quiz', 'quiz.html'], ['En classe', 'enseignants.html'], ['Ça pousse !', 'pousse.html'], ['À propos', 'apropos.html']];
   var ROOT = BASE + (EN ? 'en/' : '');
   function norm(s) { return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[’'\-]/g, ' '); }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
@@ -14,10 +14,11 @@
   var idx = null;
   function build() {
     if (idx) return Promise.resolve(idx);
-    return Promise.all([load(ROOT + 'produits-data.js', function () { return window.SAISON && window.SAISON.produits; }), load(BASE + 'fromages-data.js', function () { return window.FROMAGES; })]).then(function () {
+    return Promise.all([load(ROOT + 'produits-data.js', function () { return window.SAISON && window.SAISON.produits; }), load(BASE + 'fromages-data.js', function () { return window.FROMAGES; }), load(BASE + 'jardin-data.js', function () { return window.JARDIN; })]).then(function () {
       idx = [];
       ((window.SAISON && window.SAISON.produits) || []).forEach(function (p) { idx.push({ n: p.n, k: norm(p.n + ' ' + (p.fam || '')), t: T[p.t] || T.legume, u: ROOT + 'produits/' + p.s + '.html', img: p.img ? BASE + 'images/' + p.s + '.webp' : '', e: p.e }); });
       ((window.FROMAGES && window.FROMAGES.fromages) || []).forEach(function (f) { var r = EN && f.en ? f.en.r : f.r; idx.push({ n: f.n, k: norm(f.n + ' ' + r + ' ' + f.lait + ' ' + f.fam), t: T.fromage, sub: r, u: ROOT + 'fromages/' + f.s + '.html', img: BASE + 'images/fromages/' + f.s + '.webp', cheese: 1 }); });
+      ((window.JARDIN && window.JARDIN.plantes) || []).forEach(function (p) { if (p.fiche) return; var n = EN ? p.en : p.n; idx.push({ n: n, k: norm(n + ' ' + (EN ? p.n : p.en)), t: p.c[0] === 'c' ? T.fleurc : p.c[0] === 'a' ? T.arom : T.fleur, u: ROOT + 'jardin/' + p.s + '.html', img: BASE + 'images/jardin/' + p.s + '.webp', e: p.e }); });
       PAGES.forEach(function (p) { idx.push({ n: p[0], k: norm(p[0]), t: T.page, u: ROOT + p[1], page: 1, cheese: p[2] }); });
       return idx;
     });
