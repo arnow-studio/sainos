@@ -36,7 +36,7 @@
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/sainos.webp">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Sainos","url":"https://www.sainos.fr/en/","potentialAction":{"@type":"SearchAction","target":"https://www.sainos.fr/en/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
 <!-- Privacy-friendly analytics by Plausible -->
-<script async src="https://plausible.io/js/pa-O95OL7ls2dxJH93cMg8p4.js"></script>
+<script async src="https://plausible.io/js/pa-SaacaKlZy2uX6RVnlBrdr.js"></script>
 <script>
   window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
   plausible.init()
@@ -159,20 +159,13 @@
           <sc-for list="{{ cards }}" as="c" hint-placeholder-count="8">
             <li style="display: flex;">
               <a href="{{ c.href }}" aria-label="{{ c.aria }}" style="flex: 1; display: flex; flex-direction: column; gap: var(--space-3); padding: clamp(12px, 3vw, 16px); background: #ffffff; min-width: 0; border: {{ c.ring }}; border-radius: var(--radius-lg); text-decoration: none; color: var(--color-text); box-shadow: var(--shadow-sm); transition: transform .18s ease, box-shadow .18s ease;" style-hover="transform: translateY(-4px) rotate(-0.6deg); box-shadow: var(--shadow-lg); color: var(--color-text);">
-                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: var(--space-2);">
-                  <span aria-hidden="true" style="width: clamp(88px, 24vw, 140px); height: clamp(88px, 24vw, 140px); border-radius: 50%; display: grid; place-items: center; font-size: clamp(60px, 16vw, 96px); background: #ffffff;"><sc-if value="{{ c.img }}" hint-placeholder-val="{{ false }}"><span role="img" aria-hidden="true" style="width: 1em; height: 1em; background: {{ c.imgBg }}; display: block;"></span></sc-if><sc-if value="{{ c.noImg }}" hint-placeholder-val="{{ true }}">{{ c.e }}</sc-if></span>
-                  <span style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px;"><sc-if value="{{ c.badge }}" hint-placeholder-val="{{ false }}"><span class="tag tag-accent" style="font-size: 12px;">🏅 Badge earned</span></sc-if></span>
+                <sc-if value="{{ c.badge }}" hint-placeholder-val="{{ false }}"><span style="align-self: flex-end; margin-bottom: -8px;"><span class="tag tag-accent" style="font-size: 12px;">🏅 Badge earned</span></span></sc-if>
+                <span aria-hidden="true" style="align-self: center; flex-shrink: 0; font-size: 96px; line-height: 1; display: grid; place-items: center;"><sc-if value="{{ c.img }}" hint-placeholder-val="{{ false }}"><span role="img" aria-hidden="true" style="width: 1em; height: 1em; background: {{ c.imgBg }}; display: block;"></span></sc-if><sc-if value="{{ c.noImg }}" hint-placeholder-val="{{ true }}">{{ c.e }}</sc-if></span>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center;">
+                  <h3 style="margin: 0; font-size: clamp(18px, 4.6vw, 22px); line-height: 1.15; text-wrap: balance; overflow-wrap: anywhere;">{{ c.n }}</h3>
+                  <span style="font-size: 13px; line-height: 1.25; color: var(--color-neutral-700);">{{ c.info }}</span>
                 </div>
-                <div style="display: flex; flex-direction: column; gap: 2px;">
-                                    <h3 style="margin: 0; font-size: clamp(19px, 5vw, 24px); line-height: 1.1; overflow-wrap: anywhere;">{{ c.n }}</h3>
-                </div>
-                <div style="display: flex; flex-wrap: wrap; gap: 4px; min-height: 22px;">
-                  <sc-for list="{{ c.forts }}" as="fm" hint-placeholder-count="2">
-                    <span class="{{ fm.cls }}" style="font-size: 12px;">{{ fm.label }}</span>
-                  </sc-for>
-                </div>
-                <span data-card-cta="1" style="margin-top: auto; font-weight: 700; font-size: 14px; color: var(--color-accent-700);"><sc-if value="{{ c.adult }}" hint-placeholder-val="{{ true }}">Learn more →</sc-if><sc-if value="{{ c.kid }}" hint-placeholder-val="{{ false }}">Discover →</sc-if></span>
-              </a>
+                </a>
             </li>
           </sc-for>
         </ul>
@@ -314,7 +307,7 @@ class Component extends DCLogic {
     const cards = list.map(p => {
       const forts = (p.f.length ? p.f : []).map(x => ({ label: S.MOIS_C[x - 1], cls: 'tag ' + (x === m ? 'tag-accent' : 'tag-accent-2') }));
       if (!p.f.length) forts.push({ label: p.m.length === 12 ? 'All year round' : 'No peak season', cls: 'tag tag-neutral' });
-      return { ...S.vis(p), s: p.s, ring: p.f.includes(m) ? '2px solid var(--color-accent-600)' : '2px solid transparent', href: S.url(p), n: p.n, flag: p.orig.flag, origine: p.orig.label, type: S.TYPES[p.t].one, bg: bg[p.t], forts, aria: p.n + ' — learn more' };
+      return { ...S.vis(p), s: p.s, info: p.f.includes(m) ? 'Peak season' : p.m.includes(m) ? 'Available' : 'Out of season', ring: p.f.includes(m) ? '2px solid var(--color-accent-600)' : '2px solid transparent', href: S.url(p), n: p.n, flag: p.orig.flag, origine: p.orig.label, type: S.TYPES[p.t].one, bg: bg[p.t], forts, aria: p.n + ' — learn more' };
     });
     const moisNom = S.MOIS[m - 1];
     const heading = searching ? 'Results for “' + q.trim() + '”' : scope === 'mois' ? 'Right now: ' + moisNom : 'All fruit, vegetables and herbs';
