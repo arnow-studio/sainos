@@ -15,21 +15,27 @@
 <style>html.js #fiche-statique { display: none !important; }</style>
 <script src="./support.js"></script>
 <script id="lang-redirect">(function(){function ask(alt){if(document.getElementById('lang-ask'))return;var d=document.createElement('div');d.id='lang-ask';d.setAttribute('role','dialog');d.setAttribute('aria-modal','true');d.setAttribute('aria-labelledby','lang-ask-t');d.setAttribute('lang','en');d.style.cssText='position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:20px;background:rgba(32,30,29,.45)';var B='min-height:48px;padding:0 22px;border-radius:999px;font:inherit;font-weight:700;font-size:16px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;flex:1 1 auto;text-decoration:none;';d.innerHTML='<div style="background:#fff;border-radius:24px;padding:28px;max-width:420px;width:100%;box-sizing:border-box;box-shadow:0 20px 50px rgba(0,0,0,.2);display:flex;flex-direction:column;gap:14px;font-family:var(--font-body);color:var(--color-text)"><h2 id="lang-ask-t" style="margin:0;font-family:var(--font-heading);font-weight:400;font-size:26px;line-height:1.15">Would you like the English version?</h2><p style="margin:0;font-size:16px;line-height:1.5">Your browser is set to English, but you seem to be in France.</p><div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px"><a href="'+alt+location.hash+'" data-lang="en" style="'+B+'background:var(--color-accent-strong,var(--color-accent));color:#fff;border:0">Switch to English</a><button type="button" data-lang="fr" lang="fr" style="'+B+'background:#fff;color:var(--color-text);border:2px solid var(--color-accent-300)">Rester en fran\u00e7ais</button></div></div>';function close(){try{localStorage.setItem('sainos-lang','fr')}catch(_){}d.remove();document.removeEventListener('keydown',k)}function k(e){if(e.key==='Escape')close()}d.querySelector('button').addEventListener('click',close);d.addEventListener('click',function(e){if(e.target===d)close()});document.addEventListener('keydown',k);document.body.appendChild(d);d.querySelector('a').focus()}var cur='en',alt='../../fromages/tomme-de-savoie.html';document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-lang]');if(a)try{localStorage.setItem('sainos-lang',a.getAttribute('data-lang'))}catch(_){}},true);try{var p=localStorage.getItem('sainos-lang');if(/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)||p===cur)return;var L=p||((navigator.languages&&navigator.languages[0])||navigator.language||'').slice(0,2).toLowerCase();if(cur==='en'&&L==='fr')location.replace(alt+location.hash);else if(cur==='fr'&&L==='en'){var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(_){}if(tz!=='Europe/Paris')location.replace(alt+location.hash);else if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){ask(alt)});else ask(alt)}}catch(e){}})();</script>
-<meta name="description" content="Apple: in season in January, February, March, April, August, September, October, November, December, peak season in September, October, November. The most eaten fruit in France; late varieties keep all winter.">
-<meta name="robots" content="index, follow">
-<title>Tomme de Savoie: taste, season &amp; what to serve it with | Sainos</title>
-<meta name="description" content="Tomme de Savoie — cow’s milk cheese from Savoie. Supple paste with small holes and honest flavours of hay, cellar and mild mushroom.">
-<meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.sainos.fr/en/fromages/tomme-de-savoie.html">
+<title>Tomme de Savoie: taste, season &amp; pairings | Sainos</title>
+<meta name="description" content="Tomme de Savoie — cow’s milk cheese from Savoie. Supple paste with small holes and honest flavours of hay, cellar and mild mushroom.">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tomme de Savoie: taste, season &amp; what to serve it with">
-<meta property="og:description" content="Tomme de Savoie — cow’s milk cheese from Savoie. Supple paste with small holes and honest flavours of hay, cellar and mild mushroom.">
-<meta property="og:url" content="https://www.sainos.fr/en/fromages/tomme-de-savoie.html">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Thing","name":"Tomme de Savoie","description":"Supple paste with small holes and honest flavours of hay, cellar and mild mushroom.","url":"https://www.sainos.fr/en/fromages/tomme-de-savoie.html","image":"https://www.sainos.fr/images/fromages/tomme-de-savoie.webp"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.sainos.fr/en/"},{"@type":"ListItem","position":2,"name":"Cheeses","item":"https://www.sainos.fr/en/fromages.html"},{"@type":"ListItem","position":3,"name":"Tomme de Savoie","item":"https://www.sainos.fr/en/fromages/tomme-de-savoie.html"}]}]}</script>
 <meta property="og:site_name" content="Sainos">
 <meta property="og:locale" content="en_GB">
-<meta property="og:image" content="https://www.sainos.fr/images/fromages/tomme-de-savoie.webp">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:url" content="https://www.sainos.fr/en/fromages/tomme-de-savoie.html">
+<meta property="og:title" content="Tomme de Savoie: taste, season &amp; pairings">
+<meta property="og:description" content="Tomme de Savoie — cow’s milk cheese from Savoie. Supple paste with small holes and honest flavours of hay, cellar and mild mushroom.">
+<meta property="og:image" content="https://www.sainos.fr/images/og/sainos.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sainos — seasonal fruit and vegetables">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tomme de Savoie: taste, season &amp; pairings">
+<meta name="twitter:description" content="Tomme de Savoie — cow’s milk cheese from Savoie. Supple paste with small holes and honest flavours of hay, cellar and mild mushroom.">
+<meta name="twitter:image" content="https://www.sainos.fr/images/og/sainos.webp">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Thing","name":"Tomme de Savoie","description":"Supple paste with small holes and honest flavours of hay, cellar and mild mushroom.","url":"https://www.sainos.fr/en/fromages/tomme-de-savoie.html","image":"https://www.sainos.fr/images/fromages/tomme-de-savoie.webp"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.sainos.fr/en/"},{"@type":"ListItem","position":2,"name":"Cheeses","item":"https://www.sainos.fr/en/fromages.html"},{"@type":"ListItem","position":3,"name":"Tomme de Savoie","item":"https://www.sainos.fr/en/fromages/tomme-de-savoie.html"}]}]}</script>
 <!-- Privacy-friendly analytics by Plausible -->
 <script async src="https://plausible.io/js/pa-O95OL7ls2dxJH93cMg8p4.js"></script>
 <script>
