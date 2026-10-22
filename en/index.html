@@ -150,7 +150,7 @@
       </div>
 
       <sc-if value="{{ hasResults }}" hint-placeholder-val="{{ true }}">
-        <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(max(min(160px, 42vw), calc((100% - 64px) / 5)), 1fr)); gap: clamp(10px, 2.5vw, 16px);">
+        <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(max(min(160px, calc((100% - 16px) / 2)), calc((100% - 64px) / 5)), 1fr)); gap: clamp(10px, 2.5vw, 16px);">
           <sc-for list="{{ cards }}" as="c" hint-placeholder-count="8">
             <li style="display: flex;">
               <a href="{{ c.href }}" aria-label="{{ c.aria }}" style="flex: 1; display: flex; flex-direction: column; gap: var(--space-3); padding: clamp(12px, 3vw, 16px); background: #ffffff; min-width: 0; border: {{ c.ring }}; border-radius: var(--radius-lg); text-decoration: none; color: var(--color-text); box-shadow: var(--shadow-sm); transition: transform .18s ease, box-shadow .18s ease;" style-hover="transform: translateY(-4px) rotate(-0.6deg); box-shadow: var(--shadow-lg); color: var(--color-text);">
