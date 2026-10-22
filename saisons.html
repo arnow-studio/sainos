@@ -77,7 +77,7 @@
         <img data-logo="1" src="images/logo-mini.webp" alt="" aria-hidden="true" width="398" height="107" style="{{ logoMini }}"><img data-kid-logo="1" src="images/logo-enfants-v2.webp" alt="" aria-hidden="true" width="398" height="107" style="{{ logoMini }}"><span data-baseline="1" style="font-family: var(--font-body); font-size: 14px; font-weight: 700; line-height: 1; color: var(--color-text); white-space: nowrap;">L’Esprit des <span style="color: var(--color-logo, var(--color-accent-700));">Saisons</span></span>
       </a>
       <div data-nav-desk="1" style="display: flex; gap: var(--space-4); align-items: center;">
-        <a href="saisons.html" aria-current="page">Le Potager</a><a href="jardin.html">Le Jardin</a>
+        <a href="saisons.html" aria-current="page">Le Potager &amp; Verger</a><a href="jardin.html">Le Jardin</a>
         <a href="fromages.html" data-adult-only="1">La Fromagerie</a>
         <a href="origines.html">Bien choisir</a>
         <a href="pousse.html" data-nav-pousse="1">Ça pousse !</a>
@@ -91,7 +91,7 @@
           <svg data-ic="close" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
         </summary>
         <div data-nav-panel="1" style="position: absolute; right: 0; top: calc(100% + 10px); z-index: 50; width: min(280px, 80vw); box-sizing: border-box; padding: 10px; background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 4px;">
-          <a href="saisons.html" aria-current="page" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-accent-900); background: var(--color-accent-100);">Le Potager</a><a href="jardin.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-accent-900); background: var(--color-accent-100);">Le Jardin</a>
+          <a href="saisons.html" aria-current="page" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-accent-900); background: var(--color-accent-100);">Le Potager &amp; Verger</a><a href="jardin.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-accent-900); background: var(--color-accent-100);">Le Jardin</a>
         <a href="fromages.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-accent-900); background: var(--color-accent-100);">La Fromagerie</a>
           <a href="origines.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Bien choisir</a>
           <a href="pousse.html" data-nav-pousse="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Ça pousse !</a>
@@ -112,7 +112,7 @@
       
     <div style="display: flex; flex-direction: column; gap: var(--space-3); max-width: 720px;">
       <nav aria-label="Fil d’Ariane" style="font-size: 14px; display: flex; gap: var(--space-2);"><a href="index.html">Accueil</a><span aria-hidden="true">›</span><span aria-current="page">Calendrier des saisons</span></nav>
-      <sc-if value="{{ adult }}" hint-placeholder-val="{{ true }}"><h1 style="margin: 0; font-size: clamp(36px, 5vw, 58px); line-height: 1.05; text-wrap: balance;">Le potager au rythme des saisons</h1>
+      <sc-if value="{{ adult }}" hint-placeholder-val="{{ true }}"><h1 style="margin: 0; font-size: clamp(36px, 5vw, 58px); line-height: 1.05; text-wrap: balance;">Le potager et le verger au rythme des saisons</h1>
       <p style="margin: 0; font-size: 18px; line-height: 1.55; color: var(--color-neutral-800); text-wrap: pretty;">Choisissez un mois : voici ce qui est en pleine saison, et ce qu’on trouve encore sur les étals.</p></sc-if><sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}"><h1 style="margin: 0; font-size: clamp(36px, 5vw, 58px); line-height: 1.05; text-wrap: balance;">Qu’est-ce qu’on mange ce mois-ci ?</h1>
       <p style="margin: 0; font-size: 18px; line-height: 1.55; color: var(--color-neutral-800); text-wrap: pretty;">Choisis un mois et découvre les fruits, légumes et herbes qui sont à leur meilleur moment.</p></sc-if>
     </div>
@@ -226,7 +226,7 @@
       <img data-logo="1" src="images/logo-mini.webp" alt="Sainos" width="398" height="107" style="display: block; height: 30px; width: auto;"><img data-kid-logo="1" src="images/logo-enfants-v2.webp" alt="Sainos" width="398" height="107" style="display: block; height: 30px; width: auto;">
       <nav aria-label="Pied de page" style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
         <a href="index.html">Accueil</a>
-        <a href="saisons.html">Le Potager</a><a href="jardin.html">Le Jardin</a>
+        <a href="saisons.html">Le Potager &amp; Verger</a><a href="jardin.html">Le Jardin</a>
         <a href="fromages.html" data-adult-only="1">La Fromagerie</a>
         <a href="origines.html">Bien choisir</a>
         <a href="pousse.html" data-nav-pousse="1">Ça pousse !</a>
