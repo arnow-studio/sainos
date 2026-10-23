@@ -16,6 +16,8 @@
 <link rel="stylesheet" href="_ds/organic-f9092e65-12bb-43ea-a459-3e0b5f502c38/styles.css">
 <script src="produits-data.js"></script>
 <script src="produits-enfants.js"></script>
+<script src="jardin-data.js"></script>
+<script src="fromages-data.js"></script>
 <style>
   .qopt { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 60px; padding: 12px 18px; box-sizing: border-box; background: #fff; border: 3px solid var(--color-accent-200); border-radius: 999px; font: inherit; font-size: 18px; font-weight: 700; color: var(--color-text); text-align: left; cursor: pointer; transition: transform .12s, background .12s, border-color .12s; }
   .qopt:hover:not(:disabled) { border-color: var(--color-accent-500); background: var(--color-accent-100); transform: translateY(-2px); }
@@ -54,7 +56,7 @@
 </style>
 <script>(function(){var d=document.documentElement,on=false;function f(){var y=window.scrollY,s=on?y>8:y>60;if(s!==on){on=s;d.classList.toggle('is-scrolled',s);}}window.addEventListener('scroll',f,{passive:true});f();})();</script>
 <link rel="canonical" href="https://www.sainos.fr/quiz.html">
-<title>Le quiz des fruits et légumes pour les enfants | Sainos</title>
+<title>Le grand quiz de Sainos pour les enfants | Sainos</title>
 <meta name="description" content="Un quiz ludique pour les 8-12 ans : 10 questions sur les fruits et légumes de saison, leurs secrets et leur histoire.">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta property="og:type" content="website">
@@ -62,7 +64,7 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_GB">
 <meta property="og:url" content="https://www.sainos.fr/quiz.html">
-<meta property="og:title" content="Le quiz des fruits et légumes pour les enfants">
+<meta property="og:title" content="Le grand quiz de Sainos pour les enfants">
 <meta property="og:description" content="Un quiz ludique pour les 8-12 ans : 10 questions sur les fruits et légumes de saison, leurs secrets et leur histoire.">
 <meta property="og:image" content="https://www.sainos.fr/images/og/sainos.webp">
 <meta property="og:image:type" content="image/webp">
@@ -70,7 +72,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Sainos — fruits et légumes de saison">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Le quiz des fruits et légumes pour les enfants">
+<meta name="twitter:title" content="Le grand quiz de Sainos pour les enfants">
 <meta name="twitter:description" content="Un quiz ludique pour les 8-12 ans : 10 questions sur les fruits et légumes de saison, leurs secrets et leur histoire.">
 <meta name="twitter:image" content="https://www.sainos.fr/images/og/sainos.webp">
 <!-- Privacy-friendly analytics by Plausible -->
@@ -81,7 +83,7 @@
 </script>
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 <style id="nav-current">[data-nav-desk]{gap:4px!important}[data-nav-desk] a{padding:6px 10px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s}[data-nav-desk] a:not([aria-current="page"]):hover{background:var(--color-accent-100)}[data-nav-desk] a[aria-current="page"]{font-weight:800;color:var(--color-accent-700)!important;background:none}</style>
-<script id="nav-current-js">(function(){var p=location.pathname,k=/\/produits\//.test(p)?'saisons.html':/\/fromages\//.test(p)?'fromages.html':({'marches.html':'origines.html','bio.html':'origines.html'}[p.split('/').pop()]||p.split('/').pop()||'index.html');var q=0;function m(){q=0;document.querySelectorAll('[data-nav-desk] a').forEach(function(a){var h=(a.getAttribute('href')||'').split('/').pop();if(h===k)a.setAttribute('aria-current','page');else if(a.getAttribute('aria-current'))a.removeAttribute('aria-current')})}function s(){if(!q){q=1;requestAnimationFrame(m)}}document.addEventListener('DOMContentLoaded',function(){m();new MutationObserver(s).observe(document.body,{childList:true,subtree:true})})})();</script>
+<script id="nav-current-js">(function(){var p=location.pathname,k=/\/produits\//.test(p)?'saisons.html':/\/fromages\//.test(p)?'fromages.html':({'marches.html':'origines.html','bio.html':'origines.html','lexique.html':'origines.html'}[p.split('/').pop()]||p.split('/').pop()||'index.html');var q=0;function m(){q=0;document.querySelectorAll('[data-nav-desk] a').forEach(function(a){var h=(a.getAttribute('href')||'').split('/').pop();if(h===k)a.setAttribute('aria-current','page');else if(a.getAttribute('aria-current'))a.removeAttribute('aria-current')})}function s(){if(!q){q=1;requestAnimationFrame(m)}}document.addEventListener('DOMContentLoaded',function(){m();new MutationObserver(s).observe(document.body,{childList:true,subtree:true})})})();</script>
 <script id="recherche-js" src="recherche.js" defer></script>
 </head>
 <body>
@@ -94,7 +96,7 @@
       <div data-nav-desk="1" style="display: flex; gap: var(--space-4); align-items: center; flex-wrap: wrap;">
         <a href="saisons.html">Le Potager &amp; Verger</a><a href="jardin.html">Le Jardin</a>
         <a href="fromages.html" data-adult-only="1">La Fromagerie</a>
-        <a href="origines.html">Bien choisir</a>
+        <a href="origines.html">Le Guide</a>
         <a href="pousse.html" data-nav-pousse="1">Ça pousse !</a>
         <a href="enseignants.html" data-nav-lex="1">En classe</a>
         <a href="quiz.html" data-nav-quiz="1" aria-current="page">Quiz</a>
@@ -108,7 +110,7 @@
         <div data-nav-panel="1" style="position: absolute; right: 0; top: calc(100% + 10px); z-index: 50; width: min(280px, 80vw); box-sizing: border-box; padding: 10px; background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 4px;">
           <a href="saisons.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Le Potager &amp; Verger</a><a href="jardin.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Le Jardin</a>
         <a href="fromages.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">La Fromagerie</a>
-          <a href="origines.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Bien choisir</a>
+          <a href="origines.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Le Guide</a>
           <a href="pousse.html" data-nav-pousse="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Ça pousse !</a>
           <a href="enseignants.html" data-nav-lex="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">En classe</a>
         <a href="quiz.html" data-nav-quiz="1" aria-current="page" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-accent-900); background: var(--color-accent-100);">Quiz</a>
@@ -132,7 +134,7 @@
   <main class="wrap" style="flex: 1; display: flex; flex-direction: column; gap: var(--space-8); padding-top: clamp(40px, 7vw, 56px); padding-bottom: var(--space-8);">
     <section style="display: flex; flex-direction: column; gap: var(--space-4); max-width: 720px;">
       <nav aria-label="Fil d’Ariane" style="font-size: 14px; display: flex; gap: var(--space-2);"><a href="index.html">Accueil</a><span aria-hidden="true">›</span><span aria-current="page">Quiz</span></nav>
-      <h1 style="margin: 0; font-size: clamp(38px, 5.5vw, 64px); line-height: 1.02; text-wrap: balance;">Le grand quiz des fruits et légumes</h1>
+      <h1 style="margin: 0; font-size: clamp(38px, 5.5vw, 64px); line-height: 1.02; text-wrap: balance;">Le grand quiz de Sainos</h1>
       <p style="margin: 0; font-size: 19px; line-height: 1.65; text-wrap: pretty;">Choisis ton âge et ton thème : 10 questions pour tester tes connaissances. Une bonne réponse = une étoile. Arriveras-tu à toutes les gagner ?</p>
     </section>
 
@@ -149,6 +151,8 @@
         <button type="button" class="pill" data-theme="tout" aria-pressed="true" style="justify-content: center; min-height: 56px; font-size: 17px;">🧺 Tout mélangé</button>
         <button type="button" class="pill" data-theme="fruit" aria-pressed="false" style="justify-content: center; min-height: 56px; font-size: 17px;">🍎 Les fruits</button>
         <button type="button" class="pill" data-theme="legume" aria-pressed="false" style="justify-content: center; min-height: 56px; font-size: 17px;">🥕 Les légumes</button>
+        <button type="button" class="pill" data-theme="jardin" aria-pressed="false" style="justify-content: center; min-height: 56px; font-size: 17px;">🌸 Le jardin</button>
+        <button type="button" class="pill" data-theme="fromage" aria-pressed="false" style="justify-content: center; min-height: 56px; font-size: 17px;">🧀 Les fromages</button>
         <button type="button" class="pill" data-theme="defi" aria-pressed="false" style="justify-content: center; min-height: 56px; font-size: 17px;">🎲 Défi surprise</button>
       </div>
       <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center;">
@@ -225,7 +229,7 @@
         <a href="index.html">Accueil</a>
         <a href="saisons.html">Le Potager &amp; Verger</a><a href="jardin.html">Le Jardin</a>
         <a href="fromages.html" data-adult-only="1">La Fromagerie</a>
-        <a href="origines.html">Bien choisir</a>
+        <a href="origines.html">Le Guide</a>
         <a href="pousse.html" data-nav-pousse="1">Ça pousse !</a>
         <a href="lexique.html">Lexique</a>
         <a href="apropos.html">À propos</a>
@@ -283,16 +287,44 @@
   function qFiche(p) { var q = kp(p).quiz; return { p: p, text: q[0], opts: q[1], ans: q[2], expl: q[3] }; }
   function qFam(p) { var o = []; all.forEach(function (x) { if (x.fam && x.fam !== p.fam && o.indexOf(x.fam) < 0) o.push(x.fam); }); return mk(p, 'À quelle famille de plantes appartient ' + art(p) + p.n.toLowerCase() + NB + '?', p.fam, o, art(p).replace(/^./, function (c) { return c.toUpperCase(); }) + p.n.toLowerCase() + ' fait partie des ' + p.fam + '. ' + (p.d || '')); }
   function qOrig(p) { var lab = S.ORIG && S.ORIG[p.o] ? S.ORIG[p.o].label : null; if (!lab) return null; var o = ['France', 'Espagne', 'Italie', 'Pérou', 'Costa Rica', 'Antilles', 'Corse'].filter(function (x) { return x !== lab; }); return mk(p, 'D’où vient le plus souvent ' + art(p) + p.n.toLowerCase() + ' qu’on achète en France' + NB + '?', lab, o, 'Le plus souvent, ' + art(p) + p.n.toLowerCase() + ' vient ' + ({ France: 'de France', Espagne: 'd’Espagne', Italie: 'd’Italie', 'Pérou': 'du Pérou', 'Costa Rica': 'du Costa Rica', Antilles: 'des Antilles', Corse: 'de Corse' }[lab] || 'de ' + lab) + '. ' + (kp(p).ou || '')); }
+  
+  var NBS = '\u202F', JC = { f: 'Une fleur', c: 'Une fleur comestible', a: 'Une plante aromatique' };
+  var PAYS = { FR: 'France', CH: 'Suisse', IT: 'Italie', ES: 'Espagne', GR: 'Grèce', NL: 'Pays-Bas', GB: 'Royaume-Uni' };
+  var JAR = window.JARDIN ? window.JARDIN.plantes.map(function (x) { return { k: 'j', s: x.s, n: x.n, e: x.e, c: x.c, f: x.f, p: x.p, d: x.d, img: 'images/jardin/' + x.s + '.webp', href: 'jardin/' + x.s + '.html' }; }) : [];
+  var FRO = window.FROMAGES ? window.FROMAGES.fromages.map(function (x) { return { k: 'f', s: x.s, n: x.n, e: '🧀', lait: x.lait, pays: PAYS[x.p], r: x.r, fam: x.fam, f: x.f, d: x.d, img: 'images/fromages/' + x.s + '.webp', href: 'fromages/' + x.s + '.html' }; }) : [];
+  function seasonOf(ms) { var c = {}; ms.forEach(function (m) { var s = SAIS[m - 1]; c[s] = (c[s] || 0) + 1; }); return Object.keys(c).sort(function (a, b) { return c[b] - c[a]; })[0]; }
+  function enS(s) { return s === 'Printemps' ? 'Au printemps' : 'En ' + s.toLowerCase(); }
+  function others(list, p, f) { var o = []; list.forEach(function (x) { var v = f(x); if (v && v !== f(p) && o.indexOf(v) < 0) o.push(v); }); return o; }
+  function jPhoto(p) { return mk(p, 'Comment s’appelle cette plante' + NBS + '?', p.n, others(JAR, p, function (x) { return x.n; }), 'C’est : ' + p.n + NBS + '! ' + (p.d || ''), true); }
+  function jFleur(p) { if (!p.f || !p.f.length) return null; var s = seasonOf(p.f), a = p.c.indexOf('a') >= 0 && p.c.indexOf('f') < 0; return mk(p, (a ? 'En quelle saison récolte-t-on : ' : 'En quelle saison fleurit : ') + p.n + NBS + '?', s, ['Printemps', 'Été', 'Automne', 'Hiver'].filter(function (x) { return x !== s; }), enS(s) + NBS + '! ' + (p.d || '')); }
+  function jPlante(p) { if (!p.p || !p.p.length) return null; var s = seasonOf(p.p); return mk(p, 'En quelle saison plante-t-on : ' + p.n + NBS + '?', s, ['Printemps', 'Été', 'Automne', 'Hiver'].filter(function (x) { return x !== s; }), enS(s) + NBS + '! C’est le meilleur moment pour la mettre en terre.'); }
+  function jType(p) { var g = JC[p.c[0]]; return mk(p, p.n + ', c’est…', g, Object.keys(JC).filter(function (k) { return p.c.indexOf(k) < 0; }).map(function (k) { return JC[k]; }), g + NBS + '! ' + (p.d || '')); }
+  function fPhoto(p) { return mk(p, 'Comment s’appelle ce fromage' + NBS + '?', p.n, others(FRO, p, function (x) { return x.n; }), 'C’est : ' + p.n + NBS + '! ' + (p.d || ''), true); }
+  function fLait(p) { return mk(p, 'Avec quel lait fait-on : ' + p.n + NBS + '?', p.lait, ['Vache', 'Chèvre', 'Brebis', 'Bufflonne'].filter(function (x) { return x !== p.lait; }), 'Avec du lait de ' + p.lait.toLowerCase() + NBS + '! ' + (p.d || '')); }
+  function fPays(p) { if (!p.pays) return null; return mk(p, 'De quel pays vient : ' + p.n + NBS + '?', p.pays, others(FRO, p, function (x) { return x.pays; }), p.n + ' vient de ' + p.r + ' (' + p.pays + ').'); }
+  function fRegion(p) { if (!p.r) return null; return mk(p, 'De quelle région vient : ' + p.n + NBS + '?', p.r, others(FRO, p, function (x) { return x.r; }), p.n + ' vient de ' + p.r + '. ' + (p.d || '')); }
+  function fFam(p) { return mk(p, 'Quel type de fromage est : ' + p.n + NBS + '?', p.fam, others(FRO, p, function (x) { return x.fam; }), p.n + ' : ' + p.fam.toLowerCase() + '. ' + (p.d || '')); }
+
+
+  var EMO = { 'Vache': '🐄 Vache', 'Chèvre': '🐐 Chèvre', 'Brebis': '🐑 Brebis', 'Bufflonne': '🐃 Bufflonne' };
+  function jEat(p) { var ok = p.c.indexOf('c') >= 0 || p.c.indexOf('a') >= 0, g = ok ? '😋 Oui' : '🚫 Non'; return { p: p, text: 'Peut-on manger cette plante' + NBS + '?', opts: ['😋 Oui', '🚫 Non'], ans: ok ? 0 : 1, expl: (ok ? 'Oui, elle se mange' + NBS + '! ' : 'Non, elle se regarde mais ne se mange pas' + NBS + '! ') + (p.d || ''), hide: false }; }
+  function jChaud(p) { if (!p.f || !p.f.length) return null; var s = seasonOf(p.f), hot = s === 'Printemps' || s === 'Été'; return { p: p, text: 'Quand est-elle la plus belle' + NBS + '?', opts: ['☀️ Quand il fait beau', '❄️ Quand il fait froid'], ans: hot ? 0 : 1, expl: enS(s) + NBS + '! ' + (p.d || '') }; }
+  function fLaitK(p) { return mk(p, 'Avec le lait de quel animal fait-on ce fromage' + NBS + '?', EMO[p.lait], ['Vache', 'Chèvre', 'Brebis'].filter(function (x) { return x !== p.lait; }).map(function (x) { return EMO[x]; }), 'Avec du lait de ' + p.lait.toLowerCase() + NBS + '! ' + (p.d || '')); }
+  function fFrance(p) { var fr = p.pays === 'France'; return { p: p, text: 'Ce fromage vient-il de France' + NBS + '?', opts: ['🇫🇷 Oui', '🌍 Non'], ans: fr ? 0 : 1, expl: (fr ? 'Oui, il vient de ' + p.r + NBS + '!' : 'Non, il vient de ' + p.pays + NBS + '!') }; }
+  var JGEN = { 1: [jPhoto, jEat, jChaud], 2: [jPhoto, jEat, jChaud], 3: [jFleur, jPlante, jType, jPhoto], 4: [jPlante, jFleur, jType] };
+  var FGEN = { 1: [fPhoto, fLaitK], 2: [fPhoto, fLaitK, fFrance], 3: [fLait, fPays, fPhoto], 4: [fFam, fRegion, fPays] };
+  function easy(q) { if (!q || age > 2 || q.opts.length <= 2) return q; var good = q.opts[q.ans], bad = shuffle(q.opts.filter(function (o, k) { return k !== q.ans; }))[0]; q.opts = shuffle([good, bad]); q.ans = q.opts.indexOf(good); return q; }
+
   var GEN = { 1: [qPhoto, qPhoto, qType], 2: [qPhoto, qType, qSaison, qSaison], 3: [qFiche, qFiche, qFiche, qSaison], 4: [qFiche, qFam, qFam, qOrig] };
   var LAB = { 1: '🐣 4-6 ans', 2: '🌱 7-9 ans', 3: '🌳 10-12 ans', 4: '🏅 13 ans et +' };
-  function pool() { return all.filter(function (p) { return theme === 'tout' || theme === 'defi' || p.t === theme; }); }
+  function pool() { var lim = age <= 2 ? 20 : age === 3 ? 35 : 999; if (theme === 'jardin') return JAR.slice(0, lim); if (theme === 'fromage') return FRO.filter(function (x) { return age > 2 || x.lait !== (EMO.Bufflonne ? 'Bufflonne' : 'Buffalo'); }).slice(0, lim); return all.filter(function (p) { return theme === 'tout' || theme === 'defi' || p.t === theme; }); }
   function key() { return 'sainos-quiz-best-' + age; }
   function showBest() { var b = +ls(key()) || 0; $('q-best').textContent = b ? '⭐ Ton record (' + LAB[age] + ')' + NB + ': ' + b + ' / ' + N : ''; }
   function build() {
     var g = theme === 'defi' ? (age < 4 ? GEN[age + 1] : [qFiche, qFam, qOrig, qSaison]) : GEN[age], out = [];
     shuffle(pool()).forEach(function (p) {
       if (out.length >= N) return;
-      var fs = shuffle(g); for (var j = 0; j < fs.length; j++) { var q; try { q = fs[j](p); } catch (e) { q = null; } if (q && q.opts && q.opts.length > 1 && q.ans >= 0) { out.push(q); return; } }
+      var fs = shuffle(p.k === 'j' ? JGEN[age] : p.k === 'f' ? FGEN[age] : g); for (var j = 0; j < fs.length; j++) { var q; try { q = fs[j](p); if (p.k) q = easy(q); } catch (e) { q = null; } if (q && q.opts && q.opts.length > 1 && q.ans >= 0) { out.push(q); return; } }
     });
     return out;
   }
@@ -303,7 +335,7 @@
     $('q-count').textContent = 'Question ' + (i + 1) + ' / ' + deck.length;
     $('q-bar').style.width = (i / deck.length * 100) + '%';
     $('q-stars').textContent = '⭐ ' + score;
-    $('q-img').src = 'images/' + p.s + '.webp'; $('q-img').alt = q.hide ? 'Devine\u202F!' : p.n;
+    $('q-img').src = p.img || ('images/' + p.s + '.webp'); $('q-img').alt = q.hide ? 'Devine\u202F!' : p.n;
     $('q-name').textContent = q.hide ? '❓ Devine' : p.e + ' ' + p.n;
     $('q-text').textContent = q.text;
     var box = $('q-opts'); box.innerHTML = '';
@@ -326,7 +358,7 @@
     $('q-fb-t').textContent = good ? ['Bravo', 'Exact', 'Bien joué', 'Super'][Math.floor(Math.random() * 4)] + NB + '!' : 'Raté, mais tu sais maintenant' + NB + '!';
     $('q-fb-t').style.color = good ? 'var(--color-accent-800)' : '#8a3a12';
     $('q-fb-x').textContent = q.expl;
-    $('q-fiche').href = 'produits/' + p.s + '.html'; $('q-fiche').textContent = 'Découvrir la fiche ' + p.n.toLowerCase() + ' →';
+    $('q-fiche').href = p.href || ('produits/' + p.s + '.html'); $('q-fiche').textContent = 'Découvrir la fiche ' + p.n.toLowerCase() + ' →';
     $('q-next').textContent = i + 1 < deck.length ? 'Question suivante →' : 'Voir mon score →';
     $('q-next').focus({ preventScroll: true });
   }

@@ -43,7 +43,7 @@
 </script>
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 <style id="nav-current">[data-nav-desk]{gap:4px!important}[data-nav-desk] a{padding:6px 10px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s}[data-nav-desk] a:not([aria-current="page"]):hover{background:var(--color-accent-100)}[data-nav-desk] a[aria-current="page"]{font-weight:800;color:var(--color-accent-700)!important;background:none}</style>
-<script id="nav-current-js">(function(){var p=location.pathname,k=/\/produits\//.test(p)?'saisons.html':/\/fromages\//.test(p)?'fromages.html':({'marches.html':'origines.html','bio.html':'origines.html'}[p.split('/').pop()]||p.split('/').pop()||'index.html');var q=0;function m(){q=0;document.querySelectorAll('[data-nav-desk] a').forEach(function(a){var h=(a.getAttribute('href')||'').split('/').pop();if(h===k)a.setAttribute('aria-current','page');else if(a.getAttribute('aria-current'))a.removeAttribute('aria-current')})}function s(){if(!q){q=1;requestAnimationFrame(m)}}document.addEventListener('DOMContentLoaded',function(){m();new MutationObserver(s).observe(document.body,{childList:true,subtree:true})})})();</script>
+<script id="nav-current-js">(function(){var p=location.pathname,k=/\/produits\//.test(p)?'saisons.html':/\/fromages\//.test(p)?'fromages.html':({'marches.html':'origines.html','bio.html':'origines.html','lexique.html':'origines.html'}[p.split('/').pop()]||p.split('/').pop()||'index.html');var q=0;function m(){q=0;document.querySelectorAll('[data-nav-desk] a').forEach(function(a){var h=(a.getAttribute('href')||'').split('/').pop();if(h===k)a.setAttribute('aria-current','page');else if(a.getAttribute('aria-current'))a.removeAttribute('aria-current')})}function s(){if(!q){q=1;requestAnimationFrame(m)}}document.addEventListener('DOMContentLoaded',function(){m();new MutationObserver(s).observe(document.body,{childList:true,subtree:true})})})();</script>
 <script id="recherche-js" src="recherche.js" defer></script>
 </head>
 <body>
@@ -85,7 +85,7 @@
       <div data-nav-desk="1" style="display: flex; gap: var(--space-4); align-items: center;">
         <a href="saisons.html">Le Potager &amp; Verger</a><a href="jardin.html">Le Jardin</a>
         <a href="fromages.html" data-adult-only="1">La Fromagerie</a>
-        <a href="origines.html">Bien choisir</a>
+        <a href="origines.html">Le Guide</a>
         <a href="pousse.html" data-nav-pousse="1">Ça pousse !</a>
         <a href="enseignants.html" data-nav-lex="1">En classe</a>
         <a href="quiz.html" data-nav-quiz="1">Quiz</a>
@@ -99,7 +99,7 @@
         <div data-nav-panel="1" style="position: absolute; right: 0; top: calc(100% + 10px); z-index: 50; width: min(280px, 80vw); box-sizing: border-box; padding: 10px; background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 4px;">
           <a href="saisons.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Le Potager &amp; Verger</a><a href="jardin.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Le Jardin</a>
         <a href="fromages.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">La Fromagerie</a>
-          <a href="origines.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Bien choisir</a>
+          <a href="origines.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Le Guide</a>
           <a href="pousse.html" data-nav-pousse="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Ça pousse !</a>
           <a href="enseignants.html" data-nav-lex="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">En classe</a>
         <a href="quiz.html" data-nav-quiz="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Quiz</a>
@@ -164,6 +164,7 @@
                 <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center;">
                   <h3 style="margin: 0; font-size: clamp(18px, 4.6vw, 22px); line-height: 1.15; text-wrap: balance; overflow-wrap: anywhere;">{{ c.n }}</h3>
                   <span style="font-size: 13px; line-height: 1.25; color: var(--color-neutral-700);">{{ c.info }}</span>
+                  <span aria-hidden="true" style="display: grid; grid-template-columns: repeat(12, 7px); gap: 3px; justify-content: center; margin-top: 2px;"><sc-for list="{{ c.dots }}" as="d" hint-placeholder-count="12"><span style="{{ d.st }}"></span></sc-for></span>
                 </div>
                 </a>
             </li>
@@ -239,7 +240,7 @@
         <a href="index.html">Accueil</a>
         <a href="saisons.html">Le Potager &amp; Verger</a><a href="jardin.html">Le Jardin</a>
         <a href="fromages.html" data-adult-only="1">La Fromagerie</a>
-        <a href="origines.html">Bien choisir</a>
+        <a href="origines.html">Le Guide</a>
         <a href="pousse.html" data-nav-pousse="1">Ça pousse !</a>
         <a href="lexique.html" data-nav-lex="1">Lexique</a>
         <a href="quiz.html" data-nav-quiz="1">Quiz</a>
@@ -307,7 +308,7 @@ class Component extends DCLogic {
     const cards = list.map(p => {
       const forts = (p.f.length ? p.f : []).map(x => ({ label: S.MOIS_C[x - 1], cls: 'tag ' + (x === m ? 'tag-accent' : 'tag-accent-2') }));
       if (!p.f.length) forts.push({ label: p.m.length === 12 ? 'Toute l’année' : 'Hors saison forte', cls: 'tag tag-neutral' });
-      return { ...S.vis(p), s: p.s, info: p.f.includes(m) ? 'Pleine saison' : p.m.includes(m) ? 'Disponible' : 'Hors saison', ring: p.f.includes(m) ? '2px solid var(--color-accent-600)' : '2px solid transparent', href: S.url(p), n: p.n, flag: p.orig.flag, origine: p.orig.label, type: S.TYPES[p.t].one, bg: bg[p.t], forts, aria: p.n + ' — en savoir plus' };
+      return { ...S.vis(p), s: p.s, dots: [1,2,3,4,5,6,7,8,9,10,11,12].map(k => ({ st: ({ width: 7, height: 7, borderRadius: '50%', boxSizing: 'border-box', background: p.f.includes(k) ? 'var(--color-accent)' : p.m.includes(k) ? 'var(--color-accent-2-300)' : 'var(--color-neutral-200)', outline: k === m ? '1.5px solid var(--color-text)' : 'none', outlineOffset: 1 }) })),  info: p.f.includes(m) ? 'Pleine saison' : p.m.includes(m) ? 'Disponible' : 'Hors saison', ring: p.f.includes(m) ? '2px solid var(--color-accent-600)' : '2px solid transparent', href: S.url(p), n: p.n, flag: p.orig.flag, origine: p.orig.label, type: S.TYPES[p.t].one, bg: bg[p.t], forts, aria: p.n + ' — en savoir plus' };
     });
     const moisNom = S.MOIS[m - 1];
     const heading = searching ? 'Résultats pour « ' + q.trim() + ' »' : scope === 'mois' ? 'En ce moment : ' + moisNom : 'Tous les fruits, légumes et herbes';

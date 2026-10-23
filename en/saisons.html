@@ -42,7 +42,7 @@
 </script>
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 <style id="nav-current">[data-nav-desk]{gap:4px!important}[data-nav-desk] a{padding:6px 10px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s}[data-nav-desk] a:not([aria-current="page"]):hover{background:var(--color-accent-100)}[data-nav-desk] a[aria-current="page"]{font-weight:800;color:var(--color-accent-700)!important;background:none}</style>
-<script id="nav-current-js">(function(){var p=location.pathname,k=/\/produits\//.test(p)?'saisons.html':/\/fromages\//.test(p)?'fromages.html':({'marches.html':'origines.html','bio.html':'origines.html'}[p.split('/').pop()]||p.split('/').pop()||'index.html');var q=0;function m(){q=0;document.querySelectorAll('[data-nav-desk] a').forEach(function(a){var h=(a.getAttribute('href')||'').split('/').pop();if(h===k)a.setAttribute('aria-current','page');else if(a.getAttribute('aria-current'))a.removeAttribute('aria-current')})}function s(){if(!q){q=1;requestAnimationFrame(m)}}document.addEventListener('DOMContentLoaded',function(){m();new MutationObserver(s).observe(document.body,{childList:true,subtree:true})})})();</script>
+<script id="nav-current-js">(function(){var p=location.pathname,k=/\/produits\//.test(p)?'saisons.html':/\/fromages\//.test(p)?'fromages.html':({'marches.html':'origines.html','bio.html':'origines.html','lexique.html':'origines.html'}[p.split('/').pop()]||p.split('/').pop()||'index.html');var q=0;function m(){q=0;document.querySelectorAll('[data-nav-desk] a').forEach(function(a){var h=(a.getAttribute('href')||'').split('/').pop();if(h===k)a.setAttribute('aria-current','page');else if(a.getAttribute('aria-current'))a.removeAttribute('aria-current')})}function s(){if(!q){q=1;requestAnimationFrame(m)}}document.addEventListener('DOMContentLoaded',function(){m();new MutationObserver(s).observe(document.body,{childList:true,subtree:true})})})();</script>
 <script id="recherche-js" src="../recherche.js" defer></script>
 </head>
 <body>
@@ -84,7 +84,7 @@
       <div data-nav-desk="1" style="display: flex; gap: var(--space-4); align-items: center;">
         <a href="saisons.html" aria-current="page">The Garden &amp; Orchard</a><a href="jardin.html">The Flower Garden</a>
         <a href="fromages.html" data-adult-only="1">The Cheese</a>
-        <a href="origines.html">Choosing well</a>
+        <a href="origines.html">The Guide</a>
         <a href="pousse.html" data-nav-pousse="1">How it grows</a>
         <a href="enseignants.html" data-nav-lex="1">In class</a>
         <a href="quiz.html" data-nav-quiz="1">Quiz</a>
@@ -98,7 +98,7 @@
         <div data-nav-panel="1" style="position: absolute; right: 0; top: calc(100% + 10px); z-index: 50; width: min(280px, 80vw); box-sizing: border-box; padding: 10px; background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 4px;">
           <a href="saisons.html" aria-current="page" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-accent-900); background: var(--color-accent-100);">The Garden &amp; Orchard</a><a href="jardin.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-accent-900); background: var(--color-accent-100);">The Flower Garden</a>
         <a href="fromages.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-accent-900); background: var(--color-accent-100);">The Cheese</a>
-          <a href="origines.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Choosing well</a>
+          <a href="origines.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">The Guide</a>
           <a href="pousse.html" data-nav-pousse="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">How it grows</a>
           <a href="enseignants.html" data-nav-lex="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">In class</a>
         <a href="quiz.html" data-nav-quiz="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Quiz</a>
@@ -147,7 +147,7 @@
                 <li>
                   <a href="{{ it.href }}" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; height: 100%; box-sizing: border-box; padding: 14px 8px 12px; background: #ffffff; border: 2px solid {{ it.border }}; border-radius: var(--radius-lg); text-decoration: none; color: var(--color-text); text-align: center;" style-hover="transform: translateY(-2px); box-shadow: var(--shadow-sm); color: var(--color-text);">
                     <span aria-hidden="true" style="flex-shrink: 0; font-size: 96px; line-height: 1; display: grid; place-items: center;"><sc-if value="{{ it.img }}" hint-placeholder-val="{{ false }}"><span role="img" aria-hidden="true" style="width: 1em; height: 1em; background: {{ it.imgBg }}; display: block;"></span></sc-if><sc-if value="{{ it.noImg }}" hint-placeholder-val="{{ true }}">{{ it.e }}</sc-if></span>
-                    <span style="flex-shrink: 0; font-family: var(--font-heading); font-weight: 400; font-size: 18px; line-height: 1.15; text-wrap: balance;">{{ it.n }}</span><span style="flex-shrink: 0; font-size: 13px; line-height: 1.25; color: var(--color-neutral-700); white-space: nowrap; margin-top: -4px;">{{ it.info }}</span>
+                    <span style="flex-shrink: 0; font-family: var(--font-heading); font-weight: 400; font-size: 18px; line-height: 1.15; text-wrap: balance;">{{ it.n }}</span><span style="flex-shrink: 0; font-size: 13px; line-height: 1.25; color: var(--color-neutral-700); white-space: nowrap; margin-top: -4px;">{{ it.info }}</span><span aria-hidden="true" style="display: grid; grid-template-columns: repeat(12, 7px); gap: 3px; justify-content: center; margin-top: 2px;"><sc-for list="{{ it.dots }}" as="d" hint-placeholder-count="12"><span style="{{ d.st }}"></span></sc-for></span>
                   </a>
                 </li>
               </sc-for>
@@ -233,7 +233,7 @@
         <a href="index.html">Home</a>
         <a href="saisons.html">The Garden &amp; Orchard</a><a href="jardin.html">The Flower Garden</a>
         <a href="fromages.html" data-adult-only="1">The Cheese</a>
-        <a href="origines.html">Choosing well</a>
+        <a href="origines.html">The Guide</a>
         <a href="pousse.html" data-nav-pousse="1">How it grows</a>
         <a href="lexique.html" data-nav-lex="1">Glossary</a>
         <a href="quiz.html" data-nav-quiz="1">Quiz</a>
@@ -314,7 +314,7 @@ class Component extends DCLogic {
     const groups = ['fruit', 'legume', 'herbe'].map(t => {
       const items = S.produits.filter(p => p.t === t && (m === 13 ? p.m.length === 12 : p.m.includes(m)))
         .sort((a, b) => (b.f.includes(m) - a.f.includes(m)) || a.n.localeCompare(b.n, 'en'))
-        .map(p => { const pleine = m === 13 ? p.f.length === 12 : p.f.includes(m); return { ...S.vis(p), pleine, href: S.url(p), n: p.n, status: pleine ? 'Peak season' : 'Available', info: pleine ? ('Peak season') : 'Available', border: pleine ? 'var(--color-accent-600)' : 'var(--color-accent-2-300)', bgc: pleine ? 'var(--color-accent-100)' : 'var(--color-neutral-100)', cls: 'tag ' + (pleine ? 'tag-accent' : 'tag-accent-2') }; });
+        .map(p => { const pleine = m === 13 ? p.f.length === 12 : p.f.includes(m); return { ...S.vis(p), pleine, href: S.url(p), n: p.n, dots: [1,2,3,4,5,6,7,8,9,10,11,12].map(k => ({ st: ({ width: 7, height: 7, borderRadius: '50%', boxSizing: 'border-box', background: p.f.includes(k) ? 'var(--color-accent)' : p.m.includes(k) ? 'var(--color-accent-2-300)' : 'var(--color-neutral-200)', outline: k === m ? '1.5px solid var(--color-text)' : 'none', outlineOffset: 1 }) })),  status: pleine ? 'Peak season' : 'Available', info: pleine ? ('Peak season') : 'Available', border: pleine ? 'var(--color-accent-600)' : 'var(--color-accent-2-300)', bgc: pleine ? 'var(--color-accent-100)' : 'var(--color-neutral-100)', cls: 'tag ' + (pleine ? 'tag-accent' : 'tag-accent-2') }; });
       return { t, label: S.TYPES[t].label, e: S.TYPES[t].e, items };
     }).filter(g => g.items.length);
     const headMonths = S.MOIS_C.map((l, i) => ({ label: l, style: { textAlign: 'center', padding: '8px 2px', position: 'sticky', top: 0, zIndex: 2, background: 'var(--color-neutral-100)', paddingTop: 'var(--space-3)', color: i + 1 === m ? 'var(--color-accent-700)' : undefined, fontWeight: i + 1 === m ? 700 : undefined } }));
