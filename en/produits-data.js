@@ -151,7 +151,26 @@
     { id: 'croute-lavee', fam: ['fromage'], terme: 'Washed rind', cat: 'fromagerie', def: 'An orange, sticky rind rubbed with brine during ripening. It gives cheeses a strong flavour: munster, maroilles.', ex: [] },
     { id: 'pate-pressee-cuite', fam: ['fromage'], terme: 'Cooked pressed cheese', cat: 'fromagerie', def: 'Curd that is heated, then pressed to remove the whey: large wheels that keep for a long time, such as comté and beaufort.', ex: [] },
     { id: 'pate-persillee', fam: ['fromage'], terme: 'Blue cheese', cat: 'fromagerie', def: 'Cheese with blue or green mould veins that grow inside it: roquefort, bleu d’Auvergne.', ex: [] },
-    { id: 'fermier', fam: ['fromage'], terme: 'Farmhouse', cat: 'fromagerie', def: 'Cheese made on the farm, using only milk from the farm’s own herd.', ex: [] }
+    { id: 'fermier', fam: ['fromage'], terme: 'Farmhouse', cat: 'fromagerie', def: 'Cheese made on the farm, using only milk from the farm’s own herd.', ex: [] },
+    { id: 'frai', fam: ['poisson'], terme: "Spawning", cat: 'peche', def: "The period when fish lay their eggs. It is best not to catch or buy them then, so the species can renew itself.", ex: [] },
+    { id: 'peche-ligne', fam: ['poisson'], terme: "Line fishing", cat: 'peche', def: "Fishing with hooks, one fish at a time. Very selective, it barely damages the fish or the seabed.", ex: [] },
+    { id: 'casier', fam: ['poisson'], terme: "Pot (creel)", cat: 'peche', def: "A cage set on the seabed to catch crabs, lobsters, langoustines or cuttlefish. Undersized animals are released alive.", ex: [] },
+    { id: 'chalut', fam: ['poisson'], terme: "Trawl", cat: 'peche', def: "A large funnel-shaped net towed by a boat. Efficient but not very selective when it scrapes the seabed.", ex: [] },
+    { id: 'bolinche', fam: ['poisson'], terme: "Purse seine", cat: 'peche', def: "A net that encircles a school of fish, like sardines or anchovies, then closes at the bottom.", ex: [] },
+    { id: 'palangre', fam: ['poisson'], terme: "Longline", cat: 'peche', def: "A long line with many hooks, set on the seabed or left drifting.", ex: [] },
+    { id: 'prise-accessoire', fam: ['poisson'], terme: "By-catch", cat: 'peche', def: "A species caught without being targeted, often thrown back. Selective methods limit it.", ex: [] },
+    { id: 'taille-minimale', fam: ['poisson'], terme: "Minimum size", cat: 'peche', def: "The size below which a fish or shellfish may not be kept: it must have had time to breed.", ex: [] },
+    { id: 'fermeture-peche', fam: ['poisson'], terme: "Fishing closure", cat: 'peche', def: "A period when fishing a species is banned by law, like summer for scallops.", ex: [] },
+    { id: 'mollusque', fam: ['poisson'], terme: "Mollusc", cat: 'peche', def: "A soft-bodied animal, often protected by a shell: oyster, mussel, whelk, but also cuttlefish and squid.", ex: [] },
+    { id: 'bivalve', fam: ['poisson'], terme: "Bivalve", cat: 'peche', def: "A mollusc with two hinged shells: oyster, mussel, clam, cockle, scallop.", ex: [] },
+    { id: 'cephalopode', fam: ['poisson'], terme: "Cephalopod", cat: 'peche', def: "A mollusc with suckered arms, like cuttlefish, squid or octopus.", ex: [] },
+    { id: 'crustace', fam: ['poisson'], terme: "Crustacean", cat: 'peche', def: "An animal with a shell and jointed legs: crab, lobster, langoustine, shrimp.", ex: [] },
+    { id: 'poisson-plat', fam: ['poisson'], terme: "Flatfish", cat: 'peche', def: "A fish that lies flat on the seabed, with both eyes on the same side: sole, plaice, turbot.", ex: [] },
+    { id: 'ouies', fam: ['poisson'], terme: "Gills", cat: 'peche', def: "The organs fish breathe with. Bright red gills are a sign of freshness.", ex: [] },
+    { id: 'bouchot', fam: ['poisson'], terme: "Bouchot", cat: 'peche', def: "A wooden stake planted in the sea, on which mussels are farmed.", ex: [] },
+    { id: 'corail', fam: ['poisson'], terme: "Coral (roe)", cat: 'peche', def: "The orange part of a scallop or sea urchin: its reproductive organs, much prized.", ex: [] },
+    { id: 'triploide', fam: ['poisson'], terme: "Triploid oyster", cat: 'peche', def: "A hatchery oyster that does not breed, so it is never milky in summer. “Born at sea” oysters are preferred.", ex: [] },
+    { id: 'msc', fam: ['poisson'], terme: "MSC", cat: 'peche', def: "An international label guaranteeing sustainable fishing: healthy stocks and limited environmental impact.", ex: [] }
   ];
 
   var MOIS = ['January','February','March','April','May','June','July','August','September','October','November','December'];

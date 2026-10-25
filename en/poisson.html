@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script id="to-static">(function(){var s=new URLSearchParams(location.search).get('s')||location.hash.slice(1);if(s)location.replace('poissons/'+s+'.html');})();</script>
+<meta name="robots" content="noindex, follow">
+<script id="lang-redirect">(function(){function ask(alt){if(document.getElementById('lang-ask'))return;var d=document.createElement('div');d.id='lang-ask';d.setAttribute('role','dialog');d.setAttribute('aria-modal','true');d.setAttribute('aria-labelledby','lang-ask-t');d.setAttribute('lang','en');d.style.cssText='position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:20px;background:rgba(32,30,29,.45)';var B='min-height:48px;padding:0 22px;border-radius:999px;font:inherit;font-weight:700;font-size:16px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;flex:1 1 auto;text-decoration:none;';d.innerHTML='<div style="background:#fff;border-radius:24px;padding:28px;max-width:420px;width:100%;box-sizing:border-box;box-shadow:0 20px 50px rgba(0,0,0,.2);display:flex;flex-direction:column;gap:14px;font-family:var(--font-body);color:var(--color-text)"><h2 id="lang-ask-t" style="margin:0;font-family:var(--font-heading);font-weight:400;font-size:26px;line-height:1.15">Would you like the English version?</h2><p style="margin:0;font-size:16px;line-height:1.5">Your browser is set to English, but you seem to be in France.</p><div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px"><a href="'+alt+location.hash+'" data-lang="en" style="'+B+'background:var(--color-accent-strong,var(--color-accent));color:#fff;border:0">Switch to English</a><button type="button" data-lang="fr" lang="fr" style="'+B+'background:#fff;color:var(--color-text);border:2px solid var(--color-accent-300)">Rester en fran\u00e7ais</button></div></div>';function close(){try{localStorage.setItem('sainos-lang','fr')}catch(_){}d.remove();document.removeEventListener('keydown',k)}function k(e){if(e.key==='Escape')close()}d.querySelector('button').addEventListener('click',close);d.addEventListener('click',function(e){if(e.target===d)close()});document.addEventListener('keydown',k);document.body.appendChild(d);d.querySelector('a').focus()}var cur='en',alt='../poisson.html' + location.search;document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-lang]');if(a)try{localStorage.setItem('sainos-lang',a.getAttribute('data-lang'))}catch(_){}},true);try{var p=localStorage.getItem('sainos-lang');if(/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)||p===cur)return;var L=p||((navigator.languages&&navigator.languages[0])||navigator.language||'').slice(0,2).toLowerCase();if(cur==='en'&&L==='fr')location.replace(alt+location.hash);else if(cur==='fr'&&L==='en'){var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(_){}if(tz!=='Europe/Paris')location.replace(alt+location.hash);else if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){ask(alt)});else ask(alt)}}catch(e){}})();</script>
+<link rel="alternate" hreflang="fr" href="https://www.sainos.fr/poisson.html">
+<link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/poisson.html">
+<link rel="alternate" hreflang="x-default" href="https://www.sainos.fr/poisson.html">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){var d=document.documentElement;var B=null,T=0,Q='[aria-label="Choose mode"]';document.addEventListener('click',function(e){var t=e.target&&e.target.closest?e.target.closest(Q):null;B=t;if(t)T=t.getBoundingClientRect().top},true);function g(){var b=B;B=null;if(!b){try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}return}var n=0;(function f(){var x=document.querySelector(Q)||b;var dy=x.getBoundingClientRect().top-T;if(dy)try{window.scrollBy({top:dy,left:0,behavior:'instant'})}catch(e){window.scrollBy(0,dy)}if(++n<24)requestAnimationFrame(f)})()}function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))g()}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
+<style id="kid-palette">html.m-kid { --color-accent: #e8822f; --color-accent-100: #fff3e8; --color-accent-200: #ffe0c4; --color-accent-300: #fbc18f; --color-accent-400: #f39f55; --color-accent-500: #e8822f; --color-accent-600: #cf6c1c; --color-accent-700: #b05912; --color-on-accent: #ffffff; --color-accent-strong: #b85c12; --color-accent-strong-hover: #9c4d0c; --color-accent-800: #8a450e; --color-accent-900: #66330b; --color-accent-2-100: #fffaea; --color-accent-2-200: #fdf1cf; --color-accent-2-300: #f8e2a2; --color-accent-2-800: #87601a; --color-accent-2-900: #6b4a10; }
+    :where(html.m-kid) a:not(.btn), :where(html.m-kid) .btn-ghost, :where(html.m-kid) .tag-outline, :where(html.m-kid) .card-kicker { color: var(--color-accent-800); } html.m-kid .btn-primary { color: #ffffff !important; } html.m-kid .tag-accent { color: var(--color-accent-900) !important; } .btn-primary { background-image: none !important; background-color: var(--color-accent-strong, var(--color-accent)) !important; box-shadow: none !important; transition: background-color .12s ease; } .btn-primary:hover { background-color: var(--color-accent-strong-hover, var(--color-accent-700)) !important; } .btn-primary:active { background-color: var(--color-accent-800) !important; } html.m-kid img[data-logo] { display: none !important; } html:not(.m-kid) img[data-kid-logo] { display: none !important; } :root { --color-logo: #3d8b2f; } html.m-kid { --color-logo: #f97a00; }</style>
+<style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html.m-kid [data-adult-only], html:not(.m-kid) [data-kid-label], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
+<style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script src="./support.js"></script>
+<link rel="canonical" href="https://www.sainos.fr/en/poisson.html">
+<title>The Fishmonger | Sainos</title>
+<meta name="description" content="Which fish, shellfish and crustaceans are in season this month? The fishmonger’s calendar, and the species to avoid while they spawn.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sainos">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:url" content="https://www.sainos.fr/en/poisson.html">
+<meta property="og:title" content="The Fishmonger: seasonal fish and seafood">
+<meta property="og:description" content="Which fish, shellfish and crustaceans are in season this month? The fishmonger’s calendar, and the species to avoid while they spawn.">
+<meta property="og:image" content="https://www.sainos.fr/images/og/sainos.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sainos — seasonal fruit and vegetables">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Fishmonger: seasonal fish and seafood">
+<meta name="twitter:description" content="Which fish, shellfish and crustaceans are in season this month? The fishmonger’s calendar, and the species to avoid while they spawn.">
+<meta name="twitter:image" content="https://www.sainos.fr/images/og/sainos.webp">
+
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-SaacaKlZy2uX6RVnlBrdr.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<style id="nav-jardin">[data-nav-jardin]{position:relative;display:inline-flex}[data-nav-jardin-panel]{display:none;position:absolute;top:100%;left:0;padding-top:6px;z-index:60}[data-nav-jardin]:hover [data-nav-jardin-panel],[data-nav-jardin]:focus-within [data-nav-jardin-panel]{display:block}[data-nav-jardin-box]{display:flex;flex-direction:column;gap:2px;min-width:180px;padding:8px;background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg)}[data-nav-jardin-box] a{display:block;padding:10px 14px!important;color:var(--color-text)!important;font-weight:700}[data-nav-sub]{padding-left:40px!important;font-size:16px!important;font-weight:600!important;min-height:44px!important}</style>
+<style id="nav-current">[data-nav-desk]{gap:4px!important}[data-nav-desk] a[data-liste-pill],[data-nav-desk] a[data-liste-pill]:hover,[data-nav-desk] a[data-liste-pill] *{color:#ffffff!important;font-family:var(--font-body)!important;font-weight:800}[data-nav-desk] a[data-liste-pill]{background:var(--color-accent)!important;padding:8px 16px!important}[data-nav-desk] a[data-liste-pill]:hover{background:var(--color-accent-600)!important}@media (min-width:761px) and (max-width:1180px){nav.nav{flex-wrap:nowrap!important}nav.nav>[data-nav-desk]{min-width:0}[data-nav-desk] button{font-size:12px!important;padding:5px 10px!important}}@media (min-width:761px) and (max-width:1000px){[data-nav-desk] a{font-size:13px!important;padding:5px 4px!important}nav.nav .nav-brand img{height:30px!important}}@media (max-width:1180px){[data-nav-desk] a[data-liste-pill]{padding:8px 12px!important}}@media (max-width:1180px){[data-nav-desk] a{padding:6px 7px!important;font-size:15px!important}}@media (max-width:960px){[data-nav-desk] a{padding:5px 5px!important;font-size:14px!important}}[data-nav-desk] a{padding:6px 10px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s}[data-nav-desk] a:not([aria-current="page"]):hover{background:var(--color-accent-100)}[data-nav-desk] a[aria-current="page"]{font-weight:800;color:var(--color-accent-700)!important;background:none}</style>
+<script id="nav-current-js">(function(){var p=location.pathname,k=/\/jardin\//.test(p)?'fleurs.html':/\/produits\//.test(p)?'legumes.html':/\/fromages\//.test(p)?'fromages.html':({'marches.html':'origines.html','bio.html':'origines.html','lexique.html':'origines.html'}[p.split('/').pop()]||p.split('/').pop()||'index.html');var q=0;function m(){q=0;document.querySelectorAll('[data-nav-desk] a').forEach(function(a){var h=(a.getAttribute('href')||'').split('/').pop();if(h===k)a.setAttribute('aria-current','page');else if(a.getAttribute('aria-current'))a.removeAttribute('aria-current')})}function s(){if(!q){q=1;requestAnimationFrame(m)}}document.addEventListener('DOMContentLoaded',function(){m();new MutationObserver(s).observe(document.body,{childList:true,subtree:true})})})();</script>
+<script id="recherche-js" src="../recherche.js" defer></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400&family=Nunito:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../_ds/organic-f9092e65-12bb-43ea-a459-3e0b5f502c38/styles.css">
+  <script src="../_ds/organic-f9092e65-12bb-43ea-a459-3e0b5f502c38/_ds_bundle.js"></script>
+  <script src="poissons-data.js"></script><script src="poissons-fiches.js"></script>
+  <style>
+    :root { --color-bg: #fbf8f2; --color-accent: #357d28; --color-accent-100: #eef7ea; --color-accent-200: #d9eed0; --color-accent-300: #b6dca5; --color-accent-400: #74b95e; --color-accent-500: #357d28; --color-accent-600: #327426; --color-accent-700: #285e1f; --color-accent-800: #1f4a19; --color-accent-900: #183a14; --color-accent-2-100: #f4f8ed; --color-accent-2-200: #e8efdb; --color-accent-2-300: #d8e2c7; --color-accent-2-800: #56613f; --color-accent-2-900: #46512f;  --color-neutral-100: #fffdf9; --color-text: #5b3b27; --color-divider: color-mix(in srgb, #8c491a 20%, transparent); --font-heading: 'DynaPuff', system-ui, sans-serif; --font-body: 'Nunito', system-ui, sans-serif; }
+    body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
+    h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 400; }
+    a { color: var(--color-accent-700); }
+    a:not(.btn):not(.tag):hover { color: var(--color-accent-600); }
+    *:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+  
+    @media (max-width: 1080px) { [data-nav-desk] { display: none !important; } }
+    @media (min-width: 1081px) { [data-nav-burger] { display: none !important; } }
+    [data-nav-burger] summary::-webkit-details-marker { display: none; }
+    [data-nav-burger][open] [data-ic="open"], [data-nav-burger]:not([open]) [data-ic="close"] { display: none; }
+    [data-nav-panel] a:hover { background: var(--color-accent-100); }
+    @media (max-width: 760px) { [data-frise] > :not(aside) { display: none !important; } }
+
+  [data-baseline] { transition: opacity .2s, max-height .2s; max-height: 20px; overflow: hidden; }
+  html.is-scrolled [data-baseline] { opacity: 0; max-height: 0; }
+</style>
+<script>(function(){var d=document.documentElement,on=false;function f(){var y=window.scrollY,s=on?y>8:y>60;if(s!==on){on=s;d.classList.toggle('is-scrolled',s);}}window.addEventListener('scroll',f,{passive:true});f();})();</script>
+<script>(function(){if(window.__navClose)return;window.__navClose=1;function c(){document.querySelectorAll('details[data-nav-burger]').forEach(function(d){d.removeAttribute('open')})}document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('[data-nav-panel] a,[data-nav-panel] button');if(t)setTimeout(c,0)},true);window.addEventListener('pageshow',c)})();</script>
+<script>document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[data-lang]');if(a&&location.search&&a.getAttribute('href').indexOf('?')<0)a.setAttribute('href',a.getAttribute('href')+location.search)},true);</script>
+</helmet>
+<div style="min-height: 100vh; display: flex; flex-direction: column;">
+  <header style="position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--color-bg) 92%, transparent); backdrop-filter: blur(8px);">
+    <nav class="nav" aria-label="Main navigation" style="max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; padding-left: clamp(20px, 5vw, 56px); padding-right: clamp(20px, 5vw, 56px); flex-wrap: wrap; row-gap: var(--space-2);">
+      <a href="index.html" class="nav-brand" style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none;" aria-label="Sainos — home">
+        <img data-logo="1" src="../images/logo.webp" alt="Sainos — seasonal fruit and vegetables" width="398" height="107" style="{{ logoBig }}"><img data-kid-logo="1" src="../images/logo-enfants-v2.webp" alt="Sainos — seasonal fruit and vegetables" width="398" height="107" style="{{ logoBig }}">
+        <img data-logo="1" src="../images/logo-mini.webp" alt="" aria-hidden="true" width="398" height="107" style="{{ logoMini }}"><img data-kid-logo="1" src="../images/logo-enfants-v2.webp" alt="" aria-hidden="true" width="398" height="107" style="{{ logoMini }}"><span data-baseline="1" style="font-family: var(--font-body); font-size: 14px; font-weight: 700; line-height: 1; color: var(--color-text); white-space: nowrap;">Eat with the <span style="color: var(--color-logo, var(--color-accent-700));">Seasons</span></span>
+      </a>
+      <div data-nav-desk="1" style="display: flex; gap: var(--space-4); align-items: center;">
+        <span data-nav-jardin="1"><a href="legumes.html" aria-haspopup="true">The Farm ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="legumes.html">The Vegetable Garden</a><a href="fruits.html">The Orchard</a><a href="fleurs.html">The Garden</a></span></span></span>
+        <a href="fromages.html" data-adult-only="1">The Cheese</a><a href="poissonnerie.html" data-adult-only="1">The Fishmonger</a>
+        <span data-nav-jardin="1"><a href="origines.html" aria-haspopup="true">The guide ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="origines.html">Origins</a><a href="marches.html" data-nav-mar="1">Markets</a><a href="bio.html">Organic</a><a href="lexique.html" data-nav-lex="1">Glossary</a></span></span></span>
+        <a href="pousse.html" data-nav-pousse="1">How it grows</a>
+        <a href="quiz.html" data-nav-quiz="1">Quiz</a>
+        <span data-nav-jardin="1"><a href="apropos.html" aria-haspopup="true">About ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="apropos.html">About</a><a href="enseignants.html" data-nav-lex="1">In class</a><a href="contact.html" data-adult-only="1">Contact</a></span></span></span>
+      </div>
+      <details data-nav-burger="1" style="position: relative; margin-left: auto;">
+        <summary aria-label="Menu" style="list-style: none; width: 48px; height: 48px; box-sizing: border-box; display: grid; place-items: center; background: transparent; border: 0; color: var(--color-text); cursor: pointer;">
+          <svg data-ic="open" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M4 9h16M4 15h16"></path></svg>
+          <svg data-ic="close" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </summary>
+        <div data-nav-panel="1" style="position: absolute; right: 0; top: calc(100% + 10px); z-index: 50; max-height: calc(100vh - 100px); max-height: calc(100dvh - 100px); overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; width: min(280px, 80vw); box-sizing: border-box; padding: 10px; background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 4px;">
+          <a href="liste.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-accent-900); background: var(--color-accent-100);">My list</a>
+          <a href="legumes.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-accent-900); background: var(--color-accent-100);">The Farm</a>
+        <a href="fromages.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-accent-900); background: var(--color-accent-100);">The Cheese</a><a href="poissonnerie.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-accent-900); background: var(--color-accent-100);">The Fishmonger</a>
+          <a href="origines.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">The guide</a>
+          <a href="pousse.html" data-nav-pousse="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">How it grows</a>
+        <a href="quiz.html" data-nav-quiz="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Quiz</a>
+          <a href="apropos.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">About</a>
+        
+          <a href="../poisson.html" data-lang="fr" hreflang="fr" lang="fr" style="display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;"><span aria-hidden="true">🌐</span>Version française</a>
+          <div data-nav-extra="1" style="display: flex; flex-direction: column; gap: 10px; margin-top: 6px; padding: 12px 8px 4px; border-top: 1px solid var(--color-divider);"><sc-if value="{{ adult }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ toEnfant }}" style="display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-2-300); background: #ffffff; color: var(--color-accent-2-900); font: inherit; font-size: 16px; font-weight: 700; padding: 10px 18px; min-height: 48px; width: 100%; justify-content: center; box-sizing: border-box; border-radius: 999px; cursor: pointer; white-space: nowrap;" style-hover="background: var(--color-accent-2-100); border-color: var(--color-accent-2-500);">🎒 Kids mode</button></sc-if><sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ toNormal }}" style="display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-300); background: #ffffff; color: var(--color-accent-900); font: inherit; font-size: 16px; font-weight: 700; padding: 10px 18px; min-height: 48px; width: 100%; justify-content: center; box-sizing: border-box; border-radius: 999px; cursor: pointer; white-space: nowrap;" style-hover="background: var(--color-accent-100); border-color: var(--color-accent-500);">Parents mode</button></sc-if><div aria-label="Follow Sainos" data-nav-social="1" style="display: flex; justify-content: center; gap: var(--space-2); align-items: center;"><a href="https://www.facebook.com/profile.php?id=61594827576678" target="_blank" rel="noopener" aria-label="Sainos on Facebook" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/facebook/1877F2" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a><a href="https://www.instagram.com/sainos_fr/" target="_blank" rel="noopener" aria-label="Sainos on Instagram" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/instagram/E4405F" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a><a href="https://www.tiktok.com/@sainos_fr" target="_blank" rel="noopener" aria-label="Sainos on TikTok" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/tiktok/000000" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a></div></div>
+        </div>
+      </details>
+      <div data-nav-desk="1" style="display: flex; flex-wrap: nowrap; gap: var(--space-3); align-items: center; justify-content: flex-end; margin-left: auto; flex: none;"><a href="liste.html" data-adult-only="1" data-liste-pill="1" aria-label="My list" style="display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; font-size: 14px; white-space: nowrap; text-decoration: none;"><span data-pill-txt="1">My list</span></a><sc-if value="{{ adult }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ toEnfant }}" style="display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-2-300); background: #ffffff; color: var(--color-accent-2-900); font: inherit; font-size: 14px; font-weight: 700; padding: 6px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap;" style-hover="background: var(--color-accent-2-100); border-color: var(--color-accent-2-500);">🎒 Kids mode</button></sc-if><sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ toNormal }}" style="display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-300); background: #ffffff; color: var(--color-accent-900); font: inherit; font-size: 14px; font-weight: 700; padding: 6px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap;" style-hover="background: var(--color-accent-100); border-color: var(--color-accent-500);">Parents mode</button></sc-if></div>
+    </nav>
+  </header>
+
+  <main style="flex: 1; max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; padding: clamp(40px, 7vw, 56px) clamp(20px, 5vw, 56px) 0; display: flex; flex-direction: column; gap: var(--space-8);">
+    <nav aria-label="Breadcrumb" style="font-size: 14px; display: flex; flex-wrap: wrap; gap: var(--space-2);"><a href="index.html">Home</a><span aria-hidden="true">›</span><a href="poissonnerie.html">The Fishmonger</a><span aria-hidden="true">›</span><span aria-current="page">{{ n }}</span></nav>
+    <sc-if value="{{ found }}" hint-placeholder-val="{{ false }}">
+    <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: var(--space-6); align-items: center;">
+      <div style="display: flex; flex-direction: column; gap: var(--space-3); max-width: 560px;">
+        <span class="tag tag-accent-2" style="align-self: flex-start;">{{ type }}</span>
+        <h1 style="margin: 0; font-size: clamp(38px, 5.5vw, 60px); line-height: 1.04; text-wrap: balance;">{{ n }}</h1>
+        <p style="margin: 0; font-size: 18px; line-height: 1.55; color: var(--color-neutral-800); text-wrap: pretty;">{{ d }}</p>
+        <span style="align-self: flex-start; padding: 8px 16px; border-radius: 999px; font-size: 15px; font-weight: 800; white-space: nowrap; background: {{ nowBg }}; color: {{ nowCol }};">{{ nowLabel }}</span>
+      </div>
+      <div style="justify-self: center; width: min(360px, 100%); aspect-ratio: 1; background: #ffffff; border-radius: 46% 54% 42% 58% / 55% 45% 55% 45%; display: grid; place-items: center;"><span role="img" aria-label="{{ n }}" style="display: block; width: 86%; aspect-ratio: 1; background: {{ heroBg }}; mix-blend-mode: multiply;"></span></div>
+    </section>
+    <section aria-label="Its year" style="display: flex; flex-direction: column; gap: var(--space-3);">
+      <h2 style="margin: 0; font-size: 24px;">Its year</h2>
+      <div style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 6px;">
+        <sc-for list="{{ year }}" as="y" hint-placeholder-count="12"><div title="{{ y.title }}" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 56px; border-radius: 12px; background: {{ y.bg }}; color: {{ y.col }}; border: 2px solid {{ y.border }}; font-family: var(--font-heading); font-size: 18px;">{{ y.l }}</div></sc-for>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); font-size: 14px;">
+        <span style="display: flex; gap: 6px; align-items: center;"><span aria-hidden="true" style="width: 14px; height: 14px; border-radius: 4px; background: var(--color-accent);"></span>In full season</span>
+        <span style="display: flex; gap: 6px; align-items: center;"><span aria-hidden="true" style="width: 14px; height: 14px; border-radius: 4px; background: var(--color-accent-2-200);"></span>Available</span>
+        <span style="display: flex; gap: 6px; align-items: center;"><span aria-hidden="true" style="width: 14px; height: 14px; box-sizing: border-box; border-radius: 4px; border: 2px solid var(--color-accent-800); background: #ffffff;"></span>Avoid</span>
+      </div>
+    </section>
+    <section aria-label="In brief" style="display: flex; flex-direction: column; gap: var(--space-2); max-width: 820px;">
+      <h2 style="margin: 0; font-size: 24px;">In brief</h2>
+      <p style="margin: 0; font-size: 17px; line-height: 1.7; text-wrap: pretty;">Scientific name: <em>{{ lat }}</em>. {{ brefSaison }}</p>
+      <p style="margin: 0; font-size: 17px; line-height: 1.7; text-wrap: pretty;">Storage: {{ brefCons }}</p>
+    </section>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: var(--space-4);">
+      <section style="display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-5, 20px) var(--space-6); background: #ffffff; border: 2px solid var(--color-accent-2-300); border-radius: var(--radius-lg);"><h2 style="margin: 0; font-size: 22px;">🔍 Choosing well</h2><p style="margin: 0; font-size: 17px; line-height: 1.6; text-wrap: pretty;">{{ ch }}</p></section>
+      <section style="display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-5, 20px) var(--space-6); background: #ffffff; border: 2px solid var(--color-accent-2-300); border-radius: var(--radius-lg);"><h2 style="margin: 0; font-size: 22px;">🎣 Sustainable fishing</h2><p style="margin: 0; font-size: 17px; line-height: 1.6; text-wrap: pretty;">{{ pe }}</p></section>
+      <section style="display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-5, 20px) var(--space-6); background: #ffffff; border: 2px solid var(--color-accent-2-300); border-radius: var(--radius-lg);"><h2 style="margin: 0; font-size: 22px;">💡 Did you know?</h2><p style="margin: 0; font-size: 17px; line-height: 1.6; text-wrap: pretty;">{{ sv }}</p></section>
+    </div>
+    <aside role="note" aria-label="Featured recipe · 750g (in French)" style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; padding: var(--space-4); background: var(--color-accent-100); border: 2px solid var(--color-accent-200); border-radius: var(--radius-lg);">
+      <span aria-hidden="true" style="flex: none; width: 88px; height: 88px; border-radius: 50%; display: grid; place-items: center; background: #ffffff;"><span style="width: 68px; height: 68px; background: {{ heroBg }}; display: block; mix-blend-mode: multiply;"></span></span>
+      <div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 4px; min-width: 0;">
+        <span style="font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: var(--color-accent-700);">Featured recipe · 750g (in French)</span>
+        <h3 style="margin: 0; font-size: 22px; line-height: 1.2;"><a href="{{ rec.url }}" target="_blank" rel="noopener" style="color: var(--color-text); text-decoration: none;" style-hover="color: var(--color-accent-700);">{{ rec.t }} ↗</a></h3>
+        <a href="{{ recAll }}" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 600;">{{ recAllLabel }}</a>
+        <span style="font-size: 13px; color: var(--color-neutral-800);">External link, no partnership or commission.</span>
+      </div>
+    </aside>
+    <sc-if value="{{ hasSugg }}" hint-placeholder-val="{{ false }}"><section aria-label="Also in season right now" style="display: flex; flex-direction: column; gap: var(--space-4);">
+      <h2 style="margin: 0; font-size: clamp(24px, 3vw, 30px);">Also in season right now</h2>
+      <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(150px, calc((100% - 12px) / 2)), 1fr)); gap: 12px;">
+        <sc-for list="{{ sugg }}" as="sg" hint-placeholder-count="0"><li style="display: flex;"><a href="{{ sg.href }}" style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 14px 10px 12px; background: #ffffff; border: 2px solid var(--color-accent-2-300); border-radius: var(--radius-lg); text-decoration: none; color: var(--color-text); text-align: center; transition: transform .15s ease;" style-hover="transform: translateY(-2px); box-shadow: var(--shadow-sm); color: var(--color-text);"><span aria-hidden="true" style="display: block; width: 96px; height: 96px; background: {{ sg.bg }}; mix-blend-mode: multiply;"></span><span style="font-family: var(--font-heading); font-size: 17px; line-height: 1.15; text-wrap: balance;">{{ sg.n }}</span></a></li></sc-for>
+      </ul>
+    </section></sc-if>
+    </sc-if>
+    <sc-if value="{{ notFound }}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: 18px;">Species not found.</p></sc-if>
+    <a href="poissonnerie.html" style="align-self: flex-start; font-size: 16px; font-weight: 700;">← All species in season</a>
+    <p style="margin: 0 0 var(--space-8); max-width: 820px; font-size: 14px; line-height: 1.6; color: var(--color-neutral-800);">Indicative guide for the French coasts (Channel and Atlantic). Ask your fishmonger for advice.</p>
+  </main>
+
+  <footer style="background: #f4efe6;">
+    <div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: var(--space-6) clamp(20px, 5vw, 56px); display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: space-between; align-items: center; font-size: 14px;">
+      <img data-logo="1" src="../images/logo-mini.webp" alt="Sainos" width="398" height="107" style="display: block; height: 30px; width: auto;"><img data-kid-logo="1" src="../images/logo-enfants-v2.webp" alt="Sainos" width="398" height="107" style="display: block; height: 30px; width: auto;">
+      <nav aria-label="Footer" style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
+        <a href="index.html">Home</a>
+        <span data-nav-jardin="1"><a href="legumes.html" aria-haspopup="true">The Farm ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="legumes.html">The Vegetable Garden</a><a href="fruits.html">The Orchard</a><a href="fleurs.html">The Garden</a></span></span></span>
+        <a href="fromages.html" data-adult-only="1">The Cheese</a><a href="poissonnerie.html" data-adult-only="1">The Fishmonger</a>
+        <a href="liste.html" data-adult-only="1">My list</a>
+        <a href="origines.html">The guide</a>
+        <a href="pousse.html" data-nav-pousse="1">How it grows</a>
+        <a href="lexique.html" data-nav-lex="1">Glossary</a>
+        <a href="quiz.html" data-nav-quiz="1">Quiz</a>
+        <a href="apropos.html">About</a>
+        <a href="enseignants.html" data-adult-only="1">Teachers</a>
+        <a href="contact.html" data-adult-only="1">Contact</a>
+        <a href="../poisson.html" data-lang="fr" hreflang="fr" lang="fr">Version française</a>
+      </nav>
+      <div aria-label="Follow Sainos" style="display: flex; gap: var(--space-2); align-items: center;">
+        <a href="https://www.facebook.com/profile.php?id=61594827576678" target="_blank" rel="noopener" aria-label="Sainos on Facebook" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/facebook/1877F2" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+        <a href="https://www.instagram.com/sainos_fr/" target="_blank" rel="noopener" aria-label="Sainos on Instagram" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/instagram/E4405F" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+        <a href="https://www.tiktok.com/@sainos_fr" target="_blank" rel="noopener" aria-label="Sainos on TikTok" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/tiktok/000000" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+      </div>
+      <p style="flex-basis: 100%; order: 3; margin: 0; font-size: 13px; line-height: 1.5; color: var(--color-neutral-800);">Sainos is an independent information website. No sales, no advertising, no cookies.</p>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  _mode() { try { return localStorage.getItem('sainos-mode') === 'enfant' ? 'enfant' : 'normal'; } catch (e) { return 'normal'; } }
+  _badges() { try { return JSON.parse(localStorage.getItem('sainos-badges') || '[]'); } catch (e) { return []; } }
+  _syncMode = () => this.setState({ mode: this._mode(), badges: this._badges() });
+  setMode(m) { try { localStorage.setItem('sainos-mode', m); } catch (e) {} this._syncMode(); }
+  _kidVals() { const kid = this.state.mode === 'enfant'; return { kid, adult: !kid, badgeCount: (this.state.badges || []).length, nbTotal: window.POISSONS ? window.POISSONS.liste.length : 44, toEnfant: () => this.setMode('enfant'), toNormal: () => this.setMode('normal') }; }
+  state = { mode: this._mode(), badges: this._badges(), m: new Date().getMonth() + 1, type: 'all', ready: !!window.POISSONS };
+  _saveM(m) { const now = new Date().getMonth() + 1; try { sessionStorage.setItem('sainos-mois', String(m)); } catch (e) {} try { const u = new URL(location.href); if (m === now) u.searchParams.delete('mois'); else u.searchParams.set('mois', m); history.replaceState(history.state, '', u); } catch (e) {} }
+  componentDidUpdate() { if (this._lastM !== this.state.m) { this._lastM = this.state.m; this._saveM(this.state.m); } }
+  componentDidMount() {
+    this._lastM = this.state.m;
+    window.addEventListener('storage', this._syncMode); window.addEventListener('pageshow', this._syncMode);
+    this._onScroll = () => { const y = window.scrollY, cur = !!this.state.mini; const s = cur ? y > 8 : y > 140; if (s !== cur) this.setState({ mini: s }); };
+    window.addEventListener('scroll', this._onScroll, { passive: true }); this._onScroll();
+    const pm = (() => { const ok = v => v >= 1 && v <= 12; const q = parseInt(new URLSearchParams(location.search).get('mois'), 10); let ss; try { ss = parseInt(sessionStorage.getItem('sainos-mois'), 10); } catch (e) {} return ok(q) ? q : ok(ss) ? ss : 0; })();
+    if (pm) this.setState({ m: pm });
+    { const ty = new URLSearchParams(location.search).get('type'); if (ty === 'legume' || ty === 'herbe') this.setState({ type: ty }); }
+    if (!window.POISSONS) this._t = setInterval(() => { if (window.POISSONS) { clearInterval(this._t); this.setState({ ready: true }); } }, 50);
+  }
+  componentWillUnmount() { window.removeEventListener('storage', this._syncMode); window.removeEventListener('pageshow', this._syncMode); window.removeEventListener('scroll', this._onScroll); clearInterval(this._t); }
+  renderVals() {
+    const P = window.POISSONS, F = window.POISSONS_FICHES, EN = true, X = {"home":"Home","sec":"The Fishmonger","bc":"Breadcrumb","ch":"Choosing well","cu":"Cooking ideas","pe":"Sustainable fishing","sv":"Did you know?","yr":"Its year","back":"← All species in season","peak":"In full season","dispo":"Available","avoid":"Avoid","repro":"spawning","ferme":"fishing closed","now":"Right now: ","poisson":"Fish","mer":"Shellfish or crustacean","nf":"Species not found.","note":"Indicative guide for the French coasts (Channel and Atlantic). Ask your fishmonger for advice.","MC":["J","F","M","A","M","J","J","A","S","O","N","D"],"ttl":": season, choosing, cooking | Sainos"};
+    const base = { ...this._kidVals(), logoBig: { display: 'none' }, logoMini: { display: 'block', height: 36, width: 'auto' } };
+    const s = new URLSearchParams(location.search).get('s') || (location.hash || '').slice(1) || (P && (P.liste.find(x => x.f.includes(new Date().getMonth() + 1)) || P.liste[0]).s);
+    const p = P && P.liste.find(x => x.s === s), fi = F && p && F[p.s] && F[p.s][EN ? 'en' : 'fr'];
+    if ((!P || !F) && !this._ft) this._ft = setInterval(() => { if (window.POISSONS && window.POISSONS_FICHES) { clearInterval(this._ft); this.forceUpdate(); } }, 60);
+    if (!p || !fi) return { ...base, found: false, notFound: !!(P && F), n: '', year: [], cu: [], idRows: [], recs: [], rec: {}, sugg: [], hasSugg: false };
+    const MO = EN ? P.MOIS_EN : P.MOIS, now = new Date().getMonth() + 1, n = EN ? p.en : p.n;
+    const st = mm => p.f.includes(mm) ? 'f' : p.x.includes(mm) ? 'x' : 'd';
+    const year = X.MC.map((l, i) => { const k = st(i + 1); return { l, title: MO[i] + ' : ' + (k === 'f' ? X.peak : k === 'x' ? X.avoid : X.dispo), bg: k === 'f' ? 'var(--color-accent)' : k === 'x' ? '#ffffff' : 'var(--color-accent-2-200)', col: k === 'f' ? '#ffffff' : 'var(--color-text)', border: i + 1 === now ? 'var(--color-text)' : k === 'x' ? 'var(--color-accent-800)' : 'transparent' }; });
+
+    const CRU = ['crevette-grise', 'langoustine', 'tourteau', 'araignee', 'homard'], CEP = ['seiche', 'encornet'];
+    const kk = p.t === 'poisson' ? 'poisson' : CRU.includes(p.s) ? 'cru' : CEP.includes(p.s) ? 'cep' : 'coq';
+    const XT = {"K":{"poisson":"Fish","coq":"Shellfish","cru":"Crustacean","cep":"Cephalopod"},"C":{"poisson":"1 to 2 days in the coldest part of the fridge, ideally on ice.","coq":"Alive, at the bottom of the fridge under a damp cloth, 2 to 3 days. Never in fresh water.","cru":"Alive, cook it the same day; cooked, 2 days in the fridge.","cep":"1 to 2 days in the fridge, cleaned and well wrapped."},"none":"no month","de":"from ","a":" to ","et":" and ","lat":"Scientific name","fam":"Group","peak":"Full season","avoid":"Avoid","cons":"Storage","recAll":"All recipes with ","recSfx":" on 750g ↗"}, LAT = {"bar":"Dicentrarchus labrax","cabillaud":"Gadus morhua","merlu":"Merluccius merluccius","dorade-royale":"Sparus aurata","dorade-grise":"Spondyliosoma cantharus","lieu-jaune":"Pollachius pollachius","lieu-noir":"Pollachius virens","maquereau":"Scomber scombrus","sardine":"Sardina pilchardus","anchois":"Engraulis encrasicolus","merlan":"Merlangius merlangus","sole":"Solea solea","plie":"Pleuronectes platessa","turbot":"Scophthalmus maximus","lotte":"Lophius piscatorius","saint-pierre":"Zeus faber","rouget":"Mullus surmuletus","eglefin":"Melanogrammus aeglefinus","hareng":"Clupea harengus","thon-germon":"Thunnus alalunga","huitre":"Magallana gigas","moule":"Mytilus edulis","saint-jacques":"Pecten maximus","palourde":"Ruditapes decussatus","coque":"Cerastoderma edule","bulot":"Buccinum undatum","crevette-grise":"Crangon crangon","langoustine":"Nephrops norvegicus","tourteau":"Cancer pagurus","araignee":"Maja brachydactyla","homard":"Homarus gammarus","oursin":"Paracentrotus lividus","seiche":"Sepia officinalis","encornet":"Loligo vulgaris"};
+    const lowM = i => MO[i - 1];
+    const ranges = arr => { if (!arr.length) return XT.none; if (arr.length === 12) return 'all year'; const set = new Set(arr), out = []; let start = [1,2,3,4,5,6,7,8,9,10,11,12].find(i => set.has(i) && !set.has(i === 1 ? 12 : i - 1)); const seen = new Set(); for (let s0 = 1; s0 <= 12; s0++) { if (!set.has(s0) || set.has(s0 === 1 ? 12 : s0 - 1) || seen.has(s0)) continue; let e = s0; seen.add(s0); while (set.has(e % 12 + 1) && e % 12 + 1 !== s0) { e = e % 12 + 1; seen.add(e); } out.push(s0 === e ? lowM(s0) : XT.de + lowM(s0) + XT.a + lowM(e)); } return out.join(XT.et); };
+    const idRows = [[XT.lat, LAT[p.s] || '', 'italic'], [XT.fam, XT.K[kk], 'normal'], [XT.peak, ranges(p.f), 'normal'], [XT.avoid, ranges(p.x), 'normal'], [XT.cons, XT.C[kk], 'normal']].map(([k, v, fs]) => ({ k, v, fs }));
+    const base750 = 'https://www.750g.com/recherche/?q=';
+    const nFr = p.n.replace(/ \(.*\)$/, '').toLowerCase();
+    const recs = (F[p.s].fr.cu || []).map((c, i) => ({ t: fi.cu[i] || c, url: base750 + encodeURIComponent(nFr + ' ' + c.toLowerCase()) }));
+    const sugg = P.liste.filter(x => x.s !== p.s && x.f.includes(now) && !x.x.includes(now)).sort((a, b) => ((b.t === p.t) - (a.t === p.t)) || ((a.s.length * 7 + p.s.length) % 5 - (b.s.length * 7 + p.s.length) % 5)).slice(0, 6).map(x => ({ n: EN ? x.en : x.n, href: 'poisson.html?s=' + x.s, bg: 'center / contain no-repeat url("' + (EN ? '../' : '') + 'images/poissons/' + x.s + '.webp")' }));
+    const k = st(now);
+    if (typeof document !== 'undefined' && document.title.indexOf(n) !== 0) document.title = n + X.ttl;
+    return { ...base, found: true, notFound: false, n, d: EN ? p.den : p.d, heroBg: 'center / contain no-repeat url("' + (EN ? '../' : '') + 'images/poissons/' + p.s + '.webp")', type: p.t === 'mer' ? X.mer : X.poisson, year, idRows, recs, sugg, hasSugg: sugg.length > 0, recAll: base750 + encodeURIComponent(nFr), recAllLabel: 'All “' + n + '” recipes on 750g ↗', rec: recs[0] || {}, lat: LAT[p.s] || '', brefSaison: 'In full season ' + ranges(p.f) + (p.x.length ? ', avoid ' + ranges(p.x) + ' (' + (p.c ? 'fishing closed' : 'spawning') + ')' : '') + '.', brefCons: XT.C[kk], ch: fi.ch, cu: fi.cu, pe: fi.pe, sv: fi.sv,
+      nowLabel: X.now + (k === 'f' ? X.peak.toLowerCase() : k === 'x' ? X.avoid.toLowerCase() + ' (' + (p.c ? X.ferme : X.repro) + ')' : X.dispo.toLowerCase()),
+      nowBg: k === 'f' ? 'var(--color-accent-100)' : k === 'x' ? '#ffffff' : 'var(--color-accent-2-100)', nowCol: k === 'f' ? 'var(--color-accent-900)' : k === 'x' ? 'var(--color-accent-800)' : 'var(--color-accent-2-900)' };
+  }
+}
+
+</script>
+</body>
+</html>
