@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url><loc>https://www.sainos.fr/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/"/></url>
-  <url><loc>https://www.sainos.fr/saisons.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/saisons.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/saisons.html"/></url>
-  <url><loc>https://www.sainos.fr/origines.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/origines.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/origines.html"/></url>
+    <url><loc>https://www.sainos.fr/origines.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/origines.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/origines.html"/></url>
   <url><loc>https://www.sainos.fr/marches.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/marches.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/marches.html"/></url>
   <url><loc>https://www.sainos.fr/bio.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/bio.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/bio.html"/></url>
   <url><loc>https://www.sainos.fr/lexique.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/lexique.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/lexique.html"/></url>
@@ -56,8 +55,7 @@
   <url><loc>https://www.sainos.fr/produits/gingembre.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/produits/gingembre.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/produits/gingembre.html"/></url>
   <url><loc>https://www.sainos.fr/pousse.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/pousse.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/pousse.html"/></url>
   <url><loc>https://www.sainos.fr/en/</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/"/></url>
-  <url><loc>https://www.sainos.fr/en/saisons.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/saisons.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/saisons.html"/></url>
-  <url><loc>https://www.sainos.fr/en/origines.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/origines.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/origines.html"/></url>
+    <url><loc>https://www.sainos.fr/en/origines.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/origines.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/origines.html"/></url>
   <url><loc>https://www.sainos.fr/en/marches.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/marches.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/marches.html"/></url>
   <url><loc>https://www.sainos.fr/en/bio.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/bio.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/bio.html"/></url>
   <url><loc>https://www.sainos.fr/en/lexique.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/lexique.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/lexique.html"/></url>
@@ -380,4 +378,14 @@
   <url><loc>https://www.sainos.fr/en/jardin/cerfeuil.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/jardin/cerfeuil.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/jardin/cerfeuil.html"/></url>
   <url><loc>https://www.sainos.fr/jardin/verveine.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/jardin/verveine.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/jardin/verveine.html"/></url>
   <url><loc>https://www.sainos.fr/en/jardin/verveine.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/jardin/verveine.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/jardin/verveine.html"/></url>
+<url><loc>https://www.sainos.fr/fruits.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/fruits.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/fruits.html"/></url>
+<url><loc>https://www.sainos.fr/en/fruits.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/fruits.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/fruits.html"/></url>
+<url><loc>https://www.sainos.fr/legumes.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/legumes.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/legumes.html"/></url>
+<url><loc>https://www.sainos.fr/en/legumes.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/legumes.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/legumes.html"/></url>
+<url><loc>https://www.sainos.fr/herbes.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/herbes.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/herbes.html"/></url>
+<url><loc>https://www.sainos.fr/en/herbes.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/herbes.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/herbes.html"/></url>
+<url><loc>https://www.sainos.fr/fleurs.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/fleurs.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/fleurs.html"/></url>
+<url><loc>https://www.sainos.fr/en/fleurs.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/fleurs.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/fleurs.html"/></url>
+<url><loc>https://www.sainos.fr/liste.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/liste.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/liste.html"/></url>
+<url><loc>https://www.sainos.fr/en/liste.html</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.sainos.fr/liste.html"/><xhtml:link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/liste.html"/></url>
 </urlset>
