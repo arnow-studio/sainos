@@ -282,7 +282,7 @@ class Component extends DCLogic {
     const R = this._raw(); if (!R.length) return [];
     const { pers, duree: sem } = this.state, off = this._off();
     const FIX = { ail: () => this._nb(Math.ceil(pers / 4), 'tête d’ail', 'têtes d’ail'), piment: () => '2 piments', gingembre: () => '1 morceau' };
-    const part = (list, tot, base) => { const L = list.filter(i => !FIX[i.s]); const n = Math.max(1, Math.min(L.filter(i => !off.includes(i.key)).length, base)); return list.map(i => ({ ...i, qte: FIX[i.s] ? FIX[i.s]() : this._qte(i.s, tot * pers / n) })); };
+    const part = (list, tot, base) => { const L = list.filter(i => !FIX[i.s]); const n = Math.max(1, Math.min(L.filter(i => !off.includes(i.key)).length, base)); return list.map(i => { if (FIX[i.s]) return { ...i, qte: FIX[i.s]() }; const u = Component.U[i.s], g = tot * pers / n; if (!u) return { ...i, qte: this._poids(g) }; const c = Math.max(1, Math.round(g / u[0])); return { ...i, n: c + ' ' + ((c > 1 ? u[2] : u[1]).charAt(0).toUpperCase() + (c > 1 ? u[2] : u[1]).slice(1)), qte: '≈\u00a0' + this._poids(c * u[0]) }; }); };
     return [
       { k: 'fruits', titre: 'Fruits', rayon: 'Chez le primeur', bg: 'var(--color-accent-100)', items: part(R[0].list, 1500, pers + 1) },
       { k: 'legumes', titre: 'Légumes & herbes', rayon: 'Chez le primeur', bg: 'var(--color-accent-2-100)', items: [...part(R[1].list, 2000, pers + 2), ...R[2].list.map(i => ({ ...i, qte: FIX[i.s] ? FIX[i.s]() : this._nb(Math.ceil(pers / 4), 'botte', 'bottes') }))] },
