@@ -151,7 +151,26 @@
     { id: 'croute-lavee', fam: ['fromage'], terme: 'Croûte lavée', cat: 'fromagerie', def: 'Croûte orangée et collante, frottée à l’eau salée pendant l’affinage. Elle donne des fromages au goût prononcé : munster, maroilles.', ex: [] },
     { id: 'pate-pressee-cuite', fam: ['fromage'], terme: 'Pâte pressée cuite', cat: 'fromagerie', def: 'Caillé chauffé puis pressé pour en retirer le petit-lait : de grandes meules qui se conservent longtemps, comme le comté et le beaufort.', ex: [] },
     { id: 'pate-persillee', fam: ['fromage'], terme: 'Pâte persillée', cat: 'fromagerie', def: 'Pâte veinée de moisissures bleues ou vertes qui se développent à l’intérieur du fromage : roquefort, bleu d’Auvergne.', ex: [] },
-    { id: 'fermier', fam: ['fromage'], terme: 'Fermier', cat: 'fromagerie', def: 'Fromage fabriqué à la ferme, uniquement avec le lait du troupeau de l’exploitation.', ex: [] }
+    { id: 'fermier', fam: ['fromage'], terme: 'Fermier', cat: 'fromagerie', def: 'Fromage fabriqué à la ferme, uniquement avec le lait du troupeau de l’exploitation.', ex: [] },
+    { id: 'frai', fam: ['poisson'], terme: "Frai", cat: 'peche', def: "Période où les poissons pondent leurs œufs. On évite alors de les pêcher et de les acheter, pour laisser l’espèce se renouveler.", ex: [] },
+    { id: 'peche-ligne', fam: ['poisson'], terme: "Pêche à la ligne", cat: 'peche', def: "Pêche à l’hameçon, poisson par poisson. Très sélective, elle abîme peu le poisson et les fonds marins.", ex: [] },
+    { id: 'casier', fam: ['poisson'], terme: "Casier", cat: 'peche', def: "Sorte de cage posée au fond de la mer pour attraper crabes, homards, langoustines ou seiches. Les animaux trop petits sont relâchés vivants.", ex: [] },
+    { id: 'chalut', fam: ['poisson'], terme: "Chalut", cat: 'peche', def: "Grand filet en forme d’entonnoir tiré par un bateau. Efficace mais peu sélectif quand il racle les fonds.", ex: [] },
+    { id: 'bolinche', fam: ['poisson'], terme: "Bolinche", cat: 'peche', def: "Filet qui encercle un banc de poissons, comme les sardines ou les anchois, puis se referme par le bas.", ex: [] },
+    { id: 'palangre', fam: ['poisson'], terme: "Palangre", cat: 'peche', def: "Longue ligne garnie de nombreux hameçons, posée au fond ou laissée dériver.", ex: [] },
+    { id: 'prise-accessoire', fam: ['poisson'], terme: "Prise accessoire", cat: 'peche', def: "Espèce pêchée sans être visée, souvent rejetée à la mer. Les techniques sélectives en limitent la quantité.", ex: [] },
+    { id: 'taille-minimale', fam: ['poisson'], terme: "Taille minimale", cat: 'peche', def: "Taille en dessous de laquelle il est interdit de garder un poisson ou un coquillage : il doit avoir eu le temps de se reproduire.", ex: [] },
+    { id: 'fermeture-peche', fam: ['poisson'], terme: "Fermeture de pêche", cat: 'peche', def: "Période où la pêche d’une espèce est interdite par la loi, comme l’été pour la coquille Saint-Jacques.", ex: [] },
+    { id: 'mollusque', fam: ['poisson'], terme: "Mollusque", cat: 'peche', def: "Animal au corps mou, souvent protégé par une coquille : huître, moule, bulot, mais aussi seiche et encornet.", ex: [] },
+    { id: 'bivalve', fam: ['poisson'], terme: "Bivalve", cat: 'peche', def: "Mollusque à deux coquilles articulées : huître, moule, palourde, coque, Saint-Jacques.", ex: [] },
+    { id: 'cephalopode', fam: ['poisson'], terme: "Céphalopode", cat: 'peche', def: "Mollusque à bras munis de ventouses, comme la seiche, l’encornet ou le poulpe.", ex: [] },
+    { id: 'crustace', fam: ['poisson'], terme: "Crustacé", cat: 'peche', def: "Animal à carapace et à pattes articulées : crabe, homard, langoustine, crevette.", ex: [] },
+    { id: 'poisson-plat', fam: ['poisson'], terme: "Poisson plat", cat: 'peche', def: "Poisson qui vit couché sur le fond, ses deux yeux du même côté : sole, plie, turbot.", ex: [] },
+    { id: 'ouies', fam: ['poisson'], terme: "Ouïes", cat: 'peche', def: "Organes qui permettent au poisson de respirer. Rouge vif, elles sont un signe de fraîcheur.", ex: [] },
+    { id: 'bouchot', fam: ['poisson'], terme: "Bouchot", cat: 'peche', def: "Pieu de bois planté dans la mer sur lequel on élève les moules.", ex: [] },
+    { id: 'corail', fam: ['poisson'], terme: "Corail", cat: 'peche', def: "Partie orange de la Saint-Jacques ou de l’oursin : ce sont leurs organes reproducteurs, très appréciés.", ex: [] },
+    { id: 'triploide', fam: ['poisson'], terme: "Huître triploïde", cat: 'peche', def: "Huître d’écloserie qui ne se reproduit pas, donc jamais laiteuse en été. On lui préfère l’huître « née en mer ».", ex: [] },
+    { id: 'msc', fam: ['poisson'], terme: "MSC", cat: 'peche', def: "Label international qui garantit une pêche durable : stocks en bonne santé et impact limité sur l’environnement.", ex: [] }
   ];
 
   var MOIS = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];

@@ -16,6 +16,19 @@
 <script src="./support.js"></script>
 <link rel="canonical" href="https://www.sainos.fr/liste.html">
 <title>Ma liste du mois : courses de saison | Sainos</title>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sainos">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://www.sainos.fr/liste.html">
+<meta property="og:title" content="Ma liste de la semaine : les courses de saison">
+<meta property="og:description" content="Une liste de courses de saison prête en un clic, adaptée à votre foyer : fruits, légumes, poissons, un bouquet et un fromage du mois. À envoyer par SMS.">
+<meta property="og:image" content="https://www.sainos.fr/images/og/sainos.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ma liste de la semaine : les courses de saison">
+<meta name="twitter:description" content="Une liste de courses de saison prête en un clic, adaptée à votre foyer : fruits, légumes, poissons, un bouquet et un fromage du mois. À envoyer par SMS.">
+<meta name="twitter:image" content="https://www.sainos.fr/images/og/sainos.webp">
 <meta name="description" content="Votre liste de courses de saison, prête à l’emploi : fruits, légumes, fleurs et fromages du mois, quantités ajustées au foyer et à la durée.">
 <meta name="robots" content="index, follow">
 <!-- Privacy-friendly analytics by Plausible -->
@@ -26,8 +39,8 @@
 </script>
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 <style id="nav-jardin">[data-nav-jardin]{position:relative;display:inline-flex}[data-nav-jardin-panel]{display:none;position:absolute;top:100%;left:0;padding-top:6px;z-index:60}[data-nav-jardin]:hover [data-nav-jardin-panel],[data-nav-jardin]:focus-within [data-nav-jardin-panel]{display:block}[data-nav-jardin-box]{display:flex;flex-direction:column;gap:2px;min-width:180px;padding:8px;background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg)}[data-nav-jardin-box] a{display:block;padding:10px 14px!important;color:var(--color-text)!important;font-weight:700}[data-nav-sub]{padding-left:40px!important;font-size:16px!important;font-weight:600!important;min-height:44px!important}</style>
-<style id="nav-current">[data-nav-desk]{gap:4px!important}[data-nav-desk] a{padding:6px 10px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s}[data-nav-desk] a:not([aria-current="page"]):hover{background:var(--color-accent-100)}[data-nav-desk] a[aria-current="page"]{font-weight:800;color:var(--color-accent-700)!important;background:none}</style>
-<script id="nav-current-js">(function(){var p=location.pathname,k=/\/(produits|jardin)\//.test(p)||/^(fruits|legumes|herbes|fleurs|saisons)\.html$/.test(p.split('/').pop())?'jardin.html':/\/fromages\//.test(p)?'fromages.html':({'marches.html':'origines.html','bio.html':'origines.html','lexique.html':'origines.html'}[p.split('/').pop()]||p.split('/').pop()||'index.html');var q=0;function m(){q=0;document.querySelectorAll('[data-nav-desk] a').forEach(function(a){var h=(a.getAttribute('href')||'').split('/').pop();if(h===k)a.setAttribute('aria-current','page');else if(a.getAttribute('aria-current'))a.removeAttribute('aria-current')})}function s(){if(!q){q=1;requestAnimationFrame(m)}}document.addEventListener('DOMContentLoaded',function(){m();new MutationObserver(s).observe(document.body,{childList:true,subtree:true})})})();</script>
+<style id="nav-current">[data-nav-desk]{gap:4px!important}[data-nav-desk] a[data-liste-pill],[data-nav-desk] a[data-liste-pill]:hover,[data-nav-desk] a[data-liste-pill] *{color:#ffffff!important;font-family:var(--font-body)!important;font-weight:800}[data-nav-desk] a[data-liste-pill]{background:var(--color-accent)!important;padding:8px 16px!important}[data-nav-desk] a[data-liste-pill]:hover{background:var(--color-accent-600)!important}@media (min-width:761px) and (max-width:1180px){nav.nav{flex-wrap:nowrap!important}nav.nav>[data-nav-desk]{min-width:0}[data-nav-desk] button{font-size:12px!important;padding:5px 10px!important}}@media (min-width:761px) and (max-width:1000px){[data-nav-desk] a{font-size:13px!important;padding:5px 4px!important}nav.nav .nav-brand img{height:30px!important}}@media (max-width:1180px){[data-nav-desk] a[data-liste-pill]{padding:8px 12px!important}}@media (max-width:1180px){[data-nav-desk] a{padding:6px 7px!important;font-size:15px!important}}@media (max-width:960px){[data-nav-desk] a{padding:5px 5px!important;font-size:14px!important}}[data-nav-desk] a{padding:6px 10px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s}[data-nav-desk] a:not([aria-current="page"]):hover{background:var(--color-accent-100)}[data-nav-desk] a[aria-current="page"]{font-weight:800;color:var(--color-accent-700)!important;background:none}</style>
+<script id="nav-current-js">(function(){var p=location.pathname,k=/\/jardin\//.test(p)?'fleurs.html':/\/produits\//.test(p)?'legumes.html':/\/fromages\//.test(p)?'fromages.html':({'marches.html':'origines.html','bio.html':'origines.html','lexique.html':'origines.html'}[p.split('/').pop()]||p.split('/').pop()||'index.html');var q=0;function m(){q=0;document.querySelectorAll('[data-nav-desk] a').forEach(function(a){var h=(a.getAttribute('href')||'').split('/').pop();if(h===k)a.setAttribute('aria-current','page');else if(a.getAttribute('aria-current'))a.removeAttribute('aria-current')})}function s(){if(!q){q=1;requestAnimationFrame(m)}}document.addEventListener('DOMContentLoaded',function(){m();new MutationObserver(s).observe(document.body,{childList:true,subtree:true})})})();</script>
 <script id="recherche-js" src="recherche.js" defer></script>
 </head>
 <body>
@@ -39,7 +52,7 @@
   <script src="_ds/organic-f9092e65-12bb-43ea-a459-3e0b5f502c38/_ds_bundle.js"></script>
   <script src="produits-data.js"></script>
   <script src="jardin-data.js"></script>
-  <script src="fromages-data.js"></script>
+  <script src="fromages-data.js"></script><script src="poissons-data.js"></script>
   <style>
     :root { --color-bg: #fbf8f2; --color-accent: #357d28; --color-accent-100: #eef7ea; --color-accent-200: #d9eed0; --color-accent-300: #b6dca5; --color-accent-400: #74b95e; --color-accent-500: #357d28; --color-accent-600: #327426; --color-accent-700: #285e1f; --color-accent-800: #1f4a19; --color-accent-900: #183a14; --color-accent-2-100: #f4f8ed; --color-accent-2-200: #e8efdb; --color-accent-2-300: #d8e2c7; --color-accent-2-800: #56613f; --color-accent-2-900: #46512f;  --color-neutral-100: #fffdf9; --color-text: #5b3b27; --color-divider: color-mix(in srgb, #8c491a 20%, transparent); --font-heading: 'DynaPuff', system-ui, sans-serif; --font-body: 'Nunito', system-ui, sans-serif; }
     body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
@@ -48,8 +61,8 @@
     a:not(.btn):not(.tag):hover { color: var(--color-accent-600); }
     *:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
   
-    @media (max-width: 760px) { [data-nav-desk] { display: none !important; } }
-    @media (min-width: 761px) { [data-nav-burger] { display: none !important; } }
+    @media (max-width: 1080px) { [data-nav-desk] { display: none !important; } }
+    @media (min-width: 1081px) { [data-nav-burger] { display: none !important; } }
     [data-nav-burger] summary::-webkit-details-marker { display: none; }
     [data-nav-burger][open] [data-ic="open"], [data-nav-burger]:not([open]) [data-ic="close"] { display: none; }
     [data-nav-panel] a:hover { background: var(--color-accent-100); }
@@ -65,63 +78,51 @@
     <nav class="nav" aria-label="Navigation principale" style="max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; padding-left: clamp(20px, 5vw, 56px); padding-right: clamp(20px, 5vw, 56px); flex-wrap: wrap; row-gap: var(--space-2);">
       <a href="index.html" class="nav-brand" style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none;" aria-label="Sainos — accueil">
         <img data-logo="1" src="images/logo.webp" alt="Sainos — fruits et légumes de saison" width="398" height="107" style="{{ logoBig }}"><img data-kid-logo="1" src="images/logo-enfants-v2.webp" alt="Sainos — fruits et légumes de saison" width="398" height="107" style="{{ logoBig }}">
-        <img data-logo="1" src="images/logo-mini.webp" alt="" aria-hidden="true" width="398" height="107" style="{{ logoMini }}"><img data-kid-logo="1" src="images/logo-enfants-v2.webp" alt="" aria-hidden="true" width="398" height="107" style="{{ logoMini }}"><span data-baseline="1" style="font-family: var(--font-body); font-size: 14px; font-weight: 700; line-height: 1; color: var(--color-text); white-space: nowrap;">L’Esprit des <span style="color: var(--color-logo, var(--color-accent-700));">Saisons</span></span>
+        <img data-logo="1" src="images/logo-mini.webp" alt="" aria-hidden="true" width="398" height="107" style="{{ logoMini }}"><img data-kid-logo="1" src="images/logo-enfants-v2.webp" alt="" aria-hidden="true" width="398" height="107" style="{{ logoMini }}"><span data-baseline="1" style="font-family: var(--font-body); font-size: 14px; font-weight: 700; line-height: 1; color: var(--color-text); white-space: nowrap;">Mangeons les <span style="color: var(--color-logo, var(--color-accent-700));">Saisons</span></span>
       </a>
       <div data-nav-desk="1" style="display: flex; gap: var(--space-4); align-items: center;">
-        <span data-nav-jardin="1"><a href="jardin.html" aria-haspopup="true">Le Jardin ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="fruits.html">Fruits</a><a href="legumes.html">Légumes</a><a href="herbes.html">Herbes</a><a href="fleurs.html">Fleurs</a></span></span></span>
-        <a href="fromages.html" data-adult-only="1">La Fromagerie</a>
-        <a href="liste.html" data-adult-only="1">Ma liste</a>
-        <span data-nav-jardin="1"><a href="origines.html" aria-haspopup="true">Le Guide ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="origines.html">Origines</a><a href="marches.html" data-nav-mar="1">Marchés</a><a href="bio.html">Bio</a><a href="lexique.html" data-nav-lex="1">Lexique</a></span></span></span>
+        <span data-nav-jardin="1"><a href="legumes.html" aria-haspopup="true">La ferme ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="legumes.html">Le Potager</a><a href="fruits.html">Le Verger</a><a href="fleurs.html">Le Jardin</a></span></span></span>
+        <a href="fromages.html" data-adult-only="1">La fromagerie</a><a href="poissonnerie.html" data-adult-only="1">La poissonnerie</a>
+        <span data-nav-jardin="1"><a href="origines.html" aria-haspopup="true">Le guide ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="origines.html">Origines</a><a href="marches.html" data-nav-mar="1">Marchés</a><a href="bio.html">Bio</a><a href="lexique.html" data-nav-lex="1">Lexique</a></span></span></span>
         <a href="pousse.html" data-nav-pousse="1">Ça pousse !</a>
-        <a href="enseignants.html" data-nav-lex="1">En classe</a>
         <a href="quiz.html" data-nav-quiz="1">Quiz</a>
-        <a href="apropos.html">À propos</a>
+        <span data-nav-jardin="1"><a href="apropos.html" aria-haspopup="true">À propos ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="apropos.html">À propos</a><a href="enseignants.html" data-nav-lex="1">En classe</a><a href="contact.html" data-adult-only="1">Contact</a></span></span></span>
       </div>
       <details data-nav-burger="1" style="position: relative; margin-left: auto;">
         <summary aria-label="Menu" style="list-style: none; width: 48px; height: 48px; box-sizing: border-box; display: grid; place-items: center; background: transparent; border: 0; color: var(--color-text); cursor: pointer;">
           <svg data-ic="open" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M4 9h16M4 15h16"></path></svg>
           <svg data-ic="close" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
         </summary>
-        <div data-nav-panel="1" style="position: absolute; right: 0; top: calc(100% + 10px); z-index: 50; width: min(280px, 80vw); box-sizing: border-box; padding: 10px; background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 4px;">
-          <a href="jardin.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Le Jardin</a><a href="fruits.html" data-nav-sub="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Fruits</a><a href="legumes.html" data-nav-sub="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Légumes</a><a href="herbes.html" data-nav-sub="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Herbes</a><a href="fleurs.html" data-nav-sub="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Fleurs</a>
-        <a href="fromages.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">La Fromagerie</a>
-        <a href="liste.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Ma liste</a>
-          <a href="origines.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Le Guide</a><a href="origines.html" data-nav-sub="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Origines</a><a href="marches.html" data-nav-mar="1" data-nav-sub="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Marchés</a><a href="bio.html" data-nav-sub="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Bio</a><a href="lexique.html" data-nav-lex="1" data-nav-sub="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Lexique</a>
+        <div data-nav-panel="1" style="position: absolute; right: 0; top: calc(100% + 10px); z-index: 50; max-height: calc(100vh - 100px); max-height: calc(100dvh - 100px); overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; width: min(280px, 80vw); box-sizing: border-box; padding: 10px; background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 4px;">
+          <a href="liste.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Ma liste</a>
+          <a href="legumes.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">La ferme</a>
+        <a href="fromages.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">La fromagerie</a><a href="poissonnerie.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">La poissonnerie</a>
+          <a href="origines.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Le guide</a>
           <a href="pousse.html" data-nav-pousse="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Ça pousse !</a>
-          <a href="enseignants.html" data-nav-lex="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">En classe</a>
         <a href="quiz.html" data-nav-quiz="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Quiz</a>
           <a href="apropos.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">À propos</a>
-          <a href="contact.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Contact</a>
         
           <a href="en/" data-lang="en" hreflang="en" lang="en" style="display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;"><span aria-hidden="true">🌐</span>English version</a>
           <div data-nav-extra="1" style="display: flex; flex-direction: column; gap: 10px; margin-top: 6px; padding: 12px 8px 4px; border-top: 1px solid var(--color-divider);"><sc-if value="{{ adult }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ toEnfant }}" style="display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-2-300); background: #ffffff; color: var(--color-accent-2-900); font: inherit; font-size: 16px; font-weight: 700; padding: 10px 18px; min-height: 48px; width: 100%; justify-content: center; box-sizing: border-box; border-radius: 999px; cursor: pointer; white-space: nowrap;" style-hover="background: var(--color-accent-2-100); border-color: var(--color-accent-2-500);">🎒 Mode Enfants</button></sc-if><sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ toNormal }}" style="display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-300); background: #ffffff; color: var(--color-accent-900); font: inherit; font-size: 16px; font-weight: 700; padding: 10px 18px; min-height: 48px; width: 100%; justify-content: center; box-sizing: border-box; border-radius: 999px; cursor: pointer; white-space: nowrap;" style-hover="background: var(--color-accent-100); border-color: var(--color-accent-500);">Mode Parents</button></sc-if><div aria-label="Suivre Sainos" data-nav-social="1" style="display: flex; justify-content: center; gap: var(--space-2); align-items: center;"><a href="https://www.facebook.com/profile.php?id=61594827576678" target="_blank" rel="noopener" aria-label="Sainos sur Facebook" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/facebook/1877F2" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a><a href="https://www.instagram.com/sainos_fr/" target="_blank" rel="noopener" aria-label="Sainos sur Instagram" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/instagram/E4405F" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a><a href="https://www.tiktok.com/@sainos_fr" target="_blank" rel="noopener" aria-label="Sainos sur TikTok" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/tiktok/000000" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a></div></div>
         </div>
       </details>
-      <div data-nav-desk="1" style="display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; justify-content: flex-end; margin-left: auto; flex: none;"><sc-if value="{{ adult }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ toEnfant }}" style="display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-2-300); background: #ffffff; color: var(--color-accent-2-900); font: inherit; font-size: 14px; font-weight: 700; padding: 6px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap;" style-hover="background: var(--color-accent-2-100); border-color: var(--color-accent-2-500);">🎒 Mode Enfants</button></sc-if><sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ toNormal }}" style="display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-300); background: #ffffff; color: var(--color-accent-900); font: inherit; font-size: 14px; font-weight: 700; padding: 6px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap;" style-hover="background: var(--color-accent-100); border-color: var(--color-accent-500);">Mode Parents</button></sc-if></div>
+      <div data-nav-desk="1" style="display: flex; flex-wrap: nowrap; gap: var(--space-3); align-items: center; justify-content: flex-end; margin-left: auto; flex: none;"><a href="liste.html" data-adult-only="1" data-liste-pill="1" aria-label="Ma liste" style="display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; font-size: 14px; white-space: nowrap; text-decoration: none;"><span data-pill-txt="1">Ma liste</span></a><sc-if value="{{ adult }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ toEnfant }}" style="display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-2-300); background: #ffffff; color: var(--color-accent-2-900); font: inherit; font-size: 14px; font-weight: 700; padding: 6px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap;" style-hover="background: var(--color-accent-2-100); border-color: var(--color-accent-2-500);">🎒 Mode Enfants</button></sc-if><sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ toNormal }}" style="display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-300); background: #ffffff; color: var(--color-accent-900); font: inherit; font-size: 14px; font-weight: 700; padding: 6px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap;" style-hover="background: var(--color-accent-100); border-color: var(--color-accent-500);">Mode Parents</button></sc-if></div>
     </nav>
   </header>
 
   <main style="flex: 1; max-width: 880px; margin: 0 auto; width: 100%; box-sizing: border-box; padding: clamp(32px, 6vw, 56px) clamp(20px, 5vw, 56px) var(--space-8); display: flex; flex-direction: column; gap: var(--space-6);">
     <div style="display: flex; flex-direction: column; gap: var(--space-3);">
-      <h1 style="margin: 0; font-size: clamp(36px, 5.5vw, 56px); line-height: 1.04; text-wrap: balance;">Ma liste {{ moisDe }}</h1>
-      <p style="margin: 0; font-size: 18px; line-height: 1.55; text-wrap: pretty; color: var(--color-neutral-800);">Une sélection de saison est déjà cochée, adaptée à votre foyer. Plus la durée est longue, plus il y a de produits différents. Décochez ou ajoutez ce que vous voulez.</p>
+      <h1 style="margin: 0; font-size: clamp(36px, 5.5vw, 56px); line-height: 1.04; text-wrap: balance;">Ma liste de la semaine</h1>
+      <p style="margin: 0; font-size: 18px; line-height: 1.55; text-wrap: pretty; color: var(--color-neutral-800);">Une sélection de saison est déjà cochée, adaptée à votre foyer. Décochez ou ajoutez ce que vous voulez.</p>
     </div>
 
     <div style="display: flex; flex-wrap: wrap; gap: var(--space-4) var(--space-6); align-items: center; padding: var(--space-4) var(--space-6); background: #f4efe6; border-radius: var(--radius-lg);">
       <div style="display: flex; align-items: center; gap: var(--space-3);">
-        <span id="lbl-pers" style="font-weight: 700; font-size: 16px;">Personnes</span>
+        <span id="lbl-pers" style="font-weight: 700; font-size: 16px;">{{ persLabel }}</span>
         <div role="group" aria-labelledby="lbl-pers" style="display: flex; align-items: center; gap: 4px; background: #ffffff; border-radius: 999px; padding: 4px;">
           <button type="button" onClick="{{ persMoins }}" aria-label="Une personne de moins" disabled="{{ persMin }}" style="width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--color-accent-100); color: var(--color-accent-800); font: inherit; font-size: 22px; font-weight: 800; cursor: pointer;" style-hover="background: var(--color-accent-200);">−</button>
           <output aria-live="polite" style="min-width: 36px; text-align: center; font-family: var(--font-heading); font-size: 24px;">{{ pers }}</output>
           <button type="button" onClick="{{ persPlus }}" aria-label="Une personne de plus" disabled="{{ persMax }}" style="width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--color-accent-100); color: var(--color-accent-800); font: inherit; font-size: 22px; font-weight: 800; cursor: pointer;" style-hover="background: var(--color-accent-200);">+</button>
-        </div>
-      </div>
-      <div style="display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap;">
-        <span id="lbl-duree" style="font-weight: 700; font-size: 16px;">Pour</span>
-        <div role="group" aria-labelledby="lbl-duree" style="display: flex; gap: 0; background: #ffffff; border-radius: 999px; padding: 4px;">
-          <sc-for list="{{ durees }}" as="du" hint-placeholder-count="3">
-            <button type="button" class="{{ du.cls }}" aria-pressed="{{ du.on }}" onClick="{{ du.pick }}" style="white-space: nowrap; flex: none; padding: 9px 16px; font-size: 15px; border-color: transparent;">{{ du.label }}</button>
-          </sc-for>
         </div>
       </div>
     </div>
@@ -129,7 +130,6 @@
     <div style="display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; justify-content: space-between;">
       <span style="font-size: 16px; font-weight: 700;">{{ compte }}</span>
       <div style="display: flex; gap: var(--space-2);">
-        <button type="button" class="btn btn-ghost" onClick="{{ nouvelle }}" style="padding: 8px 14px; font-size: 14px; white-space: nowrap;">Nouvelle liste</button>
         <button type="button" class="btn btn-ghost" onClick="{{ toutCocher }}" style="padding: 8px 14px; font-size: 14px; white-space: nowrap;">Tout cocher</button>
         <button type="button" class="btn btn-ghost" onClick="{{ toutDecocher }}" style="padding: 8px 14px; font-size: 14px; white-space: nowrap;">Tout décocher</button>
       </div>
@@ -138,21 +138,22 @@
     <sc-for list="{{ groupes }}" as="g" hint-placeholder-count="4">
       <section aria-labelledby="{{ g.id }}" style="display: flex; flex-direction: column; gap: var(--space-3);">
         <div style="display: flex; align-items: baseline; gap: var(--space-3); flex-wrap: wrap;">
-          <h2 id="{{ g.id }}" style="margin: 0; font-size: clamp(24px, 3vw, 32px);">{{ g.titre }}</h2>
+          <span style="flex-basis: 100%; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; color: var(--color-accent-700);">{{ g.rayon }}</span><h2 id="{{ g.id }}" style="margin: 0; font-size: clamp(24px, 3vw, 32px);">{{ g.titre }}</h2>
           <span style="font-size: 14px; color: var(--color-neutral-700);">{{ g.compte }}</span>
         </div>
-        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px;">
+        <ul style="list-style: none; margin: 0; padding: 4px var(--space-5, 20px); display: flex; flex-direction: column; gap: 0; background: #ffffff; border-radius: var(--radius-lg);">
           <sc-for list="{{ g.items }}" as="it" hint-placeholder-count="5">
             <li>
-              <label style="display: flex; align-items: center; gap: var(--space-3); min-height: 56px; padding: 6px var(--space-4) 6px var(--space-3); background: {{ it.bg }}; border-radius: var(--radius-lg); cursor: pointer; opacity: {{ it.op }};" style-hover="box-shadow: var(--shadow-sm);">
+              <label style="display: flex; align-items: center; gap: var(--space-3); min-height: 60px; padding: 8px 0; background: transparent; border-bottom: 2px dotted var(--color-neutral-300, #d9cfc0); cursor: pointer; opacity: {{ it.op }};" style-hover="background: var(--color-neutral-100);">
                 <input type="checkbox" checked="{{ it.on }}" onChange="{{ it.toggle }}" style="width: 24px; height: 24px; margin: 0; flex: none; accent-color: var(--color-accent); cursor: pointer;">
                 <span aria-hidden="true" style="flex: none; font-size: 30px; line-height: 1; width: 36px; display: grid; place-items: center;"><sc-if value="{{ it.img }}" hint-placeholder-val="{{ false }}"><span style="width: 1em; height: 1em; background: {{ it.imgBg }}; display: block;"></span></sc-if><sc-if value="{{ it.noImg }}" hint-placeholder-val="{{ true }}">{{ it.e }}</sc-if></span>
                 <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px;"><span style="font-size: 17px; font-weight: 700; text-decoration: {{ it.deco }};">{{ it.n }}</span><span style="font-size: 13px; font-weight: 700; color: {{ it.saisonCol }};">{{ it.saison }}</span></span>
-                <span style="flex: none; font-size: 16px; font-weight: 700; color: var(--color-accent-800); text-align: right;">{{ it.qte }}</span>
+                <span style="flex: none; font-size: 16px; font-weight: 700; color: var(--color-accent-800); text-align: right; white-space: nowrap;">{{ it.qte }}</span>
               </label>
             </li>
           </sc-for>
         </ul>
+        <sc-if value="{{ g.hasAjout }}" hint-placeholder-val="{{ false }}"><details style="display: flex; flex-direction: column; gap: var(--space-3);"><summary style="list-style: none; align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px 0 16px; font-size: 16px; font-weight: 700; color: var(--color-accent-2-900); background: #ffffff; border: 2px dashed var(--color-accent-2-300); border-radius: 999px; cursor: pointer; width: fit-content;" style-hover="border-color: var(--color-accent-2-500); background: var(--color-accent-2-100);"><span aria-hidden="true" style="display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--color-accent-2-500); color: #ffffff; font-size: 20px; line-height: 1;">+</span>{{ g.ajoutLabel }}<span style="font-size: 14px; font-weight: 700; color: var(--color-neutral-700);">{{ g.ajoutNb }}</span></summary><ul style="list-style: none; margin: var(--space-3) 0 0; padding: var(--space-3); display: grid; grid-template-columns: repeat(auto-fill, minmax(min(160px, calc((100% - 10px) / 2)), 1fr)); gap: 10px; background: #f4efe6; border-radius: var(--radius-lg);"><sc-for list="{{ g.ajout }}" as="a" hint-placeholder-count="4"><li><button type="button" onClick="{{ a.add }}" aria-label="{{ a.aria }}" style="position: relative; display: flex; flex-direction: column; align-items: center; gap: 6px; width: 100%; height: 100%; box-sizing: border-box; padding: 14px 8px 12px; font: inherit; color: var(--color-text); text-align: center; background: #ffffff; border: 2px solid {{ a.border }}; border-radius: var(--radius-lg); cursor: pointer; transition: transform .15s ease;" style-hover="transform: translateY(-2px); box-shadow: var(--shadow-sm);"><span aria-hidden="true" style="position: absolute; top: 8px; right: 8px; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--color-accent); color: #ffffff; font-size: 18px; font-weight: 800; line-height: 1;">+</span><span aria-hidden="true" style="font-size: 64px; line-height: 1; display: grid; place-items: center;"><sc-if value="{{ a.img }}" hint-placeholder-val="{{ false }}"><span style="width: 1em; height: 1em; background: {{ a.imgBg }}; display: block;"></span></sc-if><sc-if value="{{ a.noImg }}" hint-placeholder-val="{{ true }}">{{ a.e }}</sc-if></span><span style="font-family: var(--font-heading); font-size: 17px; line-height: 1.15; text-wrap: balance;">{{ a.n }}</span><span style="font-size: 13px; font-weight: 700; white-space: nowrap; color: {{ a.col }};">{{ a.saison }}</span></button></li></sc-for></ul></details></sc-if>
       </section>
     </sc-for>
 
@@ -181,24 +182,25 @@
     </section>
     </sc-if>
 
-    <a href="marches.html" style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-6); background: var(--color-accent-2-200); border-radius: var(--radius-lg); text-decoration: none; color: var(--color-accent-2-900);" style-hover="background: var(--color-accent-2-300); color: var(--color-accent-2-900);">
-      <span style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 300px; min-width: 0;"><span style="font-family: var(--font-heading); font-size: 26px;">📍 Le marché le plus proche</span><span style="font-size: 16px; line-height: 1.5;">Votre liste est prête&#160;? Trouvez un marché près de chez vous&#160;: carte, jours et horaires.</span></span>
-      <span class="btn btn-primary" style="flex: none; padding: 12px 22px; font-size: 16px; white-space: nowrap;">Trouver mon marché →</span>
-    </a>
 
     <section aria-labelledby="titre-sms" style="display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-6); background: #ffffff; border: 2px solid var(--color-accent-2-300); border-radius: var(--radius-lg);">
       <h2 id="titre-sms" style="margin: 0; font-size: 26px;">Envoyer la liste par SMS</h2>
       <form onSubmit="{{ envoyer }}" style="display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: flex-start;">
         <div style="display: flex; flex-direction: column; gap: 6px; flex: 1 1 240px;">
           <label for="tel" style="font-size: 15px; font-weight: 700;">Numéro de téléphone</label>
-          <input id="tel" name="tel" type="tel" inputmode="tel" autocomplete="off" placeholder="06 12 34 56 78" value="{{ tel }}" onInput="{{ onTel }}" aria-invalid="{{ telErr }}" aria-describedby="tel-note" class="input" style="min-height: 48px; padding: 0 18px; border-radius: 999px; font: inherit; font-size: 17px;">
+          <input id="tel" name="tel" type="tel" inputmode="tel" autocomplete="off" placeholder="06 12 34 56 78" value="{{ tel }}" onInput="{{ onTel }}" aria-invalid="{{ telErr }}" aria-describedby="tel-note" class="input" style="min-height: 48px; padding: 0 18px; border-radius: 999px; font: inherit; font-size: 17px; background: #fdfaf4;">
         </div>
         <button type="submit" class="btn btn-primary" disabled="{{ rienCoche }}" style="align-self: flex-end; min-height: 48px; padding: 0 22px; font-size: 16px; white-space: nowrap;">Envoyer par SMS</button>
         <button type="button" class="btn btn-secondary" onClick="{{ copier }}" disabled="{{ rienCoche }}" style="align-self: flex-end; min-height: 48px; padding: 0 22px; font-size: 16px; white-space: nowrap;">{{ copierLabel }}</button>
+        <button type="button" class="btn btn-ghost" onClick="{{ partager }}" disabled="{{ rienCoche }}" style="align-self: flex-end; min-height: 48px; padding: 0 22px; font-size: 16px; white-space: nowrap;">{{ lienLabel }}</button>
       </form>
       <sc-if value="{{ telErr }}" hint-placeholder-val="{{ false }}"><p role="alert" style="margin: 0; font-size: 15px; font-weight: 700; color: var(--color-accent-800);">Numéro invalide. Exemple&#160;: 06 12 34 56 78 ou +33 6 12 34 56 78.</p></sc-if>
       <p id="tel-note" style="margin: 0; font-size: 14px; line-height: 1.5; color: var(--color-neutral-800);">🔒 Le numéro sert uniquement à ouvrir votre application de messagerie avec la liste prête à envoyer. Il n’est ni enregistré ni transmis à Sainos, et s’efface après l’envoi.</p>
     </section>
+    <a href="marches.html" style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-6); background: var(--color-accent-2-200); border-radius: var(--radius-lg); text-decoration: none; color: var(--color-accent-2-900);" style-hover="background: var(--color-accent-2-300); color: var(--color-accent-2-900);">
+      <span style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 300px; min-width: 0;"><span style="font-family: var(--font-heading); font-size: 26px;">📍 Le marché le plus proche</span><span style="font-size: 16px; line-height: 1.5;">Votre liste est prête&#160;? Trouvez un marché près de chez vous&#160;: carte, jours et horaires.</span></span>
+      <span class="btn btn-primary" style="flex: none; padding: 12px 22px; font-size: 16px; white-space: nowrap;">Trouver mon marché →</span>
+    </a>
   </main>
 
   <footer style="background: #f4efe6;">
@@ -206,10 +208,10 @@
       <img data-logo="1" src="images/logo-mini.webp" alt="Sainos" width="398" height="107" style="display: block; height: 30px; width: auto;"><img data-kid-logo="1" src="images/logo-enfants-v2.webp" alt="Sainos" width="398" height="107" style="display: block; height: 30px; width: auto;">
       <nav aria-label="Pied de page" style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
         <a href="index.html">Accueil</a>
-        <a href="jardin.html">Le Jardin</a>
-        <a href="fromages.html" data-adult-only="1">La Fromagerie</a>
+        <span data-nav-jardin="1"><a href="legumes.html" aria-haspopup="true">La ferme ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="legumes.html">Le Potager</a><a href="fruits.html">Le Verger</a><a href="fleurs.html">Le Jardin</a></span></span></span>
+        <a href="fromages.html" data-adult-only="1">La fromagerie</a><a href="poissonnerie.html" data-adult-only="1">La poissonnerie</a>
         <a href="liste.html" data-adult-only="1">Ma liste</a>
-        <a href="origines.html">Le Guide</a>
+        <a href="origines.html">Le guide</a>
         <a href="pousse.html" data-nav-pousse="1">Ça pousse !</a>
         <a href="lexique.html" data-nav-lex="1">Lexique</a>
         <a href="quiz.html" data-nav-quiz="1">Quiz</a>
@@ -235,42 +237,45 @@ class Component extends DCLogic {
   setMode(m) { try { localStorage.setItem('sainos-mode', m); } catch (e) {} this._syncMode(); }
   _kidVals() { const kid = this.state.mode === 'enfant'; return { kid, adult: !kid, toEnfant: () => this.setMode('enfant'), toNormal: () => this.setMode('normal') }; }
   _mois() { const f = this.props.moisSimule ?? 0; return f >= 1 && f <= 12 ? f : new Date().getMonth() + 1; }
-  _load() { const d = { pers: 2, duree: 1, off: [], auto: true, fl: null, fr: null, flOn: true, frOn: true }; try { const o = JSON.parse(localStorage.getItem('sainos-liste-v4') || '{}'); const same = o.mois === this._mois(); return { pers: o.pers || 2, duree: o.duree || 1, off: same && Array.isArray(o.off) ? o.off : [], auto: same ? o.auto !== false : true, fl: same ? o.fl || null : null, fr: same ? o.fr || null : null, flOn: same ? o.flOn !== false : true, frOn: same ? o.frOn !== false : true }; } catch (e) { return d; } }
-  _save() { const { pers, duree, off, auto, fl, fr, flOn, frOn } = this.state; try { localStorage.setItem('sainos-liste-v4', JSON.stringify({ mois: this._mois(), pers, duree, off, auto, fl, fr, flOn, frOn })); } catch (e) {} }
-  state = { mode: this._mode(), ...this._load(), tel: '', telErr: false, copie: false, ready: !!(window.SAISON && window.JARDIN && window.FROMAGES) };
+  _load() { const d = { pers: 2, duree: 1, off: [], auto: true, fl: null, fr: null, fi: null, flOn: true, frOn: true, fiOn: true }; try { const o = JSON.parse(localStorage.getItem('sainos-liste-v4') || '{}'); const same = o.mois === this._mois(); return { pers: o.pers || 2, duree: 1, off: same && Array.isArray(o.off) ? o.off : [], auto: same ? o.auto !== false : true, fl: same ? o.fl || null : null, fr: same ? o.fr || null : null, fi: same ? o.fi || null : null, fiOn: same ? o.fiOn !== false : true, flOn: same ? o.flOn !== false : true, frOn: same ? o.frOn !== false : true }; } catch (e) { return d; } }
+  _save() { const { pers, duree, off, auto, fl, fr, flOn, frOn, fi, fiOn } = this.state; try { localStorage.setItem('sainos-liste-v4', JSON.stringify({ mois: this._mois(), pers, duree, off, auto, fl, fr, flOn, frOn, fi, fiOn })); } catch (e) {} }
+  state = { mode: this._mode(), ...this._load(), tel: '', telErr: false, copie: false, ready: !!(window.SAISON && window.JARDIN && window.FROMAGES && window.POISSONS) };
   set(p) { this.setState(p, () => this._save()); }
   componentDidMount() {
     window.addEventListener('storage', this._syncMode); window.addEventListener('pageshow', this._syncMode);
-    if (!this.state.ready) this._t = setInterval(() => { if (window.SAISON && window.JARDIN && window.FROMAGES) { clearInterval(this._t); this.setState({ ready: true }); } }, 50);
+    if (!this.state.ready) this._t = setInterval(() => { if (window.SAISON && window.JARDIN && window.FROMAGES && window.POISSONS) { clearInterval(this._t); this.setState({ ready: true }); } }, 50);
+    try { const h = location.hash; if (h.indexOf('#l=') === 0) { const o = JSON.parse(decodeURIComponent(escape(atob(h.slice(3))))); this.set({ pers: o.p || 2, off: o.o || [], auto: false, fl: o.fl || null, fr: o.fr || null, flOn: o.a !== 0, frOn: o.b !== 0 }); history.replaceState(null, '', location.pathname); } } catch (e) {}
     this._ensure();
   }
   componentDidUpdate() { this._ensure(); }
   componentWillUnmount() { window.removeEventListener('storage', this._syncMode); window.removeEventListener('pageshow', this._syncMode); clearInterval(this._t); clearTimeout(this._c); }
-  _poids(g) { if (g < 1000) return (Math.max(50, Math.round(g / 50) * 50)) + ' g'; const k = Math.round(g / 100) / 10; return String(k).replace('.', ',') + ' kg'; }
+  _poids(g) { if (g < 1000) return (Math.max(50, Math.round(g / 50) * 50)) + '\u00a0g'; const k = Math.round(g / 100) / 10; return String(k).replace('.', ',') + '\u00a0kg'; }
   _nb(n, un, plu) { return n + ' ' + (n > 1 ? plu : un); }
   _fleurs() { const m = this._mois(); return window.JARDIN ? window.JARDIN.plantes.filter(p => p.c.includes('f') && p.f.includes(m)) : []; }
   _fromages() { const m = this._mois(); return window.FROMAGES ? window.FROMAGES.fromages.filter(f => f.f.includes(m)) : []; }
+  _poissons() { const m = this._mois(); return window.POISSONS ? window.POISSONS.liste.filter(p => p.f.includes(m)) : []; }
   _pick(list, not) { const l = list.length > 1 ? list.filter(x => x.s !== not) : list; return l.length ? l[Math.floor(Math.random() * l.length)].s : null; }
   _ensure() {
     if (!this.state.ready) return; const p = {};
     const fl = this._fleurs(), fr = this._fromages();
     if (fl.length && !fl.some(x => x.s === this.state.fl)) p.fl = this._pick(fl);
     if (fr.length && !fr.some(x => x.s === this.state.fr)) p.fr = this._pick(fr);
+    const fi = this._poissons(); if (fi.length && !fi.some(x => x.s === this.state.fi)) p.fi = this._pick(fi);
     if (Object.keys(p).length) this.set(p);
   }
-  static U = { carotte: [100, 'carotte', 'carottes'], tomate: [120, 'tomate', 'tomates'], aubergine: [300, 'aubergine', 'aubergines'], courgette: [250, 'courgette', 'courgettes'], concombre: [350, 'concombre', 'concombres'], poivron: [180, 'poivron', 'poivrons'], piment: [15, 'piment', 'piments'], brocoli: [400, 'brocoli', 'brocolis'], chou: [1000, 'chou', 'choux'], 'chou-fleur': [900, 'chou-fleur', 'choux-fleurs'], laitue: [400, 'laitue', 'laitues'], 'pomme-de-terre': [150, 'pomme de terre', 'pommes de terre'], mais: [300, 'épi', 'épis'], potiron: [2500, 'potiron', 'potirons'], ail: [50, 'tête d’ail', 'têtes d’ail'], oignon: [120, 'oignon', 'oignons'], 'patate-douce': [300, 'patate douce', 'patates douces'], artichaut: [300, 'artichaut', 'artichauts'], betterave: [200, 'betterave', 'betteraves'], endive: [120, 'endive', 'endives'], fenouil: [300, 'fenouil', 'fenouils'], navet: [150, 'navet', 'navets'], panais: [200, 'panais', 'panais'], poireau: [200, 'poireau', 'poireaux'], asperge: [25, 'asperge', 'asperges'], rhubarbe: [200, 'tige', 'tiges'], peche: [150, 'pêche', 'pêches'], melon: [1000, 'melon', 'melons'], pasteque: [4000, 'pastèque', 'pastèques'], pomme: [170, 'pomme', 'pommes'], poire: [180, 'poire', 'poires'], kiwi: [80, 'kiwi', 'kiwis'], clementine: [70, 'clémentine', 'clémentines'], orange: [200, 'orange', 'oranges'], citron: [120, 'citron', 'citrons'], avocat: [200, 'avocat', 'avocats'], banane: [150, 'banane', 'bananes'], ananas: [1200, 'ananas', 'ananas'], mangue: [350, 'mangue', 'mangues'], coing: [300, 'coing', 'coings'], prune: [40, 'prune', 'prunes'], abricot: [50, 'abricot', 'abricots'], figue: [50, 'figue', 'figues'] };
-  _qte(s, g) { const u = Component.U[s]; if (!u) return this._poids(g); const n = Math.max(1, Math.round(g / u[0])); return this._nb(n, u[1], u[2]) + ' (≈ ' + this._poids(n * u[0]) + ')'; }
+  static U = { carotte: [100, 'carotte', 'carottes'], tomate: [120, 'tomate', 'tomates'], aubergine: [300, 'aubergine', 'aubergines'], courgette: [250, 'courgette', 'courgettes'], concombre: [350, 'concombre', 'concombres'], poivron: [180, 'poivron', 'poivrons'], piment: [15, 'piment', 'piments'], brocoli: [400, 'brocoli', 'brocolis'], chou: [1000, 'chou', 'choux'], 'chou-fleur': [900, 'chou-fleur', 'choux-fleurs'], laitue: [400, 'laitue', 'laitues'], 'pomme-de-terre': [150, 'pomme de terre', 'pommes de terre'], mais: [300, 'épi', 'épis'], potiron: [2500, 'potiron', 'potirons'], ail: [50, 'tête d’ail', 'têtes d’ail'], oignon: [120, 'oignon', 'oignons'], 'patate-douce': [300, 'patate douce', 'patates douces'], artichaut: [300, 'artichaut', 'artichauts'], betterave: [200, 'betterave', 'betteraves'], endive: [120, 'endive', 'endives'], fenouil: [300, 'fenouil', 'fenouils'], navet: [150, 'navet', 'navets'], panais: [200, 'panais', 'panais'], poireau: [200, 'poireau', 'poireaux'], asperge: [25, 'asperge', 'asperges'], rhubarbe: [200, 'tige', 'tiges'], peche: [150, 'pêche', 'pêches'], melon: [1000, 'melon', 'melons'], pasteque: [4000, 'pastèque', 'pastèques'], pomme: [170, 'pomme', 'pommes'], poire: [180, 'poire', 'poires'], kiwi: [80, 'kiwi', 'kiwis'], clementine: [70, 'clémentine', 'clémentines'], orange: [200, 'orange', 'oranges'], citron: [120, 'citron', 'citrons'], avocat: [200, 'avocat', 'avocats'], banane: [150, 'banane', 'bananes'], ananas: [1200, 'ananas', 'ananas'], mangue: [350, 'mangue', 'mangues'], coing: [300, 'coing', 'coings'], prune: [40, 'prune', 'prunes'], abricot: [50, 'abricot', 'abricots'], figue: [50, 'figue', 'figues'] , bar: [500,"bar","bars"], 'dorade-royale': [400,"dorade royale","dorades royales"], 'dorade-grise': [400,"dorade grise","dorades grises"], rouget: [150,"rouget","rougets"], sole: [300,"sole","soles"], plie: [400,"plie","plies"], merlan: [300,"merlan","merlans"], hareng: [200,"hareng","harengs"], maquereau: [300,"maquereau","maquereaux"], sardine: [60,"sardine","sardines"], 'saint-pierre': [800,"saint-pierre","saint-pierre"], turbot: [1500,"turbot","turbots"], cabillaud: [150,"filet de cabillaud","filets de cabillaud"], merlu: [150,"filet de merlu","filets de merlu"], 'lieu-jaune': [150,"filet de lieu jaune","filets de lieu jaune"], 'lieu-noir': [150,"filet de lieu noir","filets de lieu noir"], eglefin: [150,"filet d’églefin","filets d’églefin"], lotte: [200,"tranche de lotte","tranches de lotte"], 'thon-germon': [150,"pavé de thon","pavés de thon"], huitre: [80,"huître","huîtres"], 'saint-jacques': [150,"coquille Saint-Jacques","coquilles Saint-Jacques"], homard: [600,"homard","homards"], tourteau: [800,"tourteau","tourteaux"], araignee: [1000,"araignée","araignées"], langoustine: [40,"langoustine","langoustines"], oursin: [100,"oursin","oursins"], seiche: [300,"seiche","seiches"], encornet: [200,"encornet","encornets"] };
+  _qte(s, g) { const u = Component.U[s]; if (!u) return this._poids(g); const n = Math.max(1, Math.round(g / u[0])); return this._nb(n, u[1], u[2]) + ' (≈\u00a0' + this._poids(n * u[0]) + ')'; }
   _raw() {
     const S = window.SAISON, m = this._mois(); if (!S) return [];
     const pr = S.produits.filter(p => p.m.includes(m)).sort((a, b) => (b.f.includes(m) - a.f.includes(m)) || a.n.localeCompare(b.n, 'fr'));
     const mk = p => ({ key: 'p:' + p.s, s: p.s, n: p.n, v: S.vis(p), peak: p.f.includes(m), pk: (p.f.includes(m) ? 0 : 100) + p.f.length });
-    return [{ k: 'fruits', list: pr.filter(p => p.t === 'fruit').map(mk) }, { k: 'legumes', list: pr.filter(p => p.t === 'legume').map(mk) }, { k: 'herbes', list: pr.filter(p => p.t === 'herbe').map(mk) }];
+    return [{ k: 'fruits', list: pr.filter(p => p.t === 'fruit').map(mk) }, { k: 'legumes', list: pr.filter(p => p.t === 'legume').map(mk) }, { k: 'herbes', list: pr.filter(p => p.t === 'herbe').map(mk) }, { k: 'poissons', list: (window.POISSONS ? window.POISSONS.liste.filter(p => p.f.includes(m) && !p.x.includes(m)) : []).map(p => ({ key: 'f:' + p.s, s: p.s, n: p.n, v: { e: p.e, img: true, imgBg: 'center / contain no-repeat url("images/poissons/' + p.s + '.webp")' }, peak: true, pk: p.f.length })).sort((a, b) => a.n.localeCompare(b.n, 'fr')) }];
   }
   _off() {
     if (!this.state.auto) return this.state.off;
     const { pers, duree } = this.state, x = { 1: 0, 2: 1, 4: 2 }[duree] || 0;
     const V = { 1: [0, 0, 0], 2: [2, 3, 1], 4: [5, 6, 2] }[duree] || [0, 0, 0];
-    const N = { fruits: pers + 1 + V[0], legumes: pers + 2 + V[1], herbes: 1 + Math.floor(pers / 3) + V[2] };
+    const N = { fruits: pers + 1 + V[0], legumes: pers + 2 + V[1], herbes: 1 + Math.floor(pers / 3) + V[2], poissons: 1 + Math.floor(pers / 4) + V[2] };
     return this._raw().flatMap(g => g.list.slice().sort((a, b) => a.pk - b.pk || a.n.localeCompare(b.n, 'fr')).slice(N[g.k]).map(i => i.key));
   }
   _items() {
@@ -279,8 +284,9 @@ class Component extends DCLogic {
     const FIX = { ail: () => this._nb(Math.ceil(pers / 4), 'tête d’ail', 'têtes d’ail'), piment: () => '2 piments', gingembre: () => '1 morceau' };
     const part = (list, tot, base) => { const L = list.filter(i => !FIX[i.s]); const n = Math.max(1, Math.min(L.filter(i => !off.includes(i.key)).length, base)); return list.map(i => ({ ...i, qte: FIX[i.s] ? FIX[i.s]() : this._qte(i.s, tot * pers / n) })); };
     return [
-      { k: 'fruits', titre: 'Fruits', bg: 'var(--color-accent-100)', items: part(R[0].list, 1500, pers + 1) },
-      { k: 'legumes', titre: 'Légumes & herbes', bg: 'var(--color-accent-2-100)', items: [...part(R[1].list, 2000, pers + 2), ...R[2].list.map(i => ({ ...i, qte: FIX[i.s] ? FIX[i.s]() : this._nb(Math.ceil(pers / 4), 'botte', 'bottes') }))] }
+      { k: 'fruits', titre: 'Fruits', rayon: 'Chez le primeur', bg: 'var(--color-accent-100)', items: part(R[0].list, 1500, pers + 1) },
+      { k: 'legumes', titre: 'Légumes & herbes', rayon: 'Chez le primeur', bg: 'var(--color-accent-2-100)', items: [...part(R[1].list, 2000, pers + 2), ...R[2].list.map(i => ({ ...i, qte: FIX[i.s] ? FIX[i.s]() : this._nb(Math.ceil(pers / 4), 'botte', 'bottes') }))] },
+      { k: 'poissons', titre: 'Poissons & fruits de mer', rayon: 'Chez le poissonnier', bg: 'var(--color-neutral-100)', items: part(R[3].list, 150 * sem, 1 + Math.floor(pers / 4)) }
     ].filter(g => g.items.length);
   }
   _sugg() {
@@ -305,26 +311,28 @@ class Component extends DCLogic {
     const all = G.flatMap(g => g.items.map(i => i.key));
     const on = all.filter(k => !off.includes(k)).length + SG.filter(s => s.on).length, tot = all.length + SG.length;
     const toggle = k => () => { const o = this._off(); this.set({ auto: false, off: o.includes(k) ? o.filter(x => x !== k) : [...o, k] }); };
-    const groupes = G.map(g => { const n = g.items.filter(i => !off.includes(i.key)).length; return { id: 'g-' + g.k, titre: g.titre, compte: n + ' / ' + g.items.length, items: g.items.map(i => { const c = !off.includes(i.key); return { ...i.v, img: !!i.v.img, noImg: !i.v.img, n: i.n, saison: i.peak ? 'Pleine saison' : 'Disponible', saisonCol: i.peak ? 'var(--color-accent-700)' : 'var(--color-neutral-700)', qte: c ? i.qte : '', on: c, toggle: toggle(i.key), bg: c ? g.bg : '#f4efe6', op: c ? 1 : 0.6, deco: c ? 'none' : 'line-through' }; }) }; });
+    const groupes = G.map(g => { const n = g.items.filter(i => !off.includes(i.key)).length; return { id: 'g-' + g.k, titre: g.titre, rayon: g.rayon || '', compte: n + ' / ' + g.items.length, ajoutLabel: {"fruits":"Ajouter un fruit","legumes":"Ajouter un légume ou une herbe","poissons":"Ajouter un poisson"}[g.k], ajout: g.items.filter(i => off.includes(i.key)).map(i => ({ ...i.v, img: !!i.v.img, noImg: !i.v.img, n: i.n, saison: i.peak ? 'Pleine saison' : 'Disponible', col: i.peak ? 'var(--color-accent-700)' : 'var(--color-neutral-700)', border: i.peak ? 'var(--color-accent-300)' : 'var(--color-divider)', aria: 'Ajouter ' + i.n, add: toggle(i.key) })), ajoutNb: '(' + g.items.filter(i => off.includes(i.key)).length + ')', hasAjout: g.items.some(i => off.includes(i.key)), ajouter: e => { const k = e.target.value; if (k) toggle(k)(); }, items: g.items.filter(i => !off.includes(i.key)).map(i => { const c = !off.includes(i.key); return { ...i.v, img: !!i.v.img, noImg: !i.v.img, n: i.n, saison: i.peak ? 'Pleine saison' : 'Disponible', saisonCol: i.peak ? 'var(--color-accent-700)' : 'var(--color-neutral-700)', qte: c ? i.qte : '', on: c, toggle: toggle(i.key), bg: c ? g.bg : '#f4efe6', op: c ? 1 : 0.6, deco: c ? 'none' : 'line-through' }; }) }; });
     const suggestions = SG.map(s => ({ ...s, imgBg: 'center / contain no-repeat url("' + s.img + '")', qte: s.on ? s.qte : 'Non ajouté', op: s.on ? 1 : 0.6, bg: s.on ? '#ffffff' : '#f4efe6', ring: s.on ? '2px solid var(--color-accent-300)' : '2px solid transparent',
       toggle: () => this.set({ [s.k + 'On']: !this.state[s.k + 'On'] }),
-      autre: () => this.set({ [s.k]: this._pick(s.k === 'fl' ? this._fleurs() : this._fromages(), this.state[s.k]), [s.k + 'On']: true }),
-      autreAria: s.k === 'fl' ? 'Proposer un autre bouquet' : 'Proposer un autre fromage' }));
+      autre: () => this.set({ [s.k]: this._pick(s.k === 'fl' ? this._fleurs() : s.k === 'fi' ? this._poissons() : this._fromages(), this.state[s.k]), [s.k + 'On']: true }),
+      autreAria: s.k === 'fl' ? 'Proposer un autre bouquet' : s.k === 'fi' ? 'Proposer un autre poisson' : 'Proposer un autre fromage' }));
     const nettoie = v => v.replace(/[^0-9+]/g, '').replace(/^0033/, '+33');
     const valide = v => /^(0[1-9]\d{8}|\+33[1-9]\d{8}|\+\d{8,15})$/.test(v);
     return { ...kv, logoBig: { display: 'none' }, logoMini: { display: 'block', height: 36, width: 'auto' },
       moisDe: S ? (/^[aeiouéâ]/.test(S.MOIS[m - 1].toLowerCase()) ? 'd’' : 'de ') + S.MOIS[m - 1].toLowerCase() : '',
-      pers, persMin: pers <= 1, persMax: pers >= 12,
+      pers, persLabel: pers <= 1 ? 'À table, je suis' : 'À table, nous sommes', persMin: pers <= 1, persMax: pers >= 12,
       persMoins: () => this.set({ pers: Math.max(1, this.state.pers - 1), auto: true }),
       persPlus: () => this.set({ pers: Math.min(12, this.state.pers + 1), auto: true }),
       durees: [[1, '1 semaine'], [2, '2 semaines'], [4, '1 mois']].map(([k, label]) => ({ label, on: duree === k, cls: 'btn ' + (duree === k ? 'btn-primary' : 'btn-ghost'), pick: () => this.set({ duree: k, auto: true }) })),
       compte: on + ' article' + (on > 1 ? 's' : '') + ' sur ' + tot,
-      toutCocher: () => this.set({ auto: false, off: [], flOn: true, frOn: true }), toutDecocher: () => this.set({ auto: false, off: all, flOn: false, frOn: false }),
-      nouvelle: () => this.set({ auto: true, off: [], fl: this._pick(this._fleurs(), this.state.fl), fr: this._pick(this._fromages(), this.state.fr), flOn: true, frOn: true }),
+      toutCocher: () => this.set({ auto: false, off: [], flOn: true, frOn: true, fiOn: true }), toutDecocher: () => this.set({ auto: false, off: all, flOn: false, frOn: false, fiOn: false }),
+      nouvelle: () => this.set({ auto: true, off: [], fl: this._pick(this._fleurs(), this.state.fl), fr: this._pick(this._fromages(), this.state.fr), flOn: true, frOn: true, fiOn: true }),
       groupes, suggestions, hasSugg: SG.length > 0, rienCoche: on === 0,
       tel, telErr,
       onTel: e => this.setState({ tel: e.target.value, telErr: false }),
       envoyer: e => { e.preventDefault(); const n = nettoie(this.state.tel); if (!valide(n)) { this.setState({ telErr: true }); return; } const url = 'sms:' + n + '?&body=' + encodeURIComponent(this._texte(G, SG)); this.setState({ tel: '', telErr: false }); window.location.href = url; },
+      lienLabel: this.state.lien ? 'Lien copié ✓' : 'Partager le lien',
+      partager: () => { const s = this.state, d = { p: s.pers, o: this._off(), fl: s.fl, fr: s.fr, a: s.flOn ? 1 : 0, b: s.frOn ? 1 : 0 }; const url = location.origin + location.pathname + '#l=' + btoa(unescape(encodeURIComponent(JSON.stringify(d)))); const ok = () => { this.setState({ lien: true }); clearTimeout(this._l); this._l = setTimeout(() => this.setState({ lien: false }), 2000); }; if (navigator.share) navigator.share({ title: 'Ma liste Sainos', url }).catch(() => {}); else if (navigator.clipboard) navigator.clipboard.writeText(url).then(ok, () => {}); },
       copierLabel: copie ? 'Copiée ✓' : 'Copier la liste',
       copier: () => { const t = this._texte(G, SG); const ok = () => { this.setState({ copie: true }); clearTimeout(this._c); this._c = setTimeout(() => this.setState({ copie: false }), 2000); }; if (navigator.clipboard) navigator.clipboard.writeText(t).then(ok, () => {}); }
     };
