@@ -181,6 +181,11 @@
     </section>
     </sc-if>
 
+    <a href="marches.html" style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-6); background: var(--color-accent-2-200); border-radius: var(--radius-lg); text-decoration: none; color: var(--color-accent-2-900);" style-hover="background: var(--color-accent-2-300); color: var(--color-accent-2-900);">
+      <span style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 300px; min-width: 0;"><span style="font-family: var(--font-heading); font-size: 26px;">📍 Le marché le plus proche</span><span style="font-size: 16px; line-height: 1.5;">Votre liste est prête&#160;? Trouvez un marché près de chez vous&#160;: carte, jours et horaires.</span></span>
+      <span class="btn btn-primary" style="flex: none; padding: 12px 22px; font-size: 16px; white-space: nowrap;">Trouver mon marché →</span>
+    </a>
+
     <section aria-labelledby="titre-sms" style="display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-6); background: #ffffff; border: 2px solid var(--color-accent-2-300); border-radius: var(--radius-lg);">
       <h2 id="titre-sms" style="margin: 0; font-size: 26px;">Envoyer la liste par SMS</h2>
       <form onSubmit="{{ envoyer }}" style="display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: flex-start;">
