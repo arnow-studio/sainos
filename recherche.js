@@ -1,9 +1,37 @@
 // Recherche globale Sainos : bouton loupe dans l'en-tête + fenêtre de recherche (fruits, légumes, herbes, fromages, pages).
 (function () {
+  try { if (JSON.parse(localStorage.getItem('sainos-liste-v4') || '{}').vegan) document.documentElement.classList.add('m-vegan'); } catch (e) {}
+  if (!document.getElementById('vegan-css')) { var vs = document.createElement('style'); vs.id = 'vegan-css'; vs.textContent = 'html.m-vegan nav a[href$="fromages.html"],html.m-vegan footer a[href$="fromages.html"],html.m-vegan [data-nav-panel] a[href$="fromages.html"]{display:none!important}'; document.head.appendChild(vs); }
   if (window.__sainosSearch) return; window.__sainosSearch = 1;
   try { if (!document.getElementById('pill-css')) { var ps = document.createElement('style'); ps.id = 'pill-css'; ps.textContent = '@media (min-width:600px) and (max-width:1080px){[data-nav-desk]:has(>a[data-liste-pill]){display:flex!important;margin-left:0!important;order:2}[data-nav-desk]:has(>a[data-liste-pill])>:not(a[data-liste-pill]){display:none!important}header nav.nav>[data-search-btn]{order:1}header nav.nav>[data-nav-burger]{order:3}}'; document.head.appendChild(ps); } } catch (e) {}
   try { if (!document.getElementById('veg-css')) { var vs = document.createElement('style'); vs.id = 'veg-css'; vs.textContent = 'html.m-veg nav a[href$="poissonnerie.html"],html.m-veg footer a[href$="poissonnerie.html"],html.m-veg [data-nav-panel] a[href$="poissonnerie.html"]{display:none!important}'; document.head.appendChild(vs); } if (JSON.parse(localStorage.getItem('sainos-liste-v4') || '{}').veg) document.documentElement.classList.add('m-veg'); } catch (e) {}
   var me = document.currentScript, BASE = me ? me.src.replace(/recherche\.js.*$/, '') : '/';
+  if (!window.SainosOverpass) window.SainosOverpass = (function () {
+    var EP = ['https://overpass-api.de/api/interpreter', 'https://overpass.private.coffee/api/interpreter', 'https://maps.mail.ru/osm/tools/overpass/api/interpreter', 'https://overpass.kumi.systems/api/interpreter'];
+    var mem = {}, TTL = 6 * 3600 * 1000;
+    function key(q) { var h = 0; for (var i = 0; i < q.length; i++) h = (h * 31 + q.charCodeAt(i)) | 0; return 'sainos-op:' + h; }
+    function one(url, q) {
+      var ctl = window.AbortController ? new AbortController() : null, to = ctl && setTimeout(function () { ctl.abort(); }, 20000);
+      return fetch(url, { method: 'POST', body: 'data=' + encodeURIComponent(q), headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, signal: ctl ? ctl.signal : undefined })
+        .then(function (r) { clearTimeout(to); if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function (j) { if (!j || !Array.isArray(j.elements) || (!j.elements.length && /error|timeout|out of memory/i.test(j.remark || ''))) throw new Error('remark'); return j; });
+    }
+    return function (q) {
+      var k = key(q);
+      if (mem[k]) return Promise.resolve(mem[k]);
+      try { var c = JSON.parse(sessionStorage.getItem(k) || 'null'); if (c && Date.now() - c.t < TTL) return Promise.resolve(mem[k] = c.j); } catch (e) {}
+      var start = Math.floor(Math.random() * 2), order = EP.slice(start).concat(EP.slice(0, start));
+      function round(i, pass) {
+        return one(order[i], q).catch(function (e) {
+          if (i + 1 < order.length) return round(i + 1, pass);
+          if (pass < 1) return new Promise(function (ok) { setTimeout(ok, 2500); }).then(function () { return round(0, pass + 1); });
+          throw e;
+        });
+      }
+      return round(0, 0).then(function (j) { mem[k] = j; try { sessionStorage.setItem(k, JSON.stringify({ t: Date.now(), j: j })); } catch (e) {} return j; });
+    };
+  })();
+  if (!window.SainosProfil && !document.querySelector('script[data-profil]')) { var pj = document.createElement('script'); pj.src = BASE + 'profil.js'; pj.setAttribute('data-profil', '1'); document.head.appendChild(pj); }
   var EN = /\/en(\/|$)/.test(location.pathname) || document.documentElement.lang === 'en';
   var T = EN ? { btn: 'Search', ph: 'Search a fruit, vegetable, cheese…', none: 'No results for', hint: 'Type at least 2 letters', close: 'Close', fruit: 'Fruit', legume: 'Vegetable', legumineuse: 'Pulse', herbe: 'Herb', fromage: 'Cheese', page: 'Page', poisson: 'Fish', mer: 'Seafood', fleur: 'Flower', fleurc: 'Edible flower', arom: 'Herb' }
              : { btn: 'Rechercher', ph: 'Chercher un fruit, un légume, un fromage…', none: 'Aucun résultat pour', hint: 'Tapez au moins 2 lettres', close: 'Fermer', fruit: 'Fruit', legume: 'Légume', legumineuse: 'Légumineuse', herbe: 'Herbe', fromage: 'Fromage', page: 'Page', poisson: 'Poisson', mer: 'Fruit de mer', fleur: 'Fleur', fleurc: 'Fleur comestible', arom: 'Aromatique' };
@@ -31,7 +59,7 @@
   function search(q) {
     var n = norm(q).trim(); if (n.length < 2) { hits = []; return render(q); }
     var words = n.split(/\s+/);
-    hits = idx.filter(function (x) { return !(x.cheese && kid()) && !(x.fish && document.documentElement.classList.contains('m-veg')) && words.every(function (w) { return x.k.indexOf(w) >= 0; }); })
+    hits = idx.filter(function (x) { return !(x.cheese && (kid() || document.documentElement.classList.contains('m-vegan'))) && !(x.fish && document.documentElement.classList.contains('m-veg')) && words.every(function (w) { return x.k.indexOf(w) >= 0; }); })
       .map(function (x) { var nn = norm(x.n); return { x: x, s: (nn.indexOf(n) === 0 ? 0 : nn.indexOf(n) > 0 ? 1 : 2) + (x.page ? 0.5 : 0) }; })
       .sort(function (a, b) { return a.s - b.s || a.x.n.localeCompare(b.x.n); }).slice(0, 12).map(function (h) { return h.x; });
     sel = 0; render(q);
