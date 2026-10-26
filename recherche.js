@@ -1,6 +1,7 @@
 // Recherche globale Sainos : bouton loupe dans l'en-tête + fenêtre de recherche (fruits, légumes, herbes, fromages, pages).
 (function () {
   if (window.__sainosSearch) return; window.__sainosSearch = 1;
+  try { if (!document.getElementById('veg-css')) { var vs = document.createElement('style'); vs.id = 'veg-css'; vs.textContent = 'html.m-veg nav a[href$="poissonnerie.html"],html.m-veg footer a[href$="poissonnerie.html"],html.m-veg [data-nav-panel] a[href$="poissonnerie.html"]{display:none!important}'; document.head.appendChild(vs); } if (JSON.parse(localStorage.getItem('sainos-liste-v4') || '{}').veg) document.documentElement.classList.add('m-veg'); } catch (e) {}
   var me = document.currentScript, BASE = me ? me.src.replace(/recherche\.js.*$/, '') : '/';
   var EN = /\/en(\/|$)/.test(location.pathname) || document.documentElement.lang === 'en';
   var T = EN ? { btn: 'Search', ph: 'Search a fruit, vegetable, cheese…', none: 'No results for', hint: 'Type at least 2 letters', close: 'Close', fruit: 'Fruit', legume: 'Vegetable', herbe: 'Herb', fromage: 'Cheese', page: 'Page', fleur: 'Flower', fleurc: 'Edible flower', arom: 'Herb' }
