@@ -152,10 +152,15 @@
       </div>
     </section>
     <section aria-labelledby="h-cal" style="display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-6); background: #f4efe6; border-radius: var(--radius-lg);">
-      <h2 id="h-cal" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">Calendrier du jardin</h2>
-      <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)); gap: 6px;">
-        <sc-for list="{{ cal }}" as="cm" hint-placeholder-count="12"><li title="{{ cm.title }}" style="{{ cm.style }}"><span style="font-weight: 800; font-size: 15px;">{{ cm.label }}</span><span style="font-size: 12px;">{{ cm.state }}</span></li></sc-for>
+      <h2 id="h-cal" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">Calendrier de saison</h2>
+      <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 6px;">
+        <sc-for list="{{ cal }}" as="cm" hint-placeholder-count="12"><li title="{{ cm.title }}" style="{{ cm.style }}"><span data-m-long="1" style="display: none;">{{ cm.label }}</span><span data-m-short="1">{{ cm.ini }}</span></li></sc-for>
       </ol>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); font-size: 14px;">
+          <span style="display: flex; gap: 6px; align-items: center;"><span aria-hidden="true" style="width: 14px; height: 14px; border-radius: 4px; background: var(--color-accent);"></span>{{ lg1 }}</span>
+          <span style="display: flex; gap: 6px; align-items: center;"><span aria-hidden="true" style="width: 14px; height: 14px; border-radius: 4px; background: var(--color-accent-2-200);"></span>{{ lg2 }}</span>
+          <sc-if value="{{ lg3 }}" hint-placeholder-val="{{ true }}"><span style="display: flex; gap: 6px; align-items: center;"><span aria-hidden="true" style="width: 14px; height: 14px; box-sizing: border-box; border-radius: 4px; border: 2px solid var(--color-neutral-300); background: #ffffff;"></span>{{ lg3 }}</span></sc-if>
+        </div>
       <p style="margin: 0; font-size: 16px; line-height: 1.6;">{{ calSummary }}</p>
     </section>
     <section aria-labelledby="h-cult" style="display: flex; flex-direction: column; gap: var(--space-4);">
@@ -270,15 +275,15 @@ class Component extends DCLogic {
     const runs = a => { if (a.length === 12) return T.allYear; const r = []; let cur = [a[0]]; for (let i = 1; i < a.length; i++) { if (a[i] === cur[cur.length - 1] % 12 + 1) cur.push(a[i]); else { r.push(cur); cur = [a[i]]; } } r.push(cur); return r.map(c => c.length === 1 ? T.inM + lc(MO[c[0] - 1]) : (!EN && /^[aeiou]/i.test(MO[c[0] - 1]) ? 'd’' : T.from) + lc(MO[c[0] - 1]) + T.to + lc(MO[c[c.length - 1] - 1])).join(T.and); };
     const isF = p.f.includes(now), isP = p.p.includes(now);
     const cal = MS.map((label, i) => { const mm = i + 1, f = p.f.includes(mm), pl = p.p.includes(mm);
-      return { label, state: f ? (herb ? T.pick : T.bloom) : pl ? T.plant : '—', title: MO[i] + (mm === now ? T.now : ''),
-        style: { display: 'flex', flexDirection: 'column', gap: 2, padding: '10px 12px', borderRadius: 18, background: f ? 'var(--color-accent)' : pl ? 'var(--color-accent-2-200)' : '#ffffff', color: f ? 'var(--color-on-accent, #ffffff)' : pl ? 'var(--color-accent-2-900)' : 'var(--color-neutral-700)', border: mm === now ? '2px solid var(--color-text)' : '2px solid transparent' } }; });
+      return { label: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc'][i], ini: label.charAt(0), state: f ? (herb ? T.pick : T.bloom) : pl ? T.plant : '—', title: MO[i] + (mm === now ? T.now : ''),
+        style: { display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 56, padding: 0, borderRadius: 12, fontFamily: 'var(--font-heading)', fontSize: 18, fontWeight: 400, containerType: 'inline-size', background: f ? 'var(--color-accent)' : pl ? 'var(--color-accent-2-200)' : '#ffffff', color: f ? 'var(--color-on-accent, #ffffff)' : pl ? 'var(--color-accent-2-900)' : 'var(--color-neutral-700)', border: mm === now ? '2px solid var(--color-text)' : '2px solid transparent' } }; });
     const related = J.plantes.filter(x => x.s !== p.s && x.c[0] === p.c[0]).sort((a, b) => (b.f.includes(now) || b.p.includes(now)) - (a.f.includes(now) || a.p.includes(now))).slice(0, 6).map(x => ({ n: nm(x), href: x.s + '.html', imgBg: bg(x) }));
     return {
       n: nm(p), d: EN ? p.den : p.d, imgBg: bg(p),
       tags: p.c.map(k => ({ label: T[k] })).concat(p.b ? [{ label: T.bulbe }] : []),
       status: isF ? (herb ? T.pick : T.bloom) + T.now : isP ? T.plant + T.now : T.off,
       statusStyle: { display: 'inline-block', whiteSpace: 'nowrap', fontSize: 14, fontWeight: 800, padding: '5px 14px', borderRadius: 999, background: isF ? 'var(--color-accent-700)' : isP ? 'var(--color-accent-2-300)' : '#f4efe6', color: isF ? '#ffffff' : isP ? 'var(--color-accent-2-900)' : 'var(--color-neutral-800)' },
-      cal, calSummary: (herb ? T.har : T.flo) + ' : ' + runs(p.f) + '. ' + T.pla + ' : ' + runs(p.p) + '.',
+      cal, lg1: herb ? T.pick : T.bloom, lg2: T.plant, lg3: '', calSummary: (herb ? T.har : T.flo) + ' : ' + runs(p.f) + '. ' + T.pla + ' : ' + runs(p.p) + '.',
       cu: (() => { const x = (window.JARDIN_TX || {})[p.s]; if (!x) return { expo: '', eau: '', rus: '', tip: '' }; const [E, W, H] = [{ s: 'Plein soleil', sm: 'Soleil ou mi-ombre', m: 'Mi-ombre', o: 'Ombre' }, ['Peu', 'Modéré', 'Régulier'], ['Craint le gel', 'Assez rustique', 'Très rustique']]; return { expo: E[x[0]], eau: W[x[1] - 1], rus: H[x[2] - 1], tip: EN ? x[4] : x[3] }; })(),
       x2: (() => { const x = (window.JARDIN_TX2 || {})[p.s] || []; const g = k => x[k + 0] || ''; return { pl: g(0), cu: g(2), hasCu: !!g(2), sv: g(4), wa: g(6), hasWa: !!g(6) }; })(),
       related, fiche: p.fiche, ficheHref: '../produits/' + p.s + '.html'
