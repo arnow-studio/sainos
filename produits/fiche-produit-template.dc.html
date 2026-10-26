@@ -670,7 +670,7 @@ class Component extends DCLogic {
     const cal = S.MOIS_C.map((label, i) => {
       const mm = i + 1, f = p.f.includes(mm), av = p.m.includes(mm);
       return { label: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc'][i], ini: label.charAt(0), state: f ? 'Pleine saison' : av ? 'Disponible' : 'Hors saison', title: S.MOIS[i] + (mm === now ? ' (mois en cours)' : ''),
-        style: { display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 44, padding: 0, borderRadius: 12, fontFamily: 'var(--font-heading)', fontSize: 17, fontWeight: 400, containerType: 'inline-size',
+        style: { display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 'clamp(40px, 5vw, 44px)', padding: 0, borderRadius: 12, fontFamily: 'var(--font-heading)', fontSize: 'clamp(14px, 2.2vw, 17px)', fontWeight: 400, containerType: 'inline-size',
           background: f ? 'var(--color-accent)' : av ? 'var(--color-accent-2-200)' : '#ffffff',
           color: f ? 'var(--color-on-accent, var(--color-bg))' : av ? 'var(--color-accent-2-900)' : 'var(--color-neutral-700)',
           border: mm === now ? '2px solid var(--color-text)' : '2px solid transparent' } };
