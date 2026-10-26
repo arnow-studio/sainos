@@ -151,8 +151,8 @@
     </section>
     <section aria-labelledby="h-cal" style="display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-6); background: #f4efe6; border-radius: var(--radius-lg);">
       <h2 id="h-cal" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">Calendrier de saison</h2>
-      <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 6px;">
-        <sc-for list="{{ cal }}" as="cm" hint-placeholder-count="12"><li title="{{ cm.title }}" style="{{ cm.style }}"><span data-m-long="1" style="display: none;">{{ cm.label }}</span><span data-m-short="1">{{ cm.ini }}</span></li></sc-for>
+      <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(max(calc((100% - 66px) / 12), min(calc((100% - 30px) / 6), calc((560px - 100%) * 999))), 1fr)); gap: 6px;">
+        <sc-for list="{{ cal }}" as="cm" hint-placeholder-count="12"><li title="{{ cm.title }}" style="{{ cm.style }}">{{ cm.label }}</li></sc-for>
       </ol>
         <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); font-size: 14px;">
           <span style="display: flex; gap: 6px; align-items: center;"><span aria-hidden="true" style="width: 14px; height: 14px; border-radius: 4px; background: var(--color-accent);"></span>{{ lg1 }}</span>
@@ -274,7 +274,7 @@ class Component extends DCLogic {
     const isF = p.f.includes(now), isP = p.p.includes(now);
     const cal = MS.map((label, i) => { const mm = i + 1, f = p.f.includes(mm), pl = p.p.includes(mm);
       return { label: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc'][i], ini: label.charAt(0), state: f ? (herb ? T.pick : T.bloom) : pl ? T.plant : '—', title: MO[i] + (mm === now ? T.now : ''),
-        style: { display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 56, padding: 0, borderRadius: 12, fontFamily: 'var(--font-heading)', fontSize: 18, fontWeight: 400, containerType: 'inline-size', background: f ? 'var(--color-accent)' : pl ? 'var(--color-accent-2-200)' : '#ffffff', color: f ? 'var(--color-on-accent, #ffffff)' : pl ? 'var(--color-accent-2-900)' : 'var(--color-neutral-700)', border: mm === now ? '2px solid var(--color-text)' : '2px solid transparent' } }; });
+        style: { display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 44, padding: 0, borderRadius: 12, fontFamily: 'var(--font-heading)', fontSize: 17, fontWeight: 400, containerType: 'inline-size', background: f ? 'var(--color-accent)' : pl ? 'var(--color-accent-2-200)' : '#ffffff', color: f ? 'var(--color-on-accent, #ffffff)' : pl ? 'var(--color-accent-2-900)' : 'var(--color-neutral-700)', border: mm === now ? '2px solid var(--color-text)' : '2px solid transparent' } }; });
     const related = J.plantes.filter(x => x.s !== p.s && x.c[0] === p.c[0]).sort((a, b) => (b.f.includes(now) || b.p.includes(now)) - (a.f.includes(now) || a.p.includes(now))).slice(0, 6).map(x => ({ n: nm(x), href: x.s + '.html', imgBg: bg(x) }));
     return {
       n: nm(p), d: EN ? p.den : p.d, imgBg: bg(p),

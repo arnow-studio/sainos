@@ -1,7 +1,6 @@
 // Recherche globale Sainos : bouton loupe dans l'en-tête + fenêtre de recherche (fruits, légumes, herbes, fromages, pages).
 (function () {
   if (window.__sainosSearch) return; window.__sainosSearch = 1;
-  try { if (!document.getElementById('cal-css')) { var cs = document.createElement('style'); cs.id = 'cal-css'; cs.textContent = '[data-m-long]{display:inline!important}[data-m-short]{display:none!important}ol[style*="repeat(12, minmax(0, 1fr))"]>li,div[style*="repeat(12, minmax(0, 1fr))"]>div{min-height:44px!important;font-size:16px!important}@media (max-width:760px){ol[style*="repeat(12, minmax(0, 1fr))"],div[style*="repeat(12, minmax(0, 1fr))"]{grid-template-columns:repeat(6,minmax(0,1fr))!important}ol[style*="repeat(12, minmax(0, 1fr))"]>li,div[style*="repeat(12, minmax(0, 1fr))"]>div{min-height:40px!important;border-radius:10px!important}}'; document.head.appendChild(cs); } } catch (e) {}
   try { if (!document.getElementById('veg-css')) { var vs = document.createElement('style'); vs.id = 'veg-css'; vs.textContent = 'html.m-veg nav a[href$="poissonnerie.html"],html.m-veg footer a[href$="poissonnerie.html"],html.m-veg [data-nav-panel] a[href$="poissonnerie.html"]{display:none!important}'; document.head.appendChild(vs); } if (JSON.parse(localStorage.getItem('sainos-liste-v4') || '{}').veg) document.documentElement.classList.add('m-veg'); } catch (e) {}
   var me = document.currentScript, BASE = me ? me.src.replace(/recherche\.js.*$/, '') : '/';
   var EN = /\/en(\/|$)/.test(location.pathname) || document.documentElement.lang === 'en';

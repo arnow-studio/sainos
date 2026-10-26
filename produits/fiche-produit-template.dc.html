@@ -125,9 +125,9 @@
 
       <section aria-labelledby="h-calendrier" style="display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-6); background: #f4efe6; border-radius: var(--radius-lg);">
         <h2 id="h-calendrier" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">Calendrier de saison</h2>
-        <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 6px;">
+        <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(max(calc((100% - 66px) / 12), min(calc((100% - 30px) / 6), calc((560px - 100%) * 999))), 1fr)); gap: 6px;">
           <sc-for list="{{ cal }}" as="cm" hint-placeholder-count="12">
-            <li style="{{ cm.style }}" title="{{ cm.title }}"><span data-m-long="1" style="display: none;">{{ cm.label }}</span><span data-m-short="1">{{ cm.ini }}</span></li>
+            <li style="{{ cm.style }}" title="{{ cm.title }}">{{ cm.label }}</li>
           </sc-for>
         </ol>
         <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); font-size: 14px;">
@@ -670,7 +670,7 @@ class Component extends DCLogic {
     const cal = S.MOIS_C.map((label, i) => {
       const mm = i + 1, f = p.f.includes(mm), av = p.m.includes(mm);
       return { label: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc'][i], ini: label.charAt(0), state: f ? 'Pleine saison' : av ? 'Disponible' : 'Hors saison', title: S.MOIS[i] + (mm === now ? ' (mois en cours)' : ''),
-        style: { display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 56, padding: 0, borderRadius: 12, fontFamily: 'var(--font-heading)', fontSize: 18, fontWeight: 400, containerType: 'inline-size',
+        style: { display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 44, padding: 0, borderRadius: 12, fontFamily: 'var(--font-heading)', fontSize: 17, fontWeight: 400, containerType: 'inline-size',
           background: f ? 'var(--color-accent)' : av ? 'var(--color-accent-2-200)' : '#ffffff',
           color: f ? 'var(--color-on-accent, var(--color-bg))' : av ? 'var(--color-accent-2-900)' : 'var(--color-neutral-700)',
           border: mm === now ? '2px solid var(--color-text)' : '2px solid transparent' } };
