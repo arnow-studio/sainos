@@ -124,15 +124,17 @@
       </div>
 
       <section aria-labelledby="h-calendrier" style="display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-6); background: #f4efe6; border-radius: var(--radius-lg);">
-        <h2 id="h-calendrier" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">Seasonal calendar{{ duDe }}</h2>
-        <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(72px, 1fr)); gap: 6px;">
+        <h2 id="h-calendrier" style="margin: 0; font-size: clamp(26px, 3vw, 34px);">Seasonal calendar</h2>
+        <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 6px;">
           <sc-for list="{{ cal }}" as="cm" hint-placeholder-count="12">
-            <li style="{{ cm.style }}" title="{{ cm.title }}">
-              <span style="font-weight: 700; font-size: 14px;">{{ cm.label }}</span>
-              <span style="font-size: 11px;">{{ cm.state }}</span>
-            </li>
+            <li style="{{ cm.style }}" title="{{ cm.title }}"><span data-m-long="1" style="display: none;">{{ cm.label }}</span><span data-m-short="1">{{ cm.ini }}</span></li>
           </sc-for>
         </ol>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); font-size: 14px;">
+          <span style="display: flex; gap: 6px; align-items: center;"><span aria-hidden="true" style="width: 14px; height: 14px; border-radius: 4px; background: var(--color-accent);"></span>{{ lg1 }}</span>
+          <span style="display: flex; gap: 6px; align-items: center;"><span aria-hidden="true" style="width: 14px; height: 14px; border-radius: 4px; background: var(--color-accent-2-200);"></span>{{ lg2 }}</span>
+          <sc-if value="{{ lg3 }}" hint-placeholder-val="{{ true }}"><span style="display: flex; gap: 6px; align-items: center;"><span aria-hidden="true" style="width: 14px; height: 14px; box-sizing: border-box; border-radius: 4px; border: 2px solid var(--color-neutral-300); background: #ffffff;"></span>{{ lg3 }}</span></sc-if>
+        </div>
         <p style="margin: 0; font-size: 15px; color: var(--color-neutral-800);">{{ calSummary }}</p>
       </section>
 
@@ -667,8 +669,8 @@ class Component extends DCLogic {
     ];
     const cal = S.MOIS_C.map((label, i) => {
       const mm = i + 1, f = p.f.includes(mm), av = p.m.includes(mm);
-      return { label, state: f ? 'Peak season' : av ? 'Available' : 'Out of season', title: S.MOIS[i] + (mm === now ? ' (this month)' : ''),
-        style: { display: 'flex', flexDirection: 'column', gap: 2, padding: '10px 12px', borderRadius: 18,
+      return { label: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][i], ini: label.charAt(0), state: f ? 'Peak season' : av ? 'Available' : 'Out of season', title: S.MOIS[i] + (mm === now ? ' (this month)' : ''),
+        style: { display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 56, padding: 0, borderRadius: 12, fontFamily: 'var(--font-heading)', fontSize: 18, fontWeight: 400, containerType: 'inline-size',
           background: f ? 'var(--color-accent)' : av ? 'var(--color-accent-2-200)' : '#ffffff',
           color: f ? 'var(--color-on-accent, var(--color-bg))' : av ? 'var(--color-accent-2-900)' : 'var(--color-neutral-700)',
           border: mm === now ? '2px solid var(--color-text)' : '2px solid transparent' } };
@@ -695,7 +697,7 @@ class Component extends DCLogic {
       hasVar: !!V, varietes: V ? V.v.map(([n, x]) => ({ n, x })) : [], varK: V ? V.k : '', fam: p.fam, cousinsLinked, cousinsExtra, hasCousins: cousinsLinked.length + cousinsExtra.length > 0,
       nom: p.n, nomLower: p.n.toLowerCase(), emoji: p.e, hero: S.vis(p, '../'), typeLabel: S.TYPES[p.t].label, typeHref: '../' + ({ fruit: 'fruits', legume: 'legumes', herbe: 'herbes' }[p.t] || 'jardin') + '.html',
       h1: p.n + ' in season',
-      intro: d ? d.intro : p.d, facts, cal, calSummary, duDe,
+      intro: d ? d.intro : p.d, facts, cal, lg1: 'Peak season', lg2: 'Available', lg3: 'Out of season', calSummary, duDe,
       hasDetail: !!d, d: d || {},
       bienfaits: tx ? tx.bienfaits.map(([t, x]) => ({ t, x })) : [],
       rec: S.recette750 ? S.recette750(p) : {}, hasTextes: !!tx, tx: tx || {}, classification: tx ? tx.classification.map(([k, v]) => ({ k, v })) : [], hasNutrition: !!(d && d.nutrition),
