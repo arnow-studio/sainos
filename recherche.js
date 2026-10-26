@@ -5,10 +5,10 @@
   try { if (!document.getElementById('veg-css')) { var vs = document.createElement('style'); vs.id = 'veg-css'; vs.textContent = 'html.m-veg nav a[href$="poissonnerie.html"],html.m-veg footer a[href$="poissonnerie.html"],html.m-veg [data-nav-panel] a[href$="poissonnerie.html"]{display:none!important}'; document.head.appendChild(vs); } if (JSON.parse(localStorage.getItem('sainos-liste-v4') || '{}').veg) document.documentElement.classList.add('m-veg'); } catch (e) {}
   var me = document.currentScript, BASE = me ? me.src.replace(/recherche\.js.*$/, '') : '/';
   var EN = /\/en(\/|$)/.test(location.pathname) || document.documentElement.lang === 'en';
-  var T = EN ? { btn: 'Search', ph: 'Search a fruit, vegetable, cheese…', none: 'No results for', hint: 'Type at least 2 letters', close: 'Close', fruit: 'Fruit', legume: 'Vegetable', herbe: 'Herb', fromage: 'Cheese', page: 'Page', fleur: 'Flower', fleurc: 'Edible flower', arom: 'Herb' }
-             : { btn: 'Rechercher', ph: 'Chercher un fruit, un légume, un fromage…', none: 'Aucun résultat pour', hint: 'Tapez au moins 2 lettres', close: 'Fermer', fruit: 'Fruit', legume: 'Légume', herbe: 'Herbe', fromage: 'Fromage', page: 'Page', fleur: 'Fleur', fleurc: 'Fleur comestible', arom: 'Aromatique' };
-  var PAGES = EN ? [['The Farm', 'legumes.html'], ['The Vegetable Garden', 'legumes.html'], ['The Orchard', 'fruits.html'], ['The Garden', 'fleurs.html'], ['The guide', 'origines.html'], ['The Cheese', 'fromages.html', 1], ['The Fishmonger', 'poissonnerie.html', 1], ['Origins map', 'origines.html'], ['Markets', 'marches.html'], ['Organic', 'bio.html'], ['Glossary', 'lexique.html'], ['Quiz', 'quiz.html'], ['For teachers', 'enseignants.html'], ['How it grows', 'pousse.html'], ['About', 'apropos.html']]
-                 : [['La ferme', 'legumes.html'], ['Le Potager', 'legumes.html'], ['Le Verger', 'fruits.html'], ['Le Jardin', 'fleurs.html'], ['Le guide', 'origines.html'], ['La fromagerie', 'fromages.html', 1], ['La poissonnerie', 'poissonnerie.html', 1], ['Carte des origines', 'origines.html'], ['Marchés', 'marches.html'], ['Bio', 'bio.html'], ['Lexique', 'lexique.html'], ['Quiz', 'quiz.html'], ['En classe', 'enseignants.html'], ['Ça pousse !', 'pousse.html'], ['À propos', 'apropos.html']];
+  var T = EN ? { btn: 'Search', ph: 'Search a fruit, vegetable, cheese…', none: 'No results for', hint: 'Type at least 2 letters', close: 'Close', fruit: 'Fruit', legume: 'Vegetable', herbe: 'Herb', fromage: 'Cheese', page: 'Page', poisson: 'Fish', mer: 'Seafood', fleur: 'Flower', fleurc: 'Edible flower', arom: 'Herb' }
+             : { btn: 'Rechercher', ph: 'Chercher un fruit, un légume, un fromage…', none: 'Aucun résultat pour', hint: 'Tapez au moins 2 lettres', close: 'Fermer', fruit: 'Fruit', legume: 'Légume', herbe: 'Herbe', fromage: 'Fromage', page: 'Page', poisson: 'Poisson', mer: 'Fruit de mer', fleur: 'Fleur', fleurc: 'Fleur comestible', arom: 'Aromatique' };
+  var PAGES = EN ? [['The Farm', 'legumes.html'], ['The Vegetable Garden', 'legumes.html'], ['The Orchard', 'fruits.html'], ['The Garden', 'fleurs.html'], ['The guide', 'origines.html'], ['The Cheese', 'fromages.html', 1], ['The Fishmonger', 'poissonnerie.html', 1, 1], ['Origins map', 'origines.html'], ['Markets', 'marches.html'], ['Organic', 'bio.html'], ['Glossary', 'lexique.html'], ['Quiz', 'quiz.html'], ['For teachers', 'enseignants.html'], ['How it grows', 'pousse.html'], ['About', 'apropos.html']]
+                 : [['La ferme', 'legumes.html'], ['Le Potager', 'legumes.html'], ['Le Verger', 'fruits.html'], ['Le Jardin', 'fleurs.html'], ['Le guide', 'origines.html'], ['La fromagerie', 'fromages.html', 1], ['La poissonnerie', 'poissonnerie.html', 1, 1], ['Carte des origines', 'origines.html'], ['Marchés', 'marches.html'], ['Bio', 'bio.html'], ['Lexique', 'lexique.html'], ['Quiz', 'quiz.html'], ['En classe', 'enseignants.html'], ['Ça pousse !', 'pousse.html'], ['À propos', 'apropos.html']];
   var ROOT = BASE + (EN ? 'en/' : '');
   function norm(s) { return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[’'\-]/g, ' '); }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
@@ -16,12 +16,13 @@
   var idx = null;
   function build() {
     if (idx) return Promise.resolve(idx);
-    return Promise.all([load(ROOT + 'produits-data.js', function () { return window.SAISON && window.SAISON.produits; }), load(BASE + 'fromages-data.js', function () { return window.FROMAGES; }), load(BASE + 'jardin-data.js', function () { return window.JARDIN; })]).then(function () {
+    return Promise.all([load(ROOT + 'produits-data.js', function () { return window.SAISON && window.SAISON.produits; }), load(BASE + 'fromages-data.js', function () { return window.FROMAGES; }), load(BASE + 'jardin-data.js', function () { return window.JARDIN; }), load(BASE + 'poissons-data.js', function () { return window.POISSONS && window.POISSONS.liste; })]).then(function () {
       idx = [];
       ((window.SAISON && window.SAISON.produits) || []).forEach(function (p) { idx.push({ n: p.n, k: norm(p.n + ' ' + (p.fam || '')), t: T[p.t] || T.legume, u: ROOT + 'produits/' + p.s + '.html', img: p.img ? BASE + 'images/' + p.s + '.webp' : '', e: p.e }); });
       ((window.FROMAGES && window.FROMAGES.fromages) || []).forEach(function (f) { var r = EN && f.en ? f.en.r : f.r; idx.push({ n: f.n, k: norm(f.n + ' ' + r + ' ' + f.lait + ' ' + f.fam), t: T.fromage, sub: r, u: ROOT + 'fromages/' + f.s + '.html', img: BASE + 'images/fromages/' + f.s + '.webp', cheese: 1 }); });
       ((window.JARDIN && window.JARDIN.plantes) || []).forEach(function (p) { if (p.fiche) return; var n = EN ? p.en : p.n; idx.push({ n: n, k: norm(n + ' ' + (EN ? p.n : p.en)), t: p.c[0] === 'c' ? T.fleurc : p.c[0] === 'a' ? T.arom : T.fleur, u: ROOT + 'jardin/' + p.s + '.html', img: BASE + 'images/jardin/' + p.s + '.webp', e: p.e }); });
-      PAGES.forEach(function (p) { idx.push({ n: p[0], k: norm(p[0]), t: T.page, u: ROOT + p[1], page: 1, cheese: p[2] }); });
+      ((window.POISSONS && window.POISSONS.liste) || []).forEach(function (p) { var n = EN ? p.en : p.n; idx.push({ n: n, k: norm(n + ' ' + (EN ? p.n : p.en) + ' ' + (p.t === 'mer' ? 'fruit de mer seafood' : 'poisson fish')), t: p.t === 'mer' ? T.mer : T.poisson, u: ROOT + 'poissons/' + p.s + '.html', img: BASE + 'images/poissons/' + p.s + '.webp', e: p.e, fish: 1 }); });
+      PAGES.forEach(function (p) { idx.push({ n: p[0], k: norm(p[0]), t: T.page, u: ROOT + p[1], page: 1, cheese: p[2], fish: p[3] }); });
       return idx;
     });
   }
@@ -30,7 +31,7 @@
   function search(q) {
     var n = norm(q).trim(); if (n.length < 2) { hits = []; return render(q); }
     var words = n.split(/\s+/);
-    hits = idx.filter(function (x) { return !(x.cheese && kid()) && words.every(function (w) { return x.k.indexOf(w) >= 0; }); })
+    hits = idx.filter(function (x) { return !(x.cheese && kid()) && !(x.fish && document.documentElement.classList.contains('m-veg')) && words.every(function (w) { return x.k.indexOf(w) >= 0; }); })
       .map(function (x) { var nn = norm(x.n); return { x: x, s: (nn.indexOf(n) === 0 ? 0 : nn.indexOf(n) > 0 ? 1 : 2) + (x.page ? 0.5 : 0) }; })
       .sort(function (a, b) { return a.s - b.s || a.x.n.localeCompare(b.x.n); }).slice(0, 12).map(function (h) { return h.x; });
     sel = 0; render(q);

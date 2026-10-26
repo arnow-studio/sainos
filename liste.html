@@ -127,6 +127,12 @@
         </div>
       </div>
       <label style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; padding: 0 16px 0 12px; background: #ffffff; border-radius: 999px; font-weight: 700; font-size: 16px; cursor: pointer;"><input type="checkbox" checked="{{ veg }}" onChange="{{ vegToggle }}" style="width: 20px; height: 20px; margin: 0; accent-color: var(--color-accent); cursor: pointer;"><span>{{ vegLabel }}</span></label>
+      <div style="display: flex; align-items: center; gap: var(--space-3);">
+        <span id="lbl-duree" style="font-weight: 700; font-size: 16px;">Pour</span>
+        <div role="group" aria-labelledby="lbl-duree" style="display: flex; gap: 4px; background: #ffffff; border-radius: 999px; padding: 4px;">
+          <sc-for list="{{ durees }}" as="d" hint-placeholder-count="2"><button type="button" class="{{ d.cls }}" aria-pressed="{{ d.on }}" onClick="{{ d.pick }}" style="min-height: 44px; padding: 8px 18px; font-size: 16px; white-space: nowrap;">{{ d.label }}</button></sc-for>
+        </div>
+      </div>
     </div>
 
     <div style="display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; justify-content: space-between;">
@@ -240,7 +246,7 @@ class Component extends DCLogic {
   setMode(m) { try { localStorage.setItem('sainos-mode', m); } catch (e) {} this._syncMode(); }
   _kidVals() { const kid = this.state.mode === 'enfant'; return { kid, adult: !kid, toEnfant: () => this.setMode('enfant'), toNormal: () => this.setMode('normal') }; }
   _mois() { const f = this.props.moisSimule ?? 0; return f >= 1 && f <= 12 ? f : new Date().getMonth() + 1; }
-  _load() { const d = { pers: 2, duree: 1, off: [], auto: true, fl: null, fr: null, fi: null, flOn: true, frOn: true, fiOn: true, veg: false, al: null, alOn: true }; try { const o = JSON.parse(localStorage.getItem('sainos-liste-v4') || '{}'); const same = o.mois === this._mois(); return { pers: o.pers || 2, duree: 1, off: same && Array.isArray(o.off) ? o.off : [], auto: same ? o.auto !== false : true, fl: same ? o.fl || null : null, fr: same ? o.fr || null : null, fi: same ? o.fi || null : null, fiOn: same ? o.fiOn !== false : true, flOn: same ? o.flOn !== false : true, frOn: same ? o.frOn !== false : true, veg: !!o.veg, al: same ? o.al || null : null, alOn: same ? o.alOn !== false : true, rnd: same && o.rnd && typeof o.rnd === 'object' ? o.rnd : null }; } catch (e) { return d; } }
+  _load() { const d = { pers: 2, duree: 1, off: [], auto: true, fl: null, fr: null, fi: null, flOn: true, frOn: true, fiOn: true, veg: false, al: null, alOn: true }; try { const o = JSON.parse(localStorage.getItem('sainos-liste-v4') || '{}'); const same = o.mois === this._mois(); return { pers: o.pers || 2, duree: o.duree === 2 ? 2 : 1, off: same && Array.isArray(o.off) ? o.off : [], auto: same ? o.auto !== false : true, fl: same ? o.fl || null : null, fr: same ? o.fr || null : null, fi: same ? o.fi || null : null, fiOn: same ? o.fiOn !== false : true, flOn: same ? o.flOn !== false : true, frOn: same ? o.frOn !== false : true, veg: !!o.veg, al: same ? o.al || null : null, alOn: same ? o.alOn !== false : true, rnd: same && o.rnd && typeof o.rnd === 'object' ? o.rnd : null }; } catch (e) { return d; } }
   _save() { const { pers, duree, off, auto, fl, fr, flOn, frOn, fi, fiOn, veg, al, alOn, rnd } = this.state; try { localStorage.setItem('sainos-liste-v4', JSON.stringify({ mois: this._mois(), pers, duree, off, auto, fl, fr, flOn, frOn, fi, fiOn, veg, al, alOn, rnd })); } catch (e) {} }
   state = { mode: this._mode(), ...this._load(), tel: '', telErr: false, copie: false, ready: !!(window.SAISON && window.JARDIN && window.FROMAGES && window.POISSONS) };
   set(p) { this.setState(p, () => this._save()); }
@@ -289,10 +295,10 @@ class Component extends DCLogic {
     const R = this._raw(), T = Component.T; if (!R.length) return [];
     const { pers, duree: sem } = this.state, off = this._off();
     const FIX = { ail: () => this._nb(Math.ceil(pers / 4), 'tête d’ail', 'têtes d’ail'), piment: () => '2 piments', gingembre: () => '1 morceau' };
-    const part = (list, tot, base) => { const L = list.filter(i => !FIX[i.s]); const n = Math.max(1, Math.min(L.filter(i => !off.includes(i.key)).length, base)); return list.map(i => { if (FIX[i.s]) return { ...i, qte: FIX[i.s]() }; const u = Component.U[i.s], g = tot * pers / n; if (!u) return { ...i, qte: this._poids(g) }; const c = Math.max(1, Math.round(g / u[0])); return { ...i, n: c + ' ' + ((c > 1 ? u[2] : u[1]).charAt(0).toUpperCase() + (c > 1 ? u[2] : u[1]).slice(1)), qte: '≈\u00a0' + this._poids(c * u[0]) }; }); };
+    const part = (list, tot, base) => { const L = list.filter(i => !FIX[i.s]); const n = Math.max(1, Math.min(L.filter(i => !off.includes(i.key)).length, base)); return list.map(i => { if (FIX[i.s]) return { ...i, qte: FIX[i.s]() }; const u = Component.U[i.s], g = tot * pers * sem / n; if (!u) return { ...i, qte: this._poids(g) }; const c = Math.max(1, Math.round(g / u[0])); return { ...i, n: c + ' ' + ((c > 1 ? u[2] : u[1]).charAt(0).toUpperCase() + (c > 1 ? u[2] : u[1]).slice(1)), qte: '≈\u00a0' + this._poids(c * u[0]) }; }); };
     return [
       { k: 'fruits', titre: 'Fruits', rayon: 'Chez le primeur', bg: 'var(--color-accent-100)', items: part(R[0].list, 1500, pers + 1) },
-      { k: 'legumes', titre: 'Légumes & herbes', rayon: 'Chez le primeur', bg: 'var(--color-accent-2-100)', items: [...part(R[1].list, 2000, pers + 2), ...R[2].list.map(i => ({ ...i, qte: FIX[i.s] ? FIX[i.s]() : this._nb(Math.ceil(pers / 4), 'botte', 'bottes') }))] },
+      { k: 'legumes', titre: 'Légumes & herbes', rayon: 'Chez le primeur', bg: 'var(--color-accent-2-100)', items: [...part(R[1].list, 2000, pers + 2), ...R[2].list.map(i => ({ ...i, qte: FIX[i.s] ? FIX[i.s]() : this._nb(Math.ceil(pers * sem / 4), 'botte', 'bottes') }))] },
       { k: 'poissons', titre: 'Poissons & fruits de mer', rayon: 'Chez le poissonnier', bg: 'var(--color-neutral-100)', items: part(R[3].list, 150 * sem, 1 + Math.floor(pers / 4)) },
       { k: 'proteines', titre: this.state.veg ? T.pt : T.oT, rayon: this.state.veg ? T.pr : T.oR, bg: 'var(--color-accent-2-100)', items: (R[4] ? R[4].list : []).map(i => i.s === 'oeuf' ? (b => ({ ...i, n: (b * 6) + ' ' + T.oe2.charAt(0).toUpperCase() + T.oe2.slice(1), qte: b > 1 ? b + ' boîtes de 6' : '1 boîte de 6' }))(Math.ceil(4 * pers * sem / 6)) : ({ ...i, qte: i.alg ? ([4, 5, 6, 7, 8, 9].includes(this._mois()) ? T.aq1 : T.aq2) : i.s === 'oeuf' ? this._nb(Math.ceil(4 * pers * sem / 6) * 6, T.oe1, T.oe2) : this._poids(i.g * pers * sem) })) }
 ,
@@ -337,7 +343,7 @@ class Component extends DCLogic {
       pers, persLabel: pers <= 1 ? 'À table, je suis' : 'À table, nous sommes', intro: this.state.veg ? "Une sélection de saison et sans poisson est déjà cochée, adaptée à votre foyer : œufs, légumineuses et algues remplacent la poissonnerie. Décochez ou ajoutez ce que vous voulez." : "Une sélection de saison est déjà cochée, adaptée à votre foyer. Décochez ou ajoutez ce que vous voulez.", persMin: pers <= 1, veg: !!this.state.veg, vegLabel: pers <= 1 ? 'Je suis végétarien' : 'Nous sommes végétariens', vegToggle: () => { document.documentElement.classList.toggle('m-veg', !this.state.veg); this.set({ veg: !this.state.veg }); }, persMax: pers >= 12,
       persMoins: () => this.set({ pers: Math.max(1, this.state.pers - 1), auto: true }),
       persPlus: () => this.set({ pers: Math.min(12, this.state.pers + 1), auto: true }),
-      durees: [[1, '1 semaine'], [2, '2 semaines'], [4, '1 mois']].map(([k, label]) => ({ label, on: duree === k, cls: 'btn ' + (duree === k ? 'btn-primary' : 'btn-ghost'), pick: () => this.set({ duree: k, auto: true }) })),
+      durees: [[1, '1 semaine'], [2, '2 semaines']].map(([k, label]) => ({ label, on: duree === k, cls: 'btn ' + (duree === k ? 'btn-primary' : 'btn-ghost'), pick: () => this.set({ duree: k, auto: true }) })),
       compte: on + ' article' + (on > 1 ? 's' : '') + ' sur ' + tot,
       refaire: () => this.set({ auto: true, rnd: null, off: [], flOn: true, frOn: true, fiOn: true, alOn: true }),
       hasard: () => { const rnd = {}; this._raw().forEach(g => g.list.forEach(i => { rnd[i.key] = Math.random(); })); this.set({ auto: true, rnd, off: [], fl: this._pick(this._fleurs(), this.state.fl), fr: this._pick(this._fromages(), this.state.fr), fi: this._pick(this._poissons(), this.state.fi), al: this._pick(Object.keys(Component.ALG).map(x => ({ s: x })), this.state.al), flOn: true, frOn: true, fiOn: true, alOn: true }); },
