@@ -12,6 +12,7 @@
     pers: 'Around the table', persH: 'To size the quantities in your market list.', moins: 'One person less', plus: 'One person more',
     cp: 'Postcode', cpH: 'To show the markets near you straight away.', cpPh: 'e.g. 69004',
     priv: 'These details are stored only on your device. No account, nothing is sent to Sainos.',
+    lang: 'Language', langH: 'Switches the whole site to this language.',
     save: 'Save', later: 'Later', cancel: 'Cancel', close: 'Close', del: 'Erase my details', saved: 'Saved'
   } : {
     btn: 'Mon profil', of: 'Profil de ', hello: 'Bienvenue sur Sainos', edit: 'Mon profil',
@@ -22,6 +23,7 @@
     pers: 'À table, nous sommes', persH: 'Pour calculer les quantités de votre liste du marché.', moins: 'Une personne de moins', plus: 'Une personne de plus',
     cp: 'Code postal', cpH: 'Pour afficher directement les marchés près de chez vous.', cpPh: 'ex.' + NB + ': 69004',
     priv: 'Ces informations sont stockées uniquement sur votre appareil. Pas de compte, rien n’est envoyé à Sainos.',
+    lang: 'Langue', langH: 'Affiche tout le site dans cette langue.',
     save: 'Enregistrer', later: 'Plus tard', cancel: 'Annuler', close: 'Fermer', del: 'Effacer mes informations', saved: 'Enregistré'
   };
   var KP = 'sainos-profil', KL = 'sainos-liste-v4';
@@ -31,7 +33,7 @@
   function kid() { return document.documentElement.classList.contains('m-kid'); }
   function get() { var p = rd(KP), l = rd(KL); return { nom: p.nom || '', cp: p.cp || '', seen: !!p.seen, reg: l.vegan ? 'vegan' : l.veg ? 'veg' : 'omni', pers: l.pers || 2 }; }
 
-  try { if (!document.getElementById('profil-css')) { var cs = document.createElement('style'); cs.id = 'profil-css'; cs.textContent = 'html.m-kid [data-profil-btn]{display:none!important}@media (min-width:1081px){header nav.nav>[data-nav-desk]:has(>a[data-liste-pill]){display:contents!important}header nav.nav>[data-nav-desk]>a[data-liste-pill]{order:10;margin-left:auto!important}header nav.nav>[data-search-btn]{order:11;margin-left:0!important}header nav.nav>[data-profil-btn]{order:12}html.m-kid header nav.nav>[data-search-btn]{margin-left:auto!important}header nav.nav>[data-nav-desk]:has(>a[data-liste-pill])>:not(a[data-liste-pill]){order:13}header nav.nav>[data-nav-burger]{order:14}}@media (min-width:600px) and (max-width:1080px){header nav.nav>[data-nav-desk]:has(>a[data-liste-pill]){margin-left:auto!important}header nav.nav>[data-search-btn],header nav.nav>[data-profil-btn]{order:3;margin-left:0!important}header nav.nav>[data-nav-burger]{order:4!important}}[data-profil-dlg] button:focus-visible,[data-profil-dlg] input:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px}'; document.head.appendChild(cs); } } catch (e) {}
+  try { if (!document.getElementById('profil-css')) { var cs = document.createElement('style'); cs.id = 'profil-css'; cs.textContent = 'html.m-kid [data-profil-btn]{display:none!important}footer a[data-lang]{display:none!important}@media (min-width:1081px){header nav.nav>[data-nav-desk]:has(>a[data-liste-pill]){display:contents!important}header nav.nav>[data-nav-desk]>a[data-liste-pill]{order:10;margin-left:auto!important}header nav.nav>[data-search-btn]{order:11;margin-left:0!important}header nav.nav>[data-profil-btn]{order:12}html.m-kid header nav.nav>[data-search-btn]{margin-left:auto!important}header nav.nav>[data-nav-desk]:has(>a[data-liste-pill])>:not(a[data-liste-pill]){order:13}header nav.nav>[data-nav-burger]{order:14}}@media (min-width:600px) and (max-width:1080px){header nav.nav>[data-nav-desk]:has(>a[data-liste-pill]){margin-left:auto!important}header nav.nav>[data-search-btn],header nav.nav>[data-profil-btn]{order:3;margin-left:0!important}header nav.nav>[data-nav-burger]{order:4!important}}[data-profil-dlg] button:focus-visible,[data-profil-dlg] input:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px}'; document.head.appendChild(cs); } } catch (e) {}
 
   var ov, st, lastFocus;
   var FS = 'font:inherit;font-size:16px;';
@@ -46,6 +48,8 @@
     ov.querySelector('[data-k=later]').textContent = first ? T.later : T.cancel;
     ov.querySelector('[data-k=del]').style.display = first ? 'none' : '';
     ov.querySelectorAll('[data-reg]').forEach(function (b) { var on = b.getAttribute('data-reg') === st.reg; b.setAttribute('aria-pressed', on); b.className = 'btn ' + (on ? 'btn-primary' : 'btn-ghost'); });
+    ov.querySelectorAll('[data-lang-opt]').forEach(function (b) { var on = b.getAttribute('data-lang-opt') === st.lang; b.setAttribute('aria-pressed', on); b.className = 'btn ' + (on ? 'btn-primary' : 'btn-ghost'); });
+    ov.querySelector('[data-k=langbox]').style.display = langUrl() ? '' : 'none';
     ov.querySelector('[data-k=pers]').textContent = st.pers;
     ov.querySelector('[data-k=moins]').disabled = st.pers <= 1; ov.querySelector('[data-k=plus]').disabled = st.pers >= 12;
   }
@@ -65,6 +69,9 @@
       + '<div role="group" aria-labelledby="pf-pers"><span id="pf-pers" style="' + lbl + '">' + T.pers + '</span><div style="display:flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:4px;width:fit-content;">'
       + '<button type="button" data-k="moins" aria-label="' + T.moins + '" style="' + rnd + '">−</button><output data-k="pers" aria-live="polite" style="min-width:36px;text-align:center;font-family:var(--font-heading);font-size:24px;"></output><button type="button" data-k="plus" aria-label="' + T.plus + '" style="' + rnd + '">+</button>'
       + '</div><p style="' + help + '">' + T.persH + '</p></div>'
+      + '<div role="group" aria-labelledby="pf-lang" data-k="langbox"><span id="pf-lang" style="' + lbl + '">' + T.lang + '</span><div style="display:flex;flex-wrap:wrap;gap:4px;background:#fff;border-radius:999px;padding:4px;width:fit-content;max-width:100%;box-sizing:border-box;">'
+      + '<button type="button" data-lang-opt="fr" lang="fr" style="min-height:44px;padding:8px 18px;font-size:16px;white-space:nowrap;">Français</button><button type="button" data-lang-opt="en" lang="en" style="min-height:44px;padding:8px 18px;font-size:16px;white-space:nowrap;">English</button>'
+      + '</div><p style="' + help + '">' + T.langH + '</p></div>'
       + '<div><label for="pf-cp" style="' + lbl + '">' + T.cp + '</label><input id="pf-cp" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="5" placeholder="' + T.cpPh + '" style="' + inp + 'max-width:200px;"><p style="' + help + '">' + T.cpH + '</p></div>'
       + '<p style="display:flex;gap:10px;align-items:flex-start;margin:0;padding:14px 16px;border-radius:18px;background:var(--color-accent-2-100);color:var(--color-accent-2-900);font-size:14px;line-height:1.45;text-wrap:pretty;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:1px;"><rect x="4" y="11" width="16" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>' + T.priv + '</span></p>'
       + '<div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;"><button type="submit" class="btn btn-primary" style="min-height:48px;padding:12px 26px;font-size:16px;">' + T.save + '</button><button type="button" data-k="later" class="btn btn-ghost" style="min-height:48px;padding:12px 20px;font-size:16px;"></button>'
@@ -76,14 +83,16 @@
       if (e.target === ov) return close();
       var b = e.target.closest('button'); if (!b) return;
       var r = b.getAttribute('data-reg'), k = b.getAttribute('data-k');
-      if (r) { st.reg = r; paint(); }
+      var lg = b.getAttribute('data-lang-opt');
+      if (lg) { st.lang = lg; paint(); }
+      else if (r) { st.reg = r; paint(); }
       else if (k === 'moins') { st.pers = Math.max(1, st.pers - 1); paint(); }
       else if (k === 'plus') { st.pers = Math.min(12, st.pers + 1); paint(); }
       else if (k === 'x' || k === 'later') close();
-      else if (k === 'del') { try { localStorage.setItem(KP, JSON.stringify({ seen: 1 })); } catch (e2) {} st = get(); fill(); paint(); apply(); refresh(); }
+      else if (k === 'del') { try { localStorage.setItem(KP, JSON.stringify({ seen: 1 })); } catch (e2) {} st = get(); st.lang = EN ? 'en' : 'fr'; fill(); paint(); apply(); refresh(); }
     });
     ov.querySelector('#pf-cp').addEventListener('input', function (e) { e.target.value = e.target.value.replace(/\D/g, '').slice(0, 5); });
-    f.addEventListener('submit', function (e) { e.preventDefault(); st.nom = ov.querySelector('#pf-nom').value.trim(); st.cp = ov.querySelector('#pf-cp').value.trim(); save(); close(); });
+    f.addEventListener('submit', function (e) { e.preventDefault(); st.nom = ov.querySelector('#pf-nom').value.trim(); st.cp = ov.querySelector('#pf-cp').value.trim(); save(); close(); if (st.lang !== (EN ? 'en' : 'fr') && langUrl()) location.href = langUrl(); });
     ov.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') { e.preventDefault(); close(); return; }
       if (e.key !== 'Tab') return;
@@ -92,6 +101,7 @@
       if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); }
     });
   }
+  function langUrl() { var a = document.querySelector('footer a[data-lang]') || document.querySelector('a[data-lang]'); return a ? a.href : ''; }
   function fill() { ov.querySelector('#pf-nom').value = st.nom; ov.querySelector('#pf-cp').value = st.cp; }
   function apply() { var h = document.documentElement.classList, s = get(); h.toggle('m-veg', s.reg !== 'omni'); h.toggle('m-vegan', s.reg === 'vegan'); }
   function save() {
@@ -102,7 +112,7 @@
   function refresh() { mount(true); try { window.dispatchEvent(new CustomEvent('sainos-profil', { detail: get() })); } catch (e) {} }
   function open() {
     if (!ov) build();
-    st = get(); fill(); paint();
+    st = get(); st.lang = EN ? 'en' : 'fr'; fill(); paint();
     lastFocus = document.activeElement; ov.style.display = 'flex'; document.documentElement.style.overflow = 'hidden';
     setTimeout(function () { ov.querySelector('#pf-nom').focus(); }, 0);
   }
@@ -124,6 +134,7 @@
     var b = nav.querySelector('[data-profil-btn]');
     var s = nav.querySelector('[data-search-btn]');
     if (b) { if (force) face(b); place(nav, s, b); return; }
+    biblio();
     if (!s) return;
     b = document.createElement('button'); b.type = 'button'; b.setAttribute('data-profil-btn', '1');
     b.style.cssText = 'flex:none;width:44px;height:44px;border:0;border-radius:999px;background:transparent;color:var(--color-text);cursor:pointer;display:grid;place-items:center;padding:0;margin-left:0;';
@@ -132,6 +143,13 @@
     place(nav, s, b);
   }
   function place(nav, s, b) { if (s && b.previousElementSibling !== s) s.parentNode.insertBefore(b, s.nextSibling); }
+  function biblio() {
+    if (EN) return;
+    var base = (document.querySelector('header [data-nav-mar]') || {}).getAttribute ? document.querySelector('header [data-nav-mar]') : null;
+    if (!base || base.parentNode.querySelector('[data-nav-biblio]')) return;
+    var x = document.createElement('a'); x.href = base.getAttribute('href').replace('marches.html', 'bibliotheque.html'); x.textContent = 'Bibliothèque'; x.setAttribute('data-nav-biblio', '1');
+    base.parentNode.appendChild(x);
+  }
   function marches() {
     var f = document.getElementById('cp-form'), i = document.getElementById('cp'), cp = get().cp;
     if (!f || !i || !cp || i.value) return;
