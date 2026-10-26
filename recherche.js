@@ -40,8 +40,8 @@
     if (!hits.length) { list.innerHTML = '<li style="padding:18px 8px;color:var(--color-neutral-800,#555);font-size:16px;">' + (norm(q).trim().length < 2 ? T.hint : T.none + ' « ' + esc(q) + ' »') + '</li>'; return; }
     list.innerHTML = hits.map(function (h, i) {
       var pic = h.img ? '<img src="' + h.img + '" alt="" width="44" height="44" loading="lazy" style="width:44px;height:44px;object-fit:contain;display:block;">' : '<span aria-hidden="true" style="font-size:26px;">' + (h.e || '→') + '</span>';
-      return '<li role="option" id="srch-' + i + '" aria-selected="' + (i === sel) + '"><a href="' + h.u + '" data-i="' + i + '" style="display:flex;align-items:center;gap:14px;padding:10px 12px;border-radius:16px;text-decoration:none;color:var(--color-text);background:' + (i === sel ? 'var(--color-accent-100)' : 'transparent') + ';">'
-        + '<span style="flex:none;width:52px;height:52px;border-radius:50%;background:#fff;display:grid;place-items:center;">' + pic + '</span>'
+      return '<li role="option" id="srch-' + i + '" aria-selected="' + (i === sel) + '"><a href="' + h.u + '" data-i="' + i + '" style="display:flex;align-items:center;gap:14px;padding:10px 12px;border-radius:16px;text-decoration:none;color:var(--color-text);background:#fff;border:2px solid ' + (i === sel ? 'var(--color-accent-2-400,#9bb08a)' : 'transparent') + ';">'
+        + '<span style="flex:none;width:52px;height:52px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden;">' + pic + '</span>'
         + '<span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;"><span style="font-weight:800;font-size:17px;">' + esc(h.n) + '</span>' + (h.sub ? '<span style="font-size:14px;color:var(--color-neutral-800,#555);">' + esc(h.sub) + '</span>' : '') + '</span>'
         + '<span style="flex:none;font-size:13px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--color-accent-2-100,#eef);color:var(--color-accent-2-800,#333);">' + h.t + '</span></a></li>';
     }).join('');
@@ -56,7 +56,7 @@
         + '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-700)" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>'
         + '<input type="search" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="true" aria-controls="srch-list" aria-label="' + T.btn + '" placeholder="' + T.ph + '" style="flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:19px;padding:10px 0;color:var(--color-text);">'
         + '<button type="button" aria-label="' + T.close + '" style="flex:none;width:44px;height:44px;border:0;border-radius:999px;background:var(--color-accent-100);color:var(--color-text);cursor:pointer;display:grid;place-items:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>'
-        + '<ul id="srch-list" role="listbox" style="list-style:none;margin:0;padding:10px;overflow:auto;display:flex;flex-direction:column;gap:2px;"></ul></div>';
+        + '<ul id="srch-list" role="listbox" style="list-style:none;margin:0;padding:10px;overflow:auto;display:flex;flex-direction:column;gap:8px;"></ul></div>';
       document.body.appendChild(ov);
       inp = ov.querySelector('input'); list = ov.querySelector('ul');
       ov.addEventListener('click', function (e) { if (e.target === ov || e.target.closest('button')) close(); });
