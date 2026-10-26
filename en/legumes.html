@@ -287,7 +287,7 @@ class Component extends DCLogic {
     const { m, type } = this.state;
     const now = new Date().getMonth() + 1;
     const pill = on => 'btn ' + (on ? 'btn-primary' : 'btn-secondary');
-    const typeFilters = [["all","All"],["legume","Vegetables"],["herbe","Herbs"]].map(([k, label]) => ({ label, on: type === k, cls: pill(type === k), pick: () => this.setState({ type: k }) }));
+    const typeFilters = [["all","All"],["legume","Vegetables"],["legumineuse","Pulses"],["herbe","Herbs"]].map(([k, label]) => ({ label, on: type === k, cls: pill(type === k), pick: () => this.setState({ type: k }) }));
     const go = d => () => this.setState(s => ({ m: ((Math.min(s.m, 12) - 1 + d + 12) % 12) + 1 }));
     if (!S) return { dicton: '', dictonSens: '', dictonKid: '', dictonLabel: '', legendSmiley: '', months: [], groups: [], rows: [], headMonths: [], typeFilters, moisTitre: '', isNow: false, prev: go(-1), next: go(1) };
     if (!this._stars) {
@@ -317,7 +317,7 @@ class Component extends DCLogic {
     const AB = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC",""]; months.forEach((x, i) => { x.abbr = AB[i]; x.num = String(i + 1); x.aria = x.label; }); months.length = 12;
     const toObj = s => s.split(';').filter(Boolean).reduce((o, kv) => { const i = kv.indexOf(':'); o[kv.slice(0, i).trim().replace(/-([a-z])/g, (_, c) => c.toUpperCase())] = kv.slice(i + 1).trim(); return o; }, {});
     months.forEach(x => x.style = toObj(x.style));
-    const groups = ['legume', 'herbe'].filter(t => type === 'all' || type === t).map(t => {
+    const groups = ['legume', 'legumineuse', 'herbe'].filter(t => type === 'all' || type === t).map(t => {
       const items = S.produits.filter(p => p.t === t && (m === 13 ? p.m.length === 12 : p.m.includes(m)))
         .sort((a, b) => (b.f.includes(m) - a.f.includes(m)) || a.n.localeCompare(b.n, 'en'))
         .map(p => { const pleine = m === 13 ? p.f.length === 12 : p.f.includes(m); return { ...S.vis(p), pleine, href: S.url(p), n: p.n, dots: [1,2,3,4,5,6,7,8,9,10,11,12].map(k => ({ st: ({ width: 7, height: 7, borderRadius: '50%', boxSizing: 'border-box', background: p.f.includes(k) ? 'var(--color-accent)' : p.m.includes(k) ? 'var(--color-accent-2-300)' : 'var(--color-neutral-200)', outline: k === m ? '1.5px solid var(--color-text)' : 'none', outlineOffset: 1 }) })),  status: pleine ? 'Peak season' : 'Available', info: pleine ? ('Peak season') : 'Available', border: pleine ? 'var(--color-accent-600)' : 'var(--color-accent-2-300)', bgc: pleine ? 'var(--color-accent-100)' : 'var(--color-neutral-100)', cls: 'tag ' + (pleine ? 'tag-accent' : 'tag-accent-2') }; });
@@ -325,7 +325,7 @@ class Component extends DCLogic {
     }).filter(g => g.items.length);
     const headMonths = S.MOIS_C.map((l, i) => ({ label: l, style: { textAlign: 'center', padding: '8px 2px', position: 'sticky', top: 0, zIndex: 2, background: 'var(--color-neutral-100)', paddingTop: 'var(--space-3)', color: i + 1 === m ? 'var(--color-accent-700)' : undefined, fontWeight: i + 1 === m ? 700 : undefined } }));
     const SMILEYS = ['🥶','🥰','😊','🤗','😄','😁','🤩','😎','🤓','😋','😌','🥳'];
-    const rows = S.produits.filter(p => (p.t === 'legume' || p.t === 'herbe') && (type === 'all' || p.t === type)).slice().sort((a, b) => a.n.localeCompare(b.n, 'en')).map(p => ({
+    const rows = S.produits.filter(p => (p.t === 'legume' || p.t === 'legumineuse' || p.t === 'herbe') && (type === 'all' || p.t === type)).slice().sort((a, b) => a.n.localeCompare(b.n, 'en')).map(p => ({
       ...S.vis(p), href: S.url(p), n: p.n,
       cells: S.MOIS.map((mn, i) => {
         const mm = i + 1, f = p.f.includes(mm), d = p.m.includes(mm);
@@ -349,7 +349,7 @@ class Component extends DCLogic {
       ['A December with too little cold won’t make the farmer rich.', 'Winter cold rests the soil and keeps harmful insects away.', 'Cold is useful: it lets the soil rest and chases away the little bugs that damage plants.']
     ];
     const md = m === 13 ? now : m; const dic = DICTONS[md - 1];
-    const NW = {"fruit":["fruit","fruits"],"legume":["vegetable","vegetables"],"herbe":["herb","herbs"],"tot":["product","products"]}, pw = (n, k) => n + ' ' + NW[k][n > 1 ? 1 : 0];
+    const NW = {"legumineuse":["pulse","pulses"],"fruit":["fruit","fruits"],"legume":["vegetable","vegetables"],"herbe":["herb","herbs"],"tot":["product","products"]}, pw = (n, k) => n + ' ' + NW[k][n > 1 ? 1 : 0];
     const nbM = groups.reduce((a, g) => a + g.items.length, 0);
     return { ...(() => { const AU = {P:[26,24,27,25,26,36,41,42,44,39,31,28],J:[13,17,33,39,39,35,35,33,45,44,22,10],F:[3,1,0,10,28,35,35,36,36,25,4,3]}, mA = Math.min(m, 12); const sub = { P: n => n + ' fruits, vegetables and herbs', J: n => n + ' flowers and herbs', F: n => n ? n + ' cheeses at their best' : 'Year-round cheeses' }; const o = {}; [['P', 'legumes.html'], ['J', 'fleurs.html'], ['F', 'fromages.html']].forEach(([k, h]) => { o['aussi' + k] = { href: h + '?mois=' + mA, sub: sub[k](AU[k][mA - 1]) }; }); o.aussiTitre = 'In ' + S.MOIS[mA - 1] + ', there’s also:'; return o; })(), notNow: m !== now, backLabel: 'Back to ' + S.MOIS[now - 1], backNow: () => this.setState({ m: now }), nbMois: groups.map(g => pw(g.items.length, g.t)).join(', '), dicton: dic[0], dictonSens: dic[1], dictonKid: dic[2], dictonLabel: 'French saying for ' + S.MOIS[md - 1], legendSmiley: SMILEYS[md - 1], months, groups, rows, headMonths, typeFilters, moisTitre: m === 13 ? 'Available all year round' : 'In ' + S.MOIS[m - 1], isNow: m === now, prev: go(-1), next: go(1) };
   }

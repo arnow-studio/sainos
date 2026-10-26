@@ -695,7 +695,7 @@ class Component extends DCLogic {
       hasProd: !exo, prodArt: this._art(p), prodGeo: this.prodGeo, prodCp: this.prodCp, prodStatus: this.state.prodStatus || 'Indiquez votre position ou un code postal.', prodList: pl, prodHas: pl.length > 0,
       hasAG: !!(window.SAISON_ANTIGASPI || {})[p.s], ag: (window.SAISON_ANTIGASPI || {})[p.s] || {},
       hasVar: !!V, varietes: V ? V.v.map(([n, x]) => ({ n, x })) : [], varK: V ? V.k : '', fam: p.fam, cousinsLinked, cousinsExtra, hasCousins: cousinsLinked.length + cousinsExtra.length > 0,
-      nom: p.n, nomLower: p.n.toLowerCase(), emoji: p.e, hero: S.vis(p, '../'), typeLabel: S.TYPES[p.t].label, typeHref: '../' + ({ fruit: 'fruits', legume: 'legumes', herbe: 'herbes' }[p.t] || 'jardin') + '.html',
+      nom: p.n, nomLower: p.n.toLowerCase(), emoji: p.e, hero: S.vis(p, '../'), typeLabel: S.TYPES[p.t].label, typeHref: '../' + ({ fruit: 'fruits', legume: 'legumes', legumineuse: 'legumes', herbe: 'herbes' }[p.t] || 'jardin') + '.html',
       h1: p.n + ' de saison',
       intro: d ? d.intro : p.d, facts, cal, lg1: 'Pleine saison', lg2: 'Disponible', lg3: 'Hors saison', calSummary, duDe,
       hasDetail: !!d, d: d || {},

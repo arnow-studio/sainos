@@ -308,7 +308,7 @@ class Component extends DCLogic {
       items: by[l].map(t => ({ id: t.id, terme: t.terme, def: KL[t.id] || t.def, catLabel: CAT[t.cat][0], catCls: CAT[t.cat][1],
         ex: exOf(t), hasEx: exOf(t).length > 0 })) }));
     const showP = true;
-    const FR = window.FROMAGES, J = window.JARDIN, K = { fruit: 'Fruit', legume: 'Légume', herbe: 'Herbe aromatique' }, JC = { f: 'Fleur', c: 'Fleur comestible', a: 'Aromatique' };
+    const FR = window.FROMAGES, J = window.JARDIN, K = { fruit: 'Fruit', legume: 'Légume', legumineuse: 'Légumineuse', herbe: 'Herbe aromatique' }, JC = { f: 'Fleur', c: 'Fleur comestible', a: 'Aromatique' };
     let prods = [];
     if (showP) {
       if (cat === 'all' || cat === 'potager') prods = S.produits.map(p => ({ ...S.vis(p), n: p.n, href: S.url(p), kind: K[p.t] || '', d: p.d }));

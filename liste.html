@@ -192,6 +192,12 @@
     </sc-if>
 
 
+    <section aria-labelledby="titre-libre" style="display: flex; flex-direction: column; gap: var(--space-3);">
+      <h2 id="titre-libre" style="margin: 0; font-size: clamp(24px, 3vw, 32px);">Et aussi</h2>
+      <label for="libre" style="font-size: 16px; color: var(--color-neutral-800, #555);">Ajoutez ce qui manque à votre liste, séparé par des virgules ou un par ligne.</label>
+      <textarea id="libre" name="libre" rows="3" maxlength="500" value="{{ libre }}" onInput="{{ onLibre }}" placeholder="Crème fraîche, yaourt, lait…" class="input" style="width: 100%; box-sizing: border-box; min-height: 96px; padding: 14px 18px; border-radius: var(--radius-lg); font: inherit; font-size: 17px; line-height: 1.5; background: #ffffff; resize: vertical;"></textarea>
+    </section>
+
     <section aria-labelledby="titre-sms" style="display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-6); background: #ffffff; border: 2px solid var(--color-accent-2-300); border-radius: var(--radius-lg);">
       <h2 id="titre-sms" style="margin: 0; font-size: 26px;">Envoyer la liste par SMS</h2>
       <form onSubmit="{{ envoyer }}" style="display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: flex-start;">
@@ -246,14 +252,14 @@ class Component extends DCLogic {
   setMode(m) { try { localStorage.setItem('sainos-mode', m); } catch (e) {} this._syncMode(); }
   _kidVals() { const kid = this.state.mode === 'enfant'; return { kid, adult: !kid, toEnfant: () => this.setMode('enfant'), toNormal: () => this.setMode('normal') }; }
   _mois() { const f = this.props.moisSimule ?? 0; return f >= 1 && f <= 12 ? f : new Date().getMonth() + 1; }
-  _load() { const d = { pers: 2, duree: 1, off: [], auto: true, fl: null, fr: null, fi: null, flOn: true, frOn: true, fiOn: true, veg: false, al: null, alOn: true }; try { const o = JSON.parse(localStorage.getItem('sainos-liste-v4') || '{}'); const same = o.mois === this._mois(); return { pers: o.pers || 2, duree: o.duree === 2 ? 2 : 1, off: same && Array.isArray(o.off) ? o.off : [], auto: same ? o.auto !== false : true, fl: same ? o.fl || null : null, fr: same ? o.fr || null : null, fi: same ? o.fi || null : null, fiOn: same ? o.fiOn !== false : true, flOn: same ? o.flOn !== false : true, frOn: same ? o.frOn !== false : true, veg: !!o.veg, al: same ? o.al || null : null, alOn: same ? o.alOn !== false : true, rnd: same && o.rnd && typeof o.rnd === 'object' ? o.rnd : null }; } catch (e) { return d; } }
-  _save() { const { pers, duree, off, auto, fl, fr, flOn, frOn, fi, fiOn, veg, al, alOn, rnd } = this.state; try { localStorage.setItem('sainos-liste-v4', JSON.stringify({ mois: this._mois(), pers, duree, off, auto, fl, fr, flOn, frOn, fi, fiOn, veg, al, alOn, rnd })); } catch (e) {} }
+  _load() { const d = { pers: 2, duree: 1, libre: '', off: [], auto: true, fl: null, fr: null, fi: null, flOn: true, frOn: true, fiOn: true, veg: false, al: null, alOn: true }; try { const o = JSON.parse(localStorage.getItem('sainos-liste-v4') || '{}'); const same = o.mois === this._mois(); return { libre: typeof o.libre === 'string' ? o.libre : '', pers: o.pers || 2, duree: o.duree === 2 ? 2 : 1, off: same && Array.isArray(o.off) ? o.off : [], auto: same ? o.auto !== false : true, fl: same ? o.fl || null : null, fr: same ? o.fr || null : null, fi: same ? o.fi || null : null, fiOn: same ? o.fiOn !== false : true, flOn: same ? o.flOn !== false : true, frOn: same ? o.frOn !== false : true, veg: !!o.veg, al: same ? o.al || null : null, alOn: same ? o.alOn !== false : true, rnd: same && o.rnd && typeof o.rnd === 'object' ? o.rnd : null }; } catch (e) { return d; } }
+  _save() { const { libre, pers, duree, off, auto, fl, fr, flOn, frOn, fi, fiOn, veg, al, alOn, rnd } = this.state; try { localStorage.setItem('sainos-liste-v4', JSON.stringify({ mois: this._mois(), libre, pers, duree, off, auto, fl, fr, flOn, frOn, fi, fiOn, veg, al, alOn, rnd })); } catch (e) {} }
   state = { mode: this._mode(), ...this._load(), tel: '', telErr: false, copie: false, ready: !!(window.SAISON && window.JARDIN && window.FROMAGES && window.POISSONS) };
   set(p) { this.setState(p, () => this._save()); }
   componentDidMount() {
     window.addEventListener('storage', this._syncMode); window.addEventListener('pageshow', this._syncMode);
     if (!this.state.ready) this._t = setInterval(() => { if (window.SAISON && window.JARDIN && window.FROMAGES && window.POISSONS) { clearInterval(this._t); this.setState({ ready: true }); } }, 50);
-    try { const h = location.hash; if (h.indexOf('#l=') === 0) { const o = JSON.parse(decodeURIComponent(escape(atob(h.slice(3))))); this.set({ veg: !!o.v, pers: o.p || 2, off: o.o || [], auto: false, fl: o.fl || null, fr: o.fr || null, flOn: o.a !== 0, frOn: o.b !== 0 }); history.replaceState(null, '', location.pathname); } } catch (e) {}
+    try { const h = location.hash; if (h.indexOf('#l=') === 0) { const o = JSON.parse(decodeURIComponent(escape(atob(h.slice(3))))); this.set({ veg: !!o.v, libre: typeof o.l === 'string' ? o.l : '', pers: o.p || 2, off: o.o || [], auto: false, fl: o.fl || null, fr: o.fr || null, flOn: o.a !== 0, frOn: o.b !== 0 }); history.replaceState(null, '', location.pathname); } } catch (e) {}
     this._ensure();
   }
   componentDidUpdate() { this._ensure(); }
@@ -320,6 +326,7 @@ class Component extends DCLogic {
     let t = 'Ma liste Sainos – ' + S.MOIS[m - 1].toLowerCase() + ' (' + this.state.pers + ' pers., ' + du + ')';
     G.forEach(g => { const l = g.items.filter(i => !off.includes(i.key)); if (l.length) t += '\n\n' + g.titre + '\n' + l.map(i => '- ' + i.n + ' : ' + i.qte).join('\n'); });
     SG.filter(s => s.on).forEach(s => { t += '\n\n' + s.titre + '\n- ' + s.n + ' : ' + s.qte; });
+    { const x = (this.state.libre || '').split(/[\n,;]+/).map(s => s.trim()).filter(Boolean); if (x.length) t += '\n\nEt aussi\n' + x.map(s => '- ' + s).join('\n'); }
     return t + '\n\nsainos.fr';
   }
   renderVals() {
@@ -349,12 +356,13 @@ class Component extends DCLogic {
       hasard: () => { const rnd = {}; this._raw().forEach(g => g.list.forEach(i => { rnd[i.key] = Math.random(); })); this.set({ auto: true, rnd, off: [], fl: this._pick(this._fleurs(), this.state.fl), fr: this._pick(this._fromages(), this.state.fr), fi: this._pick(this._poissons(), this.state.fi), al: this._pick(Object.keys(Component.ALG).map(x => ({ s: x })), this.state.al), flOn: true, frOn: true, fiOn: true, alOn: true }); },
       toutCocher: () => this.set({ auto: false, off: [], flOn: true, frOn: true, fiOn: true, alOn: true }), toutDecocher: () => this.set({ auto: false, off: all, flOn: false, frOn: false, fiOn: false, alOn: false }),
       nouvelle: () => this.set({ auto: true, off: [], fl: this._pick(this._fleurs(), this.state.fl), fr: this._pick(this._fromages(), this.state.fr), flOn: true, frOn: true, fiOn: true, alOn: true }),
-      groupes, suggestions, hasSugg: SG.length > 0, rienCoche: on === 0,
+      groupes, suggestions, hasSugg: SG.length > 0, rienCoche: on === 0 && !(this.state.libre || '').trim(),
+      libre: this.state.libre || '', onLibre: e => this.set({ libre: e.target.value.slice(0, 500) }),
       tel, telErr,
       onTel: e => this.setState({ tel: e.target.value, telErr: false }),
       envoyer: e => { e.preventDefault(); const n = nettoie(this.state.tel); if (!valide(n)) { this.setState({ telErr: true }); return; } const url = 'sms:' + n + '?&body=' + encodeURIComponent(this._texte(G, SG)); this.setState({ tel: '', telErr: false }); window.location.href = url; },
       lienLabel: this.state.lien ? 'Lien copié ✓' : 'Partager le lien',
-      partager: () => { const s = this.state, d = { p: s.pers, o: this._off(), fl: s.fl, fr: s.fr, a: s.flOn ? 1 : 0, b: s.frOn ? 1 : 0, v: s.veg ? 1 : 0 }; const url = location.origin + location.pathname + '#l=' + btoa(unescape(encodeURIComponent(JSON.stringify(d)))); const ok = () => { this.setState({ lien: true }); clearTimeout(this._l); this._l = setTimeout(() => this.setState({ lien: false }), 2000); }; if (navigator.share) navigator.share({ title: 'Ma liste Sainos', url }).catch(() => {}); else if (navigator.clipboard) navigator.clipboard.writeText(url).then(ok, () => {}); },
+      partager: () => { const s = this.state, d = { p: s.pers, o: this._off(), fl: s.fl, fr: s.fr, a: s.flOn ? 1 : 0, b: s.frOn ? 1 : 0, v: s.veg ? 1 : 0, l: s.libre || undefined }; const url = location.origin + location.pathname + '#l=' + btoa(unescape(encodeURIComponent(JSON.stringify(d)))); const ok = () => { this.setState({ lien: true }); clearTimeout(this._l); this._l = setTimeout(() => this.setState({ lien: false }), 2000); }; if (navigator.share) navigator.share({ title: 'Ma liste Sainos', url }).catch(() => {}); else if (navigator.clipboard) navigator.clipboard.writeText(url).then(ok, () => {}); },
       copierLabel: copie ? 'Copiée ✓' : 'Copier la liste',
       copier: () => { const t = this._texte(G, SG); const ok = () => { this.setState({ copie: true }); clearTimeout(this._c); this._c = setTimeout(() => this.setState({ copie: false }), 2000); }; if (navigator.clipboard) navigator.clipboard.writeText(t).then(ok, () => {}); }
     };
