@@ -688,7 +688,7 @@ class Component extends DCLogic {
       .map(o => ({ ...S.vis(o, '../'), href: S.url(o, '../'), n: o.n, flag: o.orig.flag, origine: o.orig.label }));
     const V = (window.SAISON_VARIETES || {})[p.s];
     const cousinsLinked = S.produits.filter(o => o.s !== p.s && o.fam === p.fam).map(o => ({ n: o.n, href: S.url(o, '../'), img: o.img ? '../' + o.img : '', bg: o.img ? 'center / contain no-repeat url("../' + o.img + '")' : 'none' }));
-    const cousinsExtra = (V && V.c) || [];
+    const cousinsExtra = ((V && V.c) || []).filter(n => !cousinsLinked.some(o => o.n.toLowerCase() === String(n).toLowerCase()) && !S.produits.some(o => o.n.toLowerCase() === String(n).toLowerCase()));
     const exo = ['banane', 'ananas', 'mangue', 'avocat', 'kiwi', 'orange', 'citron', 'clementine', 'gingembre', 'patate-douce'].includes(p.s) && p.orig && !/France/.test(p.orig.label);
     const pl = this.state.prodList || [];
     return {
