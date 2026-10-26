@@ -255,6 +255,7 @@ class Component extends DCLogic {
     this._onScroll = () => { const y = window.scrollY, cur = !!this.state.mini; const s = cur ? y > 8 : y > 140; if (s !== cur) this.setState({ mini: s }); };
     window.addEventListener('scroll', this._onScroll, { passive: true }); this._onScroll();
     const done = () => { this.injectLd(); this.setState({ ready: true }); if (location.hash) { const el = document.getElementById(location.hash.slice(1)); if (el) window.scrollTo(0, el.getBoundingClientRect().top + scrollY - 90); } };
+    { const c = new URLSearchParams(location.search).get('cat'); if (['potager', 'jardin', 'fromage', 'poisson'].includes(c)) this.setState({ cat: c }); }
     if (window.SAISON && window.SAISON_ENFANTS) setTimeout(done, 0); else this._t = setInterval(() => { if (window.SAISON && window.SAISON_ENFANTS) { clearInterval(this._t); done(); } }, 50);
   }
   componentWillUnmount() { window.removeEventListener('storage', this._syncMode); window.removeEventListener('pageshow', this._syncMode); window.removeEventListener('scroll', this._onScroll); clearInterval(this._t); }
