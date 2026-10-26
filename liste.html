@@ -113,7 +113,7 @@
   <main style="flex: 1; max-width: 880px; margin: 0 auto; width: 100%; box-sizing: border-box; padding: clamp(32px, 6vw, 56px) clamp(20px, 5vw, 56px) var(--space-8); display: flex; flex-direction: column; gap: var(--space-6);">
     <div style="display: flex; flex-direction: column; gap: var(--space-3);">
       <h1 style="margin: 0; font-size: clamp(36px, 5.5vw, 56px); line-height: 1.04; text-wrap: balance;">Ma liste de la semaine</h1>
-      <p style="margin: 0; font-size: 18px; line-height: 1.55; text-wrap: pretty; color: var(--color-neutral-800);">Une sélection de saison est déjà cochée, adaptée à votre foyer. Décochez ou ajoutez ce que vous voulez.</p>
+      <p style="margin: 0; font-size: 18px; line-height: 1.55; text-wrap: pretty; color: var(--color-neutral-800);">{{ intro }}</p>
     </div>
 
     <div style="display: flex; flex-wrap: wrap; gap: var(--space-4) var(--space-6); align-items: center; padding: var(--space-4) var(--space-6); background: #f4efe6; border-radius: var(--radius-lg);">
@@ -125,6 +125,7 @@
           <button type="button" onClick="{{ persPlus }}" aria-label="Une personne de plus" disabled="{{ persMax }}" style="width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--color-accent-100); color: var(--color-accent-800); font: inherit; font-size: 22px; font-weight: 800; cursor: pointer;" style-hover="background: var(--color-accent-200);">+</button>
         </div>
       </div>
+      <label style="display: flex; align-items: center; gap: var(--space-2); min-height: 44px; padding: 0 16px 0 12px; background: #ffffff; border-radius: 999px; font-weight: 700; font-size: 16px; cursor: pointer;"><input type="checkbox" checked="{{ veg }}" onChange="{{ vegToggle }}" style="width: 20px; height: 20px; margin: 0; accent-color: var(--color-accent); cursor: pointer;"><span>{{ vegLabel }}</span></label>
     </div>
 
     <div style="display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; justify-content: space-between;">
@@ -237,14 +238,14 @@ class Component extends DCLogic {
   setMode(m) { try { localStorage.setItem('sainos-mode', m); } catch (e) {} this._syncMode(); }
   _kidVals() { const kid = this.state.mode === 'enfant'; return { kid, adult: !kid, toEnfant: () => this.setMode('enfant'), toNormal: () => this.setMode('normal') }; }
   _mois() { const f = this.props.moisSimule ?? 0; return f >= 1 && f <= 12 ? f : new Date().getMonth() + 1; }
-  _load() { const d = { pers: 2, duree: 1, off: [], auto: true, fl: null, fr: null, fi: null, flOn: true, frOn: true, fiOn: true }; try { const o = JSON.parse(localStorage.getItem('sainos-liste-v4') || '{}'); const same = o.mois === this._mois(); return { pers: o.pers || 2, duree: 1, off: same && Array.isArray(o.off) ? o.off : [], auto: same ? o.auto !== false : true, fl: same ? o.fl || null : null, fr: same ? o.fr || null : null, fi: same ? o.fi || null : null, fiOn: same ? o.fiOn !== false : true, flOn: same ? o.flOn !== false : true, frOn: same ? o.frOn !== false : true }; } catch (e) { return d; } }
-  _save() { const { pers, duree, off, auto, fl, fr, flOn, frOn, fi, fiOn } = this.state; try { localStorage.setItem('sainos-liste-v4', JSON.stringify({ mois: this._mois(), pers, duree, off, auto, fl, fr, flOn, frOn, fi, fiOn })); } catch (e) {} }
+  _load() { const d = { pers: 2, duree: 1, off: [], auto: true, fl: null, fr: null, fi: null, flOn: true, frOn: true, fiOn: true, veg: false, al: null, alOn: true }; try { const o = JSON.parse(localStorage.getItem('sainos-liste-v4') || '{}'); const same = o.mois === this._mois(); return { pers: o.pers || 2, duree: 1, off: same && Array.isArray(o.off) ? o.off : [], auto: same ? o.auto !== false : true, fl: same ? o.fl || null : null, fr: same ? o.fr || null : null, fi: same ? o.fi || null : null, fiOn: same ? o.fiOn !== false : true, flOn: same ? o.flOn !== false : true, frOn: same ? o.frOn !== false : true, veg: !!o.veg, al: same ? o.al || null : null, alOn: same ? o.alOn !== false : true }; } catch (e) { return d; } }
+  _save() { const { pers, duree, off, auto, fl, fr, flOn, frOn, fi, fiOn, veg, al, alOn } = this.state; try { localStorage.setItem('sainos-liste-v4', JSON.stringify({ mois: this._mois(), pers, duree, off, auto, fl, fr, flOn, frOn, fi, fiOn, veg, al, alOn })); } catch (e) {} }
   state = { mode: this._mode(), ...this._load(), tel: '', telErr: false, copie: false, ready: !!(window.SAISON && window.JARDIN && window.FROMAGES && window.POISSONS) };
   set(p) { this.setState(p, () => this._save()); }
   componentDidMount() {
     window.addEventListener('storage', this._syncMode); window.addEventListener('pageshow', this._syncMode);
     if (!this.state.ready) this._t = setInterval(() => { if (window.SAISON && window.JARDIN && window.FROMAGES && window.POISSONS) { clearInterval(this._t); this.setState({ ready: true }); } }, 50);
-    try { const h = location.hash; if (h.indexOf('#l=') === 0) { const o = JSON.parse(decodeURIComponent(escape(atob(h.slice(3))))); this.set({ pers: o.p || 2, off: o.o || [], auto: false, fl: o.fl || null, fr: o.fr || null, flOn: o.a !== 0, frOn: o.b !== 0 }); history.replaceState(null, '', location.pathname); } } catch (e) {}
+    try { const h = location.hash; if (h.indexOf('#l=') === 0) { const o = JSON.parse(decodeURIComponent(escape(atob(h.slice(3))))); this.set({ veg: !!o.v, pers: o.p || 2, off: o.o || [], auto: false, fl: o.fl || null, fr: o.fr || null, flOn: o.a !== 0, frOn: o.b !== 0 }); history.replaceState(null, '', location.pathname); } } catch (e) {}
     this._ensure();
   }
   componentDidUpdate() { this._ensure(); }
@@ -269,25 +270,30 @@ class Component extends DCLogic {
     const S = window.SAISON, m = this._mois(); if (!S) return [];
     const pr = S.produits.filter(p => p.m.includes(m)).sort((a, b) => (b.f.includes(m) - a.f.includes(m)) || a.n.localeCompare(b.n, 'fr'));
     const mk = p => ({ key: 'p:' + p.s, s: p.s, n: p.n, v: S.vis(p), peak: p.f.includes(m), pk: (p.f.includes(m) ? 0 : 100) + p.f.length });
-    return [{ k: 'fruits', list: pr.filter(p => p.t === 'fruit').map(mk) }, { k: 'legumes', list: pr.filter(p => p.t === 'legume').map(mk) }, { k: 'herbes', list: pr.filter(p => p.t === 'herbe').map(mk) }, { k: 'poissons', list: (window.POISSONS ? window.POISSONS.liste.filter(p => p.f.includes(m) && !p.x.includes(m)) : []).map(p => ({ key: 'f:' + p.s, s: p.s, n: p.n, v: { e: p.e, img: true, imgBg: 'center / contain no-repeat url("images/poissons/' + p.s + '.webp")' }, peak: true, pk: p.f.length })).sort((a, b) => a.n.localeCompare(b.n, 'fr')) }];
+    return [{ k: 'fruits', list: pr.filter(p => p.t === 'fruit').map(mk) }, { k: 'legumes', list: pr.filter(p => p.t === 'legume').map(mk) }, { k: 'herbes', list: pr.filter(p => p.t === 'herbe').map(mk) }, { k: 'poissons', list: (window.POISSONS ? window.POISSONS.liste.filter(p => p.f.includes(m) && !p.x.includes(m)) : []).map(p => ({ key: 'f:' + p.s, s: p.s, n: p.n, v: { e: p.e, img: true, imgBg: 'center / contain no-repeat url("images/poissons/' + p.s + '.webp")' }, peak: true, pk: p.f.length })).sort((a, b) => a.n.localeCompare(b.n, 'fr')) }, { k: 'proteines', list: this._prot() }];
   }
   _off() {
     if (!this.state.auto) return this.state.off;
     const { pers, duree } = this.state, x = { 1: 0, 2: 1, 4: 2 }[duree] || 0;
     const V = { 1: [0, 0, 0], 2: [2, 3, 1], 4: [5, 6, 2] }[duree] || [0, 0, 0];
-    const N = { fruits: pers + 1 + V[0], legumes: pers + 2 + V[1], herbes: 1 + Math.floor(pers / 3) + V[2], poissons: 1 + Math.floor(pers / 4) + V[2] };
-    return this._raw().flatMap(g => g.list.slice().sort((a, b) => a.pk - b.pk || a.n.localeCompare(b.n, 'fr')).slice(N[g.k]).map(i => i.key));
+    const N = { fruits: pers + 1 + V[0], legumes: pers + 2 + V[1], herbes: 1 + Math.floor(pers / 3) + V[2], poissons: 1 + Math.floor(pers / 4) + V[2], proteines: this.state.veg ? 2 + Math.floor(pers / 4) : 1 };
+    return this._raw().flatMap(g => g.list.slice().sort((a, b) => a.pk - b.pk || a.n.localeCompare(b.n, 'fr')).slice(N[g.k]).map(i => i.key).filter(k => k !== 'p:laitue'));
   }
+  static T = {"oT":"Œufs","oR":"Chez le crémier","pt":"Protéines du marché","pr":"Chez le primeur et le crémier","pa":"Ajouter une protéine","oe1":"œuf","oe2":"œufs","ak":"Le goût de la mer","aq1":"1 barquette","aq2":"1 sachet","at":"Algues","aa":"Proposer une autre algue"};
+  static ALG = {"dulse":["Dulse fraîche","Paillettes de dulse","Algue rouge au goût fumé, presque de noisette : en salade, ou poêlée comme des lardons."],"laitue-de-mer":["Laitue de mer fraîche","Paillettes de laitue de mer","Algue verte, tendre et doucement iodée : crue en salade ou dans un beurre d’algues."],"wakame":["Wakamé frais","Paillettes de wakamé","Algue brune soyeuse, celle de la soupe miso : dans les bouillons et les salades de concombre."]};
+  static PROT = [["oeuf", "Œufs", '🥚', [1,2,3,4,5,6,7,8,9,10,11,12], [3,4,5], 0], ["feve", "Fèves", '🫛', [4,5,6], [5,6], 300], ["haricot-coco", "Haricots coco frais", '🫘', [7,8,9,10], [8,9], 250], ["flageolet", "Flageolets frais", '🫘', [7,8,9], [8], 250], ["lentille", "Lentilles vertes", '🫘', [1,2,3,4,5,6,7,8,9,10,11,12], [], 80], ["pois-chiche", "Pois chiches", '🫘', [1,2,3,4,5,6,7,8,9,10,11,12], [], 80], ["haricot-sec", "Haricots secs", '🫘', [10,11,12,1,2,3], [11,12,1], 80]];
+  _prot() { const m = this._mois(), veg = this.state.veg; return Component.PROT.filter(p => p[3].includes(m) && (veg || p[0] === 'oeuf')).map(([s, n, e, mm, f, g]) => ({ key: 'v:' + s, s, n, g, v: { e, img: true, imgBg: 'center / contain no-repeat url("images/proteines/' + s + '.webp")' }, peak: s === 'oeuf' || f.includes(m), pk: s === 'oeuf' ? 0 : f.includes(m) ? 1 : g > 100 ? 2 : 50 })); }
   _items() {
-    const R = this._raw(); if (!R.length) return [];
+    const R = this._raw(), T = Component.T; if (!R.length) return [];
     const { pers, duree: sem } = this.state, off = this._off();
     const FIX = { ail: () => this._nb(Math.ceil(pers / 4), 'tête d’ail', 'têtes d’ail'), piment: () => '2 piments', gingembre: () => '1 morceau' };
     const part = (list, tot, base) => { const L = list.filter(i => !FIX[i.s]); const n = Math.max(1, Math.min(L.filter(i => !off.includes(i.key)).length, base)); return list.map(i => { if (FIX[i.s]) return { ...i, qte: FIX[i.s]() }; const u = Component.U[i.s], g = tot * pers / n; if (!u) return { ...i, qte: this._poids(g) }; const c = Math.max(1, Math.round(g / u[0])); return { ...i, n: c + ' ' + ((c > 1 ? u[2] : u[1]).charAt(0).toUpperCase() + (c > 1 ? u[2] : u[1]).slice(1)), qte: '≈\u00a0' + this._poids(c * u[0]) }; }); };
     return [
       { k: 'fruits', titre: 'Fruits', rayon: 'Chez le primeur', bg: 'var(--color-accent-100)', items: part(R[0].list, 1500, pers + 1) },
       { k: 'legumes', titre: 'Légumes & herbes', rayon: 'Chez le primeur', bg: 'var(--color-accent-2-100)', items: [...part(R[1].list, 2000, pers + 2), ...R[2].list.map(i => ({ ...i, qte: FIX[i.s] ? FIX[i.s]() : this._nb(Math.ceil(pers / 4), 'botte', 'bottes') }))] },
-      { k: 'poissons', titre: 'Poissons & fruits de mer', rayon: 'Chez le poissonnier', bg: 'var(--color-neutral-100)', items: part(R[3].list, 150 * sem, 1 + Math.floor(pers / 4)) }
-    ].filter(g => g.items.length);
+      { k: 'poissons', titre: 'Poissons & fruits de mer', rayon: 'Chez le poissonnier', bg: 'var(--color-neutral-100)', items: part(R[3].list, 150 * sem, 1 + Math.floor(pers / 4)) },
+      { k: 'proteines', titre: this.state.veg ? T.pt : T.oT, rayon: this.state.veg ? T.pr : T.oR, bg: 'var(--color-accent-2-100)', items: (R[4] ? R[4].list : []).map(i => ({ ...i, qte: i.s === 'oeuf' ? this._nb(Math.ceil(4 * pers * sem / 6) * 6, T.oe1, T.oe2) : this._poids(i.g * pers * sem) })) }
+    ].filter(g => g.items.length && !(this.state.veg && g.k === 'poissons'));
   }
   _sugg() {
     const { pers, duree: sem, fl, fr, flOn, frOn } = this.state, kid = this.state.mode === 'enfant', out = [];
@@ -295,6 +301,7 @@ class Component extends DCLogic {
     if (f) out.push({ k: 'fl', kicker: 'Le bouquet du mois', n: (/^[aeiouyéèêâîôûœ]|^h(?!ortensia|ibiscus|oublon)/i.test(f.n) ? 'Bouquet d’' : 'Bouquet de ') + f.n.toLowerCase(), nom: f.n, txt: f.d, img: 'images/jardin/' + f.s + '.webp', qte: this._nb(Math.max(1, Math.round(sem / 2)), 'bouquet', 'bouquets'), on: flOn, titre: 'Fleurs' });
     const c = !kid && this._fromages().find(x => x.s === fr);
     if (c) out.push({ k: 'fr', kicker: 'Le fromage du mois', n: c.n, nom: c.n, txt: c.d, img: 'images/fromages/' + c.s + '.webp', qte: this._poids(150 * pers * sem), on: frOn, titre: 'Fromage' });
+    if (this.state.veg) { const T = Component.T, A = Component.ALG[this.state.al] ? this.state.al : 'dulse', a = Component.ALG[A], fr = [4, 5, 6, 7, 8, 9].includes(this._mois()); out.push({ k: 'al', kicker: T.ak, n: fr ? a[0] : a[1], nom: fr ? a[0] : a[1], txt: a[2], img: 'images/proteines/algues.webp', qte: fr ? T.aq1 : T.aq2, on: this.state.alOn, titre: T.at }); }
     return out;
   }
   _texte(G, SG) {
@@ -311,28 +318,28 @@ class Component extends DCLogic {
     const all = G.flatMap(g => g.items.map(i => i.key));
     const on = all.filter(k => !off.includes(k)).length + SG.filter(s => s.on).length, tot = all.length + SG.length;
     const toggle = k => () => { const o = this._off(); this.set({ auto: false, off: o.includes(k) ? o.filter(x => x !== k) : [...o, k] }); };
-    const groupes = G.map(g => { const n = g.items.filter(i => !off.includes(i.key)).length; return { id: 'g-' + g.k, titre: g.titre, rayon: g.rayon || '', compte: n + ' / ' + g.items.length, ajoutLabel: {"fruits":"Ajouter un fruit","legumes":"Ajouter un légume ou une herbe","poissons":"Ajouter un poisson"}[g.k], ajout: g.items.filter(i => off.includes(i.key)).map(i => ({ ...i.v, img: !!i.v.img, noImg: !i.v.img, n: i.n, saison: i.peak ? 'Pleine saison' : 'Disponible', col: i.peak ? 'var(--color-accent-700)' : 'var(--color-neutral-700)', border: i.peak ? 'var(--color-accent-300)' : 'var(--color-divider)', aria: 'Ajouter ' + i.n, add: toggle(i.key) })), ajoutNb: '(' + g.items.filter(i => off.includes(i.key)).length + ')', hasAjout: g.items.some(i => off.includes(i.key)), ajouter: e => { const k = e.target.value; if (k) toggle(k)(); }, items: g.items.filter(i => !off.includes(i.key)).map(i => { const c = !off.includes(i.key); return { ...i.v, img: !!i.v.img, noImg: !i.v.img, n: i.n, saison: i.peak ? 'Pleine saison' : 'Disponible', saisonCol: i.peak ? 'var(--color-accent-700)' : 'var(--color-neutral-700)', qte: c ? i.qte : '', on: c, toggle: toggle(i.key), bg: c ? g.bg : '#f4efe6', op: c ? 1 : 0.6, deco: c ? 'none' : 'line-through' }; }) }; });
+    const groupes = G.map(g => { const n = g.items.filter(i => !off.includes(i.key)).length; return { id: 'g-' + g.k, titre: g.titre, rayon: g.rayon || '', compte: n + ' / ' + g.items.length, ajoutLabel: {"proteines": Component.T.pa, "fruits":"Ajouter un fruit","legumes":"Ajouter un légume ou une herbe","poissons":"Ajouter un poisson"}[g.k], ajout: g.items.filter(i => off.includes(i.key)).map(i => ({ ...i.v, img: !!i.v.img, noImg: !i.v.img, n: i.n, saison: i.s === 'oeuf' ? 'Toute l’année' : i.peak ? 'Pleine saison' : 'Disponible', col: i.peak ? 'var(--color-accent-700)' : 'var(--color-neutral-700)', border: i.peak ? 'var(--color-accent-300)' : 'var(--color-divider)', aria: 'Ajouter ' + i.n, add: toggle(i.key) })), ajoutNb: '(' + g.items.filter(i => off.includes(i.key)).length + ')', hasAjout: g.items.some(i => off.includes(i.key)), ajouter: e => { const k = e.target.value; if (k) toggle(k)(); }, items: g.items.filter(i => !off.includes(i.key)).map(i => { const c = !off.includes(i.key); return { ...i.v, img: !!i.v.img, noImg: !i.v.img, n: i.n, saison: i.s === 'oeuf' ? 'Toute l’année' : i.peak ? 'Pleine saison' : 'Disponible', saisonCol: i.peak ? 'var(--color-accent-700)' : 'var(--color-neutral-700)', qte: c ? i.qte : '', on: c, toggle: toggle(i.key), bg: c ? g.bg : '#f4efe6', op: c ? 1 : 0.6, deco: c ? 'none' : 'line-through' }; }) }; });
     const suggestions = SG.map(s => ({ ...s, imgBg: 'center / contain no-repeat url("' + s.img + '")', qte: s.on ? s.qte : 'Non ajouté', op: s.on ? 1 : 0.6, bg: s.on ? '#ffffff' : '#f4efe6', ring: s.on ? '2px solid var(--color-accent-300)' : '2px solid transparent',
       toggle: () => this.set({ [s.k + 'On']: !this.state[s.k + 'On'] }),
-      autre: () => this.set({ [s.k]: this._pick(s.k === 'fl' ? this._fleurs() : s.k === 'fi' ? this._poissons() : this._fromages(), this.state[s.k]), [s.k + 'On']: true }),
-      autreAria: s.k === 'fl' ? 'Proposer un autre bouquet' : s.k === 'fi' ? 'Proposer un autre poisson' : 'Proposer un autre fromage' }));
+      autre: () => this.set({ [s.k]: this._pick(s.k === 'fl' ? this._fleurs() : s.k === 'fi' ? this._poissons() : s.k === 'al' ? Object.keys(Component.ALG).map(x => ({ s: x })) : this._fromages(), this.state[s.k]), [s.k + 'On']: true }),
+      autreAria: s.k === 'al' ? Component.T.aa : s.k === 'fl' ? 'Proposer un autre bouquet' : s.k === 'fi' ? 'Proposer un autre poisson' : 'Proposer un autre fromage' }));
     const nettoie = v => v.replace(/[^0-9+]/g, '').replace(/^0033/, '+33');
     const valide = v => /^(0[1-9]\d{8}|\+33[1-9]\d{8}|\+\d{8,15})$/.test(v);
     return { ...kv, logoBig: { display: 'none' }, logoMini: { display: 'block', height: 36, width: 'auto' },
       moisDe: S ? (/^[aeiouéâ]/.test(S.MOIS[m - 1].toLowerCase()) ? 'd’' : 'de ') + S.MOIS[m - 1].toLowerCase() : '',
-      pers, persLabel: pers <= 1 ? 'À table, je suis' : 'À table, nous sommes', persMin: pers <= 1, persMax: pers >= 12,
+      pers, persLabel: pers <= 1 ? 'À table, je suis' : 'À table, nous sommes', intro: this.state.veg ? "Une sélection de saison et sans poisson est déjà cochée, adaptée à votre foyer : œufs, légumineuses et algues remplacent la poissonnerie. Décochez ou ajoutez ce que vous voulez." : "Une sélection de saison est déjà cochée, adaptée à votre foyer. Décochez ou ajoutez ce que vous voulez.", persMin: pers <= 1, veg: !!this.state.veg, vegLabel: pers <= 1 ? 'Je suis végétarien' : 'Nous sommes végétariens', vegToggle: () => { document.documentElement.classList.toggle('m-veg', !this.state.veg); this.set({ veg: !this.state.veg }); }, persMax: pers >= 12,
       persMoins: () => this.set({ pers: Math.max(1, this.state.pers - 1), auto: true }),
       persPlus: () => this.set({ pers: Math.min(12, this.state.pers + 1), auto: true }),
       durees: [[1, '1 semaine'], [2, '2 semaines'], [4, '1 mois']].map(([k, label]) => ({ label, on: duree === k, cls: 'btn ' + (duree === k ? 'btn-primary' : 'btn-ghost'), pick: () => this.set({ duree: k, auto: true }) })),
       compte: on + ' article' + (on > 1 ? 's' : '') + ' sur ' + tot,
-      toutCocher: () => this.set({ auto: false, off: [], flOn: true, frOn: true, fiOn: true }), toutDecocher: () => this.set({ auto: false, off: all, flOn: false, frOn: false, fiOn: false }),
-      nouvelle: () => this.set({ auto: true, off: [], fl: this._pick(this._fleurs(), this.state.fl), fr: this._pick(this._fromages(), this.state.fr), flOn: true, frOn: true, fiOn: true }),
+      toutCocher: () => this.set({ auto: false, off: [], flOn: true, frOn: true, fiOn: true, alOn: true }), toutDecocher: () => this.set({ auto: false, off: all, flOn: false, frOn: false, fiOn: false, alOn: false }),
+      nouvelle: () => this.set({ auto: true, off: [], fl: this._pick(this._fleurs(), this.state.fl), fr: this._pick(this._fromages(), this.state.fr), flOn: true, frOn: true, fiOn: true, alOn: true }),
       groupes, suggestions, hasSugg: SG.length > 0, rienCoche: on === 0,
       tel, telErr,
       onTel: e => this.setState({ tel: e.target.value, telErr: false }),
       envoyer: e => { e.preventDefault(); const n = nettoie(this.state.tel); if (!valide(n)) { this.setState({ telErr: true }); return; } const url = 'sms:' + n + '?&body=' + encodeURIComponent(this._texte(G, SG)); this.setState({ tel: '', telErr: false }); window.location.href = url; },
       lienLabel: this.state.lien ? 'Lien copié ✓' : 'Partager le lien',
-      partager: () => { const s = this.state, d = { p: s.pers, o: this._off(), fl: s.fl, fr: s.fr, a: s.flOn ? 1 : 0, b: s.frOn ? 1 : 0 }; const url = location.origin + location.pathname + '#l=' + btoa(unescape(encodeURIComponent(JSON.stringify(d)))); const ok = () => { this.setState({ lien: true }); clearTimeout(this._l); this._l = setTimeout(() => this.setState({ lien: false }), 2000); }; if (navigator.share) navigator.share({ title: 'Ma liste Sainos', url }).catch(() => {}); else if (navigator.clipboard) navigator.clipboard.writeText(url).then(ok, () => {}); },
+      partager: () => { const s = this.state, d = { p: s.pers, o: this._off(), fl: s.fl, fr: s.fr, a: s.flOn ? 1 : 0, b: s.frOn ? 1 : 0, v: s.veg ? 1 : 0 }; const url = location.origin + location.pathname + '#l=' + btoa(unescape(encodeURIComponent(JSON.stringify(d)))); const ok = () => { this.setState({ lien: true }); clearTimeout(this._l); this._l = setTimeout(() => this.setState({ lien: false }), 2000); }; if (navigator.share) navigator.share({ title: 'Ma liste Sainos', url }).catch(() => {}); else if (navigator.clipboard) navigator.clipboard.writeText(url).then(ok, () => {}); },
       copierLabel: copie ? 'Copiée ✓' : 'Copier la liste',
       copier: () => { const t = this._texte(G, SG); const ok = () => { this.setState({ copie: true }); clearTimeout(this._c); this._c = setTimeout(() => this.setState({ copie: false }), 2000); }; if (navigator.clipboard) navigator.clipboard.writeText(t).then(ok, () => {}); }
     };

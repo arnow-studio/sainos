@@ -117,11 +117,11 @@
         <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-8); align-items: center; padding: 0 0 var(--space-8);">
       <div style="display: flex; flex-direction: column; gap: var(--space-4); max-width: 560px;">
         <sc-if value="{{ adult }}" hint-placeholder-val="{{ true }}"><h1 style="margin: 0; font-size: clamp(38px, 5.5vw, 64px); line-height: 1.02; text-wrap: balance;">The season is always right</h1>
-        <p style="margin: 0; font-size: 18px; line-height: 1.55; text-wrap: pretty; color: var(--color-neutral-800);">Fruit, vegetables, flowers, fish and cheese: discover what’s in season each month in the Vegetable Garden, the Orchard, the Garden, the Fishmonger and the Cheese.</p></sc-if><sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}"><h1 style="margin: 0; font-size: clamp(38px, 5.5vw, 64px); line-height: 1.02; text-wrap: balance;">What’s growing this month?</h1>
+        <p style="margin: 0; font-size: 18px; line-height: 1.55; text-wrap: pretty; color: var(--color-neutral-800);">{{ heroTxt }}</p></sc-if><sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}"><h1 style="margin: 0; font-size: clamp(38px, 5.5vw, 64px); line-height: 1.02; text-wrap: balance;">What’s growing this month?</h1>
         <p style="margin: 0; font-size: 18px; line-height: 1.55; text-wrap: pretty; color: var(--color-neutral-800);">Every month, Sainos shows you in <a href="legumes.html">the Vegetable Garden</a> and <a href="fruits.html">the Orchard</a> what’s growing near you: fruits, vegetables and herbs to explore, each with a trick question and a badge. And head to <a href="fleurs.html">the Garden</a> to see the seasonal flowers!</p></sc-if>
         <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
-          <a href="liste.html" class="btn btn-primary" style="padding: 12px 22px; font-size: 15px;">My shopping list</a>
-          <a href="legumes.html" class="btn btn-secondary" style="padding: 12px 22px; font-size: 15px;">The Vegetable Garden</a>
+          <a href="liste.html" class="btn btn-primary" style="padding: 12px 22px; font-size: 15px; white-space: nowrap; flex: none;">My shopping list</a>
+          <label data-adult-only="1" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: var(--space-2); padding: 12px 22px 12px 16px; font-size: 15px; cursor: pointer; white-space: nowrap; flex: none;"><input type="checkbox" checked="{{ veg }}" onChange="{{ vegToggle }}" style="width: 20px; height: 20px; margin: 0; accent-color: var(--color-accent); cursor: pointer;"><span>Vegetarian</span></label>
         </div>
       </div>
       <div style="position: relative; justify-self: center; width: min(420px, 100%); aspect-ratio: 1; container-type: inline-size;">
@@ -184,10 +184,10 @@
         <span aria-hidden="true" style="flex: none; width: 88px; height: 88px; background: center / contain no-repeat url('../images/fromages/comte.webp'); mix-blend-mode: multiply;"></span>
         <span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: var(--font-heading); font-size: 24px;">The Cheese</span><span style="font-size: 15px;">Cheeses at their best, month by month: AOP, terroirs and pairings.</span></span>
       </a>
-      <a href="poissonnerie.html" data-adult-only="1" style="display: flex; gap: var(--space-4); align-items: center; padding: var(--space-6); background: #ffffff; border: 2px solid var(--color-accent-2-300); border-radius: var(--radius-lg); text-decoration: none; color: var(--color-text);" style-hover="border-color: var(--color-accent-2-500); color: var(--color-text);">
+      <sc-if value="{{ noVeg }}" hint-placeholder-val="{{ true }}"><a href="poissonnerie.html" data-adult-only="1" style="display: flex; gap: var(--space-4); align-items: center; padding: var(--space-6); background: #ffffff; border: 2px solid var(--color-accent-2-300); border-radius: var(--radius-lg); text-decoration: none; color: var(--color-text);" style-hover="border-color: var(--color-accent-2-500); color: var(--color-text);">
         <span aria-hidden="true" style="flex: none; width: 88px; height: 88px; background: {{ fish.bg }}; mix-blend-mode: multiply;"></span>
         <span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: var(--font-heading); font-size: 24px;">The Fishmonger</span><span style="font-size: 15px;">Fish and seafood in season, and those to avoid. Right now: <strong>{{ fish.n }}</strong></span></span>
-      </a>
+      </a></sc-if>
       <a href="origines.html" style="display: flex; gap: var(--space-4); align-items: center; padding: var(--space-6); background: var(--color-accent-100); border: 2px solid var(--color-accent-300); border-radius: var(--radius-lg); text-decoration: none; color: var(--color-accent-900);" style-hover="background: var(--color-accent-200); color: var(--color-accent-900);">
         
         <span style="display: flex; flex-direction: column; gap: 4px;"><sc-if value="{{ adult }}" hint-placeholder-val="{{ true }}"><span style="font-family: var(--font-heading); font-size: 24px;">The map of French terroirs</span><span style="font-size: 15px;">PDOs, PGIs and the regions of France.</span></sc-if><sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}"><span style="font-family: var(--font-heading); font-size: 24px;">A tour of France’s flavours</span><span style="font-size: 15px;">Where your fruit and vegetables come from, region by region.</span></sc-if></span>
@@ -288,7 +288,12 @@ class Component extends DCLogic {
     rv.cards = (rv.cards || []).map(c => ({ ...c, kid: kv.kid, adult: !kv.kid, badge: kv.kid && bs.includes(c.s) }));
     if (!this._fishPick && window.POISSONS) { const m = new Date().getMonth() + 1, L = window.POISSONS.liste.filter(x => x.f.includes(m) && !x.x.includes(m)); this._fishPick = L[Math.floor(Math.random() * L.length)]; }
     const fp = this._fishPick, fish = fp ? { n: fp.en, href: 'poissons/' + fp.s + '.html', bg: 'center / contain no-repeat url("../images/poissons/' + fp.s + '.webp")' } : { n: '', href: 'poissonnerie.html', bg: 'none' };
-    return { ...rv, ...kv, fish, logoBig: { display: mini ? 'none' : 'block', height: 'clamp(84px, 11vw, 120px)', width: 'auto' }, logoMini: { display: mini ? 'block' : 'none', height: 36, width: 'auto' } };
+    const vegRead = () => { try { return !!JSON.parse(localStorage.getItem('sainos-liste-v4') || '{}').veg; } catch (e) { return false; } };
+    const veg = this.state.veg ?? vegRead();
+    const vegToggle = () => { document.documentElement.classList.toggle('m-veg', !veg); let o = {}; try { o = JSON.parse(localStorage.getItem('sainos-liste-v4') || '{}'); } catch (e) {} o.veg = !veg; try { localStorage.setItem('sainos-liste-v4', JSON.stringify(o)); } catch (e) {} this.setState({ veg: !veg }); };
+    const PM = [["feve","Broad beans",[4,5,6]],["haricot-coco","Fresh coco beans",[7,8,9,10]],["flageolet","Fresh flageolet beans",[7,8,9]],["haricot-sec","Dried beans",[11,12,1,2,3]],["lentille","Green lentils",[]]], mo = new Date().getMonth() + 1, pp = PM.find(x => x[2].includes(mo)) || PM[PM.length - 1];
+    const prot = { n: pp[1], bg: 'center / contain no-repeat url("../images/proteines/' + pp[0] + '.webp")' };
+    return { ...rv, ...kv, fish, veg, noVeg: !veg, prot, heroTxt: veg ? "Fruit, vegetables, flowers, eggs and cheese: discover what’s in season each month in the Vegetable Garden, the Orchard, the Garden and the Cheese." : "Fruit, vegetables, flowers, fish and cheese: discover what’s in season each month in the Vegetable Garden, the Orchard, the Garden, the Fishmonger and the Cheese.", vegToggle, logoBig: { display: mini ? 'none' : 'block', height: 'clamp(84px, 11vw, 120px)', width: 'auto' }, logoMini: { display: mini ? 'block' : 'none', height: 36, width: 'auto' } };
   }
   _rv() {
     const S = window.SAISON;
