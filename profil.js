@@ -31,7 +31,7 @@
   function wr(k, o) { try { localStorage.setItem(k, JSON.stringify(o)); } catch (e) {} }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function kid() { return document.documentElement.classList.contains('m-kid'); }
-  function get() { var p = rd(KP), l = rd(KL); return { nom: p.nom || '', cp: p.cp || '', seen: !!p.seen, reg: l.vegan ? 'vegan' : l.veg ? 'veg' : 'omni', pers: l.pers || 2 }; }
+  function get() { var p = rd(KP), l = rd(KL); return { nom: p.nom || '', seen: !!p.seen, reg: l.vegan ? 'vegan' : l.veg ? 'veg' : 'omni', pers: l.pers || 2 }; }
 
   try { if (!document.getElementById('profil-css')) { var cs = document.createElement('style'); cs.id = 'profil-css'; cs.textContent = 'html.m-kid [data-profil-btn]{display:none!important}footer a[data-lang]{display:none!important}@media (min-width:1081px){header nav.nav>[data-nav-desk]:has(>a[data-liste-pill]){display:contents!important}header nav.nav>[data-nav-desk]>a[data-liste-pill]{order:10;margin-left:auto!important}header nav.nav>[data-search-btn]{order:11;margin-left:0!important}header nav.nav>[data-profil-btn]{order:12}html.m-kid header nav.nav>[data-search-btn]{margin-left:auto!important}header nav.nav>[data-nav-desk]:has(>a[data-liste-pill])>:not(a[data-liste-pill]){order:13}header nav.nav>[data-nav-burger]{order:14}}@media (min-width:600px) and (max-width:1080px){header nav.nav>[data-nav-desk]:has(>a[data-liste-pill]){margin-left:auto!important}header nav.nav>[data-search-btn],header nav.nav>[data-profil-btn]{order:3;margin-left:0!important}header nav.nav>[data-nav-burger]{order:4!important}}[data-profil-dlg] button:focus-visible,[data-profil-dlg] input:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px}'; document.head.appendChild(cs); } } catch (e) {}
 
@@ -50,8 +50,6 @@
     ov.querySelectorAll('[data-reg]').forEach(function (b) { var on = b.getAttribute('data-reg') === st.reg; b.setAttribute('aria-pressed', on); b.className = 'btn ' + (on ? 'btn-primary' : 'btn-ghost'); });
     ov.querySelectorAll('[data-lang-opt]').forEach(function (b) { var on = b.getAttribute('data-lang-opt') === st.lang; b.setAttribute('aria-pressed', on); b.className = 'btn ' + (on ? 'btn-primary' : 'btn-ghost'); });
     ov.querySelector('[data-k=langbox]').style.display = langUrl() ? '' : 'none';
-    ov.querySelector('[data-k=pers]').textContent = st.pers;
-    ov.querySelector('[data-k=moins]').disabled = st.pers <= 1; ov.querySelector('[data-k=plus]').disabled = st.pers >= 12;
   }
   function build() {
     ov = document.createElement('div'); ov.setAttribute('data-profil-dlg', '1');
@@ -66,16 +64,13 @@
       + '<div role="group" aria-labelledby="pf-reg"><span id="pf-reg" style="' + lbl + '">' + T.reg + '</span><div style="display:flex;flex-wrap:wrap;gap:4px;background:#fff;border-radius:999px;padding:4px;width:fit-content;max-width:100%;box-sizing:border-box;">'
       + T.regs.map(function (r) { return '<button type="button" data-reg="' + r[0] + '" style="min-height:44px;padding:8px 18px;font-size:16px;white-space:nowrap;">' + r[1] + '</button>'; }).join('')
       + '</div><p style="' + help + '">' + T.regH + '</p></div>'
-      + '<div role="group" aria-labelledby="pf-pers"><span id="pf-pers" style="' + lbl + '">' + T.pers + '</span><div style="display:flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:4px;width:fit-content;">'
-      + '<button type="button" data-k="moins" aria-label="' + T.moins + '" style="' + rnd + '">−</button><output data-k="pers" aria-live="polite" style="min-width:36px;text-align:center;font-family:var(--font-heading);font-size:24px;"></output><button type="button" data-k="plus" aria-label="' + T.plus + '" style="' + rnd + '">+</button>'
-      + '</div><p style="' + help + '">' + T.persH + '</p></div>'
       + '<div role="group" aria-labelledby="pf-lang" data-k="langbox"><span id="pf-lang" style="' + lbl + '">' + T.lang + '</span><div style="display:flex;flex-wrap:wrap;gap:4px;background:#fff;border-radius:999px;padding:4px;width:fit-content;max-width:100%;box-sizing:border-box;">'
       + '<button type="button" data-lang-opt="fr" lang="fr" style="min-height:44px;padding:8px 18px;font-size:16px;white-space:nowrap;">Français</button><button type="button" data-lang-opt="en" lang="en" style="min-height:44px;padding:8px 18px;font-size:16px;white-space:nowrap;">English</button>'
       + '</div><p style="' + help + '">' + T.langH + '</p></div>'
-      + '<div><label for="pf-cp" style="' + lbl + '">' + T.cp + '</label><input id="pf-cp" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="5" placeholder="' + T.cpPh + '" style="' + inp + 'max-width:200px;"><p style="' + help + '">' + T.cpH + '</p></div>'
       + '<p style="display:flex;gap:10px;align-items:flex-start;margin:0;padding:14px 16px;border-radius:18px;background:var(--color-accent-2-100);color:var(--color-accent-2-900);font-size:14px;line-height:1.45;text-wrap:pretty;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:1px;"><rect x="4" y="11" width="16" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>' + T.priv + '</span></p>'
-      + '<div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px;"><button type="submit" class="btn btn-primary" style="min-height:48px;padding:12px 26px;font-size:16px;">' + T.save + '</button><button type="button" data-k="later" class="btn btn-ghost" style="min-height:48px;padding:12px 20px;font-size:16px;"></button>'
-      + '<button type="button" data-k="del" style="margin-left:auto;min-height:44px;padding:8px 4px;border:0;background:none;font:inherit;font-size:14px;font-weight:700;color:var(--color-accent-800);text-decoration:underline;cursor:pointer;">' + T.del + '</button></div>'
+      + '<button type="button" data-k="del" style="align-self:flex-start;min-height:44px;margin:-8px 0 0;padding:8px 0;border:0;background:none;font:inherit;font-size:14px;font-weight:700;color:var(--color-accent-800);text-decoration:underline;cursor:pointer;">' + T.del + '</button>'
+      + '<div data-k="foot" style="position:sticky;bottom:0;z-index:2;display:flex;flex-wrap:nowrap;align-items:center;gap:8px;margin:-8px -28px -28px;padding:12px 20px 14px;background:var(--color-bg,#f5ead8);border-top:1px solid var(--color-neutral-200,rgba(140,73,26,.14));box-shadow:0 -10px 24px -14px rgba(60,40,20,.35);border-radius:0 0 28px 28px;"><button type="submit" class="btn btn-primary" style="flex:1 1 auto;min-height:48px;padding:12px 22px;font-size:16px;white-space:nowrap;">' + T.save + '</button><button type="button" data-k="later" class="btn btn-ghost" style="flex:none;min-height:48px;padding:12px 18px;font-size:16px;white-space:nowrap;"></button>'
+      + '</div>'
       + '</form></div>';
     document.body.appendChild(ov);
     var f = ov.querySelector('form');
@@ -91,8 +86,7 @@
       else if (k === 'x' || k === 'later') close();
       else if (k === 'del') { try { localStorage.setItem(KP, JSON.stringify({ seen: 1 })); } catch (e2) {} st = get(); st.lang = EN ? 'en' : 'fr'; fill(); paint(); apply(); refresh(); }
     });
-    ov.querySelector('#pf-cp').addEventListener('input', function (e) { e.target.value = e.target.value.replace(/\D/g, '').slice(0, 5); });
-    f.addEventListener('submit', function (e) { e.preventDefault(); st.nom = ov.querySelector('#pf-nom').value.trim(); st.cp = ov.querySelector('#pf-cp').value.trim(); save(); close(); if (st.lang !== (EN ? 'en' : 'fr') && langUrl()) location.href = langUrl(); });
+    f.addEventListener('submit', function (e) { e.preventDefault(); st.nom = ov.querySelector('#pf-nom').value.trim(); save(); close(); if (st.lang !== (EN ? 'en' : 'fr') && langUrl()) location.href = langUrl(); });
     ov.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') { e.preventDefault(); close(); return; }
       if (e.key !== 'Tab') return;
@@ -102,10 +96,10 @@
     });
   }
   function langUrl() { var a = document.querySelector('footer a[data-lang]') || document.querySelector('a[data-lang]'); return a ? a.href : ''; }
-  function fill() { ov.querySelector('#pf-nom').value = st.nom; ov.querySelector('#pf-cp').value = st.cp; }
+  function fill() { ov.querySelector('#pf-nom').value = st.nom; }
   function apply() { var h = document.documentElement.classList, s = get(); h.toggle('m-veg', s.reg !== 'omni'); h.toggle('m-vegan', s.reg === 'vegan'); }
   function save() {
-    wr(KP, { nom: st.nom, cp: st.cp, seen: 1 });
+    wr(KP, { nom: st.nom, seen: 1 });
     var l = rd(KL); if ((l.pers || 2) !== st.pers) l.auto = true; l.pers = st.pers; l.veg = st.reg !== 'omni'; l.vegan = st.reg === 'vegan'; wr(KL, l);
     apply(); refresh();
   }
@@ -150,11 +144,7 @@
     var x = document.createElement('a'); x.href = base.getAttribute('href').replace('marches.html', 'bibliotheque.html'); x.textContent = 'Bibliothèque'; x.setAttribute('data-nav-biblio', '1');
     base.parentNode.appendChild(x);
   }
-  function marches() {
-    var f = document.getElementById('cp-form'), i = document.getElementById('cp'), cp = get().cp;
-    if (!f || !i || !cp || i.value) return;
-    i.value = cp; setTimeout(function () { if (f.requestSubmit) f.requestSubmit(); else f.dispatchEvent(new Event('submit', { cancelable: true })); }, 300);
-  }
+  function marches() {}
   window.SainosProfil = { open: open, get: get };
   var q = 0; function sched() { if (!q) { q = 1; requestAnimationFrame(function () { q = 0; mount(); }); } }
   function start() {

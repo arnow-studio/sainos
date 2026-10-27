@@ -88,6 +88,8 @@
 <script id="recherche-js" src="../recherche.js" defer></script>
 <style id="sous-nav-mobile">@media (max-width:640px){nav[data-bien-choisir]>div,nav[data-sous-jardin]>div{flex-wrap:nowrap!important;overflow-x:auto;max-width:100%;align-self:stretch!important;gap:2px!important;padding:4px!important;scrollbar-width:none}nav[data-bien-choisir]>div::-webkit-scrollbar,nav[data-sous-jardin]>div::-webkit-scrollbar{display:none}nav[data-bien-choisir]>div>*,nav[data-sous-jardin]>div>*{flex:1 0 auto;justify-content:center;padding:0 12px!important;font-size:15px!important}}</style>
 <script id="veg-flag">try{if(JSON.parse(localStorage.getItem('sainos-liste-v4')||'{}').veg)document.documentElement.classList.add('m-veg')}catch(e){}</script><style id="veg-css">html.m-veg nav a[href$="poissonnerie.html"],html.m-veg footer a[href$="poissonnerie.html"],html.m-veg [data-nav-panel] a[href$="poissonnerie.html"]{display:none!important}</style>
+<style id="nav-fix">@media (max-width:1080px){nav.nav{flex-wrap:nowrap!important}nav.nav .nav-brand{min-width:0;flex-shrink:1}nav.nav .nav-brand img{max-width:100%!important;height:auto!important}details[data-nav-burger]{position:static!important;flex:none}[data-nav-panel]{right:12px!important}}</style>
+<style id="spin-kf">@keyframes sainos-spin{to{transform:rotate(360deg)}}</style>
 </head>
 <body>
 <div style="min-height: 100vh; display: flex; flex-direction: column;">
@@ -136,7 +138,7 @@
     <nav data-bien-choisir="1" aria-label="The guide" style="display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: calc(-1 * var(--space-4));"><span style="font-family: var(--font-heading); font-size: 22px; color: var(--color-accent-2-900);">The guide</span><div style="display: flex; flex-wrap: wrap; gap: 6px; padding: 6px; background: #f4efe6; border-radius: 28px; align-self: flex-start;"><a href="origines.html" style="display: flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; font-size: 16px; text-decoration: none; white-space: nowrap; font-weight: 700; color: var(--color-accent-800);">Origins</a><span aria-current="page" style="display: flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; font-size: 16px; text-decoration: none; white-space: nowrap; font-weight: 800; background: var(--color-accent-strong, var(--color-accent-700)); color: #ffffff;" data-nav-mar="1">Markets</span><a href="bio.html" style="display: flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; font-size: 16px; text-decoration: none; white-space: nowrap; font-weight: 700; color: var(--color-accent-800);">Organic</a><a href="lexique.html" data-nav-lex="1" style="display: flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; font-size: 16px; text-decoration: none; white-space: nowrap; font-weight: 700; color: var(--color-accent-800);">Glossary</a></div></nav>
     <section style="display: flex; flex-direction: column; gap: var(--space-4); max-width: 720px;">
       <nav aria-label="Breadcrumb" style="font-size: 14px; display: flex; gap: var(--space-2);"><a href="index.html">Home</a><span aria-hidden="true">›</span><span aria-current="page">Markets</span></nav>
-      <h1 class="only-adult" style="margin: 0; font-size: clamp(38px, 5.5vw, 64px); line-height: 1.02; text-wrap: balance;">Markets near you</h1>
+      <h1 class="only-adult" style="margin: 0; font-size: clamp(38px, 5.5vw, 64px); line-height: 1.02; text-wrap: balance;">Markets near you<sup style="font-family: var(--font-body); font-size: 0.32em; font-weight: 800; letter-spacing: 0.04em; color: var(--color-accent-700); vertical-align: super; margin-left: 0.15em;">Beta</sup></h1>
       <h1 class="only-kid" style="margin: 0; font-size: clamp(38px, 5.5vw, 64px); line-height: 1.02; text-wrap: balance;">Find a market near you</h1>
       <p class="only-adult" style="margin: 0; font-size: 19px; line-height: 1.65; text-wrap: pretty;">The best place to buy seasonal food is often just minutes from home. Find the markets around you and their opening days, and head off with a list of what’s at its best this month.</p>
       <p class="only-kid" style="margin: 0; font-size: 19px; line-height: 1.65; text-wrap: pretty;">At the market, fruit and vegetables often come from close by. Find the nearest market, then take on this month’s challenge with your parents!</p>
@@ -152,6 +154,7 @@
           <button type="submit" class="btn btn-secondary" style="padding: 12px 20px; font-size: 16px; min-height: 48px;">Search</button>
         </form>
       </div>
+      <div role="group" aria-label="Radius" style="display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center;"><span style="font-weight: 700;">Radius:</span><button type="button" class="pill" data-r="5" aria-pressed="true" style="min-height: 44px;">5 km</button><button type="button" class="pill" data-r="10" aria-pressed="false" style="min-height: 44px;">10 km</button><button type="button" class="pill" data-r="15" aria-pressed="false" style="min-height: 44px;">15 km</button></div>
       <p id="status" role="status" aria-live="polite" style="margin: 0; font-size: 16px; font-weight: 700; color: var(--color-accent-800);">Share your location or enter a French postcode to see markets.</p>
     </section>
 
@@ -278,7 +281,7 @@
   var layer = L.layerGroup().addTo(map), meMarker = null, circle = null;
   var state = { center: null, r: 5, f: 'tous', data: [] };
   var status = document.getElementById('status'), liste = document.getElementById('liste');
-  function say(t) { status.textContent = t; }
+  function say(t) { status.textContent = t; if (/…$/.test(t)) { var sp = document.createElement('span'); sp.setAttribute('aria-hidden', 'true'); sp.style.cssText = 'display:inline-block;width:16px;height:16px;margin-right:10px;vertical-align:-2px;border-radius:50%;border:2.5px solid var(--color-accent-200, #d9eed0);border-top-color:var(--color-accent-700, #285e1f);animation:sainos-spin .8s linear infinite;'; status.insertBefore(sp, status.firstChild); } }
 
   var DAYS = ['Su','Mo','Tu','We','Th','Fr','Sa'];
   var FR = { Mo: 'Mon', Tu: 'Tue', We: 'Wed', Th: 'Thu', Fr: 'Fri', Sa: 'Sat', Su: 'Sun' };
@@ -308,13 +311,27 @@
   function km(d) { return d < 1 ? Math.round(d * 1000 / 10) * 10 + ' m' : d.toFixed(1) + ' km'; }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
-  var ENDPOINTS = ['https://overpass-api.de/api/interpreter', 'https://overpass.kumi.systems/api/interpreter'];
-  function overpass(q, i) {
-    i = i || 0;
-    var ctl = window.AbortController ? new AbortController() : null, to = ctl && setTimeout(function () { ctl.abort(); }, 15000);
-    return fetch(ENDPOINTS[i], { method: 'POST', body: 'data=' + encodeURIComponent(q), headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, signal: ctl ? ctl.signal : undefined })
-      .then(function (r) { clearTimeout(to); if (!r.ok) throw new Error(r.status); return r.json(); })
-      .catch(function (e) { if (i + 1 < ENDPOINTS.length) return overpass(q, i + 1); throw e; });
+  var ENDPOINTS = ['https://overpass-api.de/api/interpreter', 'https://overpass.kumi.systems/api/interpreter', 'https://overpass.private.coffee/api/interpreter'];
+  function overpass1(url, q, ctl) {
+    return fetch(url, { method: 'POST', body: 'data=' + encodeURIComponent(q), headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, signal: ctl ? ctl.signal : undefined })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
+  }
+  function overpass(q) {
+    var key = 'sainos-mk:' + q, now0 = Date.now();
+    try { var c = JSON.parse(localStorage.getItem(key) || 'null'); if (c && now0 - c.t < 864e5) return Promise.resolve(c.j); } catch (e) {}
+    var ctls = ENDPOINTS.map(function () { return window.AbortController ? new AbortController() : null; });
+    var to = setTimeout(function () { ctls.forEach(function (c) { c && c.abort(); }); }, 20000);
+    return new Promise(function (res, rej) {
+      var fails = 0, done = false;
+      ENDPOINTS.forEach(function (u, i) {
+        overpass1(u, q, ctls[i]).then(function (j) {
+          if (done) return; done = true; clearTimeout(to);
+          ctls.forEach(function (c, k) { if (k !== i && c) c.abort(); });
+          try { localStorage.setItem(key, JSON.stringify({ t: Date.now(), j: { elements: j.elements } })); } catch (e) {}
+          res(j);
+        }).catch(function (e) { if (++fails === ENDPOINTS.length && !done) { clearTimeout(to); rej(e); } });
+      });
+    });
   }
   var reqId = 0;
   function load() {
@@ -360,7 +377,7 @@
     var today = now.getDay();
     if (!list.length) {
       var kid = document.body.classList.contains('kid');
-      say(state.data.length ? 'No markets with known opening hours for this filter. Try “Every day”.' : 'No markets found within 5 km. Try a nearby town.');
+      say(state.data.length ? 'No markets with known opening hours for this filter. Try “Every day”.' : 'No markets found within ' + state.r + ' km. Widen the radius or try a nearby town.');
       liste.innerHTML = '<div style="padding:24px;background:#f4efe6;border-radius:var(--radius-lg);font-size:15px;line-height:1.55;">' + (kid ? 'No market here… Try a nearby town!' : 'Try a nearby town, or report a missing market on OpenStreetMap.') + '</div>';
     } else {
       var sans = list.filter(function (m) { return !m.oh; }).length;
@@ -414,6 +431,14 @@
         if (!f) return say('Town not found. Check the postcode or town name (France only).');
         var c = f.geometry.coordinates; setCenter([c[1], c[0]], f.properties.label);
       }).catch(function () { say('Address search unavailable right now.'); });
+  });
+  (function () { var sv = +localStorage.getItem('sainos-rayon'); if ([5, 10, 15].indexOf(sv) >= 0) { state.r = sv; document.querySelectorAll('[data-r]').forEach(function (x) { x.setAttribute('aria-pressed', +x.dataset.r === sv); }); } })();
+  document.querySelectorAll('[data-r]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('[data-r]').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+      state.r = +b.dataset.r; try { localStorage.setItem('sainos-rayon', state.r); } catch (e) {}
+      if (state.center) load();
+    });
   });
   document.querySelectorAll('[data-f]').forEach(function (b) {
     b.addEventListener('click', function () {
