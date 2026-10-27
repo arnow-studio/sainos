@@ -3,7 +3,7 @@
   if (window.SainosProfil) return;
   var EN = /\/en(\/|$)/.test(location.pathname) || document.documentElement.lang === 'en';
   var NB = '\u00a0';
-  var T = EN ? {
+  var TD = { en: {
     btn: 'My profile', of: 'Profile of ', hello: 'Welcome to Sainos', edit: 'My profile',
     intro: 'A few details to tailor the site to you. Everything is optional.',
     nom: 'First name or nickname', nomH: 'Just to say hello.', nomPh: 'e.g. Camille',
@@ -14,7 +14,7 @@
     priv: 'These details are stored only on your device. No account, nothing is sent to Sainos.',
     lang: 'Language', langH: 'Switches the whole site to this language.',
     save: 'Save', later: 'Later', cancel: 'Cancel', close: 'Close', del: 'Erase my details', saved: 'Saved'
-  } : {
+  }, fr: {
     btn: 'Mon profil', of: 'Profil de ', hello: 'Bienvenue sur Sainos', edit: 'Mon profil',
     intro: 'Quelques infos pour adapter le site à vous. Tout est facultatif.',
     nom: 'Prénom ou pseudo', nomH: 'Pour vous dire bonjour.', nomPh: 'ex.' + NB + ': Camille',
@@ -25,7 +25,8 @@
     priv: 'Ces informations sont stockées uniquement sur votre appareil. Pas de compte, rien n’est envoyé à Sainos.',
     lang: 'Langue', langH: 'Affiche tout le site dans cette langue.',
     save: 'Enregistrer', later: 'Plus tard', cancel: 'Annuler', close: 'Fermer', del: 'Effacer mes informations', saved: 'Enregistré'
-  };
+  } };
+  var PL = EN ? 'en' : 'fr', T = TD[PL];
   var KP = 'sainos-profil', KL = 'sainos-liste-v4';
   function rd(k) { try { return JSON.parse(localStorage.getItem(k) || '{}') || {}; } catch (e) { return {}; } }
   function wr(k, o) { try { localStorage.setItem(k, JSON.stringify(o)); } catch (e) {} }
@@ -54,7 +55,7 @@
   function build() {
     ov = document.createElement('div'); ov.setAttribute('data-profil-dlg', '1');
     ov.style.cssText = 'position:fixed;inset:0;z-index:1001;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(32,30,29,.45);font-family:var(--font-body);color:var(--color-text);';
-    ov.innerHTML = '<div role="dialog" aria-modal="true" aria-labelledby="pf-title" style="width:100%;max-width:520px;max-height:100%;overflow:auto;box-sizing:border-box;background:var(--color-bg,#f5ead8);border-radius:28px;box-shadow:0 24px 60px rgba(0,0,0,.25);">'
+    ov.innerHTML = '<div role="dialog" aria-modal="true" aria-labelledby="pf-title" lang="' + (T === TD.en ? 'en' : 'fr') + '" style="width:100%;max-width:520px;max-height:100%;overflow:auto;box-sizing:border-box;background:var(--color-bg,#f5ead8);border-radius:28px;box-shadow:0 24px 60px rgba(0,0,0,.25);">'
       + '<div style="display:flex;align-items:flex-start;gap:12px;padding:24px 20px 4px 28px;">'
       + '<div style="flex:1;min-width:0;"><h2 id="pf-title" data-k="title" style="margin:0;font-family:var(--font-heading);font-size:30px;line-height:1.1;"></h2>'
       + '<p style="margin:8px 0 0;font-size:16px;line-height:1.5;text-wrap:pretty;">' + T.intro + '</p></div>'
@@ -79,14 +80,14 @@
       var b = e.target.closest('button'); if (!b) return;
       var r = b.getAttribute('data-reg'), k = b.getAttribute('data-k');
       var lg = b.getAttribute('data-lang-opt');
-      if (lg) { st.lang = lg; paint(); }
+      if (lg) { if (lg !== st.lang) { st.lang = lg; st.nom = ov.querySelector('#pf-nom').value; T = TD[lg]; ov.remove(); ov = null; build(); fill(); paint(); ov.style.display = 'flex'; ov.querySelector('[data-lang-opt="' + lg + '"]').focus(); } }
       else if (r) { st.reg = r; paint(); }
       else if (k === 'moins') { st.pers = Math.max(1, st.pers - 1); paint(); }
       else if (k === 'plus') { st.pers = Math.min(12, st.pers + 1); paint(); }
       else if (k === 'x' || k === 'later') close();
-      else if (k === 'del') { try { localStorage.setItem(KP, JSON.stringify({ seen: 1 })); } catch (e2) {} st = get(); st.lang = EN ? 'en' : 'fr'; fill(); paint(); apply(); refresh(); }
+      else if (k === 'del') { try { localStorage.setItem(KP, JSON.stringify({ seen: 1 })); } catch (e2) {} var keep = st.lang; st = get(); st.lang = keep; fill(); paint(); apply(); refresh(); }
     });
-    f.addEventListener('submit', function (e) { e.preventDefault(); st.nom = ov.querySelector('#pf-nom').value.trim(); save(); close(); if (st.lang !== (EN ? 'en' : 'fr') && langUrl()) location.href = langUrl(); });
+    f.addEventListener('submit', function (e) { e.preventDefault(); st.nom = ov.querySelector('#pf-nom').value.trim(); save(); try { localStorage.setItem('sainos-lang', st.lang); } catch (e3) {} var go = st.lang !== PL && langUrl(); close(); if (go) location.href = go; });
     ov.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') { e.preventDefault(); close(); return; }
       if (e.key !== 'Tab') return;
@@ -114,6 +115,7 @@
     if (!ov || ov.style.display === 'none') return;
     if (!st.seen) { var p = rd(KP); p.seen = 1; wr(KP, p); st.seen = true; }
     ov.style.display = 'none'; document.documentElement.style.overflow = '';
+    if (T !== TD[PL]) { T = TD[PL]; ov.remove(); ov = null; }
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
   function face(b) {
