@@ -68,7 +68,7 @@
   function render(q) {
     if (!hits.length) { list.innerHTML = '<li style="padding:18px 8px;color:var(--color-neutral-800,#555);font-size:16px;">' + (norm(q).trim().length < 2 ? T.hint : T.none + ' « ' + esc(q) + ' »') + '</li>'; return; }
     list.innerHTML = hits.map(function (h, i) {
-      var pic = h.img ? '<img src="' + h.img + '" alt="" width="44" height="44" loading="lazy" style="width:44px;height:44px;object-fit:contain;display:block;">' : '<span aria-hidden="true" style="font-size:26px;">' + (h.e || '→') + '</span>';
+      var pic = h.img ? '<img src="' + h.img + '" alt="" width="44" height="44" loading="lazy" style="width:44px;height:44px;object-fit:contain;display:block;mix-blend-mode:multiply;">' : '<span aria-hidden="true" style="font-size:26px;">' + (h.e || '→') + '</span>';
       return '<li role="option" id="srch-' + i + '" aria-selected="' + (i === sel) + '"><a href="' + h.u + '" data-i="' + i + '" style="display:flex;align-items:center;gap:14px;padding:10px 12px;border-radius:16px;text-decoration:none;color:var(--color-text);background:#fff;border:2px solid ' + (i === sel ? 'var(--color-accent-2-400,#9bb08a)' : 'transparent') + ';">'
         + '<span style="flex:none;width:52px;height:52px;border-radius:50%;background:#fff;display:grid;place-items:center;overflow:hidden;">' + pic + '</span>'
         + '<span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;"><span style="font-weight:800;font-size:17px;">' + esc(h.n) + '</span>' + (h.sub ? '<span style="font-size:14px;color:var(--color-neutral-800,#555);">' + esc(h.sub) + '</span>' : '') + '</span>'
