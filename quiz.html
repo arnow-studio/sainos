@@ -99,7 +99,7 @@
       <div data-nav-desk="1" style="display: flex; gap: var(--space-4); align-items: center; flex-wrap: wrap;">
         <span data-nav-jardin="1"><a href="legumes.html" aria-haspopup="true">La ferme ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="legumes.html">Le Potager</a><a href="fruits.html">Le Verger</a><a href="fleurs.html">Le Jardin</a></span></span></span>
         <a href="fromages.html" data-adult-only="1">La fromagerie</a><a href="poissonnerie.html" data-adult-only="1">La poissonnerie</a>
-        <span data-nav-jardin="1"><a href="origines.html" aria-haspopup="true">Le guide ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="origines.html">Origines</a><a href="marches.html" data-nav-mar="1">Marchés</a><a href="bio.html">Bio</a><a href="lexique.html" data-nav-lex="1">Lexique</a></span></span></span>
+        <span data-nav-jardin="1"><a href="origines.html" aria-haspopup="true">Le guide ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="origines.html">Origines</a><a href="marches.html" data-nav-mar="1">Marchés</a><a href="bio.html">Bio</a><a href="recettes.html">Recettes</a><a href="lexique.html" data-nav-lex="1">Lexique</a></span></span></span>
         <a href="pousse.html" data-nav-pousse="1">Ça pousse !</a>
         <a href="quiz.html" data-nav-quiz="1" aria-current="page">Quiz</a>
         <span data-nav-jardin="1"><a href="apropos.html" aria-haspopup="true">À propos ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="apropos.html">À propos</a><a href="enseignants.html" data-nav-lex="1">En classe</a><a href="contact.html" data-adult-only="1">Contact</a></span></span></span>
@@ -282,7 +282,7 @@
     var opts = shuffle([good].concat(shuffle(wrong).slice(0, 2)));
     return { p: p, text: text, opts: opts, ans: opts.indexOf(good), expl: expl, hide: hide };
   }
-  function qPhoto(p) { var o = all.filter(function (x) { return x.s !== p.s && x.t === p.t; }).map(function (x) { return x.n; }); return mk(p, 'Comment s’appelle ' + (p.t === 'fruit' ? 'ce fruit' : p.t === 'herbe' ? 'cette herbe' : 'ce légume') + NB + '?', p.n, o, 'C’est ' + art(p) + p.n.toLowerCase() + NB + '! ' + (kp(p).intro || ''), true); }
+  function qPhoto(p) { var o = all.filter(function (x) { return x.s !== p.s && x.t === p.t && (age > 2 || p.t === 'herbe' || COM.indexOf(x.s) >= 0); }).map(function (x) { return x.n; }); return mk(p, 'Comment s’appelle ' + (p.t === 'fruit' ? 'ce fruit' : p.t === 'herbe' ? 'cette herbe' : 'ce légume') + NB + '?', p.n, o, 'C’est ' + art(p) + p.n.toLowerCase() + NB + '! ' + (kp(p).intro || ''), true); }
   function qType(p) { if (p.t === 'herbe') return null; var g = p.t === 'fruit' ? 'Un fruit' : 'Un légume'; var q = { p: p, text: art(p).replace(/^./, function (c) { return c.toUpperCase(); }) + p.n.toLowerCase() + ', c’est un fruit ou un légume' + NB + '?', opts: ['Un fruit', 'Un légume'], expl: 'C’est ' + g.toLowerCase() + NB + '! ' + (kp(p).sais || '') }; q.ans = q.opts.indexOf(g); return q; }
   function season(p) { var c = {}; (p.f && p.f.length ? p.f : p.m).forEach(function (m) { var s = SAIS[m - 1]; c[s] = (c[s] || 0) + 1; }); return Object.keys(c).sort(function (a, b) { return c[b] - c[a]; })[0]; }
   function qSaison(p) { var s = season(p), en = s === 'Printemps' ? 'Au printemps' : 'En ' + s.toLowerCase(); return mk(p, 'Quand mange-t-on ' + art(p) + p.n.toLowerCase() + ' en pleine saison' + NB + '?', s, ['Printemps', 'Été', 'Automne', 'Hiver'].filter(function (x) { return x !== s; }), en + NB + '! C’est le moment où on en trouve le plus, avec le plus de goût.'); }
@@ -317,16 +317,17 @@
   var FGEN = { 1: [fPhoto, fLaitK], 2: [fPhoto, fLaitK, fFrance], 3: [fLait, fPays, fPhoto], 4: [fFam, fRegion, fPays] };
   function easy(q) { if (!q || age > 2 || q.opts.length <= 2) return q; var good = q.opts[q.ans], bad = shuffle(q.opts.filter(function (o, k) { return k !== q.ans; }))[0]; q.opts = shuffle([good, bad]); q.ans = q.opts.indexOf(good); return q; }
 
-  var GEN = { 1: [qPhoto, qPhoto, qType], 2: [qPhoto, qType, qSaison, qSaison], 3: [qFiche, qFiche, qFiche, qSaison], 4: [qFiche, qFam, qFam, qOrig] };
+  var COM = ['carotte','tomate','courgette','brocoli','chou','laitue','pomme-de-terre','mais','petit-pois','haricot-vert','potiron','oignon','champignon','fraise','cerise','peche','melon','pasteque','raisin','pomme','poire','chataigne','kiwi','clementine','orange','citron','banane','ananas'];
+  var GEN = { 1: [qPhoto, qPhoto, qType], 2: [qPhoto, qPhoto, qType, qSaison], 3: [qFiche, qPhoto, qSaison, qType], 4: [qFiche, qFam, qFam, qOrig] };
   var LAB = { 1: '🐣 4-6 ans', 2: '🌱 7-9 ans', 3: '🌳 10-12 ans', 4: '🏅 13 ans et +' };
-  function pool() { var lim = age <= 2 ? 20 : age === 3 ? 35 : 999; if (theme === 'jardin') return JAR.slice(0, lim); if (theme === 'fromage') return FRO.filter(function (x) { return age > 2 || x.lait !== (EMO.Bufflonne ? 'Bufflonne' : 'Buffalo'); }).slice(0, lim); return all.filter(function (p) { return theme === 'tout' || theme === 'defi' || p.t === theme; }); }
+  function pool() { var lim = age <= 2 ? 20 : age === 3 ? 35 : 999; if (theme === 'jardin') return JAR.slice(0, lim); if (theme === 'fromage') return FRO.filter(function (x) { return age > 2 || x.lait !== (EMO.Bufflonne ? 'Bufflonne' : 'Buffalo'); }).slice(0, lim); return all.filter(function (p) { return (theme === 'tout' || theme === 'defi' || p.t === theme) && (age > 2 || theme === 'defi' || theme === 'herbe' || COM.indexOf(p.s) >= 0); }); }
   function key() { return 'sainos-quiz-best-' + age; }
   function showBest() { var b = +ls(key()) || 0; $('q-best').textContent = b ? '⭐ Ton record (' + LAB[age] + ')' + NB + ': ' + b + ' / ' + N : ''; }
   function build() {
     var g = theme === 'defi' ? (age < 4 ? GEN[age + 1] : [qFiche, qFam, qOrig, qSaison]) : GEN[age], out = [];
     shuffle(pool()).forEach(function (p) {
       if (out.length >= N) return;
-      var fs = shuffle(p.k === 'j' ? JGEN[age] : p.k === 'f' ? FGEN[age] : g); for (var j = 0; j < fs.length; j++) { var q; try { q = fs[j](p); if (p.k) q = easy(q); } catch (e) { q = null; } if (q && q.opts && q.opts.length > 1 && q.ans >= 0) { out.push(q); return; } }
+      var fs = shuffle(p.k === 'j' ? JGEN[age] : p.k === 'f' ? FGEN[age] : g); for (var j = 0; j < fs.length; j++) { var q; try { q = fs[j](p); if (theme !== 'defi') q = easy(q); } catch (e) { q = null; } if (q && q.opts && q.opts.length > 1 && q.ans >= 0) { out.push(q); return; } }
     });
     return out;
   }
