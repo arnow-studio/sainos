@@ -1,8 +1,8 @@
 // Service worker Sainos : hors ligne pour les pages visitées et le cœur du site.
-const V = 'sainos-v1';
+const V = 'sainos-v2';
 const CORE = ['./', 'index.html', 'legumes.html', 'fruits.html', 'liste.html', 'recettes.html', 'menu.html', 'jeux.html', 'offline.html',
   'produits-data.js', 'recettes-data.js', 'poissons-data.js', 'fromages-data.js', 'jardin-data.js', 'recherche.js', 'profil.js', 'support.js',
-  'images/logo.png', 'images/logo-mini.png', 'favicon.png', 'icon-192.png', 'manifest.webmanifest'];
+  'images/logo.webp', 'images/logo-mini.webp', 'favicon.png', 'icon-192.png', 'manifest.webmanifest'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(V).then(c => Promise.all(CORE.map(u => c.add(u).catch(() => {})))).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== V).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
 self.addEventListener('fetch', e => {
