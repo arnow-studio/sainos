@@ -6,6 +6,12 @@
   try { if (!document.getElementById('pill-css')) { var ps = document.createElement('style'); ps.id = 'pill-css'; ps.textContent = '@media (min-width:600px) and (max-width:1080px){[data-nav-desk]:has(>a[data-liste-pill]){display:flex!important;margin-left:0!important;order:2}[data-nav-desk]:has(>a[data-liste-pill])>:not(a[data-liste-pill]){display:none!important}header nav.nav>[data-search-btn]{order:1}header nav.nav>[data-nav-burger]{order:3}}'; document.head.appendChild(ps); } } catch (e) {}
   try { if (!document.getElementById('veg-css')) { var vs = document.createElement('style'); vs.id = 'veg-css'; vs.textContent = 'html.m-veg nav a[href$="poissonnerie.html"],html.m-veg footer a[href$="poissonnerie.html"],html.m-veg [data-nav-panel] a[href$="poissonnerie.html"]{display:none!important}'; document.head.appendChild(vs); } if (JSON.parse(localStorage.getItem('sainos-liste-v4') || '{}').veg) document.documentElement.classList.add('m-veg'); } catch (e) {}
   var me = document.currentScript, BASE = me ? me.src.replace(/recherche\.js.*$/, '') : '/';
+  try { var hd = document.head; function lk(rel, href, extra) { if (hd.querySelector('link[rel="' + rel + '"]')) return; var l = document.createElement('link'); l.rel = rel; l.href = href; if (extra) for (var k in extra) l.setAttribute(k, extra[k]); hd.appendChild(l); }
+    lk('manifest', BASE + 'manifest.webmanifest'); lk('apple-touch-icon', BASE + 'apple-touch-icon.png');
+    if (!hd.querySelector('meta[name="theme-color"]')) { var mt = document.createElement('meta'); mt.name = 'theme-color'; mt.content = '#3d8b2f'; hd.appendChild(mt); }
+    if (!hd.querySelector('meta[name="apple-mobile-web-app-capable"]')) { var ma = document.createElement('meta'); ma.name = 'apple-mobile-web-app-capable'; ma.content = 'yes'; hd.appendChild(ma); var mt2 = document.createElement('meta'); mt2.name = 'apple-mobile-web-app-title'; mt2.content = 'Sainos'; hd.appendChild(mt2); }
+    if ('serviceWorker' in navigator && location.protocol === 'https:' && /sainos\.fr$/.test(location.hostname)) window.addEventListener('load', function () { navigator.serviceWorker.register(BASE + 'sw.js', { scope: BASE }).catch(function () {}); });
+  } catch (e) {}
   if (!window.SainosOverpass) window.SainosOverpass = (function () {
     var EP = ['https://overpass-api.de/api/interpreter', 'https://overpass.private.coffee/api/interpreter', 'https://maps.mail.ru/osm/tools/overpass/api/interpreter', 'https://overpass.kumi.systems/api/interpreter'];
     var mem = {}, TTL = 6 * 3600 * 1000;

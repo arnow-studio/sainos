@@ -101,7 +101,7 @@
         <a href="fromages.html" data-adult-only="1">La fromagerie</a><a href="poissonnerie.html" data-adult-only="1">La poissonnerie</a>
         <span data-nav-jardin="1"><a href="origines.html" aria-haspopup="true">Le guide ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="origines.html">Origines</a><a href="marches.html" data-nav-mar="1">Marchés</a><a href="bio.html">Bio</a><a href="recettes.html">Recettes</a><a href="lexique.html" data-nav-lex="1">Lexique</a></span></span></span>
         <a href="pousse.html" data-nav-pousse="1">Ça pousse !</a>
-        <a href="quiz.html" data-nav-quiz="1" aria-current="page">Quiz</a>
+        <span data-nav-jardin="1" data-nav-quiz="1"><a href="jeux.html" aria-haspopup="true" aria-current="page">Jouer ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="quiz.html" data-nav-quiz="1">Quiz</a><a href="jeux.html">Mini-jeux</a></span></span></span>
         <span data-nav-jardin="1"><a href="apropos.html" aria-haspopup="true">À propos ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="apropos.html">À propos</a><a href="enseignants.html" data-nav-lex="1">En classe</a><a href="contact.html" data-adult-only="1">Contact</a></span></span></span>
       </div>
       <details data-nav-burger="1" style="position: relative; margin-left: auto;">
@@ -152,8 +152,6 @@
         <button type="button" class="pill" data-theme="tout" aria-pressed="true" style="justify-content: center; min-height: 56px; font-size: 17px;">🧺 Tout mélangé</button>
         <button type="button" class="pill" data-theme="fruit" aria-pressed="false" style="justify-content: center; min-height: 56px; font-size: 17px;">🍎 Les fruits</button>
         <button type="button" class="pill" data-theme="legume" aria-pressed="false" style="justify-content: center; min-height: 56px; font-size: 17px;">🥕 Les légumes</button>
-        <button type="button" class="pill" data-theme="jardin" aria-pressed="false" style="justify-content: center; min-height: 56px; font-size: 17px;">🌸 Le jardin</button>
-        <button type="button" class="pill" data-theme="fromage" aria-pressed="false" style="justify-content: center; min-height: 56px; font-size: 17px;">🧀 Les fromages</button>
         <button type="button" class="pill" data-theme="defi" aria-pressed="false" style="justify-content: center; min-height: 56px; font-size: 17px;">🎲 Défi surprise</button>
       </div>
       <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center;">
@@ -320,7 +318,7 @@
   var COM = ['carotte','tomate','courgette','brocoli','chou','laitue','pomme-de-terre','mais','petit-pois','haricot-vert','potiron','oignon','champignon','fraise','cerise','peche','melon','pasteque','raisin','pomme','poire','chataigne','kiwi','clementine','orange','citron','banane','ananas'];
   var GEN = { 1: [qPhoto, qPhoto, qType], 2: [qPhoto, qPhoto, qType, qSaison], 3: [qFiche, qPhoto, qSaison, qType], 4: [qFiche, qFam, qFam, qOrig] };
   var LAB = { 1: '🐣 4-6 ans', 2: '🌱 7-9 ans', 3: '🌳 10-12 ans', 4: '🏅 13 ans et +' };
-  function pool() { var lim = age <= 2 ? 20 : age === 3 ? 35 : 999; if (theme === 'jardin') return JAR.slice(0, lim); if (theme === 'fromage') return FRO.filter(function (x) { return age > 2 || x.lait !== (EMO.Bufflonne ? 'Bufflonne' : 'Buffalo'); }).slice(0, lim); return all.filter(function (p) { return (theme === 'tout' || theme === 'defi' || p.t === theme) && (age > 2 || theme === 'defi' || theme === 'herbe' || COM.indexOf(p.s) >= 0); }); }
+  function pool() { var lim = age <= 2 ? 20 : age === 3 ? 35 : 999; if (theme === 'jardin') return JAR.slice(0, lim); if (theme === 'fromage') return FRO.filter(function (x) { return age > 2 || x.lait !== (EMO.Bufflonne ? 'Bufflonne' : 'Buffalo'); }).slice(0, lim); return all.filter(function (p) { return p.t !== 'herbe' && (theme === 'tout' || theme === 'defi' || p.t === theme) && (age > 2 || theme === 'defi' || theme === 'herbe' || COM.indexOf(p.s) >= 0); }); }
   function key() { return 'sainos-quiz-best-' + age; }
   function showBest() { var b = +ls(key()) || 0; $('q-best').textContent = b ? '⭐ Ton record (' + LAB[age] + ')' + NB + ': ' + b + ' / ' + N : ''; }
   function build() {
