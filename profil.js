@@ -240,9 +240,12 @@
       x.style.display = k ? 'none' : '';
     });
   }
+  var fermeObs = false;
+  function fermeWatch() { if (fermeObs || !window.MutationObserver) return; fermeObs = true; var t; new MutationObserver(function () { clearTimeout(t); t = setTimeout(function () { var n = document.querySelector('[data-sous-jardin] > span'); if (n && kid() && !/^(Ma|My) /.test(n.textContent.trim())) ferme(); }, 60); }).observe(document.body, { childList: true, subtree: true, characterData: true }); }
   function ferme() {
+    fermeWatch();
     var k = kid(), FR = { 'La ferme': 'Ma ferme', 'Le Potager': 'Mon Potager', 'Le Verger': 'Mon Verger', 'Le Jardin': 'Mon Jardin' }, ENm = { 'The Farm': 'My Farm', 'The Vegetable Garden': 'My Vegetable Garden', 'The Orchard': 'My Orchard', 'The Garden': 'My Garden' }, M = EN ? ENm : FR;
-    document.querySelectorAll('[data-nav-jardin] > a[href$="legumes.html"], [data-nav-jardin-box] > a[href$="legumes.html"], [data-nav-jardin-box] > a[href$="fruits.html"], [data-nav-jardin-box] > a[href$="fleurs.html"], [data-nav-panel] > a[href$="legumes.html"]').forEach(function (x) {
+    document.querySelectorAll('[data-nav-jardin] > a[href$="legumes.html"], [data-nav-jardin-box] > a[href$="legumes.html"], [data-nav-jardin-box] > a[href$="fruits.html"], [data-nav-jardin-box] > a[href$="fleurs.html"], [data-nav-panel] > a[href$="legumes.html"], [data-sous-jardin] > span, [data-sous-jardin] > div > a, [data-sous-jardin] > div > span, main nav[aria-label] span[aria-current="page"]').forEach(function (x) {
       if (!x.hasAttribute('data-ferme-a')) x.setAttribute('data-ferme-a', x.textContent);
       var o = x.getAttribute('data-ferme-a'), arr = /▾/.test(o) ? ' ▾' : '', b = o.replace(/\s*▾\s*$/, '');
       x.textContent = k && M[b] ? M[b] + arr : o;
