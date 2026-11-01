@@ -249,13 +249,13 @@
     document.querySelectorAll('[data-nav-jardin-box]').forEach(function (box) {
       var f = box.querySelector(':scope > a[href$="legumes.html"]'); if (!f || !box.querySelector(':scope > a[href$="fruits.html"]')) return;
       var t = box.querySelector('[data-nav-tom]');
-      if (!t) { t = f.cloneNode(false); t.removeAttribute('data-ferme-a'); t.removeAttribute('aria-current'); t.setAttribute('data-nav-tom', '1'); t.href = f.getAttribute('href').replace(/legumes\.html$/, 'tom.html'); t.textContent = EN ? 'Who is Tom?' : 'Qui est Tom\u00a0?'; if (/\/tom\.html$/.test(location.pathname)) t.setAttribute('aria-current', 'page'); var fl = box.querySelector(':scope > a[href$="fleurs.html"]') || box.querySelector(':scope > a[href$="fruits.html"]'); box.insertBefore(t, fl.nextSibling); }
+      if (!t) { t = f.cloneNode(false); t.removeAttribute('data-ferme-a'); t.removeAttribute('aria-current'); t.setAttribute('data-nav-tom', '1'); t.href = f.getAttribute('href').replace(/legumes\.html$/, 'tom.html'); t.textContent = EN ? 'My story' : 'Mon histoire'; if (/\/tom\.html$/.test(location.pathname)) t.setAttribute('aria-current', 'page'); var fl = box.querySelector(':scope > a[href$="fleurs.html"]') || box.querySelector(':scope > a[href$="fruits.html"]'); box.insertBefore(t, fl.nextSibling); }
       showEl(t, k);
     });
     document.querySelectorAll('[data-nav-panel]').forEach(function (pn) {
       var f = pn.querySelector('a[href$="legumes.html"]'); if (!f) return;
       var t = pn.querySelector('[data-nav-tom]');
-      if (!t) { t = f.cloneNode(false); t.removeAttribute('data-ferme-a'); t.removeAttribute('aria-current'); t.setAttribute('data-nav-tom', '1'); t.href = f.getAttribute('href').replace(/legumes\.html$/, 'tom.html'); t.textContent = EN ? 'Who is Tom?' : 'Qui est Tom\u00a0?'; if (/\/tom\.html$/.test(location.pathname)) t.setAttribute('aria-current', 'page'); f.parentNode.insertBefore(t, f.nextSibling); }
+      if (!t) { t = f.cloneNode(false); t.removeAttribute('data-ferme-a'); t.removeAttribute('aria-current'); t.setAttribute('data-nav-tom', '1'); t.href = f.getAttribute('href').replace(/legumes\.html$/, 'tom.html'); t.textContent = EN ? 'My story' : 'Mon histoire'; if (/\/tom\.html$/.test(location.pathname)) t.setAttribute('aria-current', 'page'); f.parentNode.insertBefore(t, f.nextSibling); }
       if (!t.hasAttribute('data-kid-label')) showEl(t, k);
     });
   }
