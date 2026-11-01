@@ -606,7 +606,7 @@ class Component extends DCLogic {
         background: ok ? 'var(--color-accent-2-200)' : sel ? 'var(--color-accent-100)' : '#ffffff', color: 'var(--color-text)' } };
     });
     const has = (this.state.badges || []).includes(p.s), nom = d.titre.replace(/^(The )/, '');
-    const tomBgK = 'center / cover no-repeat #ffffff url("../../images/tom/' + (pick === null ? 'question-v2' : pick === good ? 'bonne-reponse-v2' : 'mauvaise-reponse-v2') + '-s.webp")';
+    const tomBgK = 'center / cover no-repeat #ffffff url("../../images/tom/' + (pick === null ? 'question-v2' : pick === good ? 'bonne-reponse-v3' : 'mauvaise-reponse-v2') + '-s.webp")';
     return { hasK: true, k, kcal, quiz, answered: pick !== null, tomBgK,
       quizVerdict: pick === good ? 'Well done, great job! 🎉' : 'Nearly! The right answer: “' + d.quiz[1][good] + '”.',
       hasPousse: !!(window.SAISON_POUSSE && window.SAISON_POUSSE[p.s]), pousseHref: '../pousse.html#' + p.s, pousseEmojis: window.SAISON_POUSSE && window.SAISON_POUSSE[p.s] ? window.SAISON_POUSSE[p.s].e.join(' ') : '',
