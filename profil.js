@@ -267,7 +267,9 @@
       if (!q || !g) return;
       var h = pn.querySelector(':scope > [data-nav-jouer]');
       if (!h) { h = g.cloneNode(false); h.removeAttribute('data-nav-quiz'); h.removeAttribute('aria-current'); h.setAttribute('data-nav-jouer', '1'); h.setAttribute('data-kid-label', '1'); h.textContent = EN ? 'Play' : 'Jouer'; if (/(jeux|quiz|badges)\.html$/.test(location.pathname)) h.setAttribute('aria-current', 'page'); pn.insertBefore(h, q); }
-      [q, g, bd].forEach(function (x) { if (x) showEl(x, !k); });
+      h.removeAttribute('href'); h.setAttribute('aria-hidden', 'true'); h.style.cursor = 'default'; h.style.pointerEvents = 'none';
+      [q, g, bd].forEach(function (x) { if (!x) return; if (!x.hasAttribute('data-pl0')) x.setAttribute('data-pl0', x.style.paddingLeft || ''); x.style.paddingLeft = k ? '36px' : x.getAttribute('data-pl0'); x.style.fontWeight = k ? '600' : ''; });
+      pn.insertBefore(q, h.nextSibling); pn.insertBefore(g, q.nextSibling); if (bd) pn.insertBefore(bd, g.nextSibling);
     });
   }
   function badgesNav() {
