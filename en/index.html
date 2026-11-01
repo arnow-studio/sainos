@@ -120,19 +120,59 @@
       <div style="display: flex; flex-direction: column; gap: var(--space-4); max-width: 560px;">
         <sc-if value="{{ adult }}" hint-placeholder-val="{{ true }}"><sc-if value="{{ hasNom }}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-family: var(--font-heading); font-size: 26px; line-height: 1.2; color: var(--color-text);">{{ salut }}{{ nomP }}{{ excl }}</p></sc-if><h1 style="margin: 0; font-size: clamp(38px, 5.5vw, 64px); line-height: 1.02; text-wrap: balance;">{{ baseline }}</h1>
         <p style="margin: 0; font-size: 18px; line-height: 1.55; text-wrap: pretty; color: var(--color-neutral-800);">{{ heroTxt }}</p><div style="display: flex; flex-wrap: wrap; gap: var(--space-2);"><a href="menu.html" class="btn btn-secondary" style="padding: 12px 22px; font-size: 16px; white-space: nowrap;">The weekly menu</a></div></sc-if><sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}"><h1 style="margin: 0; font-size: clamp(38px, 5.5vw, 64px); line-height: 1.02; text-wrap: balance;">What’s growing this month?</h1>
-        <p style="margin: 0; font-size: 18px; line-height: 1.55; text-wrap: pretty; color: var(--color-neutral-800);">Every month, Sainos shows you in <a href="legumes.html">the Vegetable Garden</a> and <a href="fruits.html">the Orchard</a> what’s growing near you: fruits, vegetables and herbs to explore, each with a trick question and a badge. And head to <a href="fleurs.html">the Garden</a> to see the seasonal flowers!</p></sc-if>
+        <sc-if value="{{ tomFirst }}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: 18px; line-height: 1.55; text-wrap: pretty; color: var(--color-neutral-800);">Hello, I’m Tom, a farmer!<br>I’ve been growing fruit and veg for twenty years. Fruit and veg picked in their season have ripened in the sun: they’re sweeter, tastier and full of vitamins. And since they grow near you, they travel less and the planet says thank you!</p></sc-if><sc-if value="{{ tomBack }}" hint-placeholder-val="{{ false }}"><div style="display: flex; gap: var(--space-4); align-items: center;"><img data-tom-rand="1" src="../images/tom/home.webp" alt="" width="800" height="800" style="flex: none; width: clamp(88px, 12vw, 120px); height: auto; aspect-ratio: 1; border-radius: 50%; object-fit: cover; display: block; background: var(--color-accent-200);"><p style="margin: 0; font-size: 18px; line-height: 1.55; text-wrap: pretty; color: var(--color-neutral-800);">Hello again, it’s Tom! Look on the right at what I’m harvesting right now. Click it to see its page, then scroll down for all this month’s fruit and veg.</p></div></sc-if></sc-if>
       </div>
       <div style="position: relative; justify-self: center; width: min(420px, 100%); aspect-ratio: 1; container-type: inline-size;">
         <div aria-hidden="true" style="position: absolute; inset: 0; background: #ffffff; border-radius: 58% 42% 55% 45% / 48% 56% 44% 52%;"></div>
-        <a href="{{ star.href }}" aria-labelledby="titre-star" style="position: absolute; inset: 4%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 10px; text-decoration: none; color: var(--color-accent-500);" style-hover="color: var(--color-accent-500);">
+        <sc-if value="{{ tomFirst }}" hint-placeholder-val="{{ false }}"><img src="../images/tom/home.webp" alt="Farmer Tom smiling in his barn" width="800" height="800" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; border-radius: 58% 42% 55% 45% / 48% 56% 44% 52%; display: block;"></sc-if><sc-if value="{{ showStar }}" hint-placeholder-val="{{ true }}"><a href="{{ star.href }}" aria-labelledby="titre-star" style="position: absolute; inset: 4%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; gap: 10px; text-decoration: none; color: var(--color-accent-500);" style-hover="color: var(--color-accent-500);">
           <span style="font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent-500); font-weight: 700;">Right now</span>
           <span id="titre-star" style="max-width: 100%; overflow-wrap: anywhere; text-wrap: balance; font-family: var(--font-heading); font-size: clamp(32px, 4.6vw, 48px); line-height: 1.02; color: var(--color-accent-800);">{{ star.n }}</span>
           <span aria-hidden="true" style="align-self: center; display: grid; place-items: center; font-size: min(260px, 62cqi); line-height: 1;"><sc-if value="{{ star.img }}" hint-placeholder-val="{{ false }}"><span role="img" aria-hidden="true" style="width: 1em; height: 1em; background: {{ star.imgBg }}; display: block; transform: rotate(-6deg);"></span></sc-if><sc-if value="{{ star.noImg }}" hint-placeholder-val="{{ true }}">{{ star.e }}</sc-if></span>
-        </a>
+        </a></sc-if>
       </div>
     </section>
 
-    <section id="catalogue" aria-labelledby="titre-catalogue" style="display: flex; flex-direction: column; gap: var(--space-6); padding-bottom: var(--space-8); scroll-margin-top: 90px;">
+    <sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}"><section aria-labelledby="titre-k-fruits" style="display: flex; flex-direction: column; gap: var(--space-4); padding-bottom: var(--space-8);">
+      <h2 id="titre-k-fruits" style="margin: 0; font-size: clamp(28px, 3.4vw, 40px);">{{ kidFruitsH }}</h2>
+      <p style="margin: 0; max-width: 640px; font-size: 18px; line-height: 1.55; text-wrap: pretty; color: var(--color-neutral-800);">{{ kidFruitsTxt }}</p>
+      <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(max(min(160px, calc((100% - 16px) / 2)), calc((100% - 64px) / 5)), 1fr)); gap: clamp(10px, 2.5vw, 16px);">
+          <sc-for list="{{ kidFruits }}" as="c" hint-placeholder-count="5">
+            <li style="display: flex;">
+              <a href="{{ c.href }}" aria-label="{{ c.aria }}" style="flex: 1; display: flex; flex-direction: column; gap: var(--space-3); padding: clamp(12px, 3vw, 16px); background: #ffffff; min-width: 0; border: {{ c.ring }}; border-radius: var(--radius-lg); text-decoration: none; color: var(--color-text); box-shadow: var(--shadow-sm); transition: transform .18s ease, box-shadow .18s ease;" style-hover="transform: translateY(-4px) rotate(-0.6deg); box-shadow: var(--shadow-lg); color: var(--color-text);">
+                <sc-if value="{{ c.badge }}" hint-placeholder-val="{{ false }}"><span style="align-self: flex-end; margin-bottom: -8px;"><span class="tag" style="font-size: 12px; background: #ffc83d; color: #4a3200; font-weight: 800;">🏅 Badge earned</span></span></sc-if>
+                <span aria-hidden="true" style="align-self: center; flex-shrink: 0; font-size: 96px; line-height: 1; display: grid; place-items: center;"><sc-if value="{{ c.img }}" hint-placeholder-val="{{ false }}"><span role="img" aria-hidden="true" style="width: 1em; height: 1em; background: {{ c.imgBg }}; display: block;"></span></sc-if><sc-if value="{{ c.noImg }}" hint-placeholder-val="{{ true }}">{{ c.e }}</sc-if></span>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center;">
+                  <h3 style="margin: 0; font-size: clamp(18px, 4.6vw, 22px); line-height: 1.15; text-wrap: balance; overflow-wrap: anywhere;">{{ c.n }}</h3>
+                  <span style="font-size: 13px; line-height: 1.25; color: var(--color-neutral-700);">{{ c.info }}</span>
+                  
+                </div>
+                </a>
+            </li>
+          </sc-for>
+      </ul>
+      <a href="fruits.html" class="btn btn-secondary" style="align-self: flex-start; padding: 12px 22px; font-size: 16px;">The whole Orchard →</a>
+    </section>
+    <section aria-labelledby="titre-k-legumes" style="display: flex; flex-direction: column; gap: var(--space-4); padding-bottom: var(--space-8);">
+      <h2 id="titre-k-legumes" style="margin: 0; font-size: clamp(28px, 3.4vw, 40px);">{{ kidLegumesH }}</h2>
+      <p style="margin: 0; max-width: 640px; font-size: 18px; line-height: 1.55; text-wrap: pretty; color: var(--color-neutral-800);">{{ kidLegumesTxt }}</p>
+      <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(max(min(160px, calc((100% - 16px) / 2)), calc((100% - 64px) / 5)), 1fr)); gap: clamp(10px, 2.5vw, 16px);">
+          <sc-for list="{{ kidLegumes }}" as="c" hint-placeholder-count="5">
+            <li style="display: flex;">
+              <a href="{{ c.href }}" aria-label="{{ c.aria }}" style="flex: 1; display: flex; flex-direction: column; gap: var(--space-3); padding: clamp(12px, 3vw, 16px); background: #ffffff; min-width: 0; border: {{ c.ring }}; border-radius: var(--radius-lg); text-decoration: none; color: var(--color-text); box-shadow: var(--shadow-sm); transition: transform .18s ease, box-shadow .18s ease;" style-hover="transform: translateY(-4px) rotate(-0.6deg); box-shadow: var(--shadow-lg); color: var(--color-text);">
+                <sc-if value="{{ c.badge }}" hint-placeholder-val="{{ false }}"><span style="align-self: flex-end; margin-bottom: -8px;"><span class="tag" style="font-size: 12px; background: #ffc83d; color: #4a3200; font-weight: 800;">🏅 Badge earned</span></span></sc-if>
+                <span aria-hidden="true" style="align-self: center; flex-shrink: 0; font-size: 96px; line-height: 1; display: grid; place-items: center;"><sc-if value="{{ c.img }}" hint-placeholder-val="{{ false }}"><span role="img" aria-hidden="true" style="width: 1em; height: 1em; background: {{ c.imgBg }}; display: block;"></span></sc-if><sc-if value="{{ c.noImg }}" hint-placeholder-val="{{ true }}">{{ c.e }}</sc-if></span>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center;">
+                  <h3 style="margin: 0; font-size: clamp(18px, 4.6vw, 22px); line-height: 1.15; text-wrap: balance; overflow-wrap: anywhere;">{{ c.n }}</h3>
+                  <span style="font-size: 13px; line-height: 1.25; color: var(--color-neutral-700);">{{ c.info }}</span>
+                  
+                </div>
+                </a>
+            </li>
+          </sc-for>
+      </ul>
+      <a href="legumes.html" class="btn btn-secondary" style="align-self: flex-start; padding: 12px 22px; font-size: 16px;">The whole Vegetable Garden →</a>
+    </section></sc-if>
+    <sc-if value="{{ adult }}" hint-placeholder-val="{{ true }}"><section id="catalogue" aria-labelledby="titre-catalogue" style="display: flex; flex-direction: column; gap: var(--space-6); padding-bottom: var(--space-8); scroll-margin-top: 90px;">
       <div style="display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; padding: var(--space-3); background: #f4efe6; border-radius: var(--radius-lg);">
         <div role="group" aria-label="Filter by type" style="display: flex; flex-wrap: wrap; gap: var(--space-2);">
           <sc-for list="{{ typeFilters }}" as="tf" hint-placeholder-count="4">
@@ -175,7 +215,7 @@
           <button type="button" class="btn btn-secondary" onClick="{{ reset }}" style="padding: 10px 18px;">Reset filters</button>
         </div>
       </sc-if>
-    </section>
+    </section></sc-if>
 
     <section aria-label="Explorer" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: var(--space-4); padding-bottom: var(--space-8);">
       <sc-if value="{{ noVegan }}" hint-placeholder-val="{{ true }}"><a href="fromages.html" data-adult-only="1" style="display: flex; gap: var(--space-4); align-items: center; padding: var(--space-6); background: #ffffff; border: 2px solid var(--color-accent-2-300); border-radius: var(--radius-lg); text-decoration: none; color: var(--color-text);" style-hover="border-color: var(--color-accent-2-500); color: var(--color-text);">
@@ -209,6 +249,9 @@
       <a href="pousse.html" data-nav-pousse="1" style="display: flex; gap: var(--space-4); align-items: center; padding: var(--space-6); background: var(--color-accent-100); border: 2px solid var(--color-accent-300); border-radius: var(--radius-lg); text-decoration: none; color: var(--color-accent-900);" style-hover="background: var(--color-accent-200); color: var(--color-accent-900);">
         <span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: var(--font-heading); font-size: 24px;">How does it grow?</span><span style="font-size: 15px;">From seed to plate, step by step.</span></span>
       </a>
+      <sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}"><a href="badges.html" style="display: flex; gap: var(--space-4); align-items: center; padding: var(--space-6); background: var(--color-accent-100); border: 2px solid var(--color-accent-300); border-radius: var(--radius-lg); text-decoration: none; color: var(--color-accent-900);" style-hover="background: var(--color-accent-200); color: var(--color-accent-900);">
+        <span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: var(--font-heading); font-size: 24px;">My badges</span><span style="font-size: 15px;">Your badge album and this month’s challenges.</span></span>
+      </a></sc-if>
       <a href="quiz.html" data-nav-quiz="1" style="grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-6); background: var(--color-accent-strong, var(--color-accent)); border-radius: var(--radius-lg); text-decoration: none; color: #ffffff;" style-hover="background: var(--color-accent-strong-hover, var(--color-accent-600)); color: #ffffff;">
         <span style="display: flex; gap: var(--space-4); align-items: center; flex: 1 1 320px; min-width: 0;"><span aria-hidden="true" style="flex: none; width: 72px; height: 72px; border-radius: 50%; background: #ffffff; display: grid; place-items: center; font-size: 40px;">🧠</span><span style="display: flex; flex-direction: column; gap: 4px;"><span style="font-family: var(--font-heading); font-size: 26px;">Sainos quizzes</span><span style="font-size: 16px;">Test your knowledge for your age, and become a seasons pro!</span></span></span>
         <span style="flex: none; background: #ffffff; color: var(--color-accent-800); font-weight: 800; font-size: 17px; padding: 12px 24px; border-radius: 999px;">Play →</span>
@@ -236,7 +279,7 @@
         <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-4) var(--space-6);">
           <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 320px; min-width: 0;">
             <span style="font-family: var(--font-heading); font-weight: 400; font-size: 24px; color: var(--color-accent-900);">🎒 Kids mode on</span>
-            <span style="font-size: 16px; line-height: 1.5; color: var(--color-accent-900); text-wrap: pretty;">You already have {{ badgeCount }} badges out of {{ nbTotal }}. Are your parents doing the shopping? Hand them the parents version, it only takes one click.</span>
+            <span style="font-size: 16px; line-height: 1.5; color: var(--color-accent-900); text-wrap: pretty;">You already have {{ badgeCount }} badges out of {{ nbTotal }}. <a href="badges.html">See my album</a>. Are your parents doing the shopping? Hand them the parents version, it only takes one click.</span>
           </div>
           <button type="button" class="btn btn-secondary" onClick="{{ toNormal }}" style="padding: 12px 22px; font-size: 16px; white-space: nowrap;">Switch to parents mode</button>
         </div>
@@ -279,7 +322,11 @@ class Component extends DCLogic {
   setMode(m) { try { localStorage.setItem('sainos-mode', m); } catch (e) {} this._syncMode(); }
   _kidVals() { const kid = this.state.mode === 'enfant'; return { kid, adult: !kid, badgeCount: (this.state.badges || []).length, nbTotal: window.SAISON ? window.SAISON.produits.length : 44, toEnfant: () => this.setMode('enfant'), toNormal: () => this.setMode('normal') }; }
   state = { mode: this._mode(), badges: this._badges(), q: '', type: 'all', france: false, scope: 'mois', ready: !!window.SAISON };
+  _tomFirst = (() => { try { return /[?&]premiere=1/.test(location.search) || !localStorage.getItem('sainos-tom-vu'); } catch (e) { return false; } })();
+  _markTom() { if (this._tomFirst && this.state.mode === 'enfant') { try { localStorage.setItem('sainos-tom-vu', '1'); } catch (e) {} } }
+  componentDidUpdate() { this._markTom(); }
   componentDidMount() {
+    this._markTom();
     this._onProfil = () => this.setState({ reg: null }); window.addEventListener('sainos-profil', this._onProfil);
     window.addEventListener('storage', this._syncMode); window.addEventListener('pageshow', this._syncMode);
     this._onScroll = () => { const y = window.scrollY, cur = !!this.state.mini; const s = cur ? y > 8 : y > 140; if (s !== cur) this.setState({ mini: s }); };
@@ -291,7 +338,7 @@ class Component extends DCLogic {
   componentWillUnmount() { window.removeEventListener('storage', this._syncMode); window.removeEventListener('pageshow', this._syncMode); window.removeEventListener('scroll', this._onScroll); clearInterval(this._t); }
   renderVals() {
     const mini = true; const kv = this._kidVals(); const rv = this._rv(); const bs = this.state.badges || [];
-    rv.cards = (rv.cards || []).map(c => ({ ...c, kid: kv.kid, adult: !kv.kid, badge: kv.kid && bs.includes(c.s) }));
+    const bm = c => ({ ...c, kid: kv.kid, adult: !kv.kid, badge: kv.kid && bs.includes(c.s) }); rv.cards = (rv.cards || []).map(bm); rv.kidFruits = (rv.kidFruits || []).map(bm); rv.kidLegumes = (rv.kidLegumes || []).map(bm);
     if (!this._fishPick && window.POISSONS) { const m = new Date().getMonth() + 1, L = window.POISSONS.liste.filter(x => x.f.includes(m) && !x.x.includes(m)); this._fishPick = L[Math.floor(Math.random() * L.length)]; }
     const fp = this._fishPick, fish = fp ? { n: fp.en, href: 'poissons/' + fp.s + '.html', bg: 'center / contain no-repeat url("../images/poissons/' + fp.s + '.webp")' } : { n: '', href: 'poissonnerie.html', bg: 'none' };
     const vegRead = () => { try { const o = JSON.parse(localStorage.getItem('sainos-liste-v4') || '{}'); return o.vegan ? 'vegan' : o.veg ? 'veg' : 'omni'; } catch (e) { return 'omni'; } };
@@ -300,7 +347,7 @@ class Component extends DCLogic {
     const PM = [["feve","Broad beans",[4,5,6]],["haricot-coco","Fresh coco beans",[7,8,9,10]],["flageolet","Fresh flageolet beans",[7,8,9]],["haricot-sec","Dried beans",[11,12,1,2,3]],["lentille","Green lentils",[]]], mo = new Date().getMonth() + 1, pp = PM.find(x => x[2].includes(mo)) || PM[PM.length - 1];
     const prot = { n: pp[1], bg: 'center / contain no-repeat url("../images/proteines/' + pp[0] + '.webp")' };
     const nom = (() => { try { return (JSON.parse(localStorage.getItem('sainos-profil') || '{}').nom || '').trim(); } catch (e) { return ''; } })();
-    return { ...rv, ...kv, hasNom: !!nom, baseline: this._bl || (this._bl = (B => B[Math.floor(Math.random() * B.length)])(["Every month has its own flavour.","Eat what the season offers.","The right food, at the right time.","In step with the seasons, everything tastes better.","Follow the season, it knows the way."])), salut: ((h => h >= 18 || h < 5 ? 'Good evening ' : h >= 12 ? 'Good afternoon ' : 'Good morning ')(new Date().getHours())), nomP: nom, excl: '!', fish, veg, noVeg: !veg, noVegan: !vegan, prot, regimes, heroTxt: vegan ? "Fruit, vegetables, pulses and flowers: discover what’s in season each month in the Vegetable Garden, the Orchard and the Garden." : veg ? "Fruit, vegetables, flowers, eggs and cheese: discover what’s in season each month in the Vegetable Garden, the Orchard, the Garden and the Cheese." : "Fruit, vegetables, flowers, fish and cheese: discover what’s in season each month in the Vegetable Garden, the Orchard, the Garden, the Fishmonger and the Cheese.", logoBig: { display: mini ? 'none' : 'block', height: 'clamp(84px, 11vw, 120px)', width: 'auto' }, logoMini: { display: mini ? 'block' : 'none', height: 36, width: 'auto' } };
+    const tomFirst = kv.kid && this._tomFirst; return { ...rv, ...kv, tomFirst, tomBack: kv.kid && !this._tomFirst, showStar: !tomFirst, hasNom: !!nom, baseline: this._bl || (this._bl = (B => B[Math.floor(Math.random() * B.length)])(["Every month has its own flavour.","Eat what the season offers.","The right food, at the right time.","In step with the seasons, everything tastes better.","Follow the season, it knows the way."])), salut: ((h => h >= 18 || h < 5 ? 'Good evening ' : h >= 12 ? 'Good afternoon ' : 'Good morning ')(new Date().getHours())), nomP: nom, excl: '!', fish, veg, noVeg: !veg, noVegan: !vegan, prot, regimes, heroTxt: vegan ? "Fruit, vegetables, pulses and flowers: discover what’s in season each month in the Vegetable Garden, the Orchard and the Garden." : veg ? "Fruit, vegetables, flowers, eggs and cheese: discover what’s in season each month in the Vegetable Garden, the Orchard, the Garden and the Cheese." : "Fruit, vegetables, flowers, fish and cheese: discover what’s in season each month in the Vegetable Garden, the Orchard, the Garden, the Fishmonger and the Cheese.", logoBig: { display: mini ? 'none' : 'block', height: 'clamp(84px, 11vw, 120px)', width: 'auto' }, logoMini: { display: mini ? 'block' : 'none', height: 36, width: 'auto' } };
   }
   _rv() {
     const S = window.SAISON;
@@ -332,6 +379,10 @@ class Component extends DCLogic {
       return { ...S.vis(p), s: p.s, dots: [1,2,3,4,5,6,7,8,9,10,11,12].map(k => ({ st: ({ width: 7, height: 7, borderRadius: '50%', boxSizing: 'border-box', background: p.f.includes(k) ? 'var(--color-accent)' : p.m.includes(k) ? 'var(--color-accent-2-300)' : 'var(--color-neutral-200)', outline: k === m ? '1.5px solid var(--color-text)' : 'none', outlineOffset: 1 }) })),  info: p.f.includes(m) ? 'Peak season' : p.m.includes(m) ? 'Available' : 'Out of season', ring: p.f.includes(m) ? '2px solid var(--color-accent-600)' : '2px solid transparent', href: S.url(p), n: p.n, flag: p.orig.flag, origine: p.orig.label, type: S.TYPES[p.t].one, bg: bg[p.t] || bg.legume, forts, aria: p.n + ' — learn more' };
     });
     const moisNom = S.MOIS[m - 1];
+    const kidSel = t => { const pl = S.produits.filter(p => p.t === t && p.f.includes(m)); const src = pl.length ? pl : S.produits.filter(p => p.t === t && p.m.includes(m)); return src.sort((a, b) => a.n.localeCompare(b.n, 'en')).map(p => { const f = p.f.includes(m); return { ...S.vis(p), s: p.s, info: f ? 'Peak season' : 'Available', ring: f ? '2px solid var(--color-accent-600)' : '2px solid transparent', href: S.url(p), n: p.n, aria: p.n + ' — learn more' }; }); };
+    const kidFruits = kidSel('fruit'), kidLegumes = kidSel('legume');
+    const kidFruitsTxt = 'In the Orchard, ' + kidFruits.length + (kidFruits.length > 1 ? ' fruits are' : ' fruit is') + ' at their best this month. Sweet, tangy or juicy: which one will you taste first? Tap one for its trick question and win its badge!';
+    const kidLegumesTxt = 'In the Vegetable Garden, here are the vegetables of ' + moisNom + '. Crunchy, soft, in soup or steamed: each one hides a trick question and a badge to win!';
     const heading = searching ? 'Results for “' + q.trim() + '”' : scope === 'mois' ? 'Right now: ' + moisNom : 'All fruit, vegetables and herbs';
     const seenE = new Set();
     const HZ = [['0.8em', -12, 4], ['1.05em', 8, -6], ['0.68em', -4, 8], ['0.95em', 14, -2], ['0.74em', -16, 6], ['1em', 5, -8], ['0.7em', 18, 3], ['0.88em', -8, -4]];
@@ -346,7 +397,7 @@ class Component extends DCLogic {
       saison: sf.length ? 'Peak season: ' + (sf.length > 1 ? sf.slice(0, -1).join(', ') + ' and ' + sf[sf.length - 1] : sf[0]) : 'All year',
       cta: kid ? 'Discover its page →' : 'See the guide →' } : {};
     const SMILEYS = ['🥶','🥰','😊','🤗','😄','😁','🤩','😎','🤓','😋','😌','🥳'];
-    return { ...base, moisSmiley: SMILEYS[m - 1], cards, heroEmojis, total: S.produits.length, moisNom, moisNomLower: moisNom.toLowerCase(), heading,
+    return { ...base, kidFruitsH: moisNom + ' fruits', kidLegumesH: moisNom + ' vegetables', kidFruits, kidLegumes, kidFruitsTxt, kidLegumesTxt, moisSmiley: SMILEYS[m - 1], cards, heroEmojis, total: S.produits.length, moisNom, moisNomLower: moisNom.toLowerCase(), heading,
       countLabel: (() => { const W = {"fruit":["fruit","fruits"],"legume":["vegetable","vegetables"],"herbe":["herb","herbs"]}; return ['fruit', 'legume', 'herbe'].map(t => [t, list.filter(p => p.t === t).length]).filter(([, n]) => n).map(([t, n]) => n + ' ' + W[t][n > 1 ? 1 : 0]).join(', '); })(), hasResults: cards.length > 0, noResults: cards.length === 0, hasStar: !!sp, star };
   }
 }

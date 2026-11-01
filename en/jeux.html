@@ -116,7 +116,7 @@
     <section style="display: flex; flex-direction: column; gap: var(--space-4); max-width: 720px;">
       <nav aria-label="Breadcrumb" style="font-size: 14px; display: flex; gap: var(--space-2);"><a href="index.html">Home</a><span aria-hidden="true">›</span><span aria-current="page">Mini-games</span></nav>
       <h1 style="margin: 0; font-size: clamp(38px, 5.5vw, 64px); line-height: 1.02; text-wrap: balance;">Sainos mini-games</h1>
-      <p style="margin: 0; font-size: 19px; line-height: 1.6; text-wrap: pretty;">Find the pairs, put each fruit and vegetable in its season… and become a veg patch champion!</p>
+      <div data-tom-dit="1" style="display: flex; gap: 14px; align-items: flex-start; max-width: 720px;"><img data-tom-rand="1" src="../images/tom/home-s.webp" alt="" width="800" height="800" style="flex: none; width: 96px; height: 96px; border-radius: 50%; object-fit: cover; display: block; background: var(--color-accent-200);"><p style="margin: 0; align-self: center; font-size: 19px; line-height: 1.6; text-wrap: pretty;"><strong style="font-family: var(--font-heading); font-weight: 400; color: var(--color-accent-800);">Tom:</strong> Find the pairs, put each fruit and vegetable in its season… and become a veg patch champion, just like me!</p></div>
     </section>
     <div role="tablist" aria-label="Choose a game" style="display: flex; flex-wrap: wrap; gap: var(--space-2);"><sc-for list="{{ games }}" as="g" hint-placeholder-count="2"><button type="button" role="tab" aria-selected="{{ g.on }}" class="{{ g.cls }}" onClick="{{ g.pick }}" style="padding: 12px 22px; font-size: 17px; min-height: 52px; white-space: nowrap; display: inline-flex; flex-direction: row; align-items: center; gap: 8px;">{{ g.label }}</button></sc-for></div>
 
