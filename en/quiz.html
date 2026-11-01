@@ -358,7 +358,7 @@
   function answer(k) {
     var q = deck[i], p = q.p, good = k === q.ans, bs = $('q-opts').children;
     for (var j = 0; j < bs.length; j++) { bs[j].disabled = true; bs[j].classList.remove('pop'); bs[j].classList.add(j === q.ans ? 'ok' : j === k ? 'ko' : 'dim'); }
-    if (good) score++; else bs[k].classList.add('wob'); $('q-tom').src = '../images/tom/' + (good ? 'bonne' : 'mauvaise') + '-reponse-s.webp';
+    if (good) score++; else bs[k].classList.add('wob'); $('q-tom').src = '../images/tom/' + (good ? 'bonne' : 'mauvaise') + '-reponse-v2-s.webp';
     $('q-stars').textContent = '⭐ ' + score;
     if (q.hide) { $('q-name').textContent = p.e + ' ' + p.n; $('q-img').alt = p.n; }
     var fb = $('q-fb'); fb.hidden = false; fb.style.display = 'flex';
