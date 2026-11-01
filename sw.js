@@ -1,5 +1,5 @@
 // Service worker Sainos : hors ligne pour les pages visitées et le cœur du site.
-const V = 'sainos-v3';
+const V = 'sainos-v4';
 const CORE = ['./', 'index.html', 'legumes.html', 'fruits.html', 'liste.html', 'recettes.html', 'menu.html', 'jeux.html', 'offline.html',
   'produits-data.js', 'recettes-data.js', 'poissons-data.js', 'fromages-data.js', 'jardin-data.js', 'recherche.js', 'profil.js', 'support.js',
   'images/logo.webp', 'images/logo-mini.webp', 'favicon.png', 'icon-192.png', 'manifest.webmanifest'];
@@ -9,7 +9,7 @@ self.addEventListener('fetch', e => {
   const r = e.request; if (r.method !== 'GET') return;
   const u = new URL(r.url);
   if (u.origin !== location.origin && !/fonts\.(googleapis|gstatic)\.com$/.test(u.hostname)) return;
-  if (r.mode === 'navigate' || (r.headers.get('accept') || '').includes('text/html')) {
+  if (r.mode === 'navigate' || (r.headers.get('accept') || '').includes('text/html') || /\.(js|css|webmanifest)$/.test(u.pathname)) {
     e.respondWith(fetch(r).then(res => { const cp = res.clone(); caches.open(V).then(c => c.put(r, cp)); return res; })
       .catch(() => caches.match(r, { ignoreSearch: true }).then(m => m || caches.match('offline.html'))));
     return;
