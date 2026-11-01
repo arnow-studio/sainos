@@ -237,7 +237,7 @@
     });
     document.querySelectorAll('[data-bien-choisir] a[href$="lexique.html"], [data-bien-choisir] span[aria-current]:not([href]), [data-nav-jardin-panel] a[href$="lexique.html"], details a[href$="lexique.html"]').forEach(function (x) {
       if (x.tagName === 'SPAN' && !/^(Lexique|Glossary)$/i.test(x.textContent.trim())) return;
-      x.style.display = k ? 'none' : '';
+      showEl(x, !k);
     });
   }
   function ferme() {
@@ -251,13 +251,13 @@
       var f = box.querySelector(':scope > a[href$="legumes.html"]'); if (!f || !box.querySelector(':scope > a[href$="fruits.html"]')) return;
       var t = box.querySelector('[data-nav-tom]');
       if (!t) { t = f.cloneNode(false); t.removeAttribute('data-ferme-a'); t.removeAttribute('aria-current'); t.setAttribute('data-nav-tom', '1'); t.href = f.getAttribute('href').replace(/legumes\.html$/, 'tom.html'); t.textContent = EN ? 'Who is Tom?' : 'Qui est Tom\u00a0?'; if (/\/tom\.html$/.test(location.pathname)) t.setAttribute('aria-current', 'page'); var fl = box.querySelector(':scope > a[href$="fleurs.html"]') || box.querySelector(':scope > a[href$="fruits.html"]'); box.insertBefore(t, fl.nextSibling); }
-      t.style.display = k ? '' : 'none';
+      showEl(t, k);
     });
     document.querySelectorAll('[data-nav-panel]').forEach(function (pn) {
       var f = pn.querySelector('a[href$="legumes.html"]'); if (!f) return;
       var t = pn.querySelector('[data-nav-tom]');
       if (!t) { t = f.cloneNode(false); t.removeAttribute('data-ferme-a'); t.removeAttribute('aria-current'); t.setAttribute('data-nav-tom', '1'); t.href = f.getAttribute('href').replace(/legumes\.html$/, 'tom.html'); t.textContent = EN ? 'Who is Tom?' : 'Qui est Tom\u00a0?'; if (/\/tom\.html$/.test(location.pathname)) t.setAttribute('aria-current', 'page'); f.parentNode.insertBefore(t, f.nextSibling); }
-      if (!t.hasAttribute('data-kid-label')) t.style.display = k ? '' : 'none';
+      if (!t.hasAttribute('data-kid-label')) showEl(t, k);
     });
   }
   function jouerNav() {
@@ -298,6 +298,7 @@
     var t = document.createElement('span'); t.setAttribute('data-kid-sub', '1'); t.innerHTML = EN ? 'Tom and the <span>4 Seasons</span>' : 'Tom et les <span>4 Saisons</span>';
     br.appendChild(t);
   }
+  function showEl(x, on) { if (!x.hasAttribute('data-d0')) x.setAttribute('data-d0', x.style.display === 'none' ? '' : x.style.display); x.style.display = on ? x.getAttribute('data-d0') : 'none'; }
   function apropos() {
     var k = kid();
     document.querySelectorAll('[data-nav-jardin] > a[href$="apropos.html"]').forEach(function (x) {
