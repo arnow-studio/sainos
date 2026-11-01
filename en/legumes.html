@@ -47,6 +47,7 @@
 <script id="recherche-js" src="../recherche.js" defer></script>
 <script id="veg-flag">try{if(JSON.parse(localStorage.getItem('sainos-liste-v4')||'{}').veg)document.documentElement.classList.add('m-veg')}catch(e){}</script><style id="veg-css">html.m-veg nav a[href$="poissonnerie.html"],html.m-veg footer a[href$="poissonnerie.html"],html.m-veg [data-nav-panel] a[href$="poissonnerie.html"]{display:none!important}</style>
 <style id="nav-fix">@media (max-width:1080px){nav.nav{flex-wrap:nowrap!important}nav.nav .nav-brand{min-width:0;flex-shrink:1}nav.nav .nav-brand img{max-width:100%!important;height:auto!important;width:auto!important;max-height:48px!important}}@media (max-width:600px){nav.nav .nav-brand img{max-height:38px!important}details[data-nav-burger]{position:static!important;flex:none}[data-nav-panel]{right:12px!important}}html,body{overflow-x:clip}</style>
+<style id="sous-tom-mobile">@media (max-width: 760px) { [data-sous-jardin] a[href$="tom.html"] { display: none !important; } }</style>
 </head>
 <body>
 <x-dc>
@@ -90,7 +91,7 @@
         <a href="fromages.html" data-adult-only="1">The Cheese</a><a href="poissonnerie.html" data-adult-only="1">The Fishmonger</a>
         <span data-nav-jardin="1"><a href="origines.html" aria-haspopup="true">The guide ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="origines.html">Origins</a><a href="marches.html" data-nav-mar="1">Markets</a><a href="bio.html">Organic</a><a href="recettes.html">Recipes</a><a href="lexique.html" data-nav-lex="1">Glossary</a></span></span></span>
         <a href="pousse.html" data-nav-pousse="1">How it grows</a>
-        <span data-nav-jardin="1" data-nav-quiz="1"><a href="jeux.html" aria-haspopup="true">Play ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="quiz.html" data-nav-quiz="1">Quiz</a><a href="jeux.html">Mini-games</a></span></span></span>
+        <span data-nav-jardin="1" data-nav-quiz="1"><a href="jouer.html" aria-haspopup="true">Play ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="quiz.html" data-nav-quiz="1">Quiz</a><a href="jeux.html">Mini-games</a></span></span></span>
         <span data-nav-jardin="1"><a href="apropos.html" aria-haspopup="true">About ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="apropos.html">About</a><a href="enseignants.html" data-nav-lex="1">In class</a><a href="contact.html" data-adult-only="1">Contact</a></span></span></span>
       </div>
       <details data-nav-burger="1" style="position: relative; margin-left: auto;">
