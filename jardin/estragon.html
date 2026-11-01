@@ -143,6 +143,7 @@
         <span style="align-self: flex-start;"><span style="{{ statusStyle }}">{{ status }}</span></span>
         <h1 style="margin: 0; font-size: clamp(40px, 6vw, 64px); line-height: 1.02;">{{ n }}</h1>
         <p style="margin: 0; font-size: 19px; line-height: 1.55; text-wrap: pretty;">{{ d }}</p>
+        <div data-tom-jardin="1" data-kid-label="1" style="display: flex; gap: 14px; align-items: center;"><img src="../images/tom/jardin.webp" alt="" width="800" height="800" style="flex: none; width: 96px; height: 96px; border-radius: 50%; object-fit: cover; display: block; background: var(--color-accent-200);"><p style="margin: 0; font-size: 18px; line-height: 1.55; text-wrap: pretty;"><strong style="font-family: var(--font-heading); font-weight: 400; color: var(--color-accent-800);">Tom :</strong> Celle-ci pousse dans mon jardin ! Regarde son calendrier juste en dessous pour savoir quand la planter et quand elle fleurit.</p></div>
         <div style="display: flex; flex-wrap: wrap; gap: 8px;"><sc-for list="{{ tags }}" as="tg" hint-placeholder-count="2"><span class="tag tag-accent-2" style="white-space: nowrap;">{{ tg.label }}</span></sc-for></div>
         <sc-if value="{{ fiche }}" hint-placeholder-val="{{ false }}"><a href="{{ ficheHref }}" class="btn btn-secondary" style="align-self: flex-start; padding: 10px 20px;">Voir la fiche détaillée →</a></sc-if>
       </div>
