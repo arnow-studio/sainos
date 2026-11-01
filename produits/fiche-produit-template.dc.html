@@ -322,8 +322,13 @@
       </section>
 
       <section aria-labelledby="hk-quiz" style="display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-6); background: #ffffff; border: 1px solid var(--color-divider); border-radius: var(--radius-lg);">
-        <span style="font-size: 16px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-700);">Question piège</span>
-        <h2 id="hk-quiz" style="margin: 0; font-size: clamp(28px, 3.4vw, 38px);">{{ k.quizQ }}</h2>
+        <div data-papi="1" style="display: flex; gap: var(--space-3); align-items: center;">
+          <span aria-hidden="true" style="position: relative; flex: none; width: 110px; height: 110px; border-radius: 48% 52% 45% 55% / 54% 46% 53% 47%; background: var(--color-accent-200); display: grid; place-items: center; font-size: 56px; line-height: 1; overflow: hidden;">🧑‍🌾<span style="position: absolute; inset: 0; background: {{ tomBgK }};"></span></span>
+          <div style="position: relative; flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 4px; padding: 4px 0;">
+            <span style="font-family: var(--font-heading); font-size: 18px; color: var(--color-accent-800);">La question piège de Tom</span>
+            <h2 id="hk-quiz" style="margin: 0; font-size: clamp(24px, 3vw, 32px); line-height: 1.2;">{{ k.quizQ }}</h2>
+          </div>
+        </div>
         <div style="display: flex; flex-wrap: wrap; gap: var(--space-3);">
           <sc-for list="{{ quiz }}" as="qz" hint-placeholder-count="3">
             <button type="button" onClick="{{ qz.pick }}" style="{{ qz.style }}">{{ qz.label }}</button>
@@ -331,6 +336,7 @@
         </div>
         <sc-if value="{{ answered }}" hint-placeholder-val="{{ false }}">
           <p style="margin: 0; padding: var(--space-4); background: var(--color-accent-2-100); color: var(--color-accent-2-900); border-radius: var(--radius-lg); font-size: 20px; line-height: 1.6;"><strong>{{ quizVerdict }}</strong> {{ k.quizWhy }}</p>
+          <a href="../badges.html" style="align-self: flex-start; font-size: 17px; font-weight: 700;">🏅 Voir mon album de badges →</a>
         </sc-if>
       </section>
 
@@ -578,7 +584,7 @@ class Component extends DCLogic {
   _kf() {
     const S = window.SAISON, E = window.SAISON_ENFANTS;
     const p = S && S.bySlug(this.slug()), d = p && E && E.produits[p.s];
-    if (!d) return { hasPousse: false, pousseHref: '', pousseEmojis: '', hasK: false, k: { bon: [], etapes: [] }, kcal: [], quiz: [], answered: false, quizVerdict: '', hasBadge: false, badgeTitle: '', badgeText: '', badgeBtn: '', collect: () => {}, voirComplet: () => {} };
+    if (!d) return { hasPousse: false, pousseHref: '', pousseEmojis: '', hasK: false, k: { bon: [], etapes: [] }, kcal: [], quiz: [], answered: false, tomBgK: '', quizVerdict: '', hasBadge: false, badgeTitle: '', badgeText: '', badgeBtn: '', collect: () => {}, voirComplet: () => {} };
     const now = new Date().getMonth() + 1, pk = p.f[0];
     const sea = !pk ? 'de toute l’année 📅' : [12, 1, 2].includes(pk) ? 'd’hiver ❄️' : pk <= 5 ? 'de printemps 🌸' : pk <= 8 ? 'd’été ☀️' : 'd’automne 🍂';
     const k = { titre: d.titre, intro: d.intro, tag: S.TYPES[p.t].one + ' ' + sea, orig: p.orig.flag + ' ' + p.orig.label,
@@ -600,7 +606,8 @@ class Component extends DCLogic {
         background: ok ? 'var(--color-accent-2-200)' : sel ? 'var(--color-accent-100)' : '#ffffff', color: 'var(--color-text)' } };
     });
     const has = (this.state.badges || []).includes(p.s), nom = d.titre.replace(/^(Le |La |L’|Les )/, '');
-    return { hasK: true, k, kcal, quiz, answered: pick !== null,
+    const tomBgK = 'center / cover no-repeat #ffffff url("../images/tom/' + (pick === null ? 'question-v2' : pick === good ? 'bonne-reponse' : 'mauvaise-reponse') + '-s.webp")';
+    return { hasK: true, k, kcal, quiz, answered: pick !== null, tomBgK,
       quizVerdict: pick === good ? 'Bravo, bien joué ! 🎉' : 'Presque ! La bonne réponse : « ' + d.quiz[1][good] + ' ».',
       hasPousse: !!(window.SAISON_POUSSE && window.SAISON_POUSSE[p.s]), pousseHref: '../pousse.html#' + p.s, pousseEmojis: window.SAISON_POUSSE && window.SAISON_POUSSE[p.s] ? window.SAISON_POUSSE[p.s].e.join(' ') : '',
       hasBadge: has, badgeTitle: has ? 'Badge ' + nom.toLowerCase() + ' gagné ! 🏅' : 'Tu as tout lu ?',
@@ -699,6 +706,7 @@ class Component extends DCLogic {
       nom: p.n, nomLower: p.n.toLowerCase(), emoji: p.e, hero: S.vis(p, '../'), typeLabel: S.TYPES[p.t].label, typeHref: '../' + ({ fruit: 'fruits', legume: 'legumes', legumineuse: 'legumes', herbe: 'herbes' }[p.t] || 'jardin') + '.html',
       h1: p.n + ' de saison',
       intro: d ? d.intro : p.d, facts, cal, lg1: 'Pleine saison', lg2: 'Disponible', lg3: 'Hors saison', calSummary, duDe,
+      tomBg: 'center / cover no-repeat #ffffff url("../images/tom/question-v2-s.webp")',
       hasDetail: !!d, d: d || {},
       bienfaits: tx ? tx.bienfaits.map(([t, x]) => ({ t, x })) : [],
       rec: (() => { const RC = window.RECETTES, L = RC ? RC.liste.filter(r => r.pr.indexOf(p.s) >= 0) : [], r = L.find(x => x.pr[0] === p.s) || L[0]; return r ? { kicker: 'Recette Sainos' + (L.length > 1 ? ' · ' + L.length + ' idées' : ''), titre: r.n, url: '../recettes.html#r=' + r.s, cta: 'Voir la recette →' } : { kicker: 'Recettes Sainos', titre: 'Cuisinez de saison', url: '../recettes.html', cta: 'Voir les recettes →' }; })(), hasTextes: !!tx, tx: tx || {}, classification: tx ? tx.classification.map(([k, v]) => ({ k, v })) : [], hasNutrition: !!(d && d.nutrition),
