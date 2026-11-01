@@ -212,7 +212,7 @@
     var nav = document.querySelector('header nav.nav'); if (!nav) return;
     var b = nav.querySelector('[data-profil-btn]');
     var s = nav.querySelector('[data-search-btn]');
-    guide(); apropos(); badgesNav(); ferme();
+    guide(); apropos(); badgesNav(); jouerNav(); ferme();
     tomRand(); tomMask(); kidSub();
     if (b) { if (force || b.getAttribute('data-face') !== (kid() ? 'k' : 'a')) face(b); place(nav, s, b); return; }
     biblio();
@@ -240,12 +240,9 @@
       x.style.display = k ? 'none' : '';
     });
   }
-  var fermeObs = false;
-  function fermeWatch() { if (fermeObs || !window.MutationObserver) return; fermeObs = true; var t; new MutationObserver(function () { clearTimeout(t); t = setTimeout(function () { var n = document.querySelector('[data-sous-jardin] > span'); if (n && kid() && !/^(Ma|My) /.test(n.textContent.trim())) ferme(); }, 60); }).observe(document.body, { childList: true, subtree: true, characterData: true }); }
   function ferme() {
-    fermeWatch();
-    var k = kid(), FR = { 'La ferme': 'Ma ferme', 'Le Potager': 'Mon Potager', 'Le Verger': 'Mon Verger', 'Le Jardin': 'Mon Jardin' }, ENm = { 'The Farm': 'My Farm', 'The Vegetable Garden': 'My Vegetable Garden', 'The Orchard': 'My Orchard', 'The Garden': 'My Garden' }, M = EN ? ENm : FR;
-    document.querySelectorAll('[data-nav-jardin] > a[href$="legumes.html"], [data-nav-jardin-box] > a[href$="legumes.html"], [data-nav-jardin-box] > a[href$="fruits.html"], [data-nav-jardin-box] > a[href$="fleurs.html"], [data-nav-panel] > a[href$="legumes.html"], [data-sous-jardin] > span, [data-sous-jardin] > div > a, [data-sous-jardin] > div > span, main nav[aria-label] span[aria-current="page"]').forEach(function (x) {
+    var k = kid(), FR = { 'La ferme': 'Ma ferme', 'Le Potager': 'Mon potager', 'Le Verger': 'Mon verger', 'Le Jardin': 'Mon jardin' }, ENm = { 'The Farm': 'My Farm', 'The Vegetable Garden': 'My Vegetable Garden', 'The Orchard': 'My Orchard', 'The Garden': 'My Garden' }, M = EN ? ENm : FR;
+    document.querySelectorAll('[data-nav-jardin] > a[href$="legumes.html"], [data-nav-jardin-box] > a[href$="legumes.html"], [data-nav-jardin-box] > a[href$="fruits.html"], [data-nav-jardin-box] > a[href$="fleurs.html"], [data-nav-panel] > a[href$="legumes.html"]').forEach(function (x) {
       if (!x.hasAttribute('data-ferme-a')) x.setAttribute('data-ferme-a', x.textContent);
       var o = x.getAttribute('data-ferme-a'), arr = /▾/.test(o) ? ' ▾' : '', b = o.replace(/\s*▾\s*$/, '');
       x.textContent = k && M[b] ? M[b] + arr : o;
@@ -253,14 +250,24 @@
     document.querySelectorAll('[data-nav-jardin-box]').forEach(function (box) {
       var f = box.querySelector(':scope > a[href$="legumes.html"]'); if (!f || !box.querySelector(':scope > a[href$="fruits.html"]')) return;
       var t = box.querySelector('[data-nav-tom]');
-      if (!t) { t = f.cloneNode(false); t.removeAttribute('data-ferme-a'); t.removeAttribute('aria-current'); t.setAttribute('data-nav-tom', '1'); t.href = f.getAttribute('href').replace(/legumes\.html$/, 'tom.html'); t.textContent = EN ? 'Who is Tom?' : 'Qui est Tom\u00a0?'; if (/\/tom\.html$/.test(location.pathname)) t.setAttribute('aria-current', 'page'); box.insertBefore(t, f); }
+      if (!t) { t = f.cloneNode(false); t.removeAttribute('data-ferme-a'); t.removeAttribute('aria-current'); t.setAttribute('data-nav-tom', '1'); t.href = f.getAttribute('href').replace(/legumes\.html$/, 'tom.html'); t.textContent = EN ? 'Who is Tom?' : 'Qui est Tom\u00a0?'; if (/\/tom\.html$/.test(location.pathname)) t.setAttribute('aria-current', 'page'); var fl = box.querySelector(':scope > a[href$="fleurs.html"]') || box.querySelector(':scope > a[href$="fruits.html"]'); box.insertBefore(t, fl.nextSibling); }
       t.style.display = k ? '' : 'none';
     });
     document.querySelectorAll('[data-nav-panel]').forEach(function (pn) {
       var f = pn.querySelector('a[href$="legumes.html"]'); if (!f) return;
       var t = pn.querySelector('[data-nav-tom]');
-      if (!t) { t = f.cloneNode(false); t.removeAttribute('data-ferme-a'); t.removeAttribute('aria-current'); t.setAttribute('data-nav-tom', '1'); t.href = f.getAttribute('href').replace(/legumes\.html$/, 'tom.html'); t.textContent = EN ? 'Who is Tom?' : 'Qui est Tom\u00a0?'; if (/\/tom\.html$/.test(location.pathname)) t.setAttribute('aria-current', 'page'); f.parentNode.insertBefore(t, f); }
-      t.style.display = k ? '' : 'none';
+      if (!t) { t = f.cloneNode(false); t.removeAttribute('data-ferme-a'); t.removeAttribute('aria-current'); t.setAttribute('data-nav-tom', '1'); t.href = f.getAttribute('href').replace(/legumes\.html$/, 'tom.html'); t.textContent = EN ? 'Who is Tom?' : 'Qui est Tom\u00a0?'; if (/\/tom\.html$/.test(location.pathname)) t.setAttribute('aria-current', 'page'); f.parentNode.insertBefore(t, f.nextSibling); }
+      if (!t.hasAttribute('data-kid-label')) t.style.display = k ? '' : 'none';
+    });
+  }
+  function jouerNav() {
+    document.querySelectorAll('[data-nav-panel]').forEach(function (pn) {
+      var q = pn.querySelector(':scope > a[href$="quiz.html"]'), g = pn.querySelector(':scope > a[href$="jeux.html"]'), b = pn.querySelector(':scope > [data-nav-badges]');
+      if (!q || !g) return;
+      var h = pn.querySelector(':scope > [data-nav-jouer]');
+      if (!h) { h = document.createElement('span'); h.setAttribute('data-nav-jouer', '1'); h.setAttribute('data-kid-label', '1'); h.setAttribute('aria-hidden', 'true'); h.style.cssText = q.style.cssText; h.style.cursor = 'default'; h.style.background = 'transparent'; h.textContent = EN ? 'Play' : 'Jouer'; pn.insertBefore(h, q); }
+      [q, g, b].forEach(function (x) { if (!x) return; x.style.paddingLeft = '36px'; x.style.minHeight = '44px'; x.style.fontSize = '16px'; x.style.fontWeight = '600'; });
+      pn.insertBefore(q, h.nextSibling); pn.insertBefore(g, q.nextSibling); if (b) pn.insertBefore(b, g.nextSibling);
     });
   }
   function badgesNav() {
