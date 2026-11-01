@@ -253,6 +253,12 @@
       if (!t) { t = f.cloneNode(false); t.removeAttribute('data-ferme-a'); t.removeAttribute('aria-current'); t.setAttribute('data-nav-tom', '1'); t.href = f.getAttribute('href').replace(/legumes\.html$/, 'tom.html'); t.textContent = EN ? 'Who is Tom?' : 'Qui est Tom\u00a0?'; if (/\/tom\.html$/.test(location.pathname)) t.setAttribute('aria-current', 'page'); box.insertBefore(t, f); }
       t.style.display = k ? '' : 'none';
     });
+    document.querySelectorAll('[data-nav-panel]').forEach(function (pn) {
+      var f = pn.querySelector('a[href$="legumes.html"]'); if (!f) return;
+      var t = pn.querySelector('[data-nav-tom]');
+      if (!t) { t = f.cloneNode(false); t.removeAttribute('data-ferme-a'); t.removeAttribute('aria-current'); t.setAttribute('data-nav-tom', '1'); t.href = f.getAttribute('href').replace(/legumes\.html$/, 'tom.html'); t.textContent = EN ? 'Who is Tom?' : 'Qui est Tom\u00a0?'; if (/\/tom\.html$/.test(location.pathname)) t.setAttribute('aria-current', 'page'); f.parentNode.insertBefore(t, f); }
+      t.style.display = k ? '' : 'none';
+    });
   }
   function badgesNav() {
     document.querySelectorAll('[data-nav-jardin-box] > a[href$="quiz.html"], details a[href$="quiz.html"]').forEach(function (q) {
