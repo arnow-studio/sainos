@@ -212,7 +212,7 @@
     var nav = document.querySelector('header nav.nav'); if (!nav) return;
     var b = nav.querySelector('[data-profil-btn]');
     var s = nav.querySelector('[data-search-btn]');
-    guide(); apropos(); badgesNav(); jouerNav(); ferme();
+    guide(); apropos(); badgesNav(); jouerNav(); ferme(); tabScroll();
     tomRand(); tomMask(); kidSub();
     if (b) { if (force || b.getAttribute('data-face') !== (kid() ? 'k' : 'a')) face(b); place(nav, s, b); return; }
     biblio();
@@ -299,6 +299,7 @@
     br.appendChild(t);
   }
   function showEl(x, on) { if (!x.hasAttribute('data-d0')) x.setAttribute('data-d0', x.style.display === 'none' ? '' : x.style.display); x.style.display = on ? x.getAttribute('data-d0') : 'none'; }
+  function tabScroll() { document.querySelectorAll('[data-sous-jardin], [data-bien-choisir], [data-sous-jouer]').forEach(function (nv) { var c = nv.querySelector('[aria-current="page"]'); if (!c || c.offsetParent === null) return; var bar = c.parentNode; if (bar.scrollWidth <= bar.clientWidth + 2 || bar.hasAttribute('data-ts')) return; bar.setAttribute('data-ts', '1'); var cr = c.getBoundingClientRect(), br = bar.getBoundingClientRect(); bar.scrollLeft = Math.max(0, bar.scrollLeft + cr.left - br.left - (bar.clientWidth - cr.width) / 2); }); }
   function apropos() {
     var k = kid();
     document.querySelectorAll('[data-nav-jardin] > a[href$="apropos.html"]').forEach(function (x) {
