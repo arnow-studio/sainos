@@ -261,13 +261,13 @@
     });
   }
   function jouerNav() {
+    var k = kid();
     document.querySelectorAll('[data-nav-panel]').forEach(function (pn) {
-      var q = pn.querySelector(':scope > a[href$="quiz.html"]'), g = pn.querySelector(':scope > a[href$="jeux.html"]'), b = pn.querySelector(':scope > [data-nav-badges]');
+      var q = pn.querySelector(':scope > a[href$="quiz.html"]'), g = pn.querySelector(':scope > a[href$="jeux.html"]:not([data-nav-jouer])'), bd = pn.querySelector(':scope > [data-nav-badges]');
       if (!q || !g) return;
       var h = pn.querySelector(':scope > [data-nav-jouer]');
-      if (!h) { h = document.createElement('span'); h.setAttribute('data-nav-jouer', '1'); h.setAttribute('data-kid-label', '1'); h.setAttribute('aria-hidden', 'true'); h.style.cssText = q.style.cssText; h.style.cursor = 'default'; h.style.background = 'transparent'; h.textContent = EN ? 'Play' : 'Jouer'; pn.insertBefore(h, q); }
-      [q, g, b].forEach(function (x) { if (!x) return; x.style.paddingLeft = '36px'; x.style.minHeight = '44px'; x.style.fontSize = '16px'; x.style.fontWeight = '600'; });
-      pn.insertBefore(q, h.nextSibling); pn.insertBefore(g, q.nextSibling); if (b) pn.insertBefore(b, g.nextSibling);
+      if (!h) { h = g.cloneNode(false); h.removeAttribute('data-nav-quiz'); h.removeAttribute('aria-current'); h.setAttribute('data-nav-jouer', '1'); h.setAttribute('data-kid-label', '1'); h.textContent = EN ? 'Play' : 'Jouer'; if (/(jeux|quiz|badges)\.html$/.test(location.pathname)) h.setAttribute('aria-current', 'page'); pn.insertBefore(h, q); }
+      [q, g, bd].forEach(function (x) { if (x) showEl(x, !k); });
     });
   }
   function badgesNav() {
