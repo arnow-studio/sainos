@@ -123,7 +123,7 @@
       <nav aria-label="Fil d’Ariane" style="font-size: 14px; display: flex; gap: var(--space-2);"><a href="index.html">Accueil</a><span aria-hidden="true">›</span><span aria-current="page">Lexique</span></nav>
       <sc-if value="{{ adult }}" hint-placeholder-val="{{ true }}"><h1 style="margin: 0; font-size: clamp(36px, 5vw, 58px); line-height: 1.05; text-wrap: balance;">Le Lexique de Sainos</h1>
       <p style="margin: 0; font-size: 18px; line-height: 1.55; color: var(--color-neutral-800); text-wrap: pretty;">Tous les fruits, légumes, fleurs et fromages du site, expliqués en quelques mots.</p></sc-if><sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}"><h1 style="margin: 0; font-size: clamp(36px, 5vw, 58px); line-height: 1.05; text-wrap: balance;">Les mots à connaître</h1>
-      <p style="margin: 0; font-size: 18px; line-height: 1.55; color: var(--color-neutral-800); text-wrap: pretty;">Drupe, tubercule, AOP… Les mots compliqués des fruits et des légumes, expliqués simplement.</p></sc-if>
+      <div data-tom-dit="1" style="display: flex; gap: 14px; align-items: flex-start; max-width: 720px;"><img data-tom-rand="1" src="images/tom/home-s.webp" alt="" width="800" height="800" style="flex: none; width: 96px; height: 96px; border-radius: 50%; object-fit: cover; display: block; background: var(--color-accent-200);"><p style="margin: 0; align-self: center; font-size: 18px; line-height: 1.55; color: var(--color-neutral-800); text-wrap: pretty;"><strong style="font-family: var(--font-heading); font-weight: 400; color: var(--color-accent-800);">Tom :</strong> Drupe, tubercule, AOP… Moi aussi, au début, je ne comprenais rien à ces mots ! Je te les explique simplement.</p></div></sc-if>
     </div>
 
     <div style="display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; padding: var(--space-3); background: #f4efe6; border-radius: var(--radius-lg);">
@@ -282,7 +282,7 @@ class Component extends DCLogic {
     const base = { q, cats, onSearch: e => this.setState({ q: e.target.value }) };
     if (!S) return { ...base, letters: [], sections: [], pSections: [], hasProd: false, empty: false };
     const nq = S.norm(q.trim());
-    const terms = S.lexique.filter(t => (cat === 'all' || t.fam.includes(cat)) && !(kid && t.fam.length === 1 && t.fam[0] === 'fromage') && !(veg && t.fam.length === 1 && t.fam[0] === 'poisson') && !(veg && cat === 'poisson') && (!nq || S.norm(t.terme + ' ' + t.def).includes(nq)))
+    const terms = S.lexique.filter(t => (cat === 'all' || t.fam.includes(cat)) && !(kid && !t.fam.some(x => x === 'potager' || x === 'jardin')) && !(veg && t.fam.length === 1 && t.fam[0] === 'poisson') && !(veg && cat === 'poisson') && (!nq || S.norm(t.terme + ' ' + t.def).includes(nq)))
       .slice().sort((a, b) => a.terme.localeCompare(b.terme, 'fr'));
     const FRM = window.FROMAGES ? window.FROMAGES.fromages : [];
     const famKey = x => S.norm(x || '').replace(/\s+/g, '').replace(/aceae$/, 'acees');

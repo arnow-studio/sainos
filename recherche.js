@@ -57,7 +57,7 @@
       ((window.JARDIN && window.JARDIN.plantes) || []).forEach(function (p) { if (p.fiche) return; var n = EN ? p.en : p.n; idx.push({ n: n, k: norm(n + ' ' + (EN ? p.n : p.en)), t: p.c[0] === 'c' ? T.fleurc : p.c[0] === 'a' ? T.arom : T.fleur, u: ROOT + 'jardin/' + p.s + '.html', img: BASE + 'images/jardin/' + p.s + '.webp', e: p.e }); });
       ((window.POISSONS && window.POISSONS.liste) || []).forEach(function (p) { var n = EN ? p.en : p.n; idx.push({ n: n, k: norm(n + ' ' + (EN ? p.n : p.en) + ' ' + (p.t === 'mer' ? 'fruit de mer seafood' : 'poisson fish')), t: p.t === 'mer' ? T.mer : T.poisson, u: ROOT + 'poissons/' + p.s + '.html', img: BASE + 'images/poissons/' + p.s + '.webp', e: p.e, fish: 1 }); });
       ((window.RECETTES && window.RECETTES.liste) || []).forEach(function (r) { var S = window.SAISON, PO = (window.POISSONS && window.POISSONS.liste) || [], names = r.pr.map(function (s) { var p = S && S.bySlug(s); return p ? p.n : ''; }).concat(r.po.map(function (s) { var f = PO.find(function (x) { return x.s === s; }); return f ? (EN ? f.en : f.n) : ''; })), f0 = r.po[0], p0 = r.pr[0]; idx.push({ n: r.n, k: norm(r.n + ' ' + names.join(' ') + ' ' + r.ing.map(function (i) { return i[2]; }).join(' ') + ' ' + T.recette), t: T.recette, sub: r.catLabel + ' · ' + r.min + '\u00a0min', u: ROOT + 'recettes.html#r=' + r.s, img: f0 ? BASE + 'images/poissons/' + f0 + '.webp' : p0 ? BASE + 'images/' + p0 + '.webp' : '', e: '🍽️', rec: 1, fish: r.reg === 'omni' ? 1 : 0, nv: r.reg !== 'vegan' ? 1 : 0 }); });
-      PAGES.forEach(function (p) { idx.push({ n: p[0], k: norm(p[0]), t: T.page, u: ROOT + p[1], page: 1, cheese: p[2], fish: p[3] }); });
+      PAGES.forEach(function (p) { idx.push({ n: p[0], k: norm(p[0]), t: T.page, u: ROOT + p[1], page: 1, cheese: p[2], fish: p[3], kx: /^(lexique|recettes|menu|marches|enseignants)\.html$/.test(p[1]) ? 1 : 0 }); });
       return idx;
     });
   }
@@ -66,7 +66,7 @@
   function search(q) {
     var n = norm(q).trim(); if (n.length < 2) { hits = []; return render(q); }
     var words = n.split(/\s+/);
-    hits = idx.filter(function (x) { return !(x.cheese && (kid() || document.documentElement.classList.contains('m-vegan'))) && !(x.fish && document.documentElement.classList.contains('m-veg')) && !(x.nv && document.documentElement.classList.contains('m-vegan')) && words.every(function (w) { return x.k.indexOf(w) >= 0; }); })
+    hits = idx.filter(function (x) { return !(kid() && (x.fish || x.rec || x.kx)) && !(x.cheese && (kid() || document.documentElement.classList.contains('m-vegan'))) && !(x.fish && document.documentElement.classList.contains('m-veg')) && !(x.nv && document.documentElement.classList.contains('m-vegan')) && words.every(function (w) { return x.k.indexOf(w) >= 0; }); })
       .map(function (x) { var nn = norm(x.n); return { x: x, s: (nn.indexOf(n) === 0 ? 0 : nn.indexOf(n) > 0 ? 1 : 2) + (x.page ? 0.5 : 0) + (x.rec ? 0.3 : 0) }; })
       .sort(function (a, b) { return a.s - b.s || a.x.n.localeCompare(b.x.n); }).slice(0, 16).map(function (h) { return h.x; });
     sel = 0; render(q);

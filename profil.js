@@ -34,7 +34,8 @@
   function kid() { return document.documentElement.classList.contains('m-kid'); }
   function get() { var p = rd(KP), l = rd(KL); return { nom: p.nom || '', seen: !!p.seen, reg: l.vegan ? 'vegan' : l.veg ? 'veg' : 'omni', pers: l.pers || 2 }; }
 
-  try { if (!document.getElementById('profil-css')) { var cs = document.createElement('style'); cs.id = 'profil-css'; cs.textContent = 'footer a[data-lang]{display:none!important}@media (min-width:1081px){header nav.nav>[data-nav-desk]:has(>a[data-liste-pill]){display:contents!important}header nav.nav>[data-nav-desk]>a[data-liste-pill]{order:10;margin-left:auto!important}header nav.nav>[data-search-btn]{order:11;margin-left:0!important}header nav.nav>[data-profil-btn]{order:12}html.m-kid header nav.nav>[data-search-btn]{margin-left:auto!important}header nav.nav>[data-nav-desk]:has(>a[data-liste-pill])>:not(a[data-liste-pill]){order:13}header nav.nav>[data-nav-burger]{order:14}}@media (min-width:600px) and (max-width:1080px){header nav.nav>[data-nav-desk]:has(>a[data-liste-pill]){margin-left:auto!important}header nav.nav>[data-search-btn],header nav.nav>[data-profil-btn]{order:3;margin-left:0!important}header nav.nav>[data-nav-burger]{order:4!important}}@media (min-width:1081px) and (max-width:1320px){header nav.nav{column-gap:14px!important}header nav.nav>[data-nav-desk]:not(:has(>a[data-liste-pill])){gap:18px!important;font-size:15.5px}header nav.nav>[data-nav-desk]>button{padding:6px 10px!important;font-size:13px!important}}@media (max-width:1080px){header nav.nav .nav-brand img{width:auto!important;height:auto!important;max-height:48px!important}}@media (max-width:600px){header nav.nav .nav-brand img{max-height:38px!important}}[data-profil-dlg] button:focus-visible,[data-profil-dlg] input:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px}'; document.head.appendChild(cs); } } catch (e) {}
+  try { if (/(^|\/)recettes\.html$/.test(location.pathname) && localStorage.getItem('sainos-mode') === 'enfant') location.replace('index.html'); } catch (e) {}
+  try { if (!document.getElementById('profil-css')) { var cs = document.createElement('style'); cs.id = 'profil-css'; cs.textContent = 'html:not(.m-kid) [data-nav-badges]{display:none!important}html.m-kid a[data-nav-lex][href$="lexique.html"]{display:revert!important}html.m-kid a[href$="recettes.html"],html.m-kid [data-nav-jardin]:has(> a[href$="apropos.html"]) > [data-nav-jardin-panel],html.m-kid [data-sous-apropos],html.m-kid [data-nav-rec],html.m-kid [data-nav-biblio],html.m-kid a[href$="bibliotheque.html"],html.m-kid section[aria-labelledby="h-recettes"],html.m-kid aside:has(a[href$="recettes.html"]){display:none!important}footer a[data-lang]{display:none!important}@media (min-width:1081px){header nav.nav>[data-nav-desk]:has(>a[data-liste-pill]){display:contents!important}header nav.nav>[data-nav-desk]>a[data-liste-pill]{order:10;margin-left:auto!important}header nav.nav>[data-search-btn]{order:11;margin-left:0!important}header nav.nav>[data-profil-btn]{order:12}html.m-kid header nav.nav>[data-search-btn]{margin-left:auto!important}header nav.nav>[data-nav-desk]:has(>a[data-liste-pill])>:not(a[data-liste-pill]){order:13}header nav.nav>[data-nav-burger]{order:14}}@media (min-width:600px) and (max-width:1080px){header nav.nav>[data-nav-desk]:has(>a[data-liste-pill]){margin-left:auto!important}header nav.nav>[data-search-btn],header nav.nav>[data-profil-btn]{order:3;margin-left:0!important}header nav.nav>[data-nav-burger]{order:4!important}}@media (min-width:1081px) and (max-width:1320px){header nav.nav{column-gap:14px!important}header nav.nav>[data-nav-desk]:not(:has(>a[data-liste-pill])){gap:18px!important;font-size:15.5px}header nav.nav>[data-nav-desk]>button{padding:6px 10px!important;font-size:13px!important}}@media (max-width:1080px){header nav.nav .nav-brand img{width:auto!important;height:auto!important;max-height:48px!important}}@media (max-width:600px){header nav.nav .nav-brand img{max-height:38px!important}}[data-profil-dlg] button:focus-visible,[data-profil-dlg] input:focus-visible{outline:2px solid var(--color-accent);outline-offset:2px}'; document.head.appendChild(cs); } } catch (e) {}
 
   var ov, st, lastFocus;
   var FS = 'font:inherit;font-size:16px;';
@@ -69,6 +70,7 @@
       + '<button type="button" data-lang-opt="fr" lang="fr" style="min-height:44px;padding:8px 18px;font-size:16px;white-space:nowrap;">Français</button><button type="button" data-lang-opt="en" lang="en" style="min-height:44px;padding:8px 18px;font-size:16px;white-space:nowrap;">English</button>'
       + '</div><p style="' + help + '">' + T.langH + '</p></div>'
       + '<p style="display:flex;gap:10px;align-items:flex-start;margin:0;padding:14px 16px;border-radius:18px;background:var(--color-accent-2-100);color:var(--color-accent-2-900);font-size:14px;line-height:1.45;text-wrap:pretty;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:1px;"><rect x="4" y="11" width="16" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>' + T.priv + '</span></p>'
+      + '<a data-k="album" href="' + albumHref() + '" class="btn btn-secondary" style="align-self:flex-start;margin-top:-8px;padding:10px 18px;font-size:16px;">' + KT.album + '</a>'
       + '<button type="button" data-k="del" style="align-self:flex-start;min-height:44px;margin:-8px 0 0;padding:8px 0;border:0;background:none;font:inherit;font-size:14px;font-weight:700;color:var(--color-accent-800);text-decoration:underline;cursor:pointer;">' + T.del + '</button>'
       + '<div data-k="foot" style="position:sticky;bottom:0;z-index:2;display:flex;flex-wrap:nowrap;align-items:center;gap:8px;margin:-8px -28px -28px;padding:12px 20px 14px;background:var(--color-bg,#f5ead8);border-top:1px solid var(--color-neutral-200,rgba(140,73,26,.14));box-shadow:0 -10px 24px -14px rgba(60,40,20,.35);border-radius:0 0 28px 28px;"><button type="submit" class="btn btn-primary" style="flex:1 1 auto;min-height:48px;padding:12px 22px;font-size:16px;white-space:nowrap;">' + T.save + '</button><button type="button" data-k="later" class="btn btn-ghost" style="flex:none;min-height:48px;padding:12px 18px;font-size:16px;white-space:nowrap;"></button>'
       + '</div>'
@@ -121,21 +123,25 @@
   // --- Profil enfant (séparé) ---
   var KK = 'sainos-profil-enfant';
   var AV = ['🍓', '🥕', '🍎', '🍐', '🍇', '🥦', '🍅', '🌽', '🍄', '🎃', '🥝', '🍒'];
-  var TK = { en: { btn: 'My kid profile', of: 'Profile of ', hi: 'Hi ', ex: '!', hello: 'Hi there!', intro: 'Pick a name and your favourite fruit or veg. It stays on this device.', nom: 'Your name or nickname', nomPh: 'e.g. Léo', av: 'Your mascot', badges: function (n, t) { return 'You have ' + n + ' badge' + (n > 1 ? 's' : '') + ' out of ' + t + '. Keep exploring to collect them all!'; }, save: 'Save', cancel: 'Cancel', close: 'Close', del: 'Erase my profile' },
-    fr: { btn: 'Mon profil enfant', of: 'Profil de ', hi: 'Bonjour ', ex: NB + '!', hello: 'Salut' + NB + '!', intro: 'Choisis ton prénom et ton fruit ou légume préféré. Tout reste sur cet appareil.', nom: 'Ton prénom ou pseudo', nomPh: 'ex.' + NB + ': Léo', av: 'Ta mascotte', badges: function (n, t) { return 'Tu as ' + n + ' badge' + (n > 1 ? 's' : '') + ' sur ' + t + '. Continue d’explorer pour tous les gagner' + NB + '!'; }, save: 'Enregistrer', cancel: 'Annuler', close: 'Fermer', del: 'Effacer mon profil' } };
+  var TK = { en: { btn: 'My kid profile', of: 'Profile of ', hi: 'Hi ', ex: '!', hello: 'Hi there!', intro: 'Pick a name and your favourite fruit or veg. It stays on this device.', nom: 'Your name or nickname', nomPh: 'e.g. Léo', av: 'Your mascot', age: 'How old are you?', ages: [['🐣', 'Ages 4-6'], ['🌱', 'Ages 7-9'], ['🌳', 'Ages 10-12'], ['🏅', 'Ages 13+']], ageHint: 'Your quizzes will match your age.', badges: function (n, t) { return 'You have ' + n + ' badge' + (n > 1 ? 's' : '') + ' out of ' + t + '. Keep exploring to collect them all!'; }, save: 'Save', cancel: 'Cancel', close: 'Close', del: 'Erase my profile', album: '🏅 See my badge album', lang: 'Your language' },
+    fr: { btn: 'Mon profil enfant', of: 'Profil de ', hi: 'Bonjour ', ex: NB + '!', hello: 'Salut' + NB + '!', intro: 'Choisis ton prénom et ton fruit ou légume préféré. Tout reste sur cet appareil.', nom: 'Ton prénom ou pseudo', nomPh: 'ex.' + NB + ': Léo', av: 'Ta mascotte', age: 'Quel âge as-tu' + NB + '?', ages: [['🐣', '4-6 ans'], ['🌱', '7-9 ans'], ['🌳', '10-12 ans'], ['🏅', '13 ans et +']], ageHint: 'Tes quiz seront adaptés à ton âge.', badges: function (n, t) { return 'Tu as ' + n + ' badge' + (n > 1 ? 's' : '') + ' sur ' + t + '. Continue d’explorer pour tous les gagner' + NB + '!'; }, save: 'Enregistrer', cancel: 'Annuler', close: 'Fermer', del: 'Effacer mon profil', album: '🏅 Voir mon album de badges', lang: 'Ta langue' } };
   var KT = TK[PL], ovK, stK;
-  function getK() { var k = rd(KK); return { nom: k.nom || '', av: k.av || '' }; }
+  function getK() { var k = rd(KK), qa = ''; try { qa = localStorage.getItem('sainos-quiz-age') || ''; } catch (e) {} return { nom: k.nom || '', av: k.av || '', age: qa || k.age || '' }; }
+  function albumHref() { var q = document.querySelector('a[href$="quiz.html"]'); return q ? q.getAttribute('href').replace(/quiz\.html$/, 'badges.html') : 'badges.html'; }
   function nbBadges() { try { return (JSON.parse(localStorage.getItem('sainos-badges') || '[]') || []).length; } catch (e) { return 0; } }
   function nbTotal() { return window.SAISON && window.SAISON.produits ? window.SAISON.produits.length : 44; }
   function paintK() {
     ovK.querySelector('[data-k=title]').textContent = stK.nom ? KT.hi + stK.nom + KT.ex : KT.hello;
     ovK.querySelectorAll('[data-av]').forEach(function (b) { var on = b.getAttribute('data-av') === stK.av; b.setAttribute('aria-pressed', on); b.style.background = on ? 'var(--color-accent-200)' : '#fff'; b.style.borderColor = on ? 'var(--color-accent-600)' : 'transparent'; });
+    ovK.querySelectorAll('[data-age]').forEach(function (b) { var on = b.getAttribute('data-age') === String(stK.age); b.setAttribute('aria-pressed', on); b.style.background = on ? 'var(--color-accent-200)' : '#fff'; b.style.borderColor = on ? 'var(--color-accent-600)' : 'transparent'; });
     ovK.querySelector('[data-k=badges]').textContent = KT.badges(nbBadges(), nbTotal());
+    ovK.querySelectorAll('[data-klang]').forEach(function (b) { var on = b.getAttribute('data-klang') === stK.lang; b.setAttribute('aria-pressed', on); b.style.background = on ? 'var(--color-accent-200)' : '#fff'; b.style.borderColor = on ? 'var(--color-accent-600)' : 'transparent'; });
+    ovK.querySelector('[data-k=klangbox]').style.display = langUrl() ? '' : 'none';
   }
   function buildK() {
     ovK = document.createElement('div'); ovK.setAttribute('data-profil-dlg', '1');
     ovK.style.cssText = 'position:fixed;inset:0;z-index:1001;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(32,30,29,.45);font-family:var(--font-body);color:var(--color-text);';
-    ovK.innerHTML = '<div role="dialog" aria-modal="true" aria-labelledby="pk-title" style="width:100%;max-width:480px;max-height:100%;overflow:auto;box-sizing:border-box;background:var(--color-bg,#f5ead8);border-radius:28px;box-shadow:0 24px 60px rgba(0,0,0,.25);">'
+    ovK.innerHTML = '<div role="dialog" aria-modal="true" aria-labelledby="pk-title" lang="' + (KT === TK.en ? 'en' : 'fr') + '" style="width:100%;max-width:480px;max-height:100%;overflow:auto;box-sizing:border-box;background:var(--color-bg,#f5ead8);border-radius:28px;box-shadow:0 24px 60px rgba(0,0,0,.25);">'
       + '<div style="display:flex;align-items:flex-start;gap:12px;padding:24px 20px 4px 28px;"><div style="flex:1;min-width:0;"><h2 id="pk-title" data-k="title" style="margin:0;font-family:var(--font-heading);font-size:30px;line-height:1.1;"></h2>'
       + '<p style="margin:8px 0 0;font-size:17px;line-height:1.5;text-wrap:pretty;">' + KT.intro + '</p></div>'
       + '<button type="button" data-k="x" aria-label="' + KT.close + '" style="flex:none;width:44px;height:44px;border:0;border-radius:999px;background:var(--color-accent-100);color:var(--color-text);cursor:pointer;display:grid;place-items:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>'
@@ -144,7 +150,14 @@
       + '<div role="group" aria-labelledby="pk-av"><span id="pk-av" style="' + lbl + 'font-size:17px;">' + KT.av + '</span><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(56px,1fr));gap:8px;">'
       + AV.map(function (a) { return '<button type="button" data-av="' + a + '" style="height:56px;border:3px solid transparent;border-radius:50%;background:#fff;font-size:30px;line-height:1;cursor:pointer;padding:0;">' + a + '</button>'; }).join('')
       + '</div></div>'
+      + '<div role="group" aria-labelledby="pk-age"><span id="pk-age" style="' + lbl + 'font-size:17px;">' + KT.age + '</span><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;">'
+      + KT.ages.map(function (a, i) { return '<button type="button" data-age="' + (i + 1) + '" style="min-height:64px;border:3px solid transparent;border-radius:20px;background:#fff;font:inherit;font-size:15px;font-weight:700;color:var(--color-text);cursor:pointer;padding:6px 4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;"><span aria-hidden="true" style="font-size:22px;line-height:1;">' + a[0] + '</span>' + a[1] + '</button>'; }).join('')
+      + '</div><p style="margin:8px 0 0;font-size:14px;color:var(--color-neutral-700,#5b5650);">' + KT.ageHint + '</p></div>'
+      + '<div role="group" aria-labelledby="pk-lang" data-k="klangbox"><span id="pk-lang" style="' + lbl + 'font-size:17px;">' + KT.lang + '</span><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;">'
+      + [['fr', '🇫🇷', 'Français'], ['en', '🇬🇧', 'English']].map(function (l) { return '<button type="button" data-klang="' + l[0] + '" lang="' + l[0] + '" style="min-height:56px;border:3px solid transparent;border-radius:20px;background:#fff;font:inherit;font-size:16px;font-weight:700;color:var(--color-text);cursor:pointer;padding:6px 12px;display:flex;align-items:center;justify-content:center;gap:8px;"><span aria-hidden="true" style="font-size:24px;line-height:1;">' + l[1] + '</span>' + l[2] + '</button>'; }).join('')
+      + '</div></div>'
       + '<p data-k="badges" style="margin:0;padding:14px 16px;border-radius:18px;background:var(--color-accent-2-100);color:var(--color-accent-2-900);font-size:16px;font-weight:700;line-height:1.45;text-wrap:pretty;"></p>'
+      + '<a data-k="album" href="' + albumHref() + '" class="btn btn-secondary" style="align-self:flex-start;margin-top:-8px;padding:10px 18px;font-size:16px;">' + KT.album + '</a>'
       + '<button type="button" data-k="del" style="align-self:flex-start;min-height:44px;margin:-8px 0 0;padding:8px 0;border:0;background:none;font:inherit;font-size:15px;font-weight:700;color:var(--color-accent-800);text-decoration:underline;cursor:pointer;">' + KT.del + '</button>'
       + '<div style="display:flex;align-items:center;gap:8px;"><button type="submit" class="btn btn-primary" style="flex:1 1 auto;min-height:48px;padding:12px 22px;font-size:17px;">' + KT.save + '</button><button type="button" data-k="later" class="btn btn-ghost" style="flex:none;min-height:48px;padding:12px 18px;font-size:17px;">' + KT.cancel + '</button></div>'
       + '</form></div>';
@@ -153,11 +166,15 @@
       if (e.target === ovK) return closeK();
       var b = e.target.closest('button'); if (!b) return;
       var a = b.getAttribute('data-av'), k = b.getAttribute('data-k');
-      if (a) { stK.av = stK.av === a ? '' : a; paintK(); }
+      var g = b.getAttribute('data-age');
+      var kl = b.getAttribute('data-klang');
+      if (kl) { if (kl !== stK.lang) { stK.lang = kl; stK.nom = ovK.querySelector('#pk-nom').value; KT = TK[kl]; ovK.remove(); ovK = null; buildK(); ovK.querySelector('#pk-nom').value = stK.nom; paintK(); ovK.style.display = 'flex'; var fb = ovK.querySelector('[data-klang="' + kl + '"]'); if (fb) fb.focus(); } }
+      else if (g) { stK.age = g; paintK(); }
+      else if (a) { stK.av = stK.av === a ? '' : a; paintK(); }
       else if (k === 'x' || k === 'later') closeK();
-      else if (k === 'del') { try { localStorage.removeItem(KK); } catch (e2) {} stK = getK(); ovK.querySelector('#pk-nom').value = ''; paintK(); refresh(); }
+      else if (k === 'del') { try { localStorage.removeItem(KK); } catch (e2) {} stK = getK(); stK.lang = EN ? 'en' : 'fr'; ovK.querySelector('#pk-nom').value = ''; paintK(); refresh(); }
     });
-    ovK.querySelector('form').addEventListener('submit', function (e) { e.preventDefault(); stK.nom = ovK.querySelector('#pk-nom').value.trim(); wr(KK, stK); refresh(); closeK(); });
+    ovK.querySelector('form').addEventListener('submit', function (e) { e.preventDefault(); stK.nom = ovK.querySelector('#pk-nom').value.trim(); var kGo = stK.lang !== (EN ? 'en' : 'fr') && langUrl(); try { localStorage.setItem('sainos-lang', stK.lang); } catch (e5) {} delete stK.lang; wr(KK, stK); if (stK.age) { try { localStorage.setItem('sainos-quiz-age', String(stK.age)); } catch (e3) {} } try { window.dispatchEvent(new Event('sainos-profil-enfant')); } catch (e4) {} refresh(); closeK(); if (kGo) location.href = kGo; });
     ovK.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') { e.preventDefault(); closeK(); return; }
       if (e.key !== 'Tab') return;
@@ -168,11 +185,11 @@
   }
   function openK() {
     if (!ovK) buildK();
-    stK = getK(); ovK.querySelector('#pk-nom').value = stK.nom; paintK();
+    stK = getK(); stK.lang = EN ? 'en' : 'fr'; ovK.querySelector('#pk-nom').value = stK.nom; paintK();
     lastFocus = document.activeElement; ovK.style.display = 'flex'; document.documentElement.style.overflow = 'hidden';
     setTimeout(function () { ovK.querySelector('#pk-nom').focus(); }, 0);
   }
-  function closeK() { if (!ovK || ovK.style.display === 'none') return; ovK.style.display = 'none'; document.documentElement.style.overflow = ''; if (lastFocus && lastFocus.focus) lastFocus.focus(); }
+  function closeK() { if (!ovK || ovK.style.display === 'none') return; ovK.style.display = 'none'; document.documentElement.style.overflow = ''; if (KT !== TK[PL]) { KT = TK[PL]; ovK.remove(); ovK = null; } if (lastFocus && lastFocus.focus) lastFocus.focus(); }
 
   function face(b) {
     if (kid()) {
@@ -181,6 +198,7 @@
       b.innerHTML = k.av ? '<span aria-hidden="true" style="width:34px;height:34px;border-radius:50%;background:var(--color-accent-200);display:grid;place-items:center;font-size:21px;line-height:1;">' + k.av + '</span>'
         : ki ? '<span aria-hidden="true" style="width:32px;height:32px;border-radius:50%;background:var(--color-accent-200);color:var(--color-accent-900);display:grid;place-items:center;font-family:var(--font-heading);font-size:17px;line-height:1;">' + esc(ki) + '</span>'
         : '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>';
+      var nbB = nbBadges(); if (nbB) b.innerHTML = '<span style="position:relative;display:grid;place-items:center;">' + b.innerHTML + '<span aria-hidden="true" style="position:absolute;right:-9px;bottom:-7px;min-width:20px;height:20px;padding:0 5px;box-sizing:border-box;border-radius:999px;background:#ffc83d;color:#4a3200;font-family:var(--font-body);font-size:11px;font-weight:800;line-height:20px;text-align:center;">' + nbB + '</span></span>';
       b.setAttribute('data-face', 'k'); return;
     }
     b.setAttribute('data-face', 'a');
@@ -194,6 +212,8 @@
     var nav = document.querySelector('header nav.nav'); if (!nav) return;
     var b = nav.querySelector('[data-profil-btn]');
     var s = nav.querySelector('[data-search-btn]');
+    guide(); apropos(); badgesNav(); ferme();
+    tomRand(); tomMask(); kidSub();
     if (b) { if (force || b.getAttribute('data-face') !== (kid() ? 'k' : 'a')) face(b); place(nav, s, b); return; }
     biblio();
     if (!s) return;
@@ -204,6 +224,73 @@
     place(nav, s, b);
   }
   function place(nav, s, b) { if (s && b.previousElementSibling !== s) s.parentNode.insertBefore(b, s.nextSibling); }
+  function guide() {
+    var k = kid();
+    document.querySelectorAll('[data-bien-choisir] > span:first-child').forEach(function (x) {
+      if (!x.hasAttribute('data-guide-a')) x.setAttribute('data-guide-a', x.textContent);
+      x.textContent = k ? (EN ? 'Where does it come from?' : 'D’où ça vient\u00a0?') : x.getAttribute('data-guide-a');
+    });
+    document.querySelectorAll('[data-nav-jardin] > a[href$="origines.html"], details a[href$="origines.html"]').forEach(function (x) {
+      if (!x.hasAttribute('data-guide-a')) { if (!/guide/i.test(x.textContent)) return; x.setAttribute('data-guide-a', x.textContent); }
+      var arr = /▾/.test(x.getAttribute('data-guide-a')) ? ' ▾' : '';
+      x.textContent = k ? (EN ? 'Where does it come from?' : 'D’où ça vient\u00a0?') + arr : x.getAttribute('data-guide-a');
+    });
+    document.querySelectorAll('[data-bien-choisir] a[href$="lexique.html"], [data-bien-choisir] span[aria-current]:not([href]), [data-nav-jardin-panel] a[href$="lexique.html"], details a[href$="lexique.html"]').forEach(function (x) {
+      if (x.tagName === 'SPAN' && !/^(Lexique|Glossary)$/i.test(x.textContent.trim())) return;
+      x.style.display = k ? 'none' : '';
+    });
+  }
+  function ferme() {
+    var k = kid(), FR = { 'La ferme': 'Ma ferme', 'Le Potager': 'Mon Potager', 'Le Verger': 'Mon Verger', 'Le Jardin': 'Mon Jardin' }, ENm = { 'The Farm': 'My Farm', 'The Vegetable Garden': 'My Vegetable Garden', 'The Orchard': 'My Orchard', 'The Garden': 'My Garden' }, M = EN ? ENm : FR;
+    document.querySelectorAll('[data-nav-jardin] > a[href$="legumes.html"], [data-nav-jardin-box] > a[href$="legumes.html"], [data-nav-jardin-box] > a[href$="fruits.html"], [data-nav-jardin-box] > a[href$="fleurs.html"], [data-nav-panel] > a[href$="legumes.html"]').forEach(function (x) {
+      if (!x.hasAttribute('data-ferme-a')) x.setAttribute('data-ferme-a', x.textContent);
+      var o = x.getAttribute('data-ferme-a'), arr = /▾/.test(o) ? ' ▾' : '', b = o.replace(/\s*▾\s*$/, '');
+      x.textContent = k && M[b] ? M[b] + arr : o;
+    });
+    document.querySelectorAll('[data-nav-jardin-box]').forEach(function (box) {
+      var f = box.querySelector(':scope > a[href$="legumes.html"]'); if (!f || !box.querySelector(':scope > a[href$="fruits.html"]')) return;
+      var t = box.querySelector('[data-nav-tom]');
+      if (!t) { t = f.cloneNode(false); t.removeAttribute('data-ferme-a'); t.removeAttribute('aria-current'); t.setAttribute('data-nav-tom', '1'); t.href = f.getAttribute('href').replace(/legumes\.html$/, 'tom.html'); t.textContent = EN ? 'Who is Tom?' : 'Qui est Tom\u00a0?'; if (/\/tom\.html$/.test(location.pathname)) t.setAttribute('aria-current', 'page'); box.insertBefore(t, f); }
+      t.style.display = k ? '' : 'none';
+    });
+  }
+  function badgesNav() {
+    document.querySelectorAll('[data-nav-jardin-box] > a[href$="quiz.html"], details a[href$="quiz.html"]').forEach(function (q) {
+      if (q.parentNode.querySelector('[data-nav-badges]')) return;
+      var x = q.cloneNode(false); x.removeAttribute('aria-current'); x.setAttribute('data-nav-badges', '1'); x.href = q.getAttribute('href').replace(/quiz\.html$/, 'badges.html'); x.textContent = EN ? 'My badges' : 'Mes badges';
+      if (/badges\.html$/.test(location.pathname)) x.setAttribute('aria-current', 'page');
+      var nx = q.nextElementSibling; while (nx && /jeux\.html$/.test(nx.getAttribute('href') || '')) { q = nx; nx = q.nextElementSibling; }
+      q.parentNode.insertBefore(x, q.nextSibling);
+    });
+  }
+  var TOMP = ['home', 'verger', 'potager', 'jardin'][Math.floor(Math.random() * 4)];
+  function tomRand() { document.querySelectorAll('img[data-tom-rand]:not([data-tom-done])').forEach(function (i) { var w = parseInt(i.style.width, 10) || 0, sx = w && w <= 160 ? '-s' : ''; i.src = i.getAttribute('src').replace(/tom\/[a-z]+(-s)?\.webp$/, 'tom/' + TOMP + sx + '.webp'); i.setAttribute('data-tom-done', '1'); }); }
+  var TMK = ['47% 53% 51% 49% / 53% 47% 52% 48%', '52% 48% 46% 54% / 48% 54% 46% 52%', '49% 51% 55% 45% / 46% 52% 48% 54%', '54% 46% 49% 51% / 51% 45% 55% 49%', '45% 55% 52% 48% / 49% 53% 47% 51%'], tmI = 0;
+  if (!document.getElementById('tom-mask-css')) { var tms = document.createElement('style'); tms.id = 'tom-mask-css'; tms.textContent = 'img[src*="tom/"]{border-radius:48% 52% 46% 54% / 53% 47% 52% 48%!important}'; (document.head || document.documentElement).appendChild(tms); }
+  function tomMask() {
+    document.querySelectorAll('img[src*="tom/"]:not([data-tm]), [style*="tom/"]:not(img):not([data-tm])').forEach(function (el) {
+      el.setAttribute('data-tm', '1');
+      var t = el, r = TMK[tmI++ % TMK.length];
+      if (el.tagName !== 'IMG') { if (/histoire\//.test(el.getAttribute('style'))) return; var cs = getComputedStyle(el); if (cs.position === 'absolute' && el.parentElement) t = el.parentElement; }
+      if (t.tagName === 'IMG') { t.style.setProperty('border-radius', r, 'important'); return; }
+      var br = getComputedStyle(t).borderTopLeftRadius; if (/%$/.test(br) || parseFloat(br) >= 30) t.style.setProperty('border-radius', r, 'important');
+    });
+  }
+  function kidSub() {
+    if (!document.getElementById('kid-sub-css')) { var ks = document.createElement('style'); ks.id = 'kid-sub-css'; ks.textContent = 'html:not(.m-kid) [data-kid-sub]{display:none!important}html.m-kid header [data-baseline]{display:none!important}[data-kid-sub]{transition:opacity .2s,max-height .2s;max-height:20px;overflow:hidden}html.is-scrolled [data-kid-sub]{opacity:0;max-height:0}html.m-kid header .nav-brand{flex-direction:column!important;align-items:center!important;gap:4px!important}[data-kid-sub]{display:block;font-family:var(--font-body);font-size:14px;font-weight:700;line-height:1;white-space:nowrap;color:var(--color-text);text-align:center}[data-kid-sub] span{color:#01b0ae}'; document.head.appendChild(ks); }
+    var br = document.querySelector('header .nav-brand'); if (!br || br.querySelector('[data-kid-sub]')) return;
+    var t = document.createElement('span'); t.setAttribute('data-kid-sub', '1'); t.innerHTML = EN ? 'Tom and the <span>4 Seasons</span>' : 'Tom et les <span>4 Saisons</span>';
+    br.appendChild(t);
+  }
+  function apropos() {
+    var k = kid();
+    document.querySelectorAll('[data-nav-jardin] > a[href$="apropos.html"]').forEach(function (x) {
+      if (!x.hasAttribute('data-ap-a')) x.setAttribute('data-ap-a', x.textContent);
+      var o = x.getAttribute('data-ap-a');
+      x.textContent = k ? o.replace(/\s*▾\s*$/, '') : o;
+      if (k) x.removeAttribute('aria-haspopup'); else x.setAttribute('aria-haspopup', 'true');
+    });
+  }
   function biblio() {
     if (EN) return;
     var base = (document.querySelector('header [data-nav-mar]') || {}).getAttribute ? document.querySelector('header [data-nav-mar]') : null;

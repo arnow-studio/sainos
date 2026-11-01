@@ -136,7 +136,7 @@
     <section style="display: flex; flex-direction: column; gap: var(--space-4); max-width: 720px;">
       <nav aria-label="Fil d’Ariane" style="font-size: 14px; display: flex; gap: var(--space-2);"><a href="index.html">Accueil</a><span aria-hidden="true">›</span><span aria-current="page">Quiz</span></nav>
       <h1 style="margin: 0; font-size: clamp(38px, 5.5vw, 64px); line-height: 1.02; text-wrap: balance;">Le grand quiz de Sainos</h1>
-      <p style="margin: 0; font-size: 19px; line-height: 1.65; text-wrap: pretty;">Choisis ton âge et ton thème : 10 questions pour tester tes connaissances. Une bonne réponse = une étoile. Arriveras-tu à toutes les gagner ?</p>
+      <div data-tom-dit="1" style="display: flex; gap: 14px; align-items: flex-start; max-width: 720px;"><img data-tom-rand="1" src="images/tom/home-s.webp" alt="" width="800" height="800" style="flex: none; width: 96px; height: 96px; border-radius: 50%; object-fit: cover; display: block; background: var(--color-accent-200);"><p style="margin: 0; align-self: center; font-size: 19px; line-height: 1.65; text-wrap: pretty;"><strong style="font-family: var(--font-heading); font-weight: 400; color: var(--color-accent-800);">Tom :</strong> Prêt pour mon grand quiz ? Choisis ton âge et ton thème : 10 questions pour tester tes connaissances. Une bonne réponse = une étoile. Arriveras-tu à toutes les gagner ?</p></div>
     </section>
 
     <section id="q-start" aria-label="Choisir son âge et un thème" style="display: flex; flex-direction: column; gap: var(--space-5, 20px); padding: clamp(24px, 4vw, 40px); background: var(--color-accent-100); border: 3px solid var(--color-accent-300); border-radius: 32px; max-width: 820px;">
@@ -170,6 +170,7 @@
         <div style="display: flex; gap: var(--space-4); align-items: center;">
           <span style="flex: none; display: grid; place-items: center; width: clamp(80px, 14vw, 112px); height: clamp(80px, 14vw, 112px); border-radius: 50%; background: var(--color-accent-100);"><img loading="lazy" decoding="async" id="q-img" alt="" width="96" height="96" style="width: 72%; height: 72%; object-fit: contain;"></span>
           <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0;">
+            <span style="display: flex; align-items: center; gap: 10px;"><img id="q-tom" src="images/tom/question-v2-s.webp" alt="" width="600" height="600" style="flex: none; width: 64px; height: 64px; border-radius: 48% 52% 45% 55% / 54% 46% 53% 47%; object-fit: cover; background: var(--color-accent-100); display: block;"><span style="font-family: var(--font-heading); font-size: 18px; color: var(--color-accent-800);">Tom te demande :</span></span>
             <span id="q-name" class="tag tag-accent-2" style="align-self: flex-start; font-size: 14px;"></span>
             <h2 id="q-text" style="margin: 0; font-size: clamp(22px, 3vw, 30px); line-height: 1.2; text-wrap: balance;"></h2>
           </div>
@@ -193,6 +194,7 @@
       <p id="q-end-p" style="margin: 0; font-size: 18px; line-height: 1.6; text-wrap: pretty;"></p>
       <div style="display: flex; flex-wrap: wrap; gap: var(--space-3);">
         <button type="button" id="q-again" class="btn btn-primary" style="padding: 14px 28px; font-size: 18px; min-height: 56px;">Rejouer</button>
+        <a href="badges.html" class="btn btn-ghost" style="padding: 14px 24px; font-size: 18px; min-height: 56px; display: inline-flex; align-items: center;">🏅 Mes records</a>
         <button type="button" id="q-theme" class="btn btn-secondary" style="padding: 14px 28px; font-size: 18px; min-height: 56px;">Changer de thème</button>
       </div>
     </section>
@@ -319,7 +321,7 @@
   var GEN = { 1: [qPhoto, qPhoto, qType], 2: [qPhoto, qPhoto, qType, qSaison], 3: [qFiche, qPhoto, qSaison, qType], 4: [qFiche, qFam, qFam, qOrig] };
   var LAB = { 1: '🐣 4-6 ans', 2: '🌱 7-9 ans', 3: '🌳 10-12 ans', 4: '🏅 13 ans et +' };
   function pool() { var lim = age <= 2 ? 20 : age === 3 ? 35 : 999; if (theme === 'jardin') return JAR.slice(0, lim); if (theme === 'fromage') return FRO.filter(function (x) { return age > 2 || x.lait !== (EMO.Bufflonne ? 'Bufflonne' : 'Buffalo'); }).slice(0, lim); return all.filter(function (p) { return p.t !== 'herbe' && (theme === 'tout' || theme === 'defi' || p.t === theme) && (age > 2 || theme === 'defi' || theme === 'herbe' || COM.indexOf(p.s) >= 0); }); }
-  function key() { return 'sainos-quiz-best-' + age; }
+  function key() { return 'sainos-quiz-best-' + age + (theme === 'tout' ? '' : '-' + theme); }
   function showBest() { var b = +ls(key()) || 0; $('q-best').textContent = b ? '⭐ Ton record (' + LAB[age] + ')' + NB + ': ' + b + ' / ' + N : ''; }
   function build() {
     var g = theme === 'defi' ? (age < 4 ? GEN[age + 1] : [qFiche, qFam, qOrig, qSaison]) : GEN[age], out = [];
@@ -338,7 +340,7 @@
     $('q-stars').textContent = '⭐ ' + score;
     $('q-img').src = p.img || ('images/' + p.s + '.webp'); $('q-img').alt = q.hide ? 'Devine\u202F!' : p.n;
     $('q-name').textContent = q.hide ? '❓ Devine' : p.e + ' ' + p.n;
-    $('q-text').textContent = q.text;
+    $('q-text').textContent = q.text; $('q-tom').src = 'images/tom/question-v2-s.webp';
     var box = $('q-opts'); box.innerHTML = '';
     q.opts.forEach(function (o, k) {
       var b = document.createElement('button'); b.type = 'button'; b.className = 'qopt pop'; b.style.animationDelay = (k * 60) + 'ms';
@@ -351,7 +353,7 @@
   function answer(k) {
     var q = deck[i], p = q.p, good = k === q.ans, bs = $('q-opts').children;
     for (var j = 0; j < bs.length; j++) { bs[j].disabled = true; bs[j].classList.remove('pop'); bs[j].classList.add(j === q.ans ? 'ok' : j === k ? 'ko' : 'dim'); }
-    if (good) score++; else bs[k].classList.add('wob');
+    if (good) score++; else bs[k].classList.add('wob'); $('q-tom').src = 'images/tom/' + (good ? 'bonne' : 'mauvaise') + '-reponse-s.webp';
     $('q-stars').textContent = '⭐ ' + score;
     if (q.hide) { $('q-name').textContent = p.e + ' ' + p.n; $('q-img').alt = p.n; }
     var fb = $('q-fb'); fb.hidden = false; fb.style.display = 'flex';
@@ -376,8 +378,24 @@
   }
   function pick(sel, attr, set) { document.querySelectorAll(sel).forEach(function (b) { b.addEventListener('click', function () { set(b.dataset[attr]); document.querySelectorAll(sel).forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); showBest(); }); }); }
   pick('[data-theme]', 'theme', function (v) { theme = v; });
-  pick('[data-age]', 'age', function (v) { age = +v; ls('sainos-quiz-age', v); });
+  pick('[data-age]', 'age', function (v) { age = +v; ls('sainos-quiz-age', v); try { var pk = JSON.parse(localStorage.getItem('sainos-profil-enfant') || 'null'); if (pk) { pk.age = v; localStorage.setItem('sainos-profil-enfant', JSON.stringify(pk)); } } catch (e) {} });
   document.querySelectorAll('[data-age]').forEach(function (x) { x.setAttribute('aria-pressed', +x.dataset.age === age); });
+  var ageOpen = false;
+  function syncAge() {
+    var pa = ''; try { pa = (JSON.parse(localStorage.getItem('sainos-profil-enfant') || '{}').age) || ''; } catch (e) {}
+    var g = document.querySelector('[data-age]').parentNode, hd = g.previousElementSibling, box = $('q-age-pro');
+    if (!box) { box = document.createElement('div'); box.id = 'q-age-pro'; box.style.cssText = 'display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:14px 18px;background:#fff;border-radius:999px;font-size:17px;font-weight:700;color:var(--color-accent-900);'; g.parentNode.insertBefore(box, hd); }
+    if (pa && !ageOpen) {
+      age = +pa; ls('sainos-quiz-age', String(age));
+      var b = document.querySelector('[data-age="' + age + '"]'), sp = b ? b.querySelectorAll('span') : [];
+      box.innerHTML = '<span aria-hidden="true" style="font-size:24px;line-height:1;">' + (sp[0] ? sp[0].textContent : '') + '</span><span style="flex:1 1 200px;">Quiz des ' + (sp[1] ? sp[1].textContent : '') + ', calé sur ton profil.</span><button type="button" class="btn btn-ghost" style="padding:8px 16px;font-size:15px;">Changer</button>';
+      box.querySelector('button').addEventListener('click', function () { ageOpen = true; syncAge(); });
+      box.style.display = 'flex'; g.style.display = 'none'; hd.style.display = 'none';
+    } else { box.style.display = 'none'; g.style.display = 'grid'; hd.style.display = ''; }
+    document.querySelectorAll('[data-age]').forEach(function (x) { x.setAttribute('aria-pressed', +x.dataset.age === age); });
+    if (typeof showBest === 'function') showBest();
+  }
+  syncAge(); window.addEventListener('storage', syncAge); window.addEventListener('sainos-profil-enfant', syncAge);
   $('q-go').addEventListener('click', start);
   $('q-next').addEventListener('click', function () { i++; if (i < deck.length) ask(); else end(); });
   $('q-again').addEventListener('click', start);
