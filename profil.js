@@ -266,9 +266,9 @@
   var TOMP = ['home', 'verger', 'potager', 'jardin'][Math.floor(Math.random() * 4)];
   function tomRand() { document.querySelectorAll('img[data-tom-rand]:not([data-tom-done])').forEach(function (i) { var w = parseInt(i.style.width, 10) || 0, sx = w && w <= 160 ? '-s' : ''; i.src = i.getAttribute('src').replace(/tom\/[a-z]+(-s)?\.webp$/, 'tom/' + TOMP + sx + '.webp'); i.setAttribute('data-tom-done', '1'); }); }
   var TMK = ['47% 53% 51% 49% / 53% 47% 52% 48%', '52% 48% 46% 54% / 48% 54% 46% 52%', '49% 51% 55% 45% / 46% 52% 48% 54%', '54% 46% 49% 51% / 51% 45% 55% 49%', '45% 55% 52% 48% / 49% 53% 47% 51%'], tmI = 0;
-  if (!document.getElementById('tom-mask-css')) { var tms = document.createElement('style'); tms.id = 'tom-mask-css'; tms.textContent = 'img[src*="tom/"]{border-radius:48% 52% 46% 54% / 53% 47% 52% 48%!important}'; (document.head || document.documentElement).appendChild(tms); }
+  if (!document.getElementById('tom-mask-css')) { var tms = document.createElement('style'); tms.id = 'tom-mask-css'; tms.textContent = 'img[src*="tom/"]:not([src*="histoire/"]){border-radius:48% 52% 46% 54% / 53% 47% 52% 48%!important}'; (document.head || document.documentElement).appendChild(tms); }
   function tomMask() {
-    document.querySelectorAll('img[src*="tom/"]:not([data-tm]), [style*="tom/"]:not(img):not([data-tm])').forEach(function (el) {
+    document.querySelectorAll('img[src*="tom/"]:not([src*="histoire/"]):not([data-tm]), [style*="tom/"]:not(img):not([data-tm])').forEach(function (el) {
       el.setAttribute('data-tm', '1');
       var t = el, r = TMK[tmI++ % TMK.length];
       if (el.tagName !== 'IMG') { if (/histoire\//.test(el.getAttribute('style'))) return; var cs = getComputedStyle(el); if (cs.position === 'absolute' && el.parentElement) t = el.parentElement; }
