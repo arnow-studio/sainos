@@ -239,7 +239,7 @@
     document.querySelectorAll('[data-nav-jardin-panel] a[href$="lexique.html"], details a[href$="lexique.html"]').forEach(function (x) { showEl(x, !k); });
   }
   function ferme() {
-    var k = kid(), FR = { 'La ferme': 'Ma ferme', 'Le Potager': 'Mon potager', 'Le Verger': 'Mon verger', 'Le Jardin': 'Mon jardin' }, ENm = { 'The Farm': 'My Farm', 'The Vegetable Garden': 'My Vegetable Garden', 'The Orchard': 'My Orchard', 'The Garden': 'My Garden' }, M = EN ? ENm : FR;
+    var k = kid(), FR = { 'La ferme': 'Ma ferme', 'Le Potager': 'Mon potager', 'Le Verger': 'Mon verger', 'Le Jardin': 'Mon jardin' }, ENm = { 'The Farm': 'My Farm', 'The Vegetable Garden': 'My Veg Patch', 'The Orchard': 'My Orchard', 'The Garden': 'My Garden' }, M = EN ? ENm : FR;
     document.querySelectorAll('[data-nav-jardin] > a[href$="legumes.html"], [data-nav-jardin-box] > a[href$="legumes.html"], [data-nav-jardin-box] > a[href$="fruits.html"], [data-nav-jardin-box] > a[href$="fleurs.html"], [data-nav-panel] > a[href$="legumes.html"]').forEach(function (x) {
       if (!x.hasAttribute('data-ferme-a')) x.setAttribute('data-ferme-a', x.textContent);
       var o = x.getAttribute('data-ferme-a'), arr = /▾/.test(o) ? ' ▾' : '', b = o.replace(/\s*▾\s*$/, '');
