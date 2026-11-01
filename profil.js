@@ -262,13 +262,13 @@
   }
   function jouerNav() {
     var k = kid();
+    document.querySelectorAll('[data-nav-jardin] > a[aria-haspopup][href$="jeux.html"]').forEach(function (x) { x.href = x.getAttribute('href').replace(/jeux\.html$/, 'jouer.html'); if (/jouer\.html$/.test(location.pathname)) x.setAttribute('aria-current', 'page'); });
     document.querySelectorAll('[data-nav-panel]').forEach(function (pn) {
       var q = pn.querySelector(':scope > a[href$="quiz.html"]'), g = pn.querySelector(':scope > a[href$="jeux.html"]:not([data-nav-jouer])'), bd = pn.querySelector(':scope > [data-nav-badges]');
       if (!q || !g) return;
       var h = pn.querySelector(':scope > [data-nav-jouer]');
-      if (!h) { h = g.cloneNode(false); h.removeAttribute('data-nav-quiz'); h.removeAttribute('aria-current'); h.setAttribute('data-nav-jouer', '1'); h.setAttribute('data-kid-label', '1'); h.textContent = EN ? 'Play' : 'Jouer'; if (/(jeux|quiz|badges)\.html$/.test(location.pathname)) h.setAttribute('aria-current', 'page'); pn.insertBefore(h, q); }
-      h.removeAttribute('href'); h.setAttribute('aria-hidden', 'true'); h.style.cursor = 'default'; h.style.pointerEvents = 'none';
-      [q, g, bd].forEach(function (x) { if (!x) return; if (!x.hasAttribute('data-pl0')) x.setAttribute('data-pl0', x.style.paddingLeft || ''); x.style.paddingLeft = k ? '36px' : x.getAttribute('data-pl0'); x.style.fontWeight = k ? '600' : ''; });
+      if (!h) { h = g.cloneNode(false); h.removeAttribute('data-nav-quiz'); h.removeAttribute('aria-current'); h.setAttribute('data-nav-jouer', '1'); h.setAttribute('data-kid-label', '1'); h.href = g.getAttribute('href').replace(/jeux\.html$/, 'jouer.html'); h.textContent = EN ? 'Play' : 'Jouer'; if (/jouer\.html$/.test(location.pathname)) h.setAttribute('aria-current', 'page'); pn.insertBefore(h, q); }
+      [q, g, bd].forEach(function (x) { if (x) showEl(x, !k); });
       pn.insertBefore(q, h.nextSibling); pn.insertBefore(g, q.nextSibling); if (bd) pn.insertBefore(bd, g.nextSibling);
     });
   }

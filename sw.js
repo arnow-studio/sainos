@@ -1,5 +1,5 @@
 // Service worker Sainos : hors ligne pour les pages visitées et le cœur du site.
-const V = 'sainos-v5';
+const V = 'sainos-v6';
 const CORE = ['./', 'index.html', 'legumes.html', 'fruits.html', 'liste.html', 'recettes.html', 'menu.html', 'jeux.html', 'offline.html',
   'produits-data.js', 'recettes-data.js', 'poissons-data.js', 'fromages-data.js', 'jardin-data.js', 'recherche.js', 'profil.js', 'support.js',
   'images/logo.webp', 'images/logo-mini.webp', 'favicon.png', 'icon-192.png', 'manifest.webmanifest'];
