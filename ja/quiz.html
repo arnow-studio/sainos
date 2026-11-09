@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<script id="lang-redirect">(function(){function ask(alt){if(document.getElementById('lang-ask'))return;var d=document.createElement('div');d.id='lang-ask';d.setAttribute('role','dialog');d.setAttribute('aria-modal','true');d.setAttribute('aria-labelledby','lang-ask-t');d.setAttribute('lang','en');d.style.cssText='position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:20px;background:rgba(32,30,29,.45)';var B='min-height:48px;padding:0 22px;border-radius:999px;font:inherit;font-weight:700;font-size:16px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;flex:1 1 auto;text-decoration:none;';d.innerHTML='<div style="background:#fff;border-radius:24px;padding:28px;max-width:420px;width:100%;box-sizing:border-box;box-shadow:0 20px 50px rgba(0,0,0,.2);display:flex;flex-direction:column;gap:14px;font-family:var(--font-body);color:var(--color-text)"><h2 id="lang-ask-t" style="margin:0;font-family:var(--font-heading);font-weight:400;font-size:26px;line-height:1.15">Would you like the English version?</h2><p style="margin:0;font-size:16px;line-height:1.5">Your browser is set to English, but you seem to be in France.</p><div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px"><a href="'+alt+location.hash+'" data-lang="en" style="'+B+'background:var(--color-accent-strong,var(--color-accent));color:#fff;border:0">Switch to English</a><button type="button" data-lang="fr" lang="fr" style="'+B+'background:#fff;color:var(--color-text);border:2px solid var(--color-accent-300)">Rester en fran\u00e7ais</button></div></div>';function close(){try{localStorage.setItem('sainos-lang','fr')}catch(_){}d.remove();document.removeEventListener('keydown',k)}function k(e){if(e.key==='Escape')close()}d.querySelector('button').addEventListener('click',close);d.addEventListener('click',function(e){if(e.target===d)close()});document.addEventListener('keydown',k);document.body.appendChild(d);d.querySelector('a').focus()}var cur='ja',A={fr:'../quiz.html',en:'../en/quiz.html'};document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-lang]');if(a)try{localStorage.setItem('sainos-lang',a.getAttribute('data-lang'))}catch(_){}},true);try{var p=localStorage.getItem('sainos-lang');if(/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)||p===cur)return;var Q=location.search+location.hash;if(p&&A[p]){location.replace(A[p]+Q);return}var L=((navigator.languages&&navigator.languages[0])||navigator.language||'').slice(0,2).toLowerCase();if(L===cur||!A[L])return;if(cur==='fr'&&L==='en'){var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(_){}if(tz!=='Europe/Paris')location.replace(A.en+Q);else if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){ask(A.en)});else ask(A.en)}else location.replace(A[L]+Q)}catch(e){}})();</script>
+<link rel="alternate" hreflang="fr" href="https://www.sainos.fr/quiz.html">
+<link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/quiz.html">
+<link rel="alternate" hreflang="ja" href="https://www.sainos.fr/ja/quiz.html">
+<link rel="alternate" hreflang="x-default" href="https://www.sainos.fr/quiz.html">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){var d=document.documentElement;var B=null,T=0,Q='[aria-label="モードを選ぶ"]';document.addEventListener('click',function(e){var t=e.target&&e.target.closest?e.target.closest(Q):null;B=t;if(t)T=t.getBoundingClientRect().top},true);function g(){var b=B;B=null;if(!b){try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}return}var n=0;(function f(){var x=document.querySelector(Q)||b;var dy=x.getBoundingClientRect().top-T;if(dy)try{window.scrollBy({top:dy,left:0,behavior:'instant'})}catch(e){window.scrollBy(0,dy)}if(++n<24)requestAnimationFrame(f)})()}function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))g()}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
+<style id="kid-palette">html.m-kid { --color-accent: #00a8a2; --color-accent-100: #e6f7f6; --color-accent-200: #c4ecea; --color-accent-300: #8ad8d4; --color-accent-400: #3fbfb9; --color-accent-500: #00a8a2; --color-accent-600: #00968f; --color-accent-700: #007f7a; --color-on-accent: #ffffff; --color-accent-strong: #00807b; --color-accent-strong-hover: #006b67; --color-accent-800: #00615d; --color-accent-900: #004845; --color-accent-2-100: #ffffff; --color-accent-2-200: #ffffff; --color-accent-2-300: #d3ecea; --color-accent-2-800: #2d5f5c; --color-accent-2-900: #214644; }
+    :where(html.m-kid) a:not(.btn), :where(html.m-kid) .btn-ghost, :where(html.m-kid) .tag-outline, :where(html.m-kid) .card-kicker { color: var(--color-accent-800); } html.m-kid .btn-primary { color: #ffffff !important; } html.m-kid .tag-accent { color: var(--color-accent-900) !important; } .btn-primary { background-image: none !important; background-color: var(--color-accent-strong, var(--color-accent)) !important; box-shadow: none !important; transition: background-color .12s ease; } .btn-primary:hover { background-color: var(--color-accent-strong-hover, var(--color-accent-700)) !important; } .btn-primary:active { background-color: var(--color-accent-800) !important; } html.m-kid img[data-logo] { display: none !important; } html:not(.m-kid) img[data-kid-logo] { display: none !important; } :root { --color-logo: #3d8b2f; } html.m-kid { --color-logo: #00a8a2; }</style>
+<style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html.m-kid [data-adult-only], html:not(.m-kid) [data-kid-label], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
+<style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400&family=Nunito:wght@400;500;600;700&family=RocknRoll+One&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="../_ds/organic-f9092e65-12bb-43ea-a459-3e0b5f502c38/styles.css">
+<script src="produits-data.js?v=20261027"></script>
+<script src="produits-enfants.js"></script>
+<script src="jardin-data.js"></script>
+<script src="fromages-data.js"></script>
+<style>
+  .qopt { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 60px; padding: 12px 18px; box-sizing: border-box; background: #fff; border: 3px solid var(--color-accent-200); border-radius: 999px; font: inherit; font-size: 18px; font-weight: 700; color: var(--color-text); text-align: left; cursor: pointer; transition: transform .12s, background .12s, border-color .12s; }
+  .qopt:hover:not(:disabled) { border-color: var(--color-accent-500); background: var(--color-accent-100); transform: translateY(-2px); }
+  .qopt:disabled { cursor: default; }
+  .qopt.ok { background: var(--color-accent-strong, var(--color-accent)); border-color: var(--color-accent-strong, var(--color-accent)); color: #fff; }
+  .qopt.ko { background: #fbe3d6; border-color: #e0892f; color: #7a3410; }
+  .qopt.dim { opacity: .55; }
+  .qletter { flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--color-accent-100); color: var(--color-accent-900); font-family: var(--font-heading); font-size: 18px; }
+  .qopt.ok .qletter { background: #fff; color: var(--color-accent-800); }
+  .qopt.ko .qletter { background: #fff; color: #a8481a; }
+  @keyframes pop { 0% { transform: scale(.6); opacity: 0; } 70% { transform: scale(1.08); } 100% { transform: scale(1); opacity: 1; } }
+  @keyframes wob { 0%,100% { transform: rotate(0); } 25% { transform: rotate(-6deg); } 75% { transform: rotate(6deg); } }
+  .pop { animation: pop .35s ease-out both; }
+  .wob { animation: wob .5s ease-in-out; }
+  :root { --color-bg: #fbf8f2; --color-accent: #357d28; --color-accent-100: #eef7ea; --color-accent-200: #d9eed0; --color-accent-300: #b6dca5; --color-accent-400: #74b95e; --color-accent-500: #357d28; --color-accent-600: #327426; --color-accent-700: #285e1f; --color-accent-800: #1f4a19; --color-accent-900: #183a14; --color-accent-2-100: #f4f8ed; --color-accent-2-200: #e8efdb; --color-accent-2-300: #d8e2c7; --color-accent-2-800: #56613f; --color-accent-2-900: #46512f; --color-neutral-100: #fffdf9; --color-text: #5b3b27; --color-divider: color-mix(in srgb, #8c491a 20%, transparent); --font-heading: 'DynaPuff', 'RocknRoll One', system-ui, sans-serif; --font-body: 'Nunito', 'M PLUS Rounded 1c', system-ui, sans-serif; }
+  body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
+  h1, h2, h3 { font-family: var(--font-heading); font-weight: 400; }
+  a { color: var(--color-accent-700); }
+  a:not(.btn):not(.tag):hover { color: var(--color-accent-600); }
+  *:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+  body.kid .only-adult, body:not(.kid) .only-kid { display: none !important; }
+  .wrap { max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; padding-left: clamp(20px, 5vw, 56px); padding-right: clamp(20px, 5vw, 56px); }
+  .pill { display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-300); background: #fff; color: var(--color-accent-900); font: inherit; font-size: 15px; font-weight: 700; padding: 8px 16px; min-height: 44px; box-sizing: border-box; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+  .pill:hover { background: var(--color-accent-100); border-color: var(--color-accent-500); }
+  .pill[aria-pressed="true"] { background: var(--color-accent-strong, var(--color-accent)); border-color: var(--color-accent-strong, var(--color-accent)); color: #fff; }
+  .mode-btn { display: flex; align-items: center; gap: 6px; background: #fff; font: inherit; font-size: 14px; font-weight: 700; padding: 6px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+
+    @media (max-width: 1080px) { [data-nav-desk] { display: none !important; } }
+    @media (min-width: 1081px) { [data-nav-burger] { display: none !important; } }
+    [data-nav-burger] summary::-webkit-details-marker { display: none; }
+    [data-nav-burger][open] [data-ic="open"], [data-nav-burger]:not([open]) [data-ic="close"] { display: none; }
+    [data-nav-panel] a:hover { background: var(--color-accent-100); }
+  
+  [data-baseline] { transition: opacity .2s, max-height .2s; max-height: 20px; overflow: hidden; }
+  html.is-scrolled [data-baseline] { opacity: 0; max-height: 0; }
+</style>
+<script>(function(){var d=document.documentElement,on=false;function f(){var y=window.scrollY,s=on?y>8:y>60;if(s!==on){on=s;d.classList.toggle('is-scrolled',s);}}window.addEventListener('scroll',f,{passive:true});f();})();</script>
+<link rel="canonical" href="https://www.sainos.fr/ja/quiz.html">
+<title>Sainosのこども大クイズ | Sainos</title>
+<meta name="description" content="4歳から中学生まで楽しめるクイズ。果物や野菜、ガーデンの花、チーズについての10問に挑戦しよう！">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sainos">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:url" content="https://www.sainos.fr/ja/quiz.html">
+<meta property="og:title" content="Sainosのこども大クイズ">
+<meta property="og:description" content="4歳から中学生まで楽しめるクイズ。果物や野菜、ガーデンの花、チーズについての10問に挑戦しよう！">
+<meta property="og:image" content="https://www.sainos.fr/images/og/sainos.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sainos — 旬の果物と野菜">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sainosのこども大クイズ">
+<meta name="twitter:description" content="4歳から中学生まで楽しめるクイズ。果物や野菜、ガーデンの花、チーズについての10問に挑戦しよう！">
+<meta name="twitter:image" content="https://www.sainos.fr/images/og/sainos.webp">
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-SaacaKlZy2uX6RVnlBrdr.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<style id="nav-jardin">[data-nav-jardin]{position:relative;display:inline-flex}[data-nav-jardin-panel]{display:none;position:absolute;top:100%;left:0;padding-top:6px;z-index:60}[data-nav-jardin]:hover [data-nav-jardin-panel],[data-nav-jardin]:focus-within [data-nav-jardin-panel]{display:block}[data-nav-jardin-box]{display:flex;flex-direction:column;gap:2px;min-width:180px;padding:8px;background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg)}[data-nav-jardin-box] a{display:block;padding:10px 14px!important;color:var(--color-text)!important;font-weight:700}[data-nav-sub]{padding-left:40px!important;font-size:16px!important;font-weight:600!important;min-height:44px!important}</style>
+<style id="nav-current">[data-nav-desk]{gap:4px!important}[data-nav-desk] a[data-liste-pill],[data-nav-desk] a[data-liste-pill]:hover,[data-nav-desk] a[data-liste-pill] *{color:#ffffff!important;font-family:var(--font-body)!important;font-weight:800}[data-nav-desk] a[data-liste-pill]{background:var(--color-accent)!important;padding:8px 16px!important}[data-nav-desk] a[data-liste-pill]:hover{background:var(--color-accent-600)!important}@media (min-width:761px) and (max-width:1180px){nav.nav{flex-wrap:nowrap!important}nav.nav>[data-nav-desk]{min-width:0}[data-nav-desk] button{font-size:12px!important;padding:5px 10px!important}}@media (min-width:761px) and (max-width:1000px){[data-nav-desk] a{font-size:13px!important;padding:5px 4px!important}nav.nav .nav-brand img{height:30px!important}}@media (max-width:1180px){[data-nav-desk] a[data-liste-pill]{padding:8px 12px!important}}@media (max-width:1180px){[data-nav-desk] a{padding:6px 7px!important;font-size:15px!important}}@media (max-width:960px){[data-nav-desk] a{padding:5px 5px!important;font-size:14px!important}}[data-nav-desk] a{padding:6px 10px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s}[data-nav-desk] a:not([aria-current="page"]):hover{background:var(--color-accent-100)}[data-nav-desk] a[aria-current="page"]{font-weight:800;color:var(--color-accent-700)!important;background:none}</style>
+<script id="nav-current-js">(function(){var p=location.pathname,k=/\/jardin\//.test(p)?'fleurs.html':/\/produits\//.test(p)?'legumes.html':/\/fromages\//.test(p)?'fromages.html':({'marches.html':'origines.html','bio.html':'origines.html','lexique.html':'origines.html'}[p.split('/').pop()]||p.split('/').pop()||'index.html');var q=0;function m(){q=0;document.querySelectorAll('[data-nav-desk] a').forEach(function(a){var h=(a.getAttribute('href')||'').split('/').pop();if(h===k)a.setAttribute('aria-current','page');else if(a.getAttribute('aria-current'))a.removeAttribute('aria-current')})}function s(){if(!q){q=1;requestAnimationFrame(m)}}document.addEventListener('DOMContentLoaded',function(){m();new MutationObserver(s).observe(document.body,{childList:true,subtree:true})})})();</script>
+<script id="recherche-js" src="../recherche.js" defer></script>
+<script id="veg-flag">try{if(JSON.parse(localStorage.getItem('sainos-liste-v4')||'{}').veg)document.documentElement.classList.add('m-veg')}catch(e){}</script><style id="veg-css">html.m-veg nav a[href$="poissonnerie.html"],html.m-veg footer a[href$="poissonnerie.html"],html.m-veg [data-nav-panel] a[href$="poissonnerie.html"]{display:none!important}</style>
+<style id="nav-fix">@media (max-width:1080px){nav.nav{flex-wrap:nowrap!important}nav.nav .nav-brand{min-width:0;flex-shrink:1}nav.nav .nav-brand img{max-width:100%!important;height:auto!important;width:auto!important;max-height:48px!important}}@media (max-width:600px){nav.nav .nav-brand img{max-height:38px!important}details[data-nav-burger]{position:static!important;flex:none}[data-nav-panel]{right:12px!important}}html,body{overflow-x:clip}</style>
+<style id="ja-type">:lang(ja) body{line-break:strict;word-break:normal;overflow-wrap:anywhere}</style>
+</head>
+<body>
+<div style="min-height: 100vh; display: flex; flex-direction: column;">
+  <header style="position: sticky; top: 0; z-index: 1000; background: color-mix(in srgb, var(--color-bg) 92%, transparent); backdrop-filter: blur(8px);">
+    <nav class="nav wrap" aria-label="メインナビゲーション" style="flex-wrap: wrap; row-gap: var(--space-2);">
+      <a href="index.html" class="nav-brand" style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none;" aria-label="Sainos — ホーム">
+        <img data-logo="1" src="../images/logo-mini.webp" alt="Sainos — 旬の果物と野菜" width="398" height="107" style="display: block; height: 36px; width: auto;"><img data-kid-logo="1" src="../images/logo-enfants-v2.webp" alt="Sainos — 旬の果物と野菜" width="398" height="107" style="display: block; height: 36px; width: auto;"><span data-baseline="1" style="font-family: var(--font-body); font-size: 14px; font-weight: 700; line-height: 1; color: var(--color-text); white-space: nowrap;"><span style="color: var(--color-logo, var(--color-accent-700));">季節</span>をたべよう</span>
+      </a>
+      <div data-nav-desk="1" style="display: flex; gap: var(--space-4); align-items: center; flex-wrap: wrap;">
+        <span data-nav-jardin="1"><a href="legumes.html" aria-haspopup="true">ファーム ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="legumes.html">菜園</a><a href="fruits.html">果樹園</a><a href="fleurs.html">ガーデン</a></span></span></span>
+        <a href="fromages.html" data-adult-only="1">チーズ</a><a href="poissonnerie.html" data-adult-only="1">魚屋さん</a>
+        <span data-nav-jardin="1"><a href="origines.html" aria-haspopup="true">ガイド ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="origines.html">産地</a><a href="marches.html" data-nav-mar="1">マルシェ</a><a href="bio.html">オーガニック</a><a href="recettes.html">レシピ</a><a href="lexique.html" data-nav-lex="1">用語集</a></span></span></span>
+        <a href="pousse.html" data-nav-pousse="1">どうやって育つの？</a>
+        <span data-nav-jardin="1" data-nav-quiz="1"><a href="jouer.html" aria-haspopup="true" aria-current="page">あそぶ ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="quiz.html" data-nav-quiz="1">クイズ</a><a href="jeux.html">ミニゲーム</a></span></span></span>
+        <span data-nav-jardin="1"><a href="apropos.html" aria-haspopup="true">Sainosについて ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="apropos.html">Sainosについて</a><a href="enseignants.html" data-nav-lex="1">学校で</a><a href="contact.html" data-adult-only="1">お問い合わせ</a></span></span></span>
+      </div>
+      <details data-nav-burger="1" style="position: relative; margin-left: auto;">
+        <summary aria-label="メニュー" style="list-style: none; width: 48px; height: 48px; box-sizing: border-box; display: grid; place-items: center; background: transparent; border: 0; color: var(--color-text); cursor: pointer;">
+          <svg data-ic="open" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M4 9h16M4 15h16"></path></svg>
+          <svg data-ic="close" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </summary>
+        <div data-nav-panel="1" style="position: absolute; right: 0; top: calc(100% + 10px); z-index: 50; max-height: calc(100vh - 100px); max-height: calc(100dvh - 100px); overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; width: min(280px, 80vw); box-sizing: border-box; padding: 10px; background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 4px;">
+          <a href="liste.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">マルシェのお買い物リスト</a>
+          <a href="legumes.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">ファーム</a><a href="tom.html" data-nav-tom="1" data-kid-label="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">ぼくのおはなし</a>
+        <a href="fromages.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">チーズ</a><a href="poissonnerie.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">魚屋さん</a>
+          <a href="origines.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">ガイド</a>
+          <a href="pousse.html" data-nav-pousse="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">どうやって育つの？</a>
+        <a href="quiz.html" data-nav-quiz="1" aria-current="page" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-accent-900); background: var(--color-accent-100);">クイズ</a>
+          <a href="apropos.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Sainosについて</a>
+        
+          <a href="../quiz.html" data-lang="fr" hreflang="fr" lang="fr" style="display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;"><span aria-hidden="true">🌐</span>Version française</a><a href="../en/quiz.html" data-lang="en" hreflang="en" lang="en" style="display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;"><span aria-hidden="true">🌐</span>English version</a>
+          <div data-nav-extra="1" style="display: flex; flex-direction: column; gap: 10px; margin-top: 6px; padding: 12px 8px 4px; border-top: 1px solid var(--color-divider);">
+        <button type="button" class="mode-btn only-adult" data-set-mode="enfant" style="min-height: 48px; width: 100%; justify-content: center; font-size: 16px; border: 2px solid var(--color-accent-2-300); color: var(--color-accent-2-900);">🎒 こどもモード</button>
+        <button type="button" class="mode-btn only-kid" data-set-mode="normal" style="min-height: 48px; width: 100%; justify-content: center; font-size: 16px; border: 2px solid var(--color-accent-300); color: var(--color-accent-900);">おとなモード</button>
+      <div aria-label="Sainosをフォロー" data-nav-social="1" style="display: flex; justify-content: center; gap: var(--space-2); align-items: center;"><a href="https://www.facebook.com/profile.php?id=61594827576678" target="_blank" rel="noopener" aria-label="FacebookのSainos" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/facebook/1877F2" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a><a href="https://www.instagram.com/sainos_fr/" target="_blank" rel="noopener" aria-label="InstagramのSainos" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/instagram/E4405F" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a><a href="https://www.tiktok.com/@sainos_fr" target="_blank" rel="noopener" aria-label="TikTokのSainos" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/tiktok/000000" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a></div></div>
+        </div>
+      </details>
+      <div data-nav-desk="1" style="display: flex; flex-wrap: nowrap; gap: var(--space-3); align-items: center; justify-content: flex-end; margin-left: auto; flex: none;"><a href="liste.html" data-adult-only="1" data-liste-pill="1" aria-label="マルシェのお買い物リスト" style="display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; font-size: 14px; white-space: nowrap; text-decoration: none;"><span data-pill-txt="1">リスト</span></a>
+        <button type="button" class="mode-btn only-adult" data-set-mode="enfant" style="border: 2px solid var(--color-accent-2-300); color: var(--color-accent-2-900);">🎒 こどもモード</button>
+        <button type="button" class="mode-btn only-kid" data-set-mode="normal" style="border: 2px solid var(--color-accent-300); color: var(--color-accent-900);">おとなモード</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="wrap" style="flex: 1; display: flex; flex-direction: column; gap: var(--space-8); padding-top: clamp(40px, 7vw, 56px); padding-bottom: var(--space-8);">
+    <section style="display: flex; flex-direction: column; gap: var(--space-4); max-width: 720px;">
+      <nav data-sous-jouer="1" aria-label="あそぶ" style="display: flex; flex-direction: column; gap: var(--space-2);"><p style="margin: 0; white-space: nowrap; flex: none; max-width: none; font-family: var(--font-heading); font-size: 22px; color: var(--color-accent-2-900); align-self: flex-start;"><a href="jouer.html" style="color: inherit; text-decoration: none;">あそぶ</a></p><p style="margin: 0; display: flex; flex-wrap: nowrap; gap: 4px; padding: 5px; background: #f4efe6; border-radius: 28px; align-self: flex-start; max-width: 100%; box-sizing: border-box; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;"><span aria-current="page" style="display: flex; align-items: center; min-height: 44px; padding: 0 clamp(10px, 3.2vw, 20px); border-radius: 999px; font-size: clamp(14px, 3.7vw, 16px); flex: none; white-space: nowrap; font-weight: 800; background: var(--color-accent-strong, var(--color-accent-700)); color: #ffffff;">クイズ</span><a href="jeux.html" style="display: flex; align-items: center; min-height: 44px; padding: 0 clamp(10px, 3.2vw, 20px); border-radius: 999px; font-size: clamp(14px, 3.7vw, 16px); flex: none; text-decoration: none; white-space: nowrap; font-weight: 700; color: var(--color-accent-800);">ミニゲーム</a><a href="badges.html" style="display: flex; align-items: center; min-height: 44px; padding: 0 clamp(10px, 3.2vw, 20px); border-radius: 999px; font-size: clamp(14px, 3.7vw, 16px); flex: none; text-decoration: none; white-space: nowrap; font-weight: 700; color: var(--color-accent-800);">マイバッジ</a></p></nav>
+      <nav aria-label="パンくずリスト" style="font-size: 14px; display: flex; gap: var(--space-2);"><a href="index.html">ホーム</a><span aria-hidden="true">›</span><span aria-current="page">クイズ</span></nav>
+      <h1 style="margin: 0; font-size: clamp(38px, 5.5vw, 64px); line-height: 1.02; text-wrap: balance;">Sainosの大クイズ</h1>
+      <div data-tom-dit="1" style="display: flex; gap: 14px; align-items: flex-start; max-width: 720px;"><img data-tom-rand="1" src="../images/tom/home-s.webp" alt="" width="800" height="800" style="flex: none; width: 96px; height: 96px; border-radius: 50%; object-fit: cover; display: block; background: var(--color-accent-200);"><p style="margin: 0; align-self: center; font-size: 19px; line-height: 1.65; text-wrap: pretty;"><strong style="font-family: var(--font-heading); font-weight: 400; color: var(--color-accent-800);">トム：</strong>ぼくの大クイズに挑戦する？ 年れいとテーマをえらんでね。全部で10問だよ。1問正かいするごとに星が1つもらえるよ。全部あつめられるかな？</p></div>
+    </section>
+
+    <section id="q-start" aria-label="年れいとテーマをえらぶ" style="display: flex; flex-direction: column; gap: var(--space-5, 20px); padding: clamp(24px, 4vw, 40px); background: var(--color-accent-100); border: 3px solid var(--color-accent-300); border-radius: 32px; max-width: 820px;">
+      <span style="font-family: var(--font-heading); font-size: 26px; color: var(--color-accent-900);">きみは何さい？</span>
+      <div role="group" aria-label="年れい" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 170px), 1fr)); gap: var(--space-3);">
+        <button type="button" class="pill" data-age="1" aria-pressed="false" style="flex-direction: column; justify-content: center; gap: 2px; min-height: 84px; white-space: normal; text-align: center; border-radius: 28px;"><span style="font-size: 26px;">🐣</span><span style="font-size: 17px;">4〜6歳</span><span style="font-size: 13px; font-weight: 600;">ちいさな芽</span></button>
+        <button type="button" class="pill" data-age="2" aria-pressed="true" style="flex-direction: column; justify-content: center; gap: 2px; min-height: 84px; white-space: normal; text-align: center; border-radius: 28px;"><span style="font-size: 26px;">🌱</span><span style="font-size: 17px;">7〜9歳</span><span style="font-size: 13px; font-weight: 600;">わかい庭師</span></button>
+        <button type="button" class="pill" data-age="3" aria-pressed="false" style="flex-direction: column; justify-content: center; gap: 2px; min-height: 84px; white-space: normal; text-align: center; border-radius: 28px;"><span style="font-size: 26px;">🌳</span><span style="font-size: 17px;">10〜12歳</span><span style="font-size: 13px; font-weight: 600;">菜園の名人</span></button>
+        <button type="button" class="pill" data-age="4" aria-pressed="false" style="flex-direction: column; justify-content: center; gap: 2px; min-height: 84px; white-space: normal; text-align: center; border-radius: 28px;"><span style="font-size: 26px;">🏅</span><span style="font-size: 17px;">中学生</span><span style="font-size: 13px; font-weight: 600;">植物はかせ</span></button>
+      </div>
+      <span style="font-family: var(--font-heading); font-size: 26px; color: var(--color-accent-900);">テーマをえらんでね</span>
+      <div role="group" aria-label="テーマ" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 170px), 1fr)); gap: var(--space-3);">
+        <button type="button" class="pill" data-theme="tout" aria-pressed="true" style="justify-content: center; min-height: 56px; font-size: 17px;">🧺 ぜんぶまぜる</button>
+        <button type="button" class="pill" data-theme="fruit" aria-pressed="false" style="justify-content: center; min-height: 56px; font-size: 17px;">🍎 果物</button>
+        <button type="button" class="pill" data-theme="legume" aria-pressed="false" style="justify-content: center; min-height: 56px; font-size: 17px;">🥕 野菜</button>
+        <button type="button" class="pill" data-theme="defi" aria-pressed="false" style="justify-content: center; min-height: 56px; font-size: 17px;">🎲 びっくりチャレンジ</button>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center;">
+        <button type="button" id="q-go" class="btn btn-primary" style="padding: 14px 32px; font-size: 19px; min-height: 56px;">スタート！</button>
+        <span id="q-best" style="font-size: 16px; font-weight: 700; color: var(--color-accent-900);"></span>
+      </div>
+    </section>
+
+    <section id="q-play" aria-live="polite" hidden style="display: none; flex-direction: column; gap: var(--space-5, 20px); max-width: 820px;">
+      <div style="display: flex; align-items: center; gap: var(--space-3);">
+        <span id="q-count" style="flex: none; font-weight: 700; font-size: 16px;"></span>
+        <div aria-hidden="true" style="flex: 1; height: 14px; background: var(--color-accent-100); border-radius: 999px; overflow: hidden;"><div id="q-bar" style="height: 100%; width: 0; background: var(--color-accent); border-radius: 999px; transition: width .3s;"></div></div>
+        <span id="q-stars" style="flex: none; font-weight: 700; font-size: 16px; color: var(--color-accent-900);"></span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: var(--space-5, 20px); padding: clamp(24px, 4vw, 40px); background: #fff; border-radius: 32px; box-shadow: var(--shadow-md);">
+        <div style="display: flex; gap: var(--space-4); align-items: center;">
+          <span style="flex: none; display: grid; place-items: center; width: clamp(80px, 14vw, 112px); height: clamp(80px, 14vw, 112px); border-radius: 50%; background: var(--color-accent-100);"><img loading="lazy" decoding="async" id="q-img" alt="" width="96" height="96" style="width: 72%; height: 72%; object-fit: contain;"></span>
+          <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0;">
+            <span style="display: flex; align-items: center; gap: 10px;"><img id="q-tom" src="../images/tom/question-v2-s.webp" alt="" width="600" height="600" style="flex: none; width: 64px; height: 64px; border-radius: 48% 52% 45% 55% / 54% 46% 53% 47%; object-fit: cover; background: var(--color-accent-100); display: block;"><span style="font-family: var(--font-heading); font-size: 18px; color: var(--color-accent-800);">トムからの問題：</span></span>
+            <span id="q-name" class="tag tag-accent-2" style="align-self: flex-start; font-size: 14px;"></span>
+            <h2 id="q-text" style="margin: 0; font-size: clamp(22px, 3vw, 30px); line-height: 1.2; text-wrap: balance;"></h2>
+          </div>
+        </div>
+        <div id="q-opts" style="display: flex; flex-direction: column; gap: var(--space-3);"></div>
+        <div id="q-fb" hidden style="display: none; flex-direction: column; gap: var(--space-3); padding: var(--space-4) var(--space-5, 20px); border-radius: 24px;">
+          <span id="q-fb-t" style="font-family: var(--font-heading); font-size: 24px;"></span>
+          <span id="q-fb-x" style="font-size: 17px; line-height: 1.55; text-wrap: pretty;"></span>
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center;">
+            <button type="button" id="q-next" class="btn btn-primary" style="padding: 12px 26px; font-size: 17px; min-height: 52px;">次の問題へ →</button>
+            <a id="q-fiche" href="#" style="font-size: 16px; font-weight: 700;">ページを見る</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="q-end" hidden aria-live="polite" style="display: none; flex-direction: column; align-items: flex-start; gap: var(--space-4); padding: clamp(28px, 5vw, 48px); background: var(--color-accent-100); border: 3px solid var(--color-accent-300); border-radius: 32px; max-width: 820px;">
+      <span id="q-end-e" class="pop" aria-hidden="true" style="font-size: 72px; line-height: 1;"></span>
+      <h2 id="q-end-t" style="margin: 0; font-size: clamp(30px, 4vw, 44px); line-height: 1.1; color: var(--color-accent-900);"></h2>
+      <span id="q-end-s" aria-hidden="true" style="font-size: 28px; letter-spacing: 2px;"></span>
+      <p id="q-end-p" style="margin: 0; font-size: 18px; line-height: 1.6; text-wrap: pretty;"></p>
+      <div style="display: flex; flex-wrap: wrap; gap: var(--space-3);">
+        <button type="button" id="q-again" class="btn btn-primary" style="padding: 14px 28px; font-size: 18px; min-height: 56px;">もう一回あそぶ</button>
+        <a href="badges.html" class="btn btn-ghost" style="padding: 14px 24px; font-size: 18px; min-height: 56px; display: inline-flex; align-items: center;">🏅 わたしの記録</a>
+        <button type="button" id="q-theme" class="btn btn-secondary" style="padding: 14px 28px; font-size: 18px; min-height: 56px;">テーマをかえる</button>
+      </div>
+    </section>
+
+    <section aria-label="モードを選ぶ" style="margin: var(--space-4) 0 0;">
+      <div class="only-adult" style="display: flex; flex-direction: column; background: #fff; border: 2px solid var(--color-accent-2-300); border-radius: var(--radius-lg); overflow: hidden;">
+        <img src="../images/pano-champ-marche.webp" alt="イラスト：左は畑にいる若い農家、右はマルシェで買い物をする家族" width="1800" height="600" loading="lazy" style="display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover;">
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-4) var(--space-6);">
+          <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 320px; min-width: 0;">
+            <span style="font-family: var(--font-heading); font-size: 24px; color: var(--color-accent-2-900);">🧺 おとなモードで表示中</span>
+            <span style="font-size: 16px; line-height: 1.5; color: var(--color-accent-2-900); text-wrap: pretty;">産地、最盛期、マルシェでの選び方のコツ、レシピのアイデアなど、季節に合わせたお買い物に役立つ情報をまとめています。お子さんも見てみたいですか？ こどもモードに切り替えましょう。</span>
+          </div>
+          <button type="button" class="btn btn-primary" data-set-mode="enfant" style="padding: 12px 22px; font-size: 16px; white-space: nowrap;">こどもモードにする</button>
+        </div>
+      </div>
+      <div class="only-kid" style="display: flex; flex-direction: column; background: #fff; border: 2px solid var(--color-accent-300); border-radius: var(--radius-lg); overflow: hidden;">
+        <img src="../images/pano-verger-cuisine.webp" alt="イラスト：左は果樹園でほほえむ農家、右は台所で果物を味見するふたりの子ども" width="1800" height="600" loading="lazy" style="display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover;">
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-4) var(--space-6);">
+          <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 320px; min-width: 0;">
+            <span style="font-family: var(--font-heading); font-size: 24px; color: var(--color-accent-900);">🎒 こどもモードで表示中</span>
+            <span style="font-size: 16px; line-height: 1.5; color: var(--color-accent-900); text-wrap: pretty;">きみはもう44こ中<span id="nb-badges">0</span>このバッジを持っているよ。おうちの人が買い物に行くの？ ワンクリックでおとなモードにできるよ。</span>
+          </div>
+          <button type="button" class="btn btn-secondary" data-set-mode="normal" style="padding: 12px 22px; font-size: 16px; white-space: nowrap;">おとなモードにする</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="background: #f4efe6;">
+    <div class="wrap" style="padding-top: var(--space-6); padding-bottom: var(--space-6); display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: space-between; align-items: center; font-size: 14px;">
+      <img data-logo="1" src="../images/logo-mini.webp" alt="Sainos" width="398" height="107" style="display: block; height: 30px; width: auto;"><img data-kid-logo="1" src="../images/logo-enfants-v2.webp" alt="Sainos" width="398" height="107" style="display: block; height: 30px; width: auto;">
+      <nav aria-label="フッター" style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
+        <a href="index.html">ホーム</a>
+        <span data-nav-jardin="1"><a href="legumes.html" aria-haspopup="true">ファーム ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="legumes.html">菜園</a><a href="fruits.html">果樹園</a><a href="fleurs.html">ガーデン</a></span></span></span>
+        <a href="fromages.html" data-adult-only="1">チーズ</a><a href="poissonnerie.html" data-adult-only="1">魚屋さん</a>
+        <a href="liste.html" data-adult-only="1">マルシェのお買い物リスト</a>
+        <a href="origines.html">ガイド</a>
+        <a href="pousse.html" data-nav-pousse="1">どうやって育つの？</a>
+        <a href="lexique.html">用語集</a>
+        <a href="apropos.html">Sainosについて</a>
+        <a href="enseignants.html" data-adult-only="1">先生方へ</a>
+        <a href="contact.html" data-adult-only="1">お問い合わせ</a>
+        <a href="../quiz.html" data-lang="fr" hreflang="fr" lang="fr">Version française</a><a href="../en/quiz.html" data-lang="en" hreflang="en" lang="en">English version</a>
+      </nav>
+      <div aria-label="Sainosをフォロー" style="display: flex; gap: var(--space-2); align-items: center;">
+        <a href="https://www.facebook.com/profile.php?id=61594827576678" target="_blank" rel="noopener" aria-label="FacebookのSainos" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/facebook/1877F2" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+        <a href="https://www.instagram.com/sainos_fr/" target="_blank" rel="noopener" aria-label="InstagramのSainos" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/instagram/E4405F" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+        <a href="https://www.tiktok.com/@sainos_fr" target="_blank" rel="noopener" aria-label="TikTokのSainos" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/tiktok/000000" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+      </div>
+      <p style="flex-basis: 100%; order: 3; margin: 0; font-size: 13px; line-height: 1.5; color: var(--color-neutral-800);">Sainosは独立した情報サイトです。販売・広告・Cookieは一切ありません。</p>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var S = window.SAISON, now = new Date(), M = now.getMonth() + 1;
+  var MOIS = S.MOIS;
+  document.querySelectorAll('.mois').forEach(function (e) { e.textContent = MOIS[M - 1]; });
+
+  // Mode parent / enfant
+  function ls(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+  function syncMode() {
+    document.body.classList.toggle('kid', ls('sainos-mode') === 'enfant');
+    var b = []; try { b = JSON.parse(ls('sainos-badges') || '[]'); } catch (e) {}
+    document.getElementById('nb-badges').textContent = b.length;
+  }
+  document.querySelectorAll('[data-set-mode]').forEach(function (b) { b.addEventListener('click', function () { ls('sainos-mode', b.dataset.setMode); syncMode(); }); });
+  window.addEventListener('storage', syncMode); window.addEventListener('pageshow', syncMode); syncMode();
+
+})();
+</script>
+
+<script>
+(function () {
+  var S = window.SAISON, K = window.SAISON_ENFANTS, M = new Date().getMonth() + 1, N = 10, L = 'アイウエ', NB = '\u202F';
+  function $(i) { return document.getElementById(i); }
+  function ls(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+  var theme = 'tout', age = +(ls('sainos-quiz-age') || 2), deck = [], i = 0, score = 0;
+  var all = S.produits, kp = function (p) { return K.produits[p.s] || {}; };
+  var SAIS = ['冬', '冬', '春', '春', '春', '夏', '夏', '夏', '秋', '秋', '秋', '冬'];
+  function shuffle(a) { a = a.slice(); for (var j = a.length - 1; j > 0; j--) { var r = Math.floor(Math.random() * (j + 1)), t = a[j]; a[j] = a[r]; a[r] = t; } return a; }
+  var PLUR = { 'petit-pois': 1, 'haricot-vert': 1, ciboulette: 1 };
+  function art(p) { return ''; }
+  function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+  function mk(p, text, good, wrong, expl, hide) {
+    var opts = shuffle([good].concat(shuffle(wrong).slice(0, 2)));
+    return { p: p, text: text, opts: opts, ans: opts.indexOf(good), expl: expl, hide: hide };
+  }
+  function qPhoto(p) { var o = all.filter(function (x) { return x.s !== p.s && x.t === p.t; }).map(function (x) { return x.n; }); return mk(p, 'この' + (p.t === 'fruit' ? '果物' : p.t === 'herbe' ? 'ハーブ' : '野菜') + 'の名前は何かな？', p.n, o, p.n + 'だよ！ ' + (kp(p).intro || ''), true); }
+  function qType(p) { if (p.t === 'herbe') return null; var g = p.t === 'fruit' ? '果物' : '野菜'; var q = { p: p, text: p.n + 'は果物？ それとも野菜？', opts: ['果物', '野菜'], expl: g + 'だよ！ ' + (kp(p).sais || '') }; q.ans = q.opts.indexOf(g); return q; }
+  function season(p) { var c = {}; (p.f && p.f.length ? p.f : p.m).forEach(function (m) { var s = SAIS[m - 1]; c[s] = (c[s] || 0) + 1; }); return Object.keys(c).sort(function (a, b) { return c[b] - c[a]; })[0]; }
+  function qSaison(p) { var s = season(p); return mk(p, p.n + 'がいちばんおいしい季節はいつ？', s, ['春', '夏', '秋', '冬'].filter(function (x) { return x !== s; }), s + 'だよ！ この季節にいちばんたくさんとれて、味もいちばんこくなるんだ。'); }
+  function qFiche(p) { var q = kp(p).quiz; return { p: p, text: q[0], opts: q[1], ans: q[2], expl: q[3] }; }
+  function qFam(p) { var o = []; all.forEach(function (x) { if (x.fam && x.fam !== p.fam && o.indexOf(x.fam) < 0) o.push(x.fam); }); return mk(p, p.n + 'は何科の植物？', p.fam, o, p.n + 'は' + p.fam + 'の植物です。' + (p.d || '')); }
+  function qOrig(p) { var lab = S.ORIG && S.ORIG[p.o] ? S.ORIG[p.o].label : null; if (!lab) return null; var o = Object.keys(S.ORIG).map(function (k) { return S.ORIG[k].label; }).filter(function (x, j, a) { return x !== lab && a.indexOf(x) === j; }); return mk(p, 'フランスで売られている' + p.n + 'は、おもにどこから来ている？', lab, o, 'いちばん多いのは' + lab + '産です。' + (kp(p).ou || '')); }
+  
+  var NBS = '', JC = { f: '花', c: '食用花', a: 'ハーブ' };
+  var PAYS = { FR: 'フランス', CH: 'スイス', IT: 'イタリア', ES: 'スペイン', GR: 'ギリシャ', NL: 'オランダ', GB: 'イギリス' };
+  var LAIT = { 'Vache': '牛', 'Chèvre': 'ヤギ', 'Brebis': 'ヒツジ', 'Bufflonne': '水牛' };
+  var FAM = { 'Croûte fleurie': '白カビタイプ', 'Croûte lavée': 'ウォッシュタイプ', 'Pressée cuite': '加熱圧搾タイプ', 'Pressée non cuite': '非加熱圧搾タイプ', 'Persillé': '青カビタイプ', 'Chèvre': 'シェーヴル（ヤギ乳）タイプ', 'Pâte filée': 'パスタフィラータタイプ', 'Pâte en saumure': '塩水漬けタイプ' };
+  var JAR = window.JARDIN ? window.JARDIN.plantes.map(function (x) { return { k: 'j', s: x.s, n: x.en, e: x.e, c: x.c, f: x.f, p: x.p, d: x.den, img: '../images/jardin/' + x.s + '.webp', href: 'jardin/' + x.s + '.html' }; }) : [];
+  var FRO = window.FROMAGES ? window.FROMAGES.fromages.map(function (x) { return { k: 'f', s: x.s, n: (x.en && x.en.n) || x.n, e: '🧀', lait: LAIT[x.lait] || x.lait, pays: PAYS[x.p], r: x.en.r, fam: FAM[x.fam] || x.fam, f: x.f, d: x.en.d, img: '../images/fromages/' + x.s + '.webp', href: 'fromages/' + x.s + '.html' }; }) : [];
+  var SN = ['冬', '冬', '春', '春', '春', '夏', '夏', '夏', '秋', '秋', '秋', '冬'];
+  function seasonOf(ms) { var c = {}; ms.forEach(function (m) { var s = SN[m - 1]; c[s] = (c[s] || 0) + 1; }); return Object.keys(c).sort(function (a, b) { return c[b] - c[a]; })[0]; }
+  function enS(s) { return s; }
+  function others(list, p, f) { var o = []; list.forEach(function (x) { var v = f(x); if (v && v !== f(p) && o.indexOf(v) < 0) o.push(v); }); return o; }
+  function jPhoto(p) { return mk(p, 'この植物の名前は何かな？', p.n, others(JAR, p, function (x) { return x.n; }), p.n + 'だよ！ ' + (p.d || ''), true); }
+  function jFleur(p) { if (!p.f || !p.f.length) return null; var s = seasonOf(p.f), a = p.c.indexOf('a') >= 0 && p.c.indexOf('f') < 0; return mk(p, p.n + (a ? 'をつむのはどの季節？' : 'の花がさくのはどの季節？'), s, ['春', '夏', '秋', '冬'].filter(function (x) { return x !== s; }), enS(s) + 'だよ！ ' + (p.d || '')); }
+  function jPlante(p) { if (!p.p || !p.p.length) return null; var s = seasonOf(p.p); return mk(p, p.n + 'を植えるのはどの季節？', s, ['春', '夏', '秋', '冬'].filter(function (x) { return x !== s; }), enS(s) + 'だよ！ 土に植えるのにいちばんいい季節なんだ。'); }
+  function jType(p) { var g = JC[p.c[0]]; return mk(p, p.n + 'はどのなかま？', g, Object.keys(JC).filter(function (k) { return p.c.indexOf(k) < 0; }).map(function (k) { return JC[k]; }), g + 'だよ！ ' + (p.d || '')); }
+  function fPhoto(p) { return mk(p, 'このチーズの名前は？', p.n, others(FRO, p, function (x) { return x.n; }), p.n + 'です！ ' + (p.d || ''), true); }
+  function fLait(p) { return mk(p, p.n + 'は何のミルクで作られている？', p.lait, ['牛', 'ヤギ', 'ヒツジ', '水牛'].filter(function (x) { return x !== p.lait; }), p.lait + 'のミルクです！ ' + (p.d || '')); }
+  function fPays(p) { if (!p.pays) return null; return mk(p, p.n + 'はどの国のチーズ？', p.pays, others(FRO, p, function (x) { return x.pays; }), p.n + 'は' + p.pays + '・' + p.r + 'のチーズです。'); }
+  function fRegion(p) { if (!p.r) return null; return mk(p, p.n + 'はどの地方のチーズ？', p.r, others(FRO, p, function (x) { return x.r; }), p.n + 'は' + p.r + 'のチーズです。' + (p.d || '')); }
+  function fFam(p) { return mk(p, p.n + 'はどのタイプのチーズ？', p.fam, others(FRO, p, function (x) { return x.fam; }), p.n + '：' + p.fam + '。' + (p.d || '')); }
+
+
+  var EMO = { '牛': '🐄 ウシ', 'ヤギ': '🐐 ヤギ', 'ヒツジ': '🐑 ヒツジ', '水牛': '🐃 スイギュウ' };
+  function jEat(p) { var ok = p.c.indexOf('c') >= 0 || p.c.indexOf('a') >= 0; return { p: p, text: 'この植物は食べられるかな？', opts: ['😋 食べられる', '🚫 食べられない'], ans: ok ? 0 : 1, expl: (ok ? 'うん、食べられるよ！ ' : 'ううん、これは見て楽しむ植物で、食べられないよ！ ') + (p.d || ''), hide: false }; }
+  function jChaud(p) { if (!p.f || !p.f.length) return null; var s = seasonOf(p.f), hot = s === '春' || s === '夏'; return { p: p, text: 'いちばんきれいなのはいつ？', opts: ['☀️ あたたかいとき', '❄️ さむいとき'], ans: hot ? 0 : 1, expl: enS(s) + 'だよ！ ' + (p.d || '') }; }
+  function fLaitK(p) { return mk(p, 'このチーズは、どの動物のミルクで作られているかな？', EMO[p.lait], ['牛', 'ヤギ', 'ヒツジ'].filter(function (x) { return x !== p.lait; }).map(function (x) { return EMO[x]; }), p.lait + 'のミルクだよ！ ' + (p.d || '')); }
+  function fFrance(p) { var fr = p.pays === 'フランス'; return { p: p, text: 'このチーズはフランスのチーズかな？', opts: ['🇫🇷 そう！', '🌍 ちがう'], ans: fr ? 0 : 1, expl: fr ? 'そう、' + p.r + 'のチーズだよ！' : 'ちがうよ、' + p.pays + 'のチーズなんだ！' }; }
+  var JGEN = { 1: [jPhoto, jEat, jChaud], 2: [jPhoto, jEat, jChaud], 3: [jFleur, jPlante, jType, jPhoto], 4: [jPlante, jFleur, jType] };
+  var FGEN = { 1: [fPhoto, fLaitK], 2: [fPhoto, fLaitK, fFrance], 3: [fLait, fPays, fPhoto], 4: [fFam, fRegion, fPays] };
+  function easy(q) { if (!q || age > 2 || q.opts.length <= 2) return q; var good = q.opts[q.ans], bad = shuffle(q.opts.filter(function (o, k) { return k !== q.ans; }))[0]; q.opts = shuffle([good, bad]); q.ans = q.opts.indexOf(good); return q; }
+
+  var GEN = { 1: [qPhoto, qPhoto, qType], 2: [qPhoto, qType, qSaison, qSaison], 3: [qFiche, qFiche, qFiche, qSaison], 4: [qFiche, qFam, qFam, qOrig] };
+  var LAB = { 1: '🐣 4〜6歳', 2: '🌱 7〜9歳', 3: '🌳 10〜12歳', 4: '🏅 中学生' };
+  function pool() { var lim = age <= 2 ? 20 : age === 3 ? 35 : 999; if (theme === 'jardin') return JAR.slice(0, lim); if (theme === 'fromage') return FRO.filter(function (x) { return age > 2 || x.lait !== '水牛'; }).slice(0, lim); return all.filter(function (p) { return p.t !== 'herbe' && (theme === 'tout' || theme === 'defi' || p.t === theme); }); }
+  function key() { return 'sainos-quiz-best-' + age + (theme === 'tout' ? '' : '-' + theme); }
+  function showBest() { var b = +ls(key()) || 0; $('q-best').textContent = b ? '⭐ きみの記録（' + LAB[age] + '）：' + b + ' / ' + N : ''; }
+  function build() {
+    var g = theme === 'defi' ? (age < 4 ? GEN[age + 1] : [qFiche, qFam, qOrig, qSaison]) : GEN[age], out = [];
+    shuffle(pool()).forEach(function (p) {
+      if (out.length >= N) return;
+      var fs = shuffle(p.k === 'j' ? JGEN[age] : p.k === 'f' ? FGEN[age] : g); for (var j = 0; j < fs.length; j++) { var q; try { q = fs[j](p); if (p.k) q = easy(q); } catch (e) { q = null; } if (q && q.opts && q.opts.length > 1 && q.ans >= 0) { out.push(q); return; } }
+    });
+    return out;
+  }
+  function show(id) { ['q-start', 'q-play', 'q-end'].forEach(function (x) { $(x).hidden = x !== id; $(x).style.display = x === id ? 'flex' : 'none'; }); }
+  function start() { deck = build(); i = 0; score = 0; show('q-play'); ask(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  function ask() {
+    var q = deck[i], p = q.p;
+    $('q-count').textContent = '第' + (i + 1) + '問 / ' + deck.length;
+    $('q-bar').style.width = (i / deck.length * 100) + '%';
+    $('q-stars').textContent = '⭐ ' + score;
+    $('q-img').src = p.img || ('../images/' + p.s + '.webp'); $('q-img').alt = q.hide ? 'なんだろう？' : p.n;
+    $('q-name').textContent = q.hide ? '❓ なんだろう？' : p.e + ' ' + p.n;
+    $('q-text').textContent = q.text; $('q-tom').src = '../images/tom/question-v2-s.webp';
+    var box = $('q-opts'); box.innerHTML = '';
+    q.opts.forEach(function (o, k) {
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'qopt pop'; b.style.animationDelay = (k * 60) + 'ms';
+      b.innerHTML = '<span class="qletter">' + L[k] + '</span><span></span>'; b.lastChild.textContent = o;
+      b.addEventListener('click', function () { answer(k); });
+      box.appendChild(b);
+    });
+    $('q-fb').hidden = true; $('q-fb').style.display = 'none';
+  }
+  function answer(k) {
+    var q = deck[i], p = q.p, good = k === q.ans, bs = $('q-opts').children;
+    for (var j = 0; j < bs.length; j++) { bs[j].disabled = true; bs[j].classList.remove('pop'); bs[j].classList.add(j === q.ans ? 'ok' : j === k ? 'ko' : 'dim'); }
+    if (good) score++; else bs[k].classList.add('wob'); $('q-tom').src = '../images/tom/' + (good ? 'bonne-reponse-v3' : 'mauvaise-reponse-v2') + '-s.webp';
+    $('q-stars').textContent = '⭐ ' + score;
+    if (q.hide) { $('q-name').textContent = p.e + ' ' + p.n; $('q-img').alt = p.n; }
+    var fb = $('q-fb'); fb.hidden = false; fb.style.display = 'flex';
+    fb.style.background = good ? 'var(--color-accent-100)' : '#fdf0e7';
+    $('q-fb-t').textContent = good ? ['よくできました', '正かい', 'やったね', 'すごい'][Math.floor(Math.random() * 4)] + '！' : 'ざんねん！ でもこれでおぼえたね！';
+    $('q-fb-t').style.color = good ? 'var(--color-accent-800)' : '#8a3a12';
+    $('q-fb-x').textContent = q.expl;
+    $('q-fiche').href = p.href || ('produits/' + p.s + '.html'); $('q-fiche').textContent = p.n + 'のページを見る →';
+    $('q-next').textContent = i + 1 < deck.length ? '次の問題へ →' : '結果を見る →';
+    $('q-next').focus({ preventScroll: true });
+  }
+  function end() {
+    $('q-bar').style.width = '100%';
+    var n = deck.length, r = score / n, best = +ls(key()) || 0;
+    if (n === N && score > best) ls(key(), score);
+    $('q-end-e').textContent = r === 1 ? '🏆' : r >= .7 ? '🥇' : r >= .4 ? '🌱' : '🐛';
+    $('q-end-t').textContent = (r === 1 ? 'まんてん' : r >= .7 ? '菜園の名人' : r >= .4 ? 'なかなかいいね' : 'いいスタートだよ') + '！ ' + score + ' / ' + n;
+    $('q-end-s').textContent = '⭐'.repeat(score) + '☆'.repeat(n - score);
+    $('q-end-p').textContent = (n === N && score > best && best ? '新記録！ ' : '') + (r === 1 ? (age < 4 ? 'すごい！ 次の年れいのクイズにもチャレンジしてみよう。' : 'きみは本物の植物はかせだ！') : 'あそぶたびに新しい問題が出るよ。もう一回あそんで、星を全部あつめよう！');
+    var e = $('q-end-e'); e.classList.remove('pop'); void e.offsetWidth; e.classList.add('pop');
+    show('q-end'); showBest();
+  }
+  function pick(sel, attr, set) { document.querySelectorAll(sel).forEach(function (b) { b.addEventListener('click', function () { set(b.dataset[attr]); document.querySelectorAll(sel).forEach(function (x) { x.setAttribute('aria-pressed', x === b); }); showBest(); }); }); }
+  pick('[data-theme]', 'theme', function (v) { theme = v; });
+  pick('[data-age]', 'age', function (v) { age = +v; ls('sainos-quiz-age', v); try { var pk = JSON.parse(localStorage.getItem('sainos-profil-enfant') || 'null'); if (pk) { pk.age = v; localStorage.setItem('sainos-profil-enfant', JSON.stringify(pk)); } } catch (e) {} });
+  document.querySelectorAll('[data-age]').forEach(function (x) { x.setAttribute('aria-pressed', +x.dataset.age === age); });
+  var ageOpen = false;
+  function syncAge() {
+    var pa = ''; try { pa = (JSON.parse(localStorage.getItem('sainos-profil-enfant') || '{}').age) || ''; } catch (e) {}
+    var g = document.querySelector('[data-age]').parentNode, hd = g.previousElementSibling, box = $('q-age-pro');
+    if (!box) { box = document.createElement('div'); box.id = 'q-age-pro'; box.style.cssText = 'display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:14px 18px;background:#fff;border-radius:999px;font-size:17px;font-weight:700;color:var(--color-accent-900);'; g.parentNode.insertBefore(box, hd); }
+    if (pa && !ageOpen) {
+      age = +pa; ls('sainos-quiz-age', String(age));
+      var b = document.querySelector('[data-age="' + age + '"]'), sp = b ? b.querySelectorAll('span') : [];
+      box.innerHTML = '<span aria-hidden="true" style="font-size:24px;line-height:1;">' + (sp[0] ? sp[0].textContent : '') + '</span><span style="flex:1 1 200px;">' + (sp[1] ? sp[1].textContent : '') + '向けのクイズだよ（プロフィールに合わせたよ）。</span><button type="button" class="btn btn-ghost" style="padding:8px 16px;font-size:15px;">かえる</button>';
+      box.querySelector('button').addEventListener('click', function () { ageOpen = true; syncAge(); });
+      box.style.display = 'flex'; g.style.display = 'none'; hd.style.display = 'none';
+    } else { box.style.display = 'none'; g.style.display = 'grid'; hd.style.display = ''; }
+    document.querySelectorAll('[data-age]').forEach(function (x) { x.setAttribute('aria-pressed', +x.dataset.age === age); });
+    if (typeof showBest === 'function') showBest();
+  }
+  syncAge(); window.addEventListener('storage', syncAge); window.addEventListener('sainos-profil-enfant', syncAge);
+  $('q-go').addEventListener('click', start);
+  $('q-next').addEventListener('click', function () { i++; if (i < deck.length) ask(); else end(); });
+  $('q-again').addEventListener('click', start);
+  $('q-theme').addEventListener('click', function () { show('q-start'); });
+  showBest();
+})();
+</script>
+<script>(function(){if(window.__navClose)return;window.__navClose=1;function c(){document.querySelectorAll('details[data-nav-burger]').forEach(function(d){d.removeAttribute('open')})}document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('[data-nav-panel] a,[data-nav-panel] button');if(t)setTimeout(c,0)},true);window.addEventListener('pageshow',c)})();</script>
+</body>
+</html>

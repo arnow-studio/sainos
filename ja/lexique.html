@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<script id="lang-redirect">(function(){function ask(alt){if(document.getElementById('lang-ask'))return;var d=document.createElement('div');d.id='lang-ask';d.setAttribute('role','dialog');d.setAttribute('aria-modal','true');d.setAttribute('aria-labelledby','lang-ask-t');d.setAttribute('lang','en');d.style.cssText='position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:20px;background:rgba(32,30,29,.45)';var B='min-height:48px;padding:0 22px;border-radius:999px;font:inherit;font-weight:700;font-size:16px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;flex:1 1 auto;text-decoration:none;';d.innerHTML='<div style="background:#fff;border-radius:24px;padding:28px;max-width:420px;width:100%;box-sizing:border-box;box-shadow:0 20px 50px rgba(0,0,0,.2);display:flex;flex-direction:column;gap:14px;font-family:var(--font-body);color:var(--color-text)"><h2 id="lang-ask-t" style="margin:0;font-family:var(--font-heading);font-weight:400;font-size:26px;line-height:1.15">Would you like the English version?</h2><p style="margin:0;font-size:16px;line-height:1.5">Your browser is set to English, but you seem to be in France.</p><div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px"><a href="'+alt+location.hash+'" data-lang="en" style="'+B+'background:var(--color-accent-strong,var(--color-accent));color:#fff;border:0">Switch to English</a><button type="button" data-lang="fr" lang="fr" style="'+B+'background:#fff;color:var(--color-text);border:2px solid var(--color-accent-300)">Rester en fran\u00e7ais</button></div></div>';function close(){try{localStorage.setItem('sainos-lang','fr')}catch(_){}d.remove();document.removeEventListener('keydown',k)}function k(e){if(e.key==='Escape')close()}d.querySelector('button').addEventListener('click',close);d.addEventListener('click',function(e){if(e.target===d)close()});document.addEventListener('keydown',k);document.body.appendChild(d);d.querySelector('a').focus()}var cur='ja',A={fr:'../lexique.html',en:'../en/lexique.html'};document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-lang]');if(a)try{localStorage.setItem('sainos-lang',a.getAttribute('data-lang'))}catch(_){}},true);try{var p=localStorage.getItem('sainos-lang');if(/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)||p===cur)return;var Q=location.search+location.hash;if(p&&A[p]){location.replace(A[p]+Q);return}var L=((navigator.languages&&navigator.languages[0])||navigator.language||'').slice(0,2).toLowerCase();if(L===cur||!A[L])return;if(cur==='fr'&&L==='en'){var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(_){}if(tz!=='Europe/Paris')location.replace(A.en+Q);else if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){ask(A.en)});else ask(A.en)}else location.replace(A[L]+Q)}catch(e){}})();</script>
+<link rel="alternate" hreflang="fr" href="https://www.sainos.fr/lexique.html">
+<link rel="alternate" hreflang="en" href="https://www.sainos.fr/en/lexique.html">
+<link rel="alternate" hreflang="ja" href="https://www.sainos.fr/ja/lexique.html">
+<link rel="alternate" hreflang="x-default" href="https://www.sainos.fr/lexique.html">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>(function(){var d=document.documentElement;var B=null,T=0,Q='[aria-label="モードを選ぶ"]';document.addEventListener('click',function(e){var t=e.target&&e.target.closest?e.target.closest(Q):null;B=t;if(t)T=t.getBoundingClientRect().top},true);function g(){var b=B;B=null;if(!b){try{window.scrollTo({top:0,left:0,behavior:'instant'})}catch(e){window.scrollTo(0,0)}return}var n=0;(function f(){var x=document.querySelector(Q)||b;var dy=x.getBoundingClientRect().top-T;if(dy)try{window.scrollBy({top:dy,left:0,behavior:'instant'})}catch(e){window.scrollBy(0,dy)}if(++n<24)requestAnimationFrame(f)})()}function s(){var k=false;try{k=localStorage.getItem('sainos-mode')==='enfant'}catch(e){}d.classList.toggle('m-kid',k)}try{var o=Storage.prototype.setItem;Storage.prototype.setItem=function(a,b){o.apply(this,arguments);if(a==='sainos-mode'){var p=d.classList.contains('m-kid');s();if(p!==d.classList.contains('m-kid'))g()}}}catch(e){}s();window.addEventListener('storage',s);window.addEventListener('pageshow',s)})();</script>
+<style id="kid-palette">html.m-kid { --color-accent: #00a8a2; --color-accent-100: #e6f7f6; --color-accent-200: #c4ecea; --color-accent-300: #8ad8d4; --color-accent-400: #3fbfb9; --color-accent-500: #00a8a2; --color-accent-600: #00968f; --color-accent-700: #007f7a; --color-on-accent: #ffffff; --color-accent-strong: #00807b; --color-accent-strong-hover: #006b67; --color-accent-800: #00615d; --color-accent-900: #004845; --color-accent-2-100: #ffffff; --color-accent-2-200: #ffffff; --color-accent-2-300: #d3ecea; --color-accent-2-800: #2d5f5c; --color-accent-2-900: #214644; }
+    :where(html.m-kid) a:not(.btn), :where(html.m-kid) .btn-ghost, :where(html.m-kid) .tag-outline, :where(html.m-kid) .card-kicker { color: var(--color-accent-800); } html.m-kid .btn-primary { color: #ffffff !important; } html.m-kid .tag-accent { color: var(--color-accent-900) !important; } .btn-primary { background-image: none !important; background-color: var(--color-accent-strong, var(--color-accent)) !important; box-shadow: none !important; transition: background-color .12s ease; } .btn-primary:hover { background-color: var(--color-accent-strong-hover, var(--color-accent-700)) !important; } .btn-primary:active { background-color: var(--color-accent-800) !important; } html.m-kid img[data-logo] { display: none !important; } html:not(.m-kid) img[data-kid-logo] { display: none !important; } :root { --color-logo: #3d8b2f; } html.m-kid { --color-logo: #00a8a2; }</style>
+<style>html.m-kid [data-nav-mar], html:not(.m-kid) [data-nav-pousse], html.m-kid [data-nav-lex], html.m-kid [data-adult-only], html:not(.m-kid) [data-kid-label], html:not(.m-kid) [data-nav-quiz] { display: none !important; }</style>
+<style id="kid-mobile">@media (max-width: 760px) { html.m-kid main [style*="font-size: 13px"], html.m-kid main [style*="font-size: 14px"] { font-size: 15px !important; } html.m-kid main [style*="font-size: 15px"] { font-size: 16px !important; } html.m-kid main [style*="font-size: 16px"] { font-size: 17px !important; } html.m-kid main [style*="font-size: 17px"] { font-size: 18px !important; } html.m-kid main .pill, html.m-kid main .tag { font-size: 16px !important; } }</style>
+<script src="./support.js"></script>
+<link rel="canonical" href="https://www.sainos.fr/ja/lexique.html">
+<title>用語集：果物・野菜・花・チーズ | Sainos</title>
+<meta name="description" content="アプリコット、カマンベール、ダリア、ポロネギ…。Sainosに登場する果物・野菜・花・チーズをひとことで解説する用語集です。">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sainos">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:url" content="https://www.sainos.fr/ja/lexique.html">
+<meta property="og:title" content="用語集：果物・野菜・花・チーズ">
+<meta property="og:description" content="アプリコット、カマンベール、ダリア、ポロネギ…。Sainosに登場する果物・野菜・花・チーズをひとことで解説する用語集です。">
+<meta property="og:image" content="https://www.sainos.fr/images/og/sainos.webp">
+<meta property="og:image:type" content="image/webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sainos — 旬の果物と野菜">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="用語集：果物・野菜・花・チーズ">
+<meta name="twitter:description" content="アプリコット、カマンベール、ダリア、ポロネギ…。Sainosに登場する果物・野菜・花・チーズをひとことで解説する用語集です。">
+<meta name="twitter:image" content="https://www.sainos.fr/images/og/sainos.webp">
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-SaacaKlZy2uX6RVnlBrdr.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png"><link rel="icon" type="image/png" sizes="192x192" href="/images/favicon-192.png"><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<style id="nav-jardin">[data-nav-jardin]{position:relative;display:inline-flex}[data-nav-jardin-panel]{display:none;position:absolute;top:100%;left:0;padding-top:6px;z-index:60}[data-nav-jardin]:hover [data-nav-jardin-panel],[data-nav-jardin]:focus-within [data-nav-jardin-panel]{display:block}[data-nav-jardin-box]{display:flex;flex-direction:column;gap:2px;min-width:180px;padding:8px;background:#fff;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg)}[data-nav-jardin-box] a{display:block;padding:10px 14px!important;color:var(--color-text)!important;font-weight:700}[data-nav-sub]{padding-left:40px!important;font-size:16px!important;font-weight:600!important;min-height:44px!important}</style>
+<style id="nav-current">[data-nav-desk]{gap:4px!important}[data-nav-desk] a[data-liste-pill],[data-nav-desk] a[data-liste-pill]:hover,[data-nav-desk] a[data-liste-pill] *{color:#ffffff!important;font-family:var(--font-body)!important;font-weight:800}[data-nav-desk] a[data-liste-pill]{background:var(--color-accent)!important;padding:8px 16px!important}[data-nav-desk] a[data-liste-pill]:hover{background:var(--color-accent-600)!important}@media (min-width:761px) and (max-width:1180px){nav.nav{flex-wrap:nowrap!important}nav.nav>[data-nav-desk]{min-width:0}[data-nav-desk] button{font-size:12px!important;padding:5px 10px!important}}@media (min-width:761px) and (max-width:1000px){[data-nav-desk] a{font-size:13px!important;padding:5px 4px!important}nav.nav .nav-brand img{height:30px!important}}@media (max-width:1180px){[data-nav-desk] a[data-liste-pill]{padding:8px 12px!important}}@media (max-width:1180px){[data-nav-desk] a{padding:6px 7px!important;font-size:15px!important}}@media (max-width:960px){[data-nav-desk] a{padding:5px 5px!important;font-size:14px!important}}[data-nav-desk] a{padding:6px 10px;border-radius:999px;text-decoration:none;white-space:nowrap;transition:background .15s}[data-nav-desk] a:not([aria-current="page"]):hover{background:var(--color-accent-100)}[data-nav-desk] a[aria-current="page"]{font-weight:800;color:var(--color-accent-700)!important;background:none}</style>
+<script id="nav-current-js">(function(){var p=location.pathname,k=/\/jardin\//.test(p)?'fleurs.html':/\/produits\//.test(p)?'legumes.html':/\/fromages\//.test(p)?'fromages.html':({'marches.html':'origines.html','bio.html':'origines.html','lexique.html':'origines.html'}[p.split('/').pop()]||p.split('/').pop()||'index.html');var q=0;function m(){q=0;document.querySelectorAll('[data-nav-desk] a').forEach(function(a){var h=(a.getAttribute('href')||'').split('/').pop();if(h===k)a.setAttribute('aria-current','page');else if(a.getAttribute('aria-current'))a.removeAttribute('aria-current')})}function s(){if(!q){q=1;requestAnimationFrame(m)}}document.addEventListener('DOMContentLoaded',function(){m();new MutationObserver(s).observe(document.body,{childList:true,subtree:true})})})();</script>
+<script id="recherche-js" src="../recherche.js" defer></script>
+<script id="veg-flag">try{if(JSON.parse(localStorage.getItem('sainos-liste-v4')||'{}').veg)document.documentElement.classList.add('m-veg')}catch(e){}</script><style id="veg-css">html.m-veg nav a[href$="poissonnerie.html"],html.m-veg footer a[href$="poissonnerie.html"],html.m-veg [data-nav-panel] a[href$="poissonnerie.html"]{display:none!important}</style>
+<style id="nav-fix">@media (max-width:1080px){nav.nav{flex-wrap:nowrap!important}nav.nav .nav-brand{min-width:0;flex-shrink:1}nav.nav .nav-brand img{max-width:100%!important;height:auto!important;width:auto!important;max-height:48px!important}}@media (max-width:600px){nav.nav .nav-brand img{max-height:38px!important}details[data-nav-burger]{position:static!important;flex:none}[data-nav-panel]{right:12px!important}}html,body{overflow-x:clip}</style>
+<style id="ja-type">:lang(ja) body{line-break:strict;word-break:normal;overflow-wrap:anywhere}</style>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style id="sous-nav-mobile">@media (max-width:640px){nav[data-bien-choisir]>div,nav[data-sous-jardin]>div{flex-wrap:nowrap!important;overflow-x:auto;max-width:100%;align-self:stretch!important;gap:2px!important;padding:4px!important;scrollbar-width:none}nav[data-bien-choisir]>div::-webkit-scrollbar,nav[data-sous-jardin]>div::-webkit-scrollbar{display:none}nav[data-bien-choisir]>div>*,nav[data-sous-jardin]>div>*{flex:1 0 auto;justify-content:center;padding:0 12px!important;font-size:15px!important}}</style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400&family=Nunito:wght@400;500;600;700&family=RocknRoll+One&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap">
+  <link rel="stylesheet" href="../_ds/organic-f9092e65-12bb-43ea-a459-3e0b5f502c38/styles.css">
+  <script src="../_ds/organic-f9092e65-12bb-43ea-a459-3e0b5f502c38/_ds_bundle.js"></script>
+  <script src="produits-data.js?v=20261027"></script>
+  <script src="produits-enfants.js"></script>
+<script src="fromages-data.js"></script><script src="poissons-data.js"></script>
+<script src="jardin-data.js"></script>
+  <style>
+    :root { --color-bg: #fbf8f2; --color-accent: #357d28; --color-accent-100: #eef7ea; --color-accent-200: #d9eed0; --color-accent-300: #b6dca5; --color-accent-400: #74b95e; --color-accent-500: #357d28; --color-accent-600: #327426; --color-accent-700: #285e1f; --color-accent-800: #1f4a19; --color-accent-900: #183a14; --color-accent-2-100: #f4f8ed; --color-accent-2-200: #e8efdb; --color-accent-2-300: #d8e2c7; --color-accent-2-800: #56613f; --color-accent-2-900: #46512f;  --color-neutral-100: #fffdf9; --color-text: #5b3b27; --color-divider: color-mix(in srgb, #8c491a 20%, transparent); --font-heading: 'DynaPuff', 'RocknRoll One', system-ui, sans-serif; --font-body: 'Nunito', 'M PLUS Rounded 1c', system-ui, sans-serif; }
+    body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
+    h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 400; }
+    a { color: var(--color-accent-700); }
+    a:not(.btn):not(.tag):hover { color: var(--color-accent-600); }
+    *:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+  
+    @media (max-width: 1080px) { [data-nav-desk] { display: none !important; } }
+    @media (min-width: 1081px) { [data-nav-burger] { display: none !important; } }
+    [data-nav-burger] summary::-webkit-details-marker { display: none; }
+    [data-nav-burger][open] [data-ic="open"], [data-nav-burger]:not([open]) [data-ic="close"] { display: none; }
+    [data-nav-panel] a:hover { background: var(--color-accent-100); }
+  
+  [data-baseline] { transition: opacity .2s, max-height .2s; max-height: 20px; overflow: hidden; }
+  html.is-scrolled [data-baseline] { opacity: 0; max-height: 0; }
+</style>
+<script>(function(){var d=document.documentElement,on=false;function f(){var y=window.scrollY,s=on?y>8:y>60;if(s!==on){on=s;d.classList.toggle('is-scrolled',s);}}window.addEventListener('scroll',f,{passive:true});f();})();</script>
+<script>(function(){if(window.__navClose)return;window.__navClose=1;function c(){document.querySelectorAll('details[data-nav-burger]').forEach(function(d){d.removeAttribute('open')})}document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('[data-nav-panel] a,[data-nav-panel] button');if(t)setTimeout(c,0)},true);window.addEventListener('pageshow',c)})();</script>
+</helmet>
+<div style="min-height: 100vh; display: flex; flex-direction: column;">
+  <header style="position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--color-bg) 92%, transparent); backdrop-filter: blur(8px);">
+    <nav class="nav" aria-label="メインナビゲーション" style="max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; padding-left: clamp(20px, 5vw, 56px); padding-right: clamp(20px, 5vw, 56px); flex-wrap: wrap; row-gap: var(--space-2);">
+      <a href="index.html" class="nav-brand" style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none;" aria-label="Sainos — ホーム">
+        <img data-logo="1" src="../images/logo.webp" alt="Sainos — 旬の果物と野菜" width="398" height="107" style="{{ logoBig }}"><img data-kid-logo="1" src="../images/logo-enfants-v2.webp" alt="Sainos — 旬の果物と野菜" width="398" height="107" style="{{ logoBig }}">
+        <img data-logo="1" src="../images/logo-mini.webp" alt="" aria-hidden="true" width="398" height="107" style="{{ logoMini }}"><img data-kid-logo="1" src="../images/logo-enfants-v2.webp" alt="" aria-hidden="true" width="398" height="107" style="{{ logoMini }}"><span data-baseline="1" style="font-family: var(--font-body); font-size: 14px; font-weight: 700; line-height: 1; color: var(--color-text); white-space: nowrap;"><span style="color: var(--color-logo, var(--color-accent-700));">季節</span>をたべよう</span>
+      </a>
+      <div data-nav-desk="1" style="display: flex; gap: var(--space-4); align-items: center;">
+        <span data-nav-jardin="1"><a href="legumes.html" aria-haspopup="true">ファーム ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="legumes.html">菜園</a><a href="fruits.html">果樹園</a><a href="fleurs.html">ガーデン</a></span></span></span>
+        <a href="fromages.html" data-adult-only="1">チーズ</a><a href="poissonnerie.html" data-adult-only="1">魚屋さん</a>
+        <span data-nav-jardin="1"><a href="origines.html" aria-haspopup="true">ガイド ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="origines.html">産地</a><a href="marches.html" data-nav-mar="1">マルシェ</a><a href="bio.html">オーガニック</a><a href="recettes.html">レシピ</a><a href="lexique.html" data-nav-lex="1">用語集</a></span></span></span>
+        <a href="pousse.html" data-nav-pousse="1">どうやって育つの？</a>
+        <span data-nav-jardin="1" data-nav-quiz="1"><a href="jouer.html" aria-haspopup="true">あそぶ ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="quiz.html" data-nav-quiz="1">クイズ</a><a href="jeux.html">ミニゲーム</a></span></span></span>
+        <span data-nav-jardin="1"><a href="apropos.html" aria-haspopup="true">Sainosについて ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="apropos.html">Sainosについて</a><a href="enseignants.html" data-nav-lex="1">学校で</a><a href="contact.html" data-adult-only="1">お問い合わせ</a></span></span></span>
+      </div>
+      <details data-nav-burger="1" style="position: relative; margin-left: auto;">
+        <summary aria-label="メニュー" style="list-style: none; width: 48px; height: 48px; box-sizing: border-box; display: grid; place-items: center; background: transparent; border: 0; color: var(--color-text); cursor: pointer;">
+          <svg data-ic="open" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M4 9h16M4 15h16"></path></svg>
+          <svg data-ic="close" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </summary>
+        <div data-nav-panel="1" style="position: absolute; right: 0; top: calc(100% + 10px); z-index: 50; max-height: calc(100vh - 100px); max-height: calc(100dvh - 100px); overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; width: min(280px, 80vw); box-sizing: border-box; padding: 10px; background: #ffffff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 4px;">
+          <a href="liste.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">マルシェのお買い物リスト</a>
+          <a href="legumes.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">ファーム</a><a href="tom.html" data-nav-tom="1" data-kid-label="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">ぼくのおはなし</a>
+        <a href="fromages.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">チーズ</a><a href="poissonnerie.html" data-adult-only="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">魚屋さん</a>
+          <a href="origines.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">ガイド</a>
+          <a href="pousse.html" data-nav-pousse="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">どうやって育つの？</a>
+        <a href="quiz.html" data-nav-quiz="1" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-accent-900); background: var(--color-accent-100);">クイズ</a>
+          <a href="apropos.html" style="display: flex; align-items: center; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;">Sainosについて</a>
+        
+          <a href="../lexique.html" data-lang="fr" hreflang="fr" lang="fr" style="display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;"><span aria-hidden="true">🌐</span>Version française</a><a href="../en/lexique.html" data-lang="en" hreflang="en" lang="en" style="display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 18px; border-radius: 999px; font-size: 17px; font-weight: 700; text-decoration: none; color: var(--color-text); background: transparent;"><span aria-hidden="true">🌐</span>English version</a>
+          <div data-nav-extra="1" style="display: flex; flex-direction: column; gap: 10px; margin-top: 6px; padding: 12px 8px 4px; border-top: 1px solid var(--color-divider);"><sc-if value="{{ adult }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ toEnfant }}" style="display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-2-300); background: #ffffff; color: var(--color-accent-2-900); font: inherit; font-size: 16px; font-weight: 700; padding: 10px 18px; min-height: 48px; width: 100%; justify-content: center; box-sizing: border-box; border-radius: 999px; cursor: pointer; white-space: nowrap;" style-hover="background: var(--color-accent-2-100); border-color: var(--color-accent-2-500);">🎒 こどもモード</button></sc-if><sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ toNormal }}" style="display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-300); background: #ffffff; color: var(--color-accent-900); font: inherit; font-size: 16px; font-weight: 700; padding: 10px 18px; min-height: 48px; width: 100%; justify-content: center; box-sizing: border-box; border-radius: 999px; cursor: pointer; white-space: nowrap;" style-hover="background: var(--color-accent-100); border-color: var(--color-accent-500);">おとなモード</button></sc-if><div aria-label="Sainosをフォロー" data-nav-social="1" style="display: flex; justify-content: center; gap: var(--space-2); align-items: center;"><a href="https://www.facebook.com/profile.php?id=61594827576678" target="_blank" rel="noopener" aria-label="FacebookのSainos" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/facebook/1877F2" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a><a href="https://www.instagram.com/sainos_fr/" target="_blank" rel="noopener" aria-label="InstagramのSainos" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/instagram/E4405F" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a><a href="https://www.tiktok.com/@sainos_fr" target="_blank" rel="noopener" aria-label="TikTokのSainos" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: var(--color-neutral-100); text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/tiktok/000000" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a></div></div>
+        </div>
+      </details>
+      <div data-nav-desk="1" style="display: flex; flex-wrap: nowrap; gap: var(--space-3); align-items: center; justify-content: flex-end; margin-left: auto; flex: none;"><a href="liste.html" data-adult-only="1" data-liste-pill="1" aria-label="マルシェのお買い物リスト" style="display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; font-size: 14px; white-space: nowrap; text-decoration: none;"><span data-pill-txt="1">リスト</span></a><sc-if value="{{ adult }}" hint-placeholder-val="{{ true }}"><button type="button" onClick="{{ toEnfant }}" style="display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-2-300); background: #ffffff; color: var(--color-accent-2-900); font: inherit; font-size: 14px; font-weight: 700; padding: 6px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap;" style-hover="background: var(--color-accent-2-100); border-color: var(--color-accent-2-500);">🎒 こどもモード</button></sc-if><sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}"><button type="button" onClick="{{ toNormal }}" style="display: flex; align-items: center; gap: 6px; border: 2px solid var(--color-accent-300); background: #ffffff; color: var(--color-accent-900); font: inherit; font-size: 14px; font-weight: 700; padding: 6px 14px; border-radius: 999px; cursor: pointer; white-space: nowrap;" style-hover="background: var(--color-accent-100); border-color: var(--color-accent-500);">おとなモード</button></sc-if></div>
+    </nav>
+  </header>
+
+  <main style="flex: 1; max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; padding: clamp(40px, 7vw, 56px) clamp(20px, 5vw, 56px) 0; display: flex; flex-direction: column; gap: var(--space-6);">
+    <nav data-bien-choisir="1" aria-label="ガイド" style="display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: calc(-1 * var(--space-4));"><span style="font-family: var(--font-heading); font-size: 22px; color: var(--color-accent-2-900);">ガイド</span><div style="display: flex; flex-wrap: wrap; gap: 6px; padding: 6px; background: #f4efe6; border-radius: 28px; align-self: flex-start;"><a href="origines.html" style="display: flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; font-size: 16px; text-decoration: none; white-space: nowrap; font-weight: 700; color: var(--color-accent-800);">産地</a><a href="marches.html" style="display: flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; font-size: 16px; text-decoration: none; white-space: nowrap; font-weight: 700; color: var(--color-accent-800);" data-nav-mar="1">マルシェ</a><a href="bio.html" style="display: flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; font-size: 16px; text-decoration: none; white-space: nowrap; font-weight: 800; background: var(--color-accent-strong, var(--color-accent-700)); color: #ffffff;">オーガニック</a><a href="recettes.html" style="display: flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; font-size: 16px; text-decoration: none; white-space: nowrap; font-weight: 700; color: var(--color-accent-800);">レシピ</a><span aria-current="page" style="display: flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; font-size: 16px; text-decoration: none; white-space: nowrap; font-weight: 800; background: var(--color-accent-strong, var(--color-accent-700)); color: #ffffff;">用語集</span></div></nav>
+      
+    <div style="display: flex; flex-direction: column; gap: var(--space-3); max-width: 720px;">
+      <nav aria-label="パンくずリスト" style="font-size: 14px; display: flex; gap: var(--space-2);"><a href="index.html">ホーム</a><span aria-hidden="true">›</span><span aria-current="page">用語集</span></nav>
+      <sc-if value="{{ adult }}" hint-placeholder-val="{{ true }}"><h1 style="margin: 0; font-size: clamp(36px, 5vw, 58px); line-height: 1.05; text-wrap: balance;">Sainosの用語集</h1>
+      <p style="margin: 0; font-size: 18px; line-height: 1.55; color: var(--color-neutral-800); text-wrap: pretty;">サイトに登場する果物・野菜・花・チーズを、ひとことずつ解説します。</p></sc-if><sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}"><h1 style="margin: 0; font-size: clamp(36px, 5vw, 58px); line-height: 1.05; text-wrap: balance;">知っておきたいことば</h1>
+      <div data-tom-dit="1" style="display: flex; gap: 14px; align-items: flex-start; max-width: 720px;"><img data-tom-rand="1" src="../images/tom/home-s.webp" alt="" width="800" height="800" style="flex: none; width: 96px; height: 96px; border-radius: 50%; object-fit: cover; display: block; background: var(--color-accent-200);"><p style="margin: 0; align-self: center; font-size: 18px; line-height: 1.55; color: var(--color-neutral-800); text-wrap: pretty;"><strong style="font-family: var(--font-heading); font-weight: 400; color: var(--color-accent-800);">トム：</strong>「核果」「塊茎」「AOP」…。ぼくもさいしょは、こういうことばがわからなかったんだ！かんたんに説明するね。</p></div></sc-if>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; padding: var(--space-3); background: #f4efe6; border-radius: var(--radius-lg);">
+      <div style="flex: 1 1 240px; max-width: 340px;">
+        <label for="lq" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0);">用語をさがす</label>
+        <input id="lq" class="input" type="search" placeholder="用語をさがす…" value="{{ q }}" onChange="{{ onSearch }}" style="min-height: 42px; font-size: 15px; background: var(--color-neutral-100);">
+      </div>
+      <div role="group" aria-label="カテゴリー" style="display: flex; flex-wrap: wrap; gap: var(--space-2);">
+        <sc-for list="{{ cats }}" as="ct" hint-placeholder-count="4">
+          <button type="button" class="{{ ct.cls }}" aria-pressed="{{ ct.on }}" onClick="{{ ct.pick }}" style="white-space: nowrap; flex: none; padding: 9px 16px; font-size: 14px;">{{ ct.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+
+    <nav aria-label="五十音索引" style="display: flex; flex-wrap: wrap; gap: 6px;">
+      <sc-for list="{{ letters }}" as="lt" hint-placeholder-count="12">
+        <a href="{{ lt.href }}" style="width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: var(--color-accent-2-200); color: var(--color-accent-2-900); text-decoration: none; font-weight: 700;" style-hover="background: var(--color-accent-2-300); color: var(--color-accent-2-900);">{{ lt.l }}</a>
+      </sc-for>
+    </nav>
+
+    <div style="display: flex; flex-direction: column; gap: var(--space-8); padding-bottom: var(--space-8);">
+      <sc-for list="{{ sections }}" as="sec" hint-placeholder-count="3">
+        <section id="{{ sec.id }}" aria-label="{{ sec.aria }}" style="display: grid; grid-template-columns: clamp(36px, 6vw, 56px) minmax(0, 1fr); gap: clamp(8px, 1.5vw, 16px); scroll-margin-top: 90px;">
+          <span aria-hidden="true" style="font-family: var(--font-heading); font-size: clamp(36px, 5vw, 48px); line-height: 1; color: var(--color-accent);">{{ sec.l }}</span>
+          <dl style="margin: 0; min-width: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: var(--space-4);">
+            <sc-for list="{{ sec.items }}" as="t" hint-placeholder-count="2">
+              <div id="{{ t.id }}" style="display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); background: #ffffff; border: none; border-radius: var(--radius-lg); scroll-margin-top: 90px;">
+                <span class="{{ t.catCls }}" style="align-self: flex-start; font-size: 12px;">{{ t.catLabel }}</span>
+                <dt style="font-family: var(--font-heading); font-size: 22px; line-height: 1.15;">{{ t.terme }}</dt>
+                <dd style="margin: 0; font-size: 15px; line-height: 1.55; text-wrap: pretty;">{{ t.def }}</dd>
+                <sc-if value="{{ t.hasEx }}" hint-placeholder-val="{{ false }}">
+                  <dd style="margin: 0; display: flex; flex-wrap: wrap; gap: 6px; padding-top: 4px;">
+                    <sc-for list="{{ t.ex }}" as="x" hint-placeholder-count="2">
+                      <a href="{{ x.href }}" class="tag tag-accent-2" style="font-size: 13px; text-decoration: none; padding: 5px 12px; gap: 5px;"><sc-if value="{{ x.img }}" hint-placeholder-val="{{ false }}"><span role="img" aria-hidden="true" style="width: 1em; height: 1em; background: {{ x.imgBg }}; display: inline-block; vertical-align: -0.15em;"></span></sc-if><sc-if value="{{ x.noImg }}" hint-placeholder-val="{{ true }}">{{ x.e }}</sc-if> {{ x.n }}</a>
+                    </sc-for>
+                  </dd>
+                </sc-if>
+              </div>
+            </sc-for>
+          </dl>
+        </section>
+      </sc-for>
+      <sc-if value="{{ hasProd }}" hint-placeholder-val="{{ false }}">
+        <section id="produits" aria-label="五十音順の一覧" style="display: flex; flex-direction: column; gap: var(--space-6); scroll-margin-top: 90px;">
+          
+          <sc-for list="{{ pSections }}" as="ps" hint-placeholder-count="3">
+            <div id="{{ ps.id }}" aria-label="{{ ps.aria }}" role="group" style="display: grid; grid-template-columns: clamp(36px, 6vw, 56px) minmax(0, 1fr); gap: clamp(8px, 1.5vw, 16px); scroll-margin-top: 90px;">
+              <span aria-hidden="true" style="font-family: var(--font-heading); font-size: clamp(36px, 5vw, 48px); line-height: 1; color: var(--color-accent);">{{ ps.l }}</span>
+              <ul style="list-style: none; margin: 0; padding: 0; min-width: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: var(--space-4);">
+                <sc-for list="{{ ps.items }}" as="pi" hint-placeholder-count="3">
+                  <li style="min-width: 0;">
+                    <a href="{{ pi.href }}" style="display: flex; gap: var(--space-4); align-items: flex-start; height: 100%; box-sizing: border-box; padding: var(--space-4); background: #ffffff; border-radius: var(--radius-lg); text-decoration: none; color: var(--color-text); transition: transform .15s ease, box-shadow .15s ease;" style-hover="transform: translateY(-2px); box-shadow: var(--shadow-md); color: var(--color-text);">
+                      <span aria-hidden="true" style="flex-shrink: 0; width: 64px; height: 64px; display: grid; place-items: center; font-size: 48px; line-height: 1;"><sc-if value="{{ pi.img }}" hint-placeholder-val="{{ false }}"><span style="width: 64px; height: 64px; background: {{ pi.imgBg }}; display: block;"></span></sc-if><sc-if value="{{ pi.noImg }}" hint-placeholder-val="{{ true }}">{{ pi.e }}</sc-if></span>
+                      <span style="display: flex; flex-direction: column; gap: 6px; min-width: 0;">
+                        <span style="font-family: var(--font-heading); font-size: 22px; line-height: 1.15; overflow-wrap: anywhere;">{{ pi.n }}</span>
+                        <span class="tag tag-accent-2" style="align-self: flex-start; font-size: 12px; white-space: nowrap;">{{ pi.kind }}</span>
+                        <span style="font-size: 15px; line-height: 1.5; text-wrap: pretty;">{{ pi.d }}</span>
+                      </span>
+                    </a>
+                  </li>
+                </sc-for>
+              </ul>
+            </div>
+          </sc-for>
+        </section>
+      </sc-if>
+      <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+        <p style="margin: 0; font-size: 18px; padding: var(--space-6); background: var(--color-surface); border-radius: var(--radius-lg);">該当する用語が見つかりませんでした。</p>
+      </sc-if>
+    </div>
+  <section aria-label="モードを選ぶ" style="margin: var(--space-8) 0;">
+      <sc-if value="{{ adult }}" hint-placeholder-val="{{ true }}"><div style="display: flex; flex-direction: column; background: #ffffff; border: 2px solid var(--color-accent-2-300); border-radius: var(--radius-lg); overflow: hidden;">
+        <img src="../images/pano-champ-marche.webp" alt="イラスト：左は畑にいる若い農家さん、右はマルシェで買い物をする家族" width="1800" height="600" loading="lazy" style="display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover;">
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-4) var(--space-6);">
+          <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 320px; min-width: 0;">
+            <span style="font-family: var(--font-heading); font-weight: 400; font-size: 24px; color: var(--color-accent-2-900);">🧺 おとなモード中</span>
+            <span style="font-size: 16px; line-height: 1.5; color: var(--color-accent-2-900); text-wrap: pretty;">産地、最盛期、マルシェでの選び方のコツ、レシピのアイデアなど、季節に合わせたお買い物に役立つ情報をまとめています。お子さんも探検してみたくなったら、こどもモードに切り替えてください。</span>
+          </div>
+          <button type="button" class="btn btn-primary" onClick="{{ toEnfant }}" style="padding: 12px 22px; font-size: 16px; white-space: nowrap;">こどもモードに切り替える</button>
+        </div>
+      </div></sc-if><sc-if value="{{ kid }}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-direction: column; background: #ffffff; border: 2px solid var(--color-accent-300); border-radius: var(--radius-lg); overflow: hidden;">
+        <img src="../images/pano-verger-cuisine.webp" alt="イラスト：左は果樹園でにっこり笑う農家さん、右は台所で果物を味見するふたりの子ども" width="1800" height="600" loading="lazy" style="display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; object-fit: cover;">
+        <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; justify-content: space-between; padding: var(--space-4) var(--space-6);">
+          <div style="display: flex; flex-direction: column; gap: 4px; flex: 1 1 320px; min-width: 0;">
+            <span style="font-family: var(--font-heading); font-weight: 400; font-size: 24px; color: var(--color-accent-900);">🎒 こどもモード中</span>
+            <span style="font-size: 16px; line-height: 1.5; color: var(--color-accent-900); text-wrap: pretty;">バッジはもう{{ nbTotal }}個中{{ badgeCount }}個ゲットしたね！おうちの人がお買い物に行くなら、おとなモードにしてあげてね。クリック1回でかわるよ！</span>
+          </div>
+          <button type="button" class="btn btn-secondary" onClick="{{ toNormal }}" style="padding: 12px 22px; font-size: 16px; white-space: nowrap;">おとなモードにする</button>
+        </div>
+      </div></sc-if>
+    </section>
+    </main>
+
+  <footer style="background: #f4efe6;">
+    <div style="max-width: 1200px; margin: 0 auto; box-sizing: border-box; padding: var(--space-6) clamp(20px, 5vw, 56px); display: flex; flex-wrap: wrap; gap: var(--space-4); justify-content: space-between; align-items: center; font-size: 14px;">
+      <img data-logo="1" src="../images/logo-mini.webp" alt="Sainos" width="398" height="107" style="display: block; height: 30px; width: auto;"><img data-kid-logo="1" src="../images/logo-enfants-v2.webp" alt="Sainos" width="398" height="107" style="display: block; height: 30px; width: auto;">
+      <nav aria-label="フッター" style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
+        <a href="index.html">ホーム</a>
+        <span data-nav-jardin="1"><a href="legumes.html" aria-haspopup="true">ファーム ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="legumes.html">菜園</a><a href="fruits.html">果樹園</a><a href="fleurs.html">ガーデン</a></span></span></span>
+        <a href="fromages.html" data-adult-only="1">チーズ</a><a href="poissonnerie.html" data-adult-only="1">魚屋さん</a>
+        <a href="liste.html" data-adult-only="1">マルシェのお買い物リスト</a>
+        <a href="origines.html">ガイド</a>
+        <a href="pousse.html" data-nav-pousse="1">どうやって育つの？</a>
+        <a href="lexique.html" data-nav-lex="1">用語集</a>
+        <a href="quiz.html" data-nav-quiz="1">クイズ</a><a href="recettes.html" data-nav-rec="1">レシピ</a><a href="menu.html" data-adult-only="1">今週の献立</a><a href="jeux.html" data-nav-quiz="1">ミニゲーム</a>
+        <a href="apropos.html">Sainosについて</a>
+        <a href="enseignants.html" data-adult-only="1">先生方へ</a>
+        <a href="contact.html" data-adult-only="1">お問い合わせ</a>
+        <a href="../lexique.html" data-lang="fr" hreflang="fr" lang="fr">Version française</a><a href="../en/lexique.html" data-lang="en" hreflang="en" lang="en">English version</a>
+      </nav>
+      <div aria-label="Sainosをフォロー" style="display: flex; gap: var(--space-2); align-items: center;">
+        <a href="https://www.facebook.com/profile.php?id=61594827576678" target="_blank" rel="noopener" aria-label="FacebookのSainos" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/facebook/1877F2" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+        <a href="https://www.instagram.com/sainos_fr/" target="_blank" rel="noopener" aria-label="InstagramのSainos" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/instagram/E4405F" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+        <a href="https://www.tiktok.com/@sainos_fr" target="_blank" rel="noopener" aria-label="TikTokのSainos" style="display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #ffffff; text-decoration: none;"><img loading="lazy" decoding="async" src="https://cdn.simpleicons.org/tiktok/000000" alt="" width="22" height="22" style="display: block; width: 22px; height: 22px;"></a>
+      </div>
+      <p style="flex-basis: 100%; order: 3; margin: 0; font-size: 13px; line-height: 1.5; color: var(--color-neutral-800);">Sainosは独立した情報サイトです。販売・広告・Cookieは一切ありません。</p>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  _mode() { try { return localStorage.getItem('sainos-mode') === 'enfant' ? 'enfant' : 'normal'; } catch (e) { return 'normal'; } }
+  _badges() { try { return JSON.parse(localStorage.getItem('sainos-badges') || '[]'); } catch (e) { return []; } }
+  _syncMode = () => this.setState({ mode: this._mode(), badges: this._badges() });
+  setMode(m) { try { localStorage.setItem('sainos-mode', m); } catch (e) {} this._syncMode(); }
+  _kidVals() { const kid = this.state.mode === 'enfant'; return { kid, adult: !kid, badgeCount: (this.state.badges || []).length, nbTotal: window.SAISON ? window.SAISON.produits.length : 44, toEnfant: () => this.setMode('enfant'), toNormal: () => this.setMode('normal') }; }
+  state = { mode: this._mode(), badges: this._badges(), q: '', cat: 'all', ready: !!window.SAISON };
+  componentDidMount() {
+    window.addEventListener('storage', this._syncMode); window.addEventListener('pageshow', this._syncMode);
+    this._onScroll = () => { const y = window.scrollY, cur = !!this.state.mini; const s = cur ? y > 8 : y > 140; if (s !== cur) this.setState({ mini: s }); };
+    window.addEventListener('scroll', this._onScroll, { passive: true }); this._onScroll();
+    const done = () => { this.injectLd(); this.setState({ ready: true }); if (location.hash) { const el = document.getElementById(location.hash.slice(1)); if (el) window.scrollTo(0, el.getBoundingClientRect().top + scrollY - 90); } };
+    { const c = new URLSearchParams(location.search).get('cat'); if (['potager', 'jardin', 'fromage', 'poisson'].includes(c)) this.setState({ cat: c }); }
+    if (window.SAISON && window.SAISON_ENFANTS) setTimeout(done, 0); else this._t = setInterval(() => { if (window.SAISON && window.SAISON_ENFANTS) { clearInterval(this._t); done(); } }, 50);
+  }
+  componentWillUnmount() { window.removeEventListener('storage', this._syncMode); window.removeEventListener('pageshow', this._syncMode); window.removeEventListener('scroll', this._onScroll); clearInterval(this._t); }
+  injectLd() {
+    if (document.getElementById('ld-lexique')) return;
+    const s = document.createElement('script');
+    s.type = 'application/ld+json'; s.id = 'ld-lexique';
+    s.textContent = JSON.stringify({ '@context': 'https://schema.org', '@type': 'DefinedTermSet', name: 'Sainos 用語集（菜園・ガーデン・チーズ・魚）', url: 'https://www.sainos.fr/ja/lexique.html',
+      hasDefinedTerm: window.SAISON.lexique.map(t => ({ '@type': 'DefinedTerm', name: t.terme, description: t.def, url: 'https://www.sainos.fr/ja/lexique.html#' + t.id })) });
+    document.head.appendChild(s);
+  }
+  renderVals() {
+    const mini = true;
+    return { ...this._rv(), ...this._kidVals(), logoBig: { display: mini ? 'none' : 'block', height: 'clamp(84px, 11vw, 120px)', width: 'auto' }, logoMini: { display: mini ? 'block' : 'none', height: 36, width: 'auto' } };
+  }
+  _rv() {
+    const S = window.SAISON; const KL = (this.state.mode === 'enfant' && window.SAISON_ENFANTS) ? window.SAISON_ENFANTS.lexique : {};
+    const { q, cat } = this.state;
+    const CAT = { botanique: ['植物学', 'tag tag-accent-2'], famille: ['植物の科', 'tag tag-neutral'], label: ['認証ラベル', 'tag tag-accent'], jardinage: ['園芸', 'tag tag-accent-2'], fromagerie: ['チーズづくり', 'tag tag-accent'], peche: ['漁業', 'tag tag-accent-2'] };
+    const kid = this.state.mode === 'enfant'; let veg = false; try { veg = !!JSON.parse(localStorage.getItem('sainos-liste-v4') || '{}').veg; } catch (e) {}
+    const cats = [['all', 'すべて'], ['potager', '🥕 果物・野菜'], ['jardin', '🌸 花・ハーブ']].concat(kid ? [] : [['fromage', '🧀 チーズ']].concat(veg ? [] : [['poisson', '🐟 魚屋さん']])).map(([k, label]) => ({ label, on: cat === k, cls: 'btn ' + (cat === k ? 'btn-primary' : 'btn-secondary'), pick: () => this.setState({ cat: k }) }));
+    const base = { q, cats, onSearch: e => this.setState({ q: e.target.value }) };
+    if (!S) return { ...base, letters: [], sections: [], pSections: [], hasProd: false, empty: false };
+    // 五十音索引：名前がかな（またはローマ字）で始まればそのまま、漢字で始まる場合は YOMI（よみ）で行を決める
+    const YOMI = { agrume: 'かんきつ', akene: 'そうか', amaryllidacees: 'ひがんばな', apiacees: 'せり', baie: 'えきか', brassicacees: 'あぶらな', cucurbitacees: 'うり', drupe: 'かくか', fabacees: 'まめ', 'legume-racine': 'こんさい', primeur: 'はつもの', rhizome: 'こんけい', rosacees: 'ばら', solanacees: 'なす', tubercule: 'かいけい',
+      annuelle: 'いちねんそう', bisannuelle: 'にねんそう', vivace: 'たねんそう', semis: 'たねまき', repiquage: 'いしょく', bouture: 'さしき', paillage: 'まるちんぐ', affinage: 'じゅくせい', 'lait-cru': 'せいにゅう', presure: 'ぎょうにゅうこうそ', 'croute-fleurie': 'しろかび', 'croute-lavee': 'うぉっしゅ', 'pate-pressee-cuite': 'かねつあっさく', 'pate-persillee': 'あおかび', fermier: 'のうかせい',
+      tomate: 'とまと', aubergine: 'なす', concombre: 'きゅうり', piment: 'とうがらし', chou: 'きゃべつ', epinard: 'ほうれんそう', 'pomme-de-terre': 'じゃがいも', mais: 'とうもろこし', 'petit-pois': 'えんどう', 'haricot-vert': 'さやいんげん', potiron: 'かぼちゃ', ail: 'にんにく', oignon: 'たまねぎ', 'patate-douce': 'さつまいも', carotte: 'にんじん',
+      fraise: 'いちご', cerise: 'さくらんぼ', peche: 'もも', pasteque: 'すいか', raisin: 'ぶどう', pomme: 'りんご', poire: 'なし', chataigne: 'くり', gingembre: 'しょうが', persil: 'ぱせり', menthe: 'みんと', ciboulette: 'ちいぶ',
+      rose: 'ばら', pivoine: 'しゃくやく', tournesol: 'ひまわり', 'pois-de-senteur': 'すいーとぴー', coquelicot: 'ひなげし', bleuet: 'やぐるまぎく', hortensia: 'あじさい', chrysantheme: 'きく', pensee: 'さんしきすみれ', cyclamen: 'しくらめん', camelia: 'つばき', primevere: 'さくらそう', narcisse: 'すいせん', jacinthe: 'ひやしんす', 'perce-neige': 'すのーどろっぷ', glaieul: 'ぐらじおらす', lis: 'ゆり', muguet: 'すずらん', capucine: 'なすたーちうむ', souci: 'きんせんか', violette: 'においすみれ', 'fleur-de-sureau': 'えるだーふらわー', 'fleur-de-courgette': 'ずっきーにのはな', mauve: 'ぜにあおい', tagete: 'まりーごーるど', laurier: 'げっけいじゅ', aneth: 'でぃる', verveine: 'れもんばーべな',
+      sole: 'したびらめ', 'crevette-grise': 'こえび', 'fleur-d-acacia': 'あかしあのはな' };
+    const yomi = (n, id) => { const c = (n || '').charAt(0); return (/[\u3400-\u9fff\uf900-\ufaff]/.test(c) && YOMI[id]) ? YOMI[id] : (n || ''); };
+    const nq = S.norm(q.trim());
+    const terms = S.lexique.filter(t => (cat === 'all' || t.fam.includes(cat)) && !(kid && !t.fam.some(x => x === 'potager' || x === 'jardin')) && !(veg && t.fam.length === 1 && t.fam[0] === 'poisson') && !(veg && cat === 'poisson') && (!nq || S.norm(t.terme + ' ' + t.def).includes(nq)))
+      .slice().sort((a, b) => yomi(a.terme, a.id).localeCompare(yomi(b.terme, b.id), 'ja'));
+    const FRM = window.FROMAGES ? window.FROMAGES.fromages : [];
+    const ROWS = { a: ['ア', 'ア行'], ka: ['カ', 'カ行'], sa: ['サ', 'サ行'], ta: ['タ', 'タ行'], na: ['ナ', 'ナ行'], ha: ['ハ', 'ハ行'], ma: ['マ', 'マ行'], ya: ['ヤ', 'ヤ行'], ra: ['ラ', 'ラ行'], wa: ['ワ', 'ワ行'], az: ['A–Z', 'アルファベット'], x: ['他', 'その他'] };
+    const RK = Object.keys(ROWS), byRow = (a, b) => RK.indexOf(a) - RK.indexOf(b);
+    const KANA = { a: 'ァアィイゥウェエォオヴ', ka: 'ヵヶカガキギクグケゲコゴ', sa: 'サザシジスズセゼソゾ', ta: 'タダチヂッツヅテデトド', na: 'ナニヌネノ', ha: 'ハバパヒビピフブプヘベペホボポ', ma: 'マミムメモ', ya: 'ャヤュユョヨ', ra: 'ラリルレロ', wa: 'ヮワヰヱヲン' };
+    const rowOf = s => { let c = (s || '').normalize('NFC').charAt(0); const u = c.charCodeAt(0); if (u >= 0x3041 && u <= 0x3096) c = String.fromCharCode(u + 0x60); if (/[a-z0-9]/i.test(S.norm(c))) return 'az'; for (const k in KANA) if (KANA[k].includes(c)) return k; return 'x'; };
+    const famKey = x => S.norm(x || '').replace(/\s+/g, '').replace(/aceae$/, 'acees');
+    const pv = p => ({ ...S.vis(p), href: S.url(p), n: p.n });
+    const fv = x => ({ e: '🧀', img: true, noImg: false, imgBg: 'center / contain no-repeat url("../images/fromages/' + x.s + '.webp")', href: 'fromages/' + x.s + '.html', n: (x.en && x.en.n) || x.n });
+    const FFAM = { 'croute-fleurie': 'Croûte fleurie', 'croute-lavee': 'Croûte lavée', 'pate-pressee-cuite': 'Pressée cuite', 'pate-persillee': 'Persillé' };
+    const FLAB = { aop: 'AOP', igp: 'IGP', 'label-rouge': 'Label Rouge' };
+    const exCache = {};
+    const exOf = t => exCache[t.id] || (exCache[t.id] = (() => {
+      const key = t.id === 'agrume' ? 'rutacees' : t.id;
+      let out = [];
+      if (t.cat === 'famille' || t.id === 'agrume') out = S.produits.filter(p => (S.FAM_ID && S.FAM_ID[p.fam] || famKey(p.fam)) === key).map(pv);
+      else out = t.ex.map(S.bySlug).filter(Boolean).map(pv);
+      if (!kid) {
+        if (FFAM[t.id]) out = out.concat(FRM.filter(x => x.fam === FFAM[t.id]).map(fv));
+        if (FLAB[t.id]) out = out.concat(FRM.filter(x => x.label === FLAB[t.id]).map(fv));
+        if (t.id === 'lait-cru') out = out.concat(FRM.filter(x => x.cru === 'oui').map(fv));
+      }
+      return out.sort((a, b) => a.n.localeCompare(b.n, 'ja'));
+    })());
+    const by = {};
+    terms.forEach(t => { const l = rowOf(yomi(t.terme, t.id)); (by[l] = by[l] || []).push(t); });
+    const sections = Object.keys(by).sort(byRow).map(k => ({ l: ROWS[k][0], id: 'lettre-' + k, aria: ROWS[k][1],
+      items: by[k].map(t => ({ id: t.id, terme: t.terme, def: KL[t.id] || t.def, catLabel: CAT[t.cat][0], catCls: CAT[t.cat][1],
+        ex: exOf(t), hasEx: exOf(t).length > 0 })) }));
+    const showP = true;
+    const FR = window.FROMAGES, J = window.JARDIN, K = { fruit: '果物', legume: '野菜', legumineuse: '豆類', herbe: 'ハーブ' }, JC = { f: '花', c: '食用花', a: 'ハーブ' };
+    let prods = [];
+    if (showP) {
+      if (cat === 'all' || cat === 'potager') prods = S.produits.map(p => ({ ...S.vis(p), n: p.n, y: p.s, href: S.url(p), kind: K[p.t] || '', d: p.d }));
+      if (FR && !kid && (cat === 'all' || cat === 'fromage')) prods = prods.concat(FR.fromages.map(x => ({ e: '🧀', img: true, noImg: false, imgBg: 'center / contain no-repeat url("../images/fromages/' + x.s + '.webp")', n: (x.en && x.en.n) || x.n, y: x.s, d: x.en.d, href: 'fromages/' + x.s + '.html', kind: 'チーズ' })));
+      if (J && (cat === 'all' || cat === 'jardin')) prods = prods.concat(J.plantes.filter(x => cat === 'jardin' || !S.bySlug(x.s)).map(x => ({ e: x.e, img: true, noImg: false, imgBg: 'center / contain no-repeat url("../images/jardin/' + x.s + '.webp")', n: x.en, y: x.s, d: x.den, href: 'jardin/' + x.s + '.html', kind: JC[x.c[0]] || '' })));
+      const PO = window.POISSONS; if (PO && (cat === 'all' || cat === 'poisson')) prods = prods.concat(PO.liste.map(x => ({ e: x.e, img: true, noImg: false, imgBg: 'center / contain no-repeat url("../images/poissons/' + x.s + '.webp")', n: x.en, y: x.s, d: x.den, href: 'poissons/' + x.s + '.html', kind: x.t === 'mer' ? '貝・甲殻類' : '魚' })));
+      if (nq) prods = prods.filter(x => S.norm(x.n + ' ' + x.kind + ' ' + (x.d || '')).includes(nq));
+      prods.sort((a, b) => yomi(a.n, a.y).localeCompare(yomi(b.n, b.y), 'ja'));
+    }
+    const pb = {};
+    prods.forEach(x => { const l = rowOf(yomi(x.n, x.y)); (pb[l] = pb[l] || []).push(x); });
+    const pSections = Object.keys(pb).sort(byRow).map(k => ({ l: ROWS[k][0], id: 'produits-' + k, aria: ROWS[k][1], items: pb[k] }));
+    const lettersSrc = pSections;
+    return { ...base, sections, pSections, hasProd: pSections.length > 0, letters: lettersSrc.map(s => ({ l: s.l, href: '#' + s.id })), empty: pSections.length === 0 };
+  }
+}
+</script>
+</body>
+</html>
