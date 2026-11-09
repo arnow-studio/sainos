@@ -1,7 +1,8 @@
 // Profil Sainos : fenêtre de préférences (prénom, régime, foyer, code postal), stockée uniquement dans le navigateur.
 (function () {
   if (window.SainosProfil) return;
-  var EN = /\/en(\/|$)/.test(location.pathname) || document.documentElement.lang === 'en';
+  var JA = /\/ja(\/|$)/.test(location.pathname) || document.documentElement.lang === 'ja';
+  var EN = !JA && (/\/en(\/|$)/.test(location.pathname) || document.documentElement.lang === 'en');
   var NB = '\u00a0';
   var TD = { en: {
     btn: 'My profile', of: 'Profile of ', hello: 'Welcome to Sainos', edit: 'My profile',
@@ -14,6 +15,17 @@
     priv: 'These details are stored only on your device. No account, nothing is sent to Sainos.',
     lang: 'Language', langH: 'Switches the whole site to this language.',
     save: 'Save', later: 'Later', cancel: 'Cancel', close: 'Close', del: 'Erase my details', saved: 'Saved'
+  }, ja: {
+    btn: 'マイプロフィール', of: 'プロフィール：', hello: 'Sainosへようこそ', edit: 'マイプロフィール',
+    intro: 'サイトをあなた向けにするための、いくつかの情報です。すべて任意です。',
+    nom: '名前またはニックネーム', nomH: 'ごあいさつのためだけに使います。', nomPh: '例：さくら',
+    reg: '食事スタイル', regs: [['omni', '制限なし'], ['veg', 'ベジタリアン'], ['vegan', 'ヴィーガン']],
+    regH: 'マルシェのお買い物リストやサイト全体で使います。ベジタリアンなら魚なし、ヴィーガンなら魚・卵・チーズなしになります。',
+    pers: '食卓を囲む人数', persH: 'お買い物リストの分量を計算するために使います。', moins: '1人減らす', plus: '1人増やす',
+    cp: '郵便番号（フランス）', cpH: '近くのマルシェをすぐに表示するために使います。', cpPh: '例：69004',
+    priv: 'これらの情報はお使いの端末にだけ保存されます。アカウントは不要で、Sainosには何も送信されません。',
+    lang: '言語', langH: 'サイト全体をこの言語で表示します。',
+    save: '保存する', later: 'あとで', cancel: 'キャンセル', close: '閉じる', del: '情報を消去する', saved: '保存しました'
   }, fr: {
     btn: 'Mon profil', of: 'Profil de ', hello: 'Bienvenue sur Sainos', edit: 'Mon profil',
     intro: 'Quelques infos pour adapter le site à vous. Tout est facultatif.',
@@ -26,7 +38,7 @@
     lang: 'Langue', langH: 'Affiche tout le site dans cette langue.',
     save: 'Enregistrer', later: 'Plus tard', cancel: 'Annuler', close: 'Fermer', del: 'Effacer mes informations', saved: 'Enregistré'
   } };
-  var PL = EN ? 'en' : 'fr', T = TD[PL];
+  var PL = JA ? 'ja' : EN ? 'en' : 'fr', T = TD[PL];
   var KP = 'sainos-profil', KL = 'sainos-liste-v4';
   function rd(k) { try { return JSON.parse(localStorage.getItem(k) || '{}') || {}; } catch (e) { return {}; } }
   function wr(k, o) { try { localStorage.setItem(k, JSON.stringify(o)); } catch (e) {} }
@@ -57,7 +69,7 @@
   function build() {
     ov = document.createElement('div'); ov.setAttribute('data-profil-dlg', '1');
     ov.style.cssText = 'position:fixed;inset:0;z-index:1001;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(32,30,29,.45);font-family:var(--font-body);color:var(--color-text);';
-    ov.innerHTML = '<div role="dialog" aria-modal="true" aria-labelledby="pf-title" lang="' + (T === TD.en ? 'en' : 'fr') + '" style="width:100%;max-width:520px;max-height:100%;overflow:auto;box-sizing:border-box;background:var(--color-bg,#f5ead8);border-radius:28px;box-shadow:0 24px 60px rgba(0,0,0,.25);">'
+    ov.innerHTML = '<div role="dialog" aria-modal="true" aria-labelledby="pf-title" lang="' + (T === TD.ja ? 'ja' : T === TD.en ? 'en' : 'fr') + '" style="width:100%;max-width:520px;max-height:100%;overflow:auto;box-sizing:border-box;background:var(--color-bg,#f5ead8);border-radius:28px;box-shadow:0 24px 60px rgba(0,0,0,.25);">'
       + '<div style="display:flex;align-items:flex-start;gap:12px;padding:24px 20px 4px 28px;">'
       + '<div style="flex:1;min-width:0;"><h2 id="pf-title" data-k="title" style="margin:0;font-family:var(--font-heading);font-size:30px;line-height:1.1;"></h2>'
       + '<p style="margin:8px 0 0;font-size:16px;line-height:1.5;text-wrap:pretty;">' + T.intro + '</p></div>'
@@ -68,7 +80,7 @@
       + T.regs.map(function (r) { return '<button type="button" data-reg="' + r[0] + '" style="min-height:44px;padding:8px 18px;font-size:16px;white-space:nowrap;">' + r[1] + '</button>'; }).join('')
       + '</div><p style="' + help + '">' + T.regH + '</p></div>'
       + '<div role="group" aria-labelledby="pf-lang" data-k="langbox"><span id="pf-lang" style="' + lbl + '">' + T.lang + '</span><div style="display:flex;flex-wrap:wrap;gap:4px;background:#fff;border-radius:999px;padding:4px;width:fit-content;max-width:100%;box-sizing:border-box;">'
-      + '<button type="button" data-lang-opt="fr" lang="fr" style="min-height:44px;padding:8px 18px;font-size:16px;white-space:nowrap;">Français</button><button type="button" data-lang-opt="en" lang="en" style="min-height:44px;padding:8px 18px;font-size:16px;white-space:nowrap;">English</button>'
+      + '<button type="button" data-lang-opt="fr" lang="fr" style="min-height:44px;padding:8px 18px;font-size:16px;white-space:nowrap;">Français</button><button type="button" data-lang-opt="en" lang="en" style="min-height:44px;padding:8px 18px;font-size:16px;white-space:nowrap;">English</button><button type="button" data-lang-opt="ja" lang="ja" style="min-height:44px;padding:8px 18px;font-size:16px;white-space:nowrap;">日本語</button>'
       + '</div><p style="' + help + '">' + T.langH + '</p></div>'
       + '<p style="display:flex;gap:10px;align-items:flex-start;margin:0;padding:14px 16px;border-radius:18px;background:var(--color-accent-2-100);color:var(--color-accent-2-900);font-size:14px;line-height:1.45;text-wrap:pretty;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:1px;"><rect x="4" y="11" width="16" height="10" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span>' + T.priv + '</span></p>'
       + '<a data-k="album" href="' + albumHref() + '" class="btn btn-secondary" style="align-self:flex-start;margin-top:-8px;padding:10px 18px;font-size:16px;">' + KT.album + '</a>'
@@ -90,7 +102,7 @@
       else if (k === 'x' || k === 'later') close();
       else if (k === 'del') { try { localStorage.setItem(KP, JSON.stringify({ seen: 1 })); } catch (e2) {} var keep = st.lang; st = get(); st.lang = keep; fill(); paint(); apply(); refresh(); }
     });
-    f.addEventListener('submit', function (e) { e.preventDefault(); st.nom = ov.querySelector('#pf-nom').value.trim(); save(); try { localStorage.setItem('sainos-lang', st.lang); } catch (e3) {} var go = st.lang !== PL && langUrl(); close(); if (go) location.href = go; });
+    f.addEventListener('submit', function (e) { e.preventDefault(); st.nom = ov.querySelector('#pf-nom').value.trim(); save(); try { localStorage.setItem('sainos-lang', st.lang); } catch (e3) {} var go = st.lang !== PL && langUrl(st.lang); close(); if (go) location.href = go; });
     ov.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') { e.preventDefault(); close(); return; }
       if (e.key !== 'Tab') return;
@@ -99,7 +111,7 @@
       if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); }
     });
   }
-  function langUrl() { var a = document.querySelector('footer a[data-lang]') || document.querySelector('a[data-lang]'); return a ? a.href : ''; }
+  function langUrl(l) { var q = l ? 'a[data-lang="' + l + '"][hreflang]' : 'a[data-lang][hreflang]'; var a = document.querySelector('footer ' + q) || document.querySelector(q); return a ? a.href : ''; }
   function fill() { ov.querySelector('#pf-nom').value = st.nom; }
   function apply() { var h = document.documentElement.classList, s = get(); h.toggle('m-veg', s.reg !== 'omni'); h.toggle('m-vegan', s.reg === 'vegan'); }
   function save() {
@@ -110,7 +122,7 @@
   function refresh() { mount(true); try { window.dispatchEvent(new CustomEvent('sainos-profil', { detail: get() })); } catch (e) {} }
   function open() {
     if (!ov) build();
-    st = get(); st.lang = EN ? 'en' : 'fr'; fill(); paint();
+    st = get(); st.lang = PL; fill(); paint();
     lastFocus = document.activeElement; ov.style.display = 'flex'; document.documentElement.style.overflow = 'hidden';
     setTimeout(function () { ov.querySelector('#pf-nom').focus(); }, 0);
   }
@@ -125,7 +137,8 @@
   var KK = 'sainos-profil-enfant';
   var AV = ['🍓', '🥕', '🍎', '🍐', '🍇', '🥦', '🍅', '🌽', '🍄', '🎃', '🥝', '🍒'];
   var TK = { en: { btn: 'My kid profile', of: 'Profile of ', hi: 'Hi ', ex: '!', hello: 'Hi there!', intro: 'Pick a name and your favourite fruit or veg. It stays on this device.', nom: 'Your name or nickname', nomPh: 'e.g. Léo', av: 'Your mascot', age: 'How old are you?', ages: [['🐣', 'Ages 4-6'], ['🌱', 'Ages 7-9'], ['🌳', 'Ages 10-12'], ['🏅', 'Ages 13+']], ageHint: 'Your quizzes will match your age.', badges: function (n, t) { return 'You have ' + n + ' badge' + (n > 1 ? 's' : '') + ' out of ' + t + '. Keep exploring to collect them all!'; }, save: 'Save', cancel: 'Cancel', close: 'Close', del: 'Erase my profile', album: '🏅 See my badge album', lang: 'Your language' },
-    fr: { btn: 'Mon profil enfant', of: 'Profil de ', hi: 'Bonjour ', ex: NB + '!', hello: 'Salut' + NB + '!', intro: 'Choisis ton prénom et ton fruit ou légume préféré. Tout reste sur cet appareil.', nom: 'Ton prénom ou pseudo', nomPh: 'ex.' + NB + ': Léo', av: 'Ta mascotte', age: 'Quel âge as-tu' + NB + '?', ages: [['🐣', '4-6 ans'], ['🌱', '7-9 ans'], ['🌳', '10-12 ans'], ['🏅', '13 ans et +']], ageHint: 'Tes quiz seront adaptés à ton âge.', badges: function (n, t) { return 'Tu as ' + n + ' badge' + (n > 1 ? 's' : '') + ' sur ' + t + '. Continue d’explorer pour tous les gagner' + NB + '!'; }, save: 'Enregistrer', cancel: 'Annuler', close: 'Fermer', del: 'Effacer mon profil', album: '🏅 Voir mon album de badges', lang: 'Ta langue' } };
+    fr: { btn: 'Mon profil enfant', of: 'Profil de ', hi: 'Bonjour ', ex: NB + '!', hello: 'Salut' + NB + '!', intro: 'Choisis ton prénom et ton fruit ou légume préféré. Tout reste sur cet appareil.', nom: 'Ton prénom ou pseudo', nomPh: 'ex.' + NB + ': Léo', av: 'Ta mascotte', age: 'Quel âge as-tu' + NB + '?', ages: [['🐣', '4-6 ans'], ['🌱', '7-9 ans'], ['🌳', '10-12 ans'], ['🏅', '13 ans et +']], ageHint: 'Tes quiz seront adaptés à ton âge.', badges: function (n, t) { return 'Tu as ' + n + ' badge' + (n > 1 ? 's' : '') + ' sur ' + t + '. Continue d’explorer pour tous les gagner' + NB + '!'; }, save: 'Enregistrer', cancel: 'Annuler', close: 'Fermer', del: 'Effacer mon profil', album: '🏅 Voir mon album de badges', lang: 'Ta langue' },
+    ja: { btn: 'こどもプロフィール', of: 'プロフィール：', hi: 'こんにちは、', ex: '！', hello: 'やあ！', intro: 'なまえと、すきな果物や野菜をえらんでね。このきかいの中だけにのこるよ。', nom: 'きみのなまえ（ニックネームでもOK）', nomPh: '例：ゆうと', av: 'きみのマスコット', age: 'きみはなんさい？', ages: [['🐣', '4〜6さい'], ['🌱', '7〜9さい'], ['🌳', '10〜12さい'], ['🏅', '中学生']], ageHint: 'クイズがきみの年れいにあわせて出るよ。', badges: function (n, t) { return 'バッジを' + t + 'こ中' + n + 'こ持ってるよ。ぜんぶ集めよう！'; }, save: 'ほぞんする', cancel: 'キャンセル', close: 'とじる', del: 'プロフィールをけす', album: '🏅 バッジアルバムを見る', lang: 'ことば' } };
   var KT = TK[PL], ovK, stK;
   function getK() { var k = rd(KK), qa = ''; try { qa = localStorage.getItem('sainos-quiz-age') || ''; } catch (e) {} return { nom: k.nom || '', av: k.av || '', age: qa || k.age || '' }; }
   function albumHref() { var q = document.querySelector('a[href$="quiz.html"]'); return q ? q.getAttribute('href').replace(/quiz\.html$/, 'badges.html') : 'badges.html'; }
@@ -142,7 +155,7 @@
   function buildK() {
     ovK = document.createElement('div'); ovK.setAttribute('data-profil-dlg', '1');
     ovK.style.cssText = 'position:fixed;inset:0;z-index:1001;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(32,30,29,.45);font-family:var(--font-body);color:var(--color-text);';
-    ovK.innerHTML = '<div role="dialog" aria-modal="true" aria-labelledby="pk-title" lang="' + (KT === TK.en ? 'en' : 'fr') + '" style="width:100%;max-width:480px;max-height:100%;overflow:auto;box-sizing:border-box;background:var(--color-bg,#f5ead8);border-radius:28px;box-shadow:0 24px 60px rgba(0,0,0,.25);">'
+    ovK.innerHTML = '<div role="dialog" aria-modal="true" aria-labelledby="pk-title" lang="' + (KT === TK.ja ? 'ja' : KT === TK.en ? 'en' : 'fr') + '" style="width:100%;max-width:480px;max-height:100%;overflow:auto;box-sizing:border-box;background:var(--color-bg,#f5ead8);border-radius:28px;box-shadow:0 24px 60px rgba(0,0,0,.25);">'
       + '<div style="display:flex;align-items:flex-start;gap:12px;padding:24px 20px 4px 28px;"><div style="flex:1;min-width:0;"><h2 id="pk-title" data-k="title" style="margin:0;font-family:var(--font-heading);font-size:30px;line-height:1.1;"></h2>'
       + '<p style="margin:8px 0 0;font-size:17px;line-height:1.5;text-wrap:pretty;">' + KT.intro + '</p></div>'
       + '<button type="button" data-k="x" aria-label="' + KT.close + '" style="flex:none;width:44px;height:44px;border:0;border-radius:999px;background:var(--color-accent-100);color:var(--color-text);cursor:pointer;display:grid;place-items:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>'
@@ -155,7 +168,7 @@
       + KT.ages.map(function (a, i) { return '<button type="button" data-age="' + (i + 1) + '" style="min-height:64px;border:3px solid transparent;border-radius:20px;background:#fff;font:inherit;font-size:15px;font-weight:700;color:var(--color-text);cursor:pointer;padding:6px 4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;"><span aria-hidden="true" style="font-size:22px;line-height:1;">' + a[0] + '</span>' + a[1] + '</button>'; }).join('')
       + '</div><p style="margin:8px 0 0;font-size:14px;color:var(--color-neutral-700,#5b5650);">' + KT.ageHint + '</p></div>'
       + '<div role="group" aria-labelledby="pk-lang" data-k="klangbox"><span id="pk-lang" style="' + lbl + 'font-size:17px;">' + KT.lang + '</span><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;">'
-      + [['fr', '🇫🇷', 'Français'], ['en', '🇬🇧', 'English']].map(function (l) { return '<button type="button" data-klang="' + l[0] + '" lang="' + l[0] + '" style="min-height:56px;border:3px solid transparent;border-radius:20px;background:#fff;font:inherit;font-size:16px;font-weight:700;color:var(--color-text);cursor:pointer;padding:6px 12px;display:flex;align-items:center;justify-content:center;gap:8px;"><span aria-hidden="true" style="font-size:24px;line-height:1;">' + l[1] + '</span>' + l[2] + '</button>'; }).join('')
+      + [['fr', '🇫🇷', 'Français'], ['en', '🇬🇧', 'English'], ['ja', '🇯🇵', '日本語']].map(function (l) { return '<button type="button" data-klang="' + l[0] + '" lang="' + l[0] + '" style="min-height:56px;border:3px solid transparent;border-radius:20px;background:#fff;font:inherit;font-size:16px;font-weight:700;color:var(--color-text);cursor:pointer;padding:6px 12px;display:flex;align-items:center;justify-content:center;gap:8px;"><span aria-hidden="true" style="font-size:24px;line-height:1;">' + l[1] + '</span>' + l[2] + '</button>'; }).join('')
       + '</div></div>'
       + '<p data-k="badges" style="margin:0;padding:14px 16px;border-radius:18px;background:var(--color-accent-2-100);color:var(--color-accent-2-900);font-size:16px;font-weight:700;line-height:1.45;text-wrap:pretty;"></p>'
       + '<a data-k="album" href="' + albumHref() + '" class="btn btn-secondary" style="align-self:flex-start;margin-top:-8px;padding:10px 18px;font-size:16px;">' + KT.album + '</a>'
@@ -173,9 +186,9 @@
       else if (g) { stK.age = g; paintK(); }
       else if (a) { stK.av = stK.av === a ? '' : a; paintK(); }
       else if (k === 'x' || k === 'later') closeK();
-      else if (k === 'del') { try { localStorage.removeItem(KK); } catch (e2) {} stK = getK(); stK.lang = EN ? 'en' : 'fr'; ovK.querySelector('#pk-nom').value = ''; paintK(); refresh(); }
+      else if (k === 'del') { try { localStorage.removeItem(KK); } catch (e2) {} stK = getK(); stK.lang = PL; ovK.querySelector('#pk-nom').value = ''; paintK(); refresh(); }
     });
-    ovK.querySelector('form').addEventListener('submit', function (e) { e.preventDefault(); stK.nom = ovK.querySelector('#pk-nom').value.trim(); var kGo = stK.lang !== (EN ? 'en' : 'fr') && langUrl(); try { localStorage.setItem('sainos-lang', stK.lang); } catch (e5) {} delete stK.lang; wr(KK, stK); if (stK.age) { try { localStorage.setItem('sainos-quiz-age', String(stK.age)); } catch (e3) {} } try { window.dispatchEvent(new Event('sainos-profil-enfant')); } catch (e4) {} refresh(); closeK(); if (kGo) location.href = kGo; });
+    ovK.querySelector('form').addEventListener('submit', function (e) { e.preventDefault(); stK.nom = ovK.querySelector('#pk-nom').value.trim(); var kGo = stK.lang !== PL && langUrl(stK.lang); try { localStorage.setItem('sainos-lang', stK.lang); } catch (e5) {} delete stK.lang; wr(KK, stK); if (stK.age) { try { localStorage.setItem('sainos-quiz-age', String(stK.age)); } catch (e3) {} } try { window.dispatchEvent(new Event('sainos-profil-enfant')); } catch (e4) {} refresh(); closeK(); if (kGo) location.href = kGo; });
     ovK.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') { e.preventDefault(); closeK(); return; }
       if (e.key !== 'Tab') return;
@@ -186,7 +199,7 @@
   }
   function openK() {
     if (!ovK) buildK();
-    stK = getK(); stK.lang = EN ? 'en' : 'fr'; ovK.querySelector('#pk-nom').value = stK.nom; paintK();
+    stK = getK(); stK.lang = PL; ovK.querySelector('#pk-nom').value = stK.nom; paintK();
     lastFocus = document.activeElement; ovK.style.display = 'flex'; document.documentElement.style.overflow = 'hidden';
     setTimeout(function () { ovK.querySelector('#pk-nom').focus(); }, 0);
   }
@@ -229,18 +242,18 @@
     var k = kid();
     document.querySelectorAll('[data-bien-choisir] > span:first-child').forEach(function (x) {
       if (!x.hasAttribute('data-guide-a')) x.setAttribute('data-guide-a', x.textContent);
-      x.textContent = k ? (EN ? 'Where does it come from?' : 'D’où ça vient\u00a0?') : x.getAttribute('data-guide-a');
+      x.textContent = k ? (JA ? 'どこから来るの？' : EN ? 'Where does it come from?' : 'D’où ça vient\u00a0?') : x.getAttribute('data-guide-a');
     });
     document.querySelectorAll('[data-nav-jardin] > a[href$="origines.html"], details a[href$="origines.html"]').forEach(function (x) {
-      if (!x.hasAttribute('data-guide-a')) { if (!/guide/i.test(x.textContent)) return; x.setAttribute('data-guide-a', x.textContent); }
+      if (!x.hasAttribute('data-guide-a')) { if (!/guide|ガイド/i.test(x.textContent)) return; x.setAttribute('data-guide-a', x.textContent); }
       var arr = /▾/.test(x.getAttribute('data-guide-a')) ? ' ▾' : '';
-      x.textContent = k ? (EN ? 'Where does it come from?' : 'D’où ça vient\u00a0?') + arr : x.getAttribute('data-guide-a');
+      x.textContent = k ? (JA ? 'どこから来るの？' : EN ? 'Where does it come from?' : 'D’où ça vient\u00a0?') + arr : x.getAttribute('data-guide-a');
     });
     document.querySelectorAll('[data-bien-choisir] a[href$="lexique.html"], [data-bien-choisir] span[aria-current]:not([href])').forEach(function (x) { if (x.style.display === 'none' || x.style.display === '') x.style.display = 'flex'; x.style.alignItems = 'center'; });
     document.querySelectorAll('[data-nav-jardin-panel] a[href$="lexique.html"], details a[href$="lexique.html"]').forEach(function (x) { showEl(x, !k); });
   }
   function ferme() {
-    var k = kid(), FR = { 'La ferme': 'Ma ferme', 'Le Potager': 'Mon potager', 'Le Verger': 'Mon verger', 'Le Jardin': 'Mon jardin' }, ENm = { 'The Farm': 'My Farm', 'The Vegetable Garden': 'My Veg Patch', 'The Orchard': 'My Orchard', 'The Garden': 'My Garden' }, M = EN ? ENm : FR;
+    var k = kid(), FR = { 'La ferme': 'Ma ferme', 'Le Potager': 'Mon potager', 'Le Verger': 'Mon verger', 'Le Jardin': 'Mon jardin' }, ENm = { 'The Farm': 'My Farm', 'The Vegetable Garden': 'My Veg Patch', 'The Orchard': 'My Orchard', 'The Garden': 'My Garden' }, JAm = { 'ファーム': 'ぼくのファーム', '菜園': 'ぼくの菜園', '果樹園': 'ぼくの果樹園', 'ガーデン': 'ぼくのガーデン' }, M = JA ? JAm : EN ? ENm : FR;
     document.querySelectorAll('[data-nav-jardin] > a[href$="legumes.html"], [data-nav-jardin-box] > a[href$="legumes.html"], [data-nav-jardin-box] > a[href$="fruits.html"], [data-nav-jardin-box] > a[href$="fleurs.html"], [data-nav-panel] > a[href$="legumes.html"]').forEach(function (x) {
       if (!x.hasAttribute('data-ferme-a')) x.setAttribute('data-ferme-a', x.textContent);
       var o = x.getAttribute('data-ferme-a'), arr = /▾/.test(o) ? ' ▾' : '', b = o.replace(/\s*▾\s*$/, '');
@@ -250,7 +263,7 @@
     document.querySelectorAll('[data-nav-panel]').forEach(function (pn) {
       var f = pn.querySelector('a[href$="legumes.html"]'); if (!f) return;
       var t = pn.querySelector('[data-nav-tom]');
-      if (!t) { t = f.cloneNode(false); t.removeAttribute('data-ferme-a'); t.removeAttribute('aria-current'); t.setAttribute('data-nav-tom', '1'); t.href = f.getAttribute('href').replace(/legumes\.html$/, 'tom.html'); t.textContent = EN ? 'My story' : 'Mon histoire'; if (/\/tom\.html$/.test(location.pathname)) t.setAttribute('aria-current', 'page'); f.parentNode.insertBefore(t, f.nextSibling); }
+      if (!t) { t = f.cloneNode(false); t.removeAttribute('data-ferme-a'); t.removeAttribute('aria-current'); t.setAttribute('data-nav-tom', '1'); t.href = f.getAttribute('href').replace(/legumes\.html$/, 'tom.html'); t.textContent = JA ? 'ぼくのおはなし' : EN ? 'My story' : 'Mon histoire'; if (/\/tom\.html$/.test(location.pathname)) t.setAttribute('aria-current', 'page'); f.parentNode.insertBefore(t, f.nextSibling); }
       t.textContent = 'Tom'; if (/\/(tom|histoires)(\.html)?$/.test(location.pathname)) t.setAttribute('aria-current', 'page');
       if (!t.hasAttribute('data-kid-label')) showEl(t, k);
     });
@@ -261,7 +274,7 @@
       var sp = f.parentNode, bar = sp.parentNode; if (bar.querySelector(':scope > [data-nav-tomrub]')) return;
       var base = f.getAttribute('href').replace(/legumes\.html$/, ''), cur = /\/(tom|histoires)(\.html)?$/.test(location.pathname);
       var s = document.createElement('span'); s.setAttribute('data-nav-jardin', '1'); s.setAttribute('data-nav-tomrub', '1'); s.setAttribute('data-kid-label', '1');
-      s.innerHTML = '<a href="' + base + 'tom.html" aria-haspopup="true"' + (cur ? ' aria-current="page"' : '') + '>Tom ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="' + base + 'tom.html">' + (EN ? 'My story' : 'Mon histoire') + '</a>' + (EN ? '' : '<a href="' + base + 'histoires.html">Mes aventures</a>') + '</span></span>';
+      s.innerHTML = '<a href="' + base + 'tom.html" aria-haspopup="true"' + (cur ? ' aria-current="page"' : '') + '>Tom ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="' + base + 'tom.html">' + (JA ? 'ぼくのおはなし' : EN ? 'My story' : 'Mon histoire') + '</a>' + (EN ? '' : '<a href="' + base + 'histoires.html">' + (JA ? 'ぼくのぼうけん' : 'Mes aventures') + '</a>') + '</span></span>';
       bar.insertBefore(s, sp);
     });
   }
@@ -272,7 +285,7 @@
       var q = pn.querySelector(':scope > a[href$="quiz.html"]'), g = pn.querySelector(':scope > a[href$="jeux.html"]:not([data-nav-jouer])'), bd = pn.querySelector(':scope > [data-nav-badges]');
       if (!q || !g) return;
       var h = pn.querySelector(':scope > [data-nav-jouer]');
-      if (!h) { h = g.cloneNode(false); h.removeAttribute('data-nav-quiz'); h.removeAttribute('aria-current'); h.setAttribute('data-nav-jouer', '1'); h.setAttribute('data-kid-label', '1'); h.href = g.getAttribute('href').replace(/jeux\.html$/, 'jouer.html'); h.textContent = EN ? 'Play' : 'Jouer'; if (/jouer\.html$/.test(location.pathname)) h.setAttribute('aria-current', 'page'); pn.insertBefore(h, q); }
+      if (!h) { h = g.cloneNode(false); h.removeAttribute('data-nav-quiz'); h.removeAttribute('aria-current'); h.setAttribute('data-nav-jouer', '1'); h.setAttribute('data-kid-label', '1'); h.href = g.getAttribute('href').replace(/jeux\.html$/, 'jouer.html'); h.textContent = JA ? 'あそぶ' : EN ? 'Play' : 'Jouer'; if (/jouer\.html$/.test(location.pathname)) h.setAttribute('aria-current', 'page'); pn.insertBefore(h, q); }
       [q, g, bd].forEach(function (x) { if (x) showEl(x, !k); });
       pn.insertBefore(q, h.nextSibling); pn.insertBefore(g, q.nextSibling); if (bd) pn.insertBefore(bd, g.nextSibling);
     });
@@ -280,7 +293,7 @@
   function badgesNav() {
     document.querySelectorAll('[data-nav-jardin-box] > a[href$="quiz.html"], details a[href$="quiz.html"]').forEach(function (q) {
       if (q.parentNode.querySelector('[data-nav-badges]')) return;
-      var x = q.cloneNode(false); x.removeAttribute('aria-current'); x.setAttribute('data-nav-badges', '1'); x.href = q.getAttribute('href').replace(/quiz\.html$/, 'badges.html'); x.textContent = EN ? 'My badges' : 'Mes badges';
+      var x = q.cloneNode(false); x.removeAttribute('aria-current'); x.setAttribute('data-nav-badges', '1'); x.href = q.getAttribute('href').replace(/quiz\.html$/, 'badges.html'); x.textContent = JA ? 'マイバッジ' : EN ? 'My badges' : 'Mes badges';
       if (/badges\.html$/.test(location.pathname)) x.setAttribute('aria-current', 'page');
       var nx = q.nextElementSibling; while (nx && /jeux\.html$/.test(nx.getAttribute('href') || '')) { q = nx; nx = q.nextElementSibling; }
       q.parentNode.insertBefore(x, q.nextSibling);
@@ -303,7 +316,7 @@
   function kidSub() {
     if (!document.getElementById('kid-sub-css')) { var ks = document.createElement('style'); ks.id = 'kid-sub-css'; ks.textContent = 'html:not(.m-kid) [data-kid-sub]{display:none!important}html.m-kid header [data-baseline]{display:none!important}[data-kid-sub]{transition:opacity .2s,max-height .2s;max-height:20px;overflow:hidden}html.is-scrolled [data-kid-sub]{opacity:0;max-height:0}html.m-kid header .nav-brand{flex-direction:column!important;align-items:center!important;gap:4px!important}[data-kid-sub]{display:block;font-family:var(--font-body);font-size:14px;font-weight:700;line-height:1;white-space:nowrap;color:var(--color-text);text-align:center}[data-kid-sub] span{color:#01b0ae}'; document.head.appendChild(ks); }
     var br = document.querySelector('header .nav-brand'); if (!br || br.querySelector('[data-kid-sub]')) return;
-    var t = document.createElement('span'); t.setAttribute('data-kid-sub', '1'); t.innerHTML = EN ? 'Tom and the <span>4 Seasons</span>' : 'Tom et les <span>4 Saisons</span>';
+    var t = document.createElement('span'); t.setAttribute('data-kid-sub', '1'); t.innerHTML = JA ? 'トムと<span>4つの季節</span>' : EN ? 'Tom and the <span>4 Seasons</span>' : 'Tom et les <span>4 Saisons</span>';
     br.appendChild(t);
   }
   function showEl(x, on) { if (!x.hasAttribute('data-d0')) x.setAttribute('data-d0', x.style.display === 'none' ? '' : x.style.display); x.style.display = on ? x.getAttribute('data-d0') : 'none'; }
@@ -318,7 +331,7 @@
     });
   }
   function biblio() {
-    if (EN) return;
+    if (EN || JA) return;
     var base = (document.querySelector('header [data-nav-mar]') || {}).getAttribute ? document.querySelector('header [data-nav-mar]') : null;
     if (!base || base.parentNode.querySelector('[data-nav-biblio]')) return;
     var x = document.createElement('a'); x.href = base.getAttribute('href').replace('marches.html', 'bibliotheque.html'); x.textContent = 'Bibliothèque'; x.setAttribute('data-nav-biblio', '1');
