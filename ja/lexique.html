@@ -55,7 +55,7 @@
 <helmet>
 <style id="sous-nav-mobile">@media (max-width:640px){nav[data-bien-choisir]>div,nav[data-sous-jardin]>div{flex-wrap:nowrap!important;overflow-x:auto;max-width:100%;align-self:stretch!important;gap:2px!important;padding:4px!important;scrollbar-width:none}nav[data-bien-choisir]>div::-webkit-scrollbar,nav[data-sous-jardin]>div::-webkit-scrollbar{display:none}nav[data-bien-choisir]>div>*,nav[data-sous-jardin]>div>*{flex:1 0 auto;justify-content:center;padding:0 12px!important;font-size:15px!important}}</style>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400&family=Nunito:wght@400;500;600;700&family=RocknRoll+One&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400&family=Nunito:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@700&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap">
   <link rel="stylesheet" href="../_ds/organic-f9092e65-12bb-43ea-a459-3e0b5f502c38/styles.css">
   <script src="../_ds/organic-f9092e65-12bb-43ea-a459-3e0b5f502c38/_ds_bundle.js"></script>
   <script src="produits-data.js?v=20261027"></script>
@@ -63,7 +63,7 @@
 <script src="fromages-data.js"></script><script src="poissons-data.js"></script>
 <script src="jardin-data.js"></script>
   <style>
-    :root { --color-bg: #fbf8f2; --color-accent: #357d28; --color-accent-100: #eef7ea; --color-accent-200: #d9eed0; --color-accent-300: #b6dca5; --color-accent-400: #74b95e; --color-accent-500: #357d28; --color-accent-600: #327426; --color-accent-700: #285e1f; --color-accent-800: #1f4a19; --color-accent-900: #183a14; --color-accent-2-100: #f4f8ed; --color-accent-2-200: #e8efdb; --color-accent-2-300: #d8e2c7; --color-accent-2-800: #56613f; --color-accent-2-900: #46512f;  --color-neutral-100: #fffdf9; --color-text: #5b3b27; --color-divider: color-mix(in srgb, #8c491a 20%, transparent); --font-heading: 'DynaPuff', 'RocknRoll One', system-ui, sans-serif; --font-body: 'Nunito', 'M PLUS Rounded 1c', system-ui, sans-serif; }
+    :root { --color-bg: #fbf8f2; --color-accent: #357d28; --color-accent-100: #eef7ea; --color-accent-200: #d9eed0; --color-accent-300: #b6dca5; --color-accent-400: #74b95e; --color-accent-500: #357d28; --color-accent-600: #327426; --color-accent-700: #285e1f; --color-accent-800: #1f4a19; --color-accent-900: #183a14; --color-accent-2-100: #f4f8ed; --color-accent-2-200: #e8efdb; --color-accent-2-300: #d8e2c7; --color-accent-2-800: #56613f; --color-accent-2-900: #46512f;  --color-neutral-100: #fffdf9; --color-text: #5b3b27; --color-divider: color-mix(in srgb, #8c491a 20%, transparent); --font-heading: 'DynaPuff', 'Zen Maru Gothic', system-ui, sans-serif; --font-body: 'Nunito', 'M PLUS Rounded 1c', system-ui, sans-serif; }
     body { margin: 0; background: var(--color-bg); color: var(--color-text); font-family: var(--font-body); }
     h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); font-weight: 400; }
     a { color: var(--color-accent-700); }
@@ -76,8 +76,8 @@
     [data-nav-burger][open] [data-ic="open"], [data-nav-burger]:not([open]) [data-ic="close"] { display: none; }
     [data-nav-panel] a:hover { background: var(--color-accent-100); }
   
-  [data-baseline] { transition: opacity .2s, max-height .2s; max-height: 20px; overflow: hidden; }
-  html.is-scrolled [data-baseline] { opacity: 0; max-height: 0; }
+  [data-baseline] { transition: opacity .2s, max-height .2s, margin-top .2s; max-height: 26px; overflow: hidden; }
+  html.is-scrolled [data-baseline] { opacity: 0; max-height: 0; margin-top: 0 !important; }
 </style>
 <script>(function(){var d=document.documentElement,on=false;function f(){var y=window.scrollY,s=on?y>8:y>60;if(s!==on){on=s;d.classList.toggle('is-scrolled',s);}}window.addEventListener('scroll',f,{passive:true});f();})();</script>
 <script>(function(){if(window.__navClose)return;window.__navClose=1;function c(){document.querySelectorAll('details[data-nav-burger]').forEach(function(d){d.removeAttribute('open')})}document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('[data-nav-panel] a,[data-nav-panel] button');if(t)setTimeout(c,0)},true);window.addEventListener('pageshow',c)})();</script>
@@ -87,7 +87,7 @@
     <nav class="nav" aria-label="メインナビゲーション" style="max-width: 1200px; margin: 0 auto; width: 100%; box-sizing: border-box; padding-left: clamp(20px, 5vw, 56px); padding-right: clamp(20px, 5vw, 56px); flex-wrap: wrap; row-gap: var(--space-2);">
       <a href="index.html" class="nav-brand" style="display: flex; flex-direction: column; align-items: center; gap: 4px; text-decoration: none;" aria-label="Sainos — ホーム">
         <img data-logo="1" src="../images/logo.webp" alt="Sainos — 旬の果物と野菜" width="398" height="107" style="{{ logoBig }}"><img data-kid-logo="1" src="../images/logo-enfants-v2.webp" alt="Sainos — 旬の果物と野菜" width="398" height="107" style="{{ logoBig }}">
-        <img data-logo="1" src="../images/logo-mini.webp" alt="" aria-hidden="true" width="398" height="107" style="{{ logoMini }}"><img data-kid-logo="1" src="../images/logo-enfants-v2.webp" alt="" aria-hidden="true" width="398" height="107" style="{{ logoMini }}"><span data-baseline="1" style="font-family: var(--font-body); font-size: 14px; font-weight: 700; line-height: 1; color: var(--color-text); white-space: nowrap;"><span style="color: var(--color-logo, var(--color-accent-700));">季節</span>をたべよう</span>
+        <img data-logo="1" src="../images/logo-mini.webp" alt="" aria-hidden="true" width="398" height="107" style="{{ logoMini }}"><img data-kid-logo="1" src="../images/logo-enfants-v2.webp" alt="" aria-hidden="true" width="398" height="107" style="{{ logoMini }}"><span data-baseline="1" style="font-family: var(--font-body); font-size: 18px; margin-top: 6px; font-weight: 700; line-height: 1; color: var(--color-text); white-space: nowrap;"><span style="color: var(--color-logo, var(--color-accent-700));">季節</span>をたべよう</span>
       </a>
       <div data-nav-desk="1" style="display: flex; gap: var(--space-4); align-items: center;">
         <span data-nav-jardin="1"><a href="legumes.html" aria-haspopup="true">ファーム ▾</a><span data-nav-jardin-panel="1"><span data-nav-jardin-box="1"><a href="legumes.html">菜園</a><a href="fruits.html">果樹園</a><a href="fleurs.html">ガーデン</a></span></span></span>
